@@ -1,0 +1,20 @@
+<div id='calendar'></div>
+<%= javascript_tag do %>
+$('#calendar').fullCalendar({
+			editable: false,
+			events: [
+      <% events_array = [] %>
+      <% @practice_events.each do |event| %>
+        <% events_array << %(
+                      {
+                        id: #{event.id},
+                        title: '#{event.title}',
+                        start: new Date(#{event.start.strftime('%Y,%m - 1, %d, %H, %M')}),
+                        allDay: false
+                      }
+                  ) %>
+      <% end %>
+      <%= events_array.join(',') %>
+      ]
+		});
+<% end %>

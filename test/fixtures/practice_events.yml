@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  practice_id: 1
+  start: 2010-04-14 14:53:59
+
+two:
+  practice_id: 1
+  start: 2010-04-14 14:53:59

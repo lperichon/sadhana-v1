@@ -52,24 +52,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] ryanb-acts-as-list (v0.1.2, /home/luigi/.rvm/gems/ruby-head/gems/ryanb-acts-as-list-0.1.2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] tzinfo (v0.3.19, /home/luigi/.rvm/gems/ruby-head/gems/tzinfo-0.3.19)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] thor (v0.13.4, /home/luigi/.rvm/gems/ruby-head/gems/thor-0.13.4)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] abstract (v1.0.0, /home/luigi/.rvm/gems/ruby-head/gems/abstract-1.0.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] treetop (v1.4.5, /home/luigi/.rvm/gems/ruby-head/gems/treetop-1.4.5)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] mime-types (v1.16, /home/luigi/.rvm/gems/ruby-head/gems/mime-types-1.16)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] text-format (v1.0.0, /home/luigi/.rvm/gems/ruby-head/gems/text-format-1.0.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] builder (v2.1.2, /home/luigi/.rvm/gems/ruby-head/gems/builder-2.1.2)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] text-hyphen (v1.0.0, /home/luigi/.rvm/gems/ruby-head/gems/text-hyphen-1.0.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] i18n (v0.3.6, /home/luigi/.rvm/gems/ruby-head/gems/i18n-0.3.6)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] mail (v2.1.5.3, /home/luigi/.rvm/gems/ruby-head/gems/mail-2.1.5.3)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] memcache-client (v1.8.2, /home/luigi/.rvm/gems/ruby-head/gems/memcache-client-1.8.2)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] rake (v0.8.7, /home/luigi/.rvm/gems/ruby-head/gems/rake-0.8.7)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] rack (v1.1.0, /home/luigi/.rvm/gems/ruby-head/gems/rack-1.1.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] erubis (v2.6.5, /home/luigi/.rvm/gems/ruby-head/gems/erubis-2.6.5)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] arel (v0.3.3, /home/luigi/.rvm/gems/ruby-head/gems/arel-0.3.3)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] rack-mount (v0.6.1, /home/luigi/.rvm/gems/ruby-head/gems/rack-mount-0.6.1)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] polyglot (v0.3.1, /home/luigi/.rvm/gems/ruby-head/gems/polyglot-0.3.1)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] rack-test (v0.5.3, /home/luigi/.rvm/gems/ruby-head/gems/rack-test-0.5.3)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] activemodel (v3.0.0.beta2, /home/luigi/.rvm/gems/ruby-head/gems/activemodel-3.0.0.beta2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] sqlite3-ruby (v1.2.5, /home/luigi/.rvm/gems/ruby-head/gems/sqlite3-ruby-1.2.5)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] rails (v3.0.0.beta2, /home/luigi/.rvm/gems/ruby-head/gems/rails-3.0.0.beta2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] bundler (v0.9.19, /home/luigi/.rvm/gems/ruby-head/gems/bundler-0.9.19)" level="application" />
@@ -79,6 +62,8 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] actionpack (v3.0.0.beta2, /home/luigi/.rvm/gems/ruby-head/gems/actionpack-3.0.0.beta2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] activerecord (v3.0.0.beta2, /home/luigi/.rvm/gems/ruby-head/gems/activerecord-3.0.0.beta2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] railties (v3.0.0.beta2, /home/luigi/.rvm/gems/ruby-head/gems/railties-3.0.0.beta2)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] devise (v1.1.rc0, /home/luigi/.rvm/gems/ruby-head/gems/devise-1.1.rc0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] warden (v0.10.3, /home/luigi/.rvm/gems/ruby-head/gems/warden-0.10.3)" level="application" />
   </component>
 </module>
 

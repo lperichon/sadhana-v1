@@ -2,6 +2,8 @@ Sadhana::Application.routes.draw do |map|
   devise_for :admins
   devise_for :users
 
+  resources :practice_events
+
   resources :practices do
     member do
       get :play

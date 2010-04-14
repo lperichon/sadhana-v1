@@ -1,0 +1,2 @@
+module PracticeEventsHelper
+end

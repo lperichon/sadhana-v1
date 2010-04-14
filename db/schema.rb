@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100414150121) do
+ActiveRecord::Schema.define(:version => 20100414181951) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(:version => 20100414150121) do
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
   add_index "admins", ["unlock_token"], :name => "index_admins_on_unlock_token", :unique => true
+
+  create_table "practice_events", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "practice_id"
+    t.datetime "start"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "practice_techniques", :force => true do |t|
     t.integer  "practice_id"
@@ -54,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20100414150121) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "delay"
+    t.integer  "user_id"
   end
 
   create_table "technique_types", :force => true do |t|

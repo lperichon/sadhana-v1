@@ -1,0 +1,15 @@
+<%= form_for(@practice_event) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="field">
+    <%= f.label :practice_id %><br />
+    <%= f.collection_select :practice_id, current_user.practices, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :start %><br />
+    <%= f.datetime_select :start %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
