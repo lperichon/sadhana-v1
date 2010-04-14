@@ -1,0 +1,67 @@
+#techniques_accordion {
+  width: 15%;
+  display: inline-block;
+}
+.practice_technique {
+  cursor: move;
+}
+#practice_techniques {
+  width: 84%;
+  min-height: 165px;
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid #ccc;
+  -moz-border-radius: 5px;
+}
+#practice_techniques .practice_technique {
+  border: 1px solid black;
+  width: 150px;
+  height: 150px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  float: left;
+}
+.practice_technique h3 {
+  text-align: center;
+}
+
+.practice_technique #associated_techniques {
+  text-align: center;
+}
+
+.practice_technique #associated_techniques h4 {
+  display: inline-block;
+}
+
+.practice_technique.working {
+  background: yellow;
+}
+
+#practice_techniques .practice_technique .actions {
+  display: none;
+}
+
+.associated-technique-actions {
+  display: none;
+}
+
+#practice_techniques .practice_technique:hover .actions {
+  display: inherit;
+}
+
+.associated-technique:hover .associated-technique-actions {
+  display: inline-block;
+}
+
+.practice_technique .actions ul li{
+  display: inline;
+}
+
+span.jeditable:hover {
+  border: 1px solid black;
+}
+
+span.jeditable.editing:hover {
+  border: 0;
+}

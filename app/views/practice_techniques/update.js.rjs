@@ -1,0 +1,1 @@
+page << "$('##{dom_id @practice_technique}').replaceWith('#{ escape_javascript render :partial => 'practices/practice_technique', :locals => {:practice_technique => @practice_technique}}');"

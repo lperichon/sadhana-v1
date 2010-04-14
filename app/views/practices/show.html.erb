@@ -1,0 +1,143 @@
+<noscript>
+  This view requires javascript enabled if you want to edit, enable it in your browser or go to the <%= link_to 'edit page', edit_practice_path(@practice) %> 
+</noscript>
+
+<p>
+  <b>Name:</b>
+  <%= jeditable_field(:practice, :name) %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= jeditable_field(:practice, :description) %>
+</p>
+
+<p>
+  <b>Delay:</b>
+  <%= jeditable_field(:practice, :delay) %>
+</p>
+<div id='practice_editor'>
+  <div id="techniques_accordion">
+    <% TechniqueType.all.each do |technique_type| %>
+      <h3><a href="#"><%= technique_type.name %></a></h3>
+      <div>
+      <% technique_type.techniques.each do |technique| %>
+        <div class='<%= technique_type.symbol %> practice_technique' technique_id='<%= technique.id %>'><h3><%= technique.name %></h3></div>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div id='practice_techniques'>
+    <% @practice.practice_techniques.each do |practice_technique| %>
+      <%= render :partial => 'practice_technique', :locals => {:practice_technique => practice_technique} %>
+    <% end %>
+  </div>
+</div>
+
+<%= javascript_tag do %>
+$('#practice_techniques').sortable(
+  {
+    revert: 'invalid',
+    opacity: 0.4,
+    update: function(){
+      $.ajax({
+          type: 'post',
+          data: $('#practice_techniques').sortable('serialize') + '&practice_id=<%=@practice.id-%>',
+          dataType: 'script',
+          url: '<%= sort_practice_practice_techniques_path(@practice) %>'})
+      }
+    }
+  );
+<% end %>
+
+<%= javascript_tag do %>
+  $('#techniques_accordion .asana').draggable({
+    scroll: false,
+    connectToSortable: '#practice_techniques',
+    helper: 'clone',
+    appendTo : 'body',
+    revert: 'invalid',
+    drag: function(event, ui) {
+      ui.helper.css({border:'1px solid black'});
+    }
+  });
+
+  $('#techniques_accordion .mudra').draggable({
+    scroll: false,
+    helper: 'clone',
+    appendTo : 'body',
+    revert: 'invalid',
+    drag: function(event, ui) {
+      ui.helper.css({border:'1px solid black'});
+    }
+  });
+<% end %>
+
+<%= javascript_tag do %>
+$("#practice_techniques").droppable({
+  accept: '.asana',
+  drop: function(event, ui) {
+    if(ui.draggable.hasClass('ui-draggable')) {
+      ui.draggable.removeClass('ui-draggable').removeClass('technique');
+      // create new practice technique via synchronous ajax
+      $.ajax({
+          type: 'post',
+          async: false,
+          data: 'practice_id=<%=@practice.id-%>&practice_technique[technique_id]=' + ui.draggable.attr('technique_id'),
+          dataType: 'json',
+          beforeSend: function() {
+            // inform the user we're working
+            ui.draggable.addClass('working');
+          },
+          complete: function(request){
+              ui.draggable.removeClass('working');
+              response = jQuery.parseJSON(request.responseText)
+              // set the id to the new practice technique's id
+              ui.draggable.attr('id','practice_technique_' + response.practice_technique.id);
+              ui.draggable.attr('practice_technique_id', response.practice_technique.id);
+              ui.draggable.append("<span class='actions'><ul><li><a href='#' id='edit_link'>edit</a></li><li><a href='#' id='delete_link'>delete</a></li></ul></span>")
+          },
+          url: '<%= practice_practice_techniques_path(@practice) %>'});
+    }
+  }
+});
+
+
+<% end %>
+
+<%= javascript_tag do %>
+  $("#techniques_accordion").accordion();
+<% end %>
+
+<%= javascript_tag do %>
+  $('#delete_link').live('click', function() {
+    practice_technique_id = $(this).parents('.practice_technique').attr('practice_technique_id');
+    if(confirm('Are you sure?')){
+      $.ajax({
+          type:'post',
+          data: { '_method': 'delete' },
+          dataType: 'json',
+          url: '/practices/<%= @practice.id %>/practice_techniques/' + practice_technique_id,
+          success: function(data) {
+            $('#practice_technique_'+practice_technique_id).fadeOut('slow', function() {
+                $('#practice_technique_'+practice_technique_id).remove();
+            });
+          }
+      });
+    }
+  });
+
+  $('#edit_link').live('click', function() {
+    practice_technique_id = $(this).parents('.practice_technique').attr('practice_technique_id');
+    $.ajax({
+        type:'get',
+        dataType: 'script',
+        url: '/practices/<%= @practice.id %>/practice_techniques/' + practice_technique_id + '/edit'
+    });
+  });
+<% end %>
+<div id='edit_dialog' style='display:none'></div>
+<noscript>
+<%= link_to 'Edit', edit_practice_path(@practice) %> |
+</noscript>
+<%= link_to 'Back', practices_path %>

@@ -1,0 +1,37 @@
+<%= div_for(practice_technique, :practice_technique_id => practice_technique.id, :class => practice_technique.technique.technique_type.symbol) do %>
+  <h3><%= practice_technique.technique.name %></h3>
+  <div id='associated_techniques'>
+  <% practice_technique.techniques.each do |technique| %>
+    <div class='associated-technique'>
+      <h4><%= technique.name %></h4>
+      <span class='associated-technique-actions'>(<%= link_to_function '-', "$.ajax({
+          type:'put',
+          data: { 'practice_technique[remove_technique_id]': #{technique.id} },
+          dataType: 'script',
+          url: '#{practice_practice_technique_path(practice_technique.practice, practice_technique)}'})" %>)</span>
+    </div>
+  <% end %>
+  </div>
+  <span class='actions'>
+    <ul>
+      <li><%= link_to 'edit', '#', :id => 'edit_link' %></li>
+      <li><%= link_to 'delete', '#', :id => 'delete_link'%></li>
+    </ul>
+  </span>
+<% end %>
+
+<%= javascript_tag do %>
+  $('#<%= dom_id practice_technique %>').droppable({
+  accept: '.mudra',
+  drop: function(event, ui) {
+    if(ui.draggable.hasClass('ui-draggable')) {
+      // associate new practice technique via ajax
+      $.ajax({
+          type: 'put',
+          data: 'practice_id=<%= practice_technique.practice.id-%>&id=' + $(this).attr('practice_technique_id') + '&practice_technique[add_technique_id]=' + ui.draggable.attr('technique_id'),
+          dataType: 'script',
+          url: '/practices/<%= practice_technique.practice.id-%>/practice_techniques/' + $(this).attr('practice_technique_id')});
+    }
+  }
+});
+<% end %>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= controller.controller_name.capitalize %>: <%= controller.action_name %></title>
+
+  <%= stylesheet_link_tag 'ui-lightness/jquery-ui-1.8rc3.custom' %>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <% if File.exist? File.join(Rails.public_path, "stylesheets/#{controller.controller_name}.css") %>
+    <%= stylesheet_link_tag controller.controller_name %>
+  <% end %>
+
+  <%= javascript_include_tag 'jquery-1.4.2.min' %>
+  <%= javascript_include_tag 'jquery.rails' %>
+  <%= javascript_include_tag 'jquery-ui-1.8rc3.custom.min' %>
+  <%= javascript_include_tag 'jquery.jeditable' %>
+  <%= javascript_include_tag 'jquery.cycle' %>
+  <%= javascript_include_tag 'jcountr' %>
+  <%= javascript_include_tag 'jquery.sound' %>
+  
+  <% if File.exist? File.join(Rails.public_path, "javascripts/#{controller.controller_name}.js") %>
+    <%= javascript_include_tag controller.controller_name %>
+  <% end %>
+  
+  <%= csrf_meta_tag %>
+</head>
+<body>
+
+<div id="user_nav">
+  <% if user_signed_in? %>
+    Signed in as <%= current_user.email %>. Not you?
+    <%= link_to "Sign out", destroy_user_session_path %>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path %> or
+    <%= link_to "Sign in", new_user_session_path %>
+  <% end %>
+</div>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</body>
+</html>

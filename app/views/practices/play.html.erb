@@ -1,0 +1,30 @@
+<div id='slideshow_practice_techniques'>
+  <% @practice.practice_techniques.each do |practice_technique| %>
+    <div id='<%= dom_id practice_technique %>' class='slideshow_practice_technique' minutes=<%= practice_technique.minutes %> seconds=<%= practice_technique.seconds %>>
+      <h2><%= practice_technique.technique.name %></h2>
+    </div>
+  <% end %>
+</div>
+<div id="countdown"></div>
+
+<%= javascript_tag do %>
+  $('#slideshow_practice_techniques').cycle({
+    delay: (parseInt($('#slideshow_practice_techniques .slideshow_practice_technique').first().attr('minutes'))*60 + parseInt($('#slideshow_practice_techniques .slideshow_practice_technique').first().attr('seconds')))*1000 - 2000,
+    timeoutFn: function(current, next, options, fwd) {
+      minutes = parseInt($(next).attr('minutes')) || 0
+      seconds = parseInt($(next).attr('seconds')) || 1
+      duration = minutes*60 + seconds;
+      console.log('timeoutFn: ' + duration);
+      return duration*1000 + <%= @practice.delay*1000 %>; // add an extra second to account for transition
+    },
+    fx: 'all',
+    speed: <%= @practice.delay*1000 %>,
+    after: function(currSlideElement, nextSlideElement, options, forwardFlag) {
+      minutes = parseInt($(nextSlideElement).attr('minutes')) || 0
+      seconds = parseInt($(nextSlideElement).attr('seconds')) || 1;
+      $('#countdown').counter({min:minutes, sec:seconds, onFinish: function() {$.sound.play('/ping.wav');}});
+    }
+  });
+<% end %>
+
+<%= link_to 'Back', practices_path %>

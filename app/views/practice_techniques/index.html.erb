@@ -1,0 +1,24 @@
+<h1>Listing practice_techniques</h1>
+
+<table>
+  <tr>
+    <th>Technique</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @practice_techniques.each do |practice_technique| %>
+  <tr>
+    <td><%= practice_technique.technique.name %></td>
+    <td><%= link_to 'Show', practice_practice_technique_path(@practice, practice_technique) %></td>
+    <td><%= link_to 'Edit', edit_practice_practice_technique_path(@practice, practice_technique) %></td>
+    <td><%= link_to 'Destroy', [@practice, practice_technique], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Practice technique', new_practice_practice_technique_path %> |
+<%= link_to 'Back', edit_practice_path(@practice) %>

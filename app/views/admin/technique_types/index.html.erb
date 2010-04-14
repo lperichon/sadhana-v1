@@ -1,0 +1,23 @@
+<h1>Listing technique_types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @technique_types.each do |technique_type| %>
+  <tr>
+    <td><%= technique_type.name %></td>
+    <td><%= link_to 'Show', [:admin, technique_type] %></td>
+    <td><%= link_to 'Edit', edit_admin_technique_type_path(technique_type) %></td>
+    <td><%= link_to 'Destroy', [:admin, technique_type], {:confirm => 'Are you sure?', :method => :delete} %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Technique type', new_admin_technique_type_path %>

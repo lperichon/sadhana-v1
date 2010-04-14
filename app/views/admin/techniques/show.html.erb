@@ -1,0 +1,18 @@
+<p>
+  <b>Technique Type:</b>
+  <%= @technique.technique_type.name %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @technique.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @technique.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_technique_path(@technique) %> |
+<%= link_to 'Back', admin_techniques_path %>

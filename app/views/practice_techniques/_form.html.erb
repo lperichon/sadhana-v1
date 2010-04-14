@@ -1,0 +1,15 @@
+<%= form_for([@practice, @practice_technique]) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="field">
+    <%= f.label :technique %>
+    <br/>
+    <%= f.collection_select :technique_id, Technique.all, :id, :name %>
+  </div>
+
+  <%= render :partial => 'fields', :locals => {:f => f} %>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
