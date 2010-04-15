@@ -1,0 +1,21 @@
+#header {
+  background: lawngreen;
+  border: 1px solid black;
+  -moz-border-radius: 5px;
+  overflow: auto;
+}
+
+#header h1 {
+  float: left;
+  margin-left: 10px;
+}
+
+#header #menu {
+  float: right;
+  margin-right: 10px;
+}
+
+#header #user_nav {
+  float: right;
+  margin-right: 10px;
+}
