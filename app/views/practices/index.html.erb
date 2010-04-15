@@ -18,6 +18,7 @@
     <noscript>
       <td><%= link_to 'Edit', edit_practice_path(practice) %></td>
     </noscript>
+    <td><%= link_to 'Add to calendar', new_practice_event_path(:practice_event => {:practice_id => practice.id}) %></td>
     <td><%= link_to 'Destroy', practice, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
