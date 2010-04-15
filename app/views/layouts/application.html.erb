@@ -18,6 +18,7 @@
   <%= javascript_include_tag 'jcountr' %>
   <%= javascript_include_tag 'jquery.sound' %>
   <%= javascript_include_tag 'fullcalendar' %>
+  <%= javascript_include_tag 'timepicker' %>
   
   <% if File.exist? File.join(Rails.public_path, "javascripts/#{controller.controller_name}.js") %>
     <%= javascript_include_tag controller.controller_name %>
@@ -40,7 +41,7 @@
 <% if user_signed_in? %>
 <ul class= 'menu'>
   <li><%= link_to 'Practices', practices_path %></li>
-  <li><%= link_to 'Calendar', practice_events_path %></li>
+  <li><%= link_to 'Practice Events', practice_events_path %></li>
 </ul>
 <% end %>
 

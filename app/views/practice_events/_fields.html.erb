@@ -1,0 +1,20 @@
+<div class="field">
+  <%= f.label :practice_id %><br />
+  <%= f.collection_select :practice_id, current_user.practices, :id, :name %>
+</div>
+
+<div class="field">
+  <%= f.label :start_string %><br />
+  <%= f.text_field :start_string %>
+</div>
+
+<%= javascript_tag do %>
+$('#practice_event_start_string').datepicker({
+  dateFormat: 'yy-mm-dd',
+  time24h: true,
+  showTime: true,
+  beforeShow: function(){
+    $("#ui-timepicker-div, #ui-datepicker-div").css({display: 'inline-block', zIndex: parseInt($(".ui-dialog").css('z-index')) + 1});
+  }
+});
+<% end %>

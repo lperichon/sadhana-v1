@@ -1,20 +1,34 @@
 <div id='calendar'></div>
 <%= javascript_tag do %>
 $('#calendar').fullCalendar({
-			editable: false,
-			events: [
-      <% events_array = [] %>
-      <% @practice_events.each do |event| %>
-        <% events_array << %(
-                      {
-                        id: #{event.id},
-                        title: '#{event.title}',
-                        start: new Date(#{event.start.strftime('%Y,%m - 1, %d, %H, %M')}),
-                        allDay: false
-                      }
-                  ) %>
-      <% end %>
-      <%= events_array.join(',') %>
-      ]
-		});
+  header: {
+    left: 'prev',
+    center: 'title',
+    right: 'next'
+  },
+  editable: false,
+  events: [
+    <% events_array = [] %>
+    <% @practice_events.each do |event| %>
+      <% events_array << js_event(event) %>
+    <% end %>
+    <%= events_array.join(',') %>
+  ],
+  eventClick: function( event, jsEvent, view ) {
+    $('#calendar').fullCalendar( 'removeEvents', event.id );
+    $.ajax({
+      type:'get',
+      dataType: 'script',
+      url: '/practice_events/' + event.id + '/edit'
+    });
+  },
+  dayClick: function( date, allDay, jsEvent, view ) {
+    $.ajax({
+      type:'get',
+      dataType: 'script',
+      url: '/practice_events/new'
+    });
+  }
+});
 <% end %>
+<div id='edit_dialog' style='display:none'></div>

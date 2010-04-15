@@ -1,0 +1,26 @@
+page << "$('#edit_dialog').html('#{escape_javascript render :partial => 'dialog_form'}');"
+
+page << %(
+  $('#edit_dialog').dialog({
+    autoOpen: true,
+    height: 300,
+    width: 350,
+    modal: true,
+    buttons: {
+      Save: function() {
+        $.ajax({
+            type:'post',
+            dataType: 'script',
+            data: $('#edit_dialog form').serialize(),
+            url: $('#edit_dialog form').attr('action'),
+            success: function() {
+              $('#edit_dialog').dialog('close');
+            }
+        });
+      },
+      Cancel: function() {
+        $('#edit_dialog').dialog('close');
+      }
+    }
+  });
+)

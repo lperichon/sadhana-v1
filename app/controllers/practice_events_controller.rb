@@ -29,6 +29,7 @@ class PracticeEventsController < UserApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @practice_event }
+      format.js {}
     end
   end
 
@@ -46,9 +47,11 @@ class PracticeEventsController < UserApplicationController
       if @practice_event.save
         format.html { redirect_to(@practice_event, :notice => 'Practice event was successfully created.') }
         format.xml  { render :xml => @practice_event, :status => :created, :location => @practice_event }
+        format.js {}
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @practice_event.errors, :status => :unprocessable_entity }
+        format.js {}
       end
     end
   end
@@ -62,9 +65,11 @@ class PracticeEventsController < UserApplicationController
       if @practice_event.update_attributes(params[:practice_event])
         format.html { redirect_to(@practice_event, :notice => 'Practice event was successfully updated.') }
         format.xml  { head :ok }
+        format.js {}
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @practice_event.errors, :status => :unprocessable_entity }
+        format.js {}
       end
     end
   end
@@ -78,6 +83,7 @@ class PracticeEventsController < UserApplicationController
     respond_to do |format|
       format.html { redirect_to(practice_events_url) }
       format.xml  { head :ok }
+      format.json { render :json => :ok }
     end
   end
 end

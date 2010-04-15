@@ -1,0 +1,40 @@
+page << "$('#edit_dialog').html('#{escape_javascript render :partial => 'dialog_form'}');"
+
+page << %(
+  $('#edit_dialog').dialog({
+    autoOpen: true,
+    height: 300,
+    width: 350,
+    modal: true,
+    buttons: {
+      Update: function() {
+        $.ajax({
+            type:'put',
+            dataType: 'script',
+            data: $('#edit_dialog form').serialize(),
+            url: $('#edit_dialog form').attr('action'),
+            success: function() {
+              $('#edit_dialog').dialog('close');
+            }
+        });
+      },
+      Delete: function() {
+        if(confirm('Are you sure?')){
+          $.ajax({
+              type:'post',
+              data: { '_method': 'delete' },
+              dataType: 'json',
+              url: '#{practice_event_path(@practice_event)}',
+              success: function() {
+                $('#edit_dialog').dialog('close');
+              }
+          });
+        }
+      },
+      Cancel: function() {
+        $('#calendar').fullCalendar('renderEvent', #{js_event(@practice_event)});
+        $('#edit_dialog').dialog('close');
+      }
+    }
+  });
+)
