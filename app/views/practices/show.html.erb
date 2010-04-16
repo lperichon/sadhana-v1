@@ -20,10 +20,10 @@
   <div id="techniques_accordion">
     <% TechniqueType.all.each do |technique_type| %>
       <h3><a href="#"><%= technique_type.name %></a></h3>
-      <div>
-      <% technique_type.techniques.each do |technique| %>
-        <div class='<%= technique_type.symbol %> practice_technique' technique_id='<%= technique.id %>'><h3><%= technique.name %></h3></div>
-      <% end %>
+      <div class='techniques-viewport'>
+        <% technique_type.techniques.each do |technique| %>
+          <div class='<%= technique_type.symbol %> practice_technique' technique_id='<%= technique.id %>'><h3><%= technique.name %></h3></div>
+        <% end %>
       </div>
     <% end %>
   </div>
@@ -33,6 +33,10 @@
     <% end %>
   </div>
 </div>
+
+<%= javascript_tag do %>
+  $('#techniques_accordion .techniques-viewport').overscroll();
+<% end %>
 
 <%= javascript_tag do %>
 $('#practice_techniques').sortable(
@@ -95,7 +99,7 @@ $("#practice_techniques").droppable({
               // set the id to the new practice technique's id
               ui.draggable.attr('id','practice_technique_' + response.practice_technique.id);
               ui.draggable.attr('practice_technique_id', response.practice_technique.id);
-              ui.draggable.append("<span class='actions'><ul><li><a href='#' id='edit_link'>edit</a></li><li><a href='#' id='delete_link'>delete</a></li></ul></span>")
+              ui.draggable.append("<span class='actions'><ul><li><a href='#' id='edit_link'>edit</a></li> <li><a href='#' id='delete_link'>delete</a></li></ul></span>")
           },
           url: '<%= practice_practice_techniques_path(@practice) %>'});
     }

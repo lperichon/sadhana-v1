@@ -2,8 +2,23 @@
   width: 15%;
   display: inline-block;
 }
+
+#techniques_accordion .techniques-viewport {
+  height: 200px;
+  padding: 0;
+  overflow: hidden;
+  cursor: s-resize;
+}
+
+#techniques_accordion .practice_technique {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 10px;
+}
+
 .practice_technique {
   cursor: move;
+  border: 1px solid black;
 }
 #practice_techniques {
   width: 84%;
@@ -14,7 +29,6 @@
   -moz-border-radius: 5px;
 }
 #practice_techniques .practice_technique {
-  border: 1px solid black;
   width: 150px;
   height: 150px;
   margin-top: 5px;

@@ -17,7 +17,12 @@ Sadhana::Application.routes.draw do |map|
 
   namespace :admin do
     resources :technique_types
-    resources :techniques
+    resources :techniques do
+      collection do
+        get :csv_import
+        post :do_csv_import
+      end
+    end
   end
 
   root :to => 'practices#index'
