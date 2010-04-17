@@ -20,7 +20,8 @@
     <%= javascript_include_tag 'jquery.sound' %>
     <%= javascript_include_tag 'fullcalendar' %>
     <%= javascript_include_tag 'timepicker' %>
-    <%= javascript_include_tag 'jquery.overscroll' %>
+    <%= javascript_include_tag 'dragscrollable' %>
+    <%= javascript_include_tag 'jquery.mousewheel' %>
 
     <% if File.exist? File.join(Rails.public_path, "javascripts/#{controller.controller_name}.js") %>
       <%= javascript_include_tag controller.controller_name %>

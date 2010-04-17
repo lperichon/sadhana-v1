@@ -21,9 +21,11 @@
     <% TechniqueType.all.each do |technique_type| %>
       <h3><a href="#"><%= technique_type.name %></a></h3>
       <div class='techniques-viewport'>
-        <% technique_type.techniques.each do |technique| %>
-          <div class='<%= technique_type.symbol %> practice_technique' technique_id='<%= technique.id %>'><h3><%= technique.name %></h3></div>
-        <% end %>
+        <div>
+          <% technique_type.techniques.each do |technique| %>
+            <div class='<%= technique_type.symbol %> practice_technique' technique_id='<%= technique.id %>'><h3><%= technique.name %></h3></div>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>
@@ -35,7 +37,13 @@
 </div>
 
 <%= javascript_tag do %>
-  $('#techniques_accordion .techniques-viewport').overscroll();
+  $('#techniques_accordion .techniques-viewport').dragscrollable();
+
+  // using the event helper
+  $('#techniques_accordion .techniques-viewport').mousewheel(function(event, delta) {
+    initial_value = $('#techniques_accordion .techniques-viewport').scrollTop();
+    $('#techniques_accordion .techniques-viewport').scrollTop(initial_value + delta*10);
+  });
 <% end %>
 
 <%= javascript_tag do %>
