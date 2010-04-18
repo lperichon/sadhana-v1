@@ -17,11 +17,13 @@
   <%= jeditable_field(:practice, :delay) %>
 </p>
 <div id='practice_editor'>
-  <form method="get">
+  <div class='ui-accordion ui-widget ui-helper-reset ui-accordion-icons'>
+  <form id='quicksearch' method="get" class='ui-accordion-header ui-helper-reset ui-state-default ui-corner-all'>
     <div>
       <input type="text" value="" name="q" id="q" />
     </div>
   </form>
+  </div>
   <div id="techniques_accordion">
     <% TechniqueType.all.each do |technique_type| %>
       <h3><a href="#"><%= technique_type.name %></a></h3>

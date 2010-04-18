@@ -45,19 +45,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/practices/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="138" selection-start="958" selection-end="958" vertical-scroll-proportion="0.19770774">
+            <state line="20" column="111" selection-start="614" selection-end="614" vertical-scroll-proportion="-4.5416665">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="practices.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="practices.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/practices.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="50" selection-start="333" selection-end="333" vertical-scroll-proportion="0.0">
+            <state line="4" column="11" selection-start="65" selection-end="65" vertical-scroll-proportion="0.20618556">
               <folding />
             </state>
           </provider>
@@ -87,11 +87,11 @@
         <option value="$PROJECT_DIR$/app/controllers/admin/techniques_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/admin/techniques/csv_import.html.erb" />
         <option value="$PROJECT_DIR$/public/javascripts/dragscrollable.js" />
-        <option value="$PROJECT_DIR$/public/stylesheets/practices.css" />
         <option value="$PROJECT_DIR$/public/javascripts/jquery.livesearch.js" />
         <option value="$PROJECT_DIR$/public/javascripts/jquery.quicksearch.js" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/practices/show.html.erb" />
+        <option value="$PROJECT_DIR$/public/stylesheets/practices.css" />
       </list>
     </option>
   </component>
@@ -665,9 +665,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/practices.css">
+    <entry file="file://$PROJECT_DIR$/app/views/practices/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="50" selection-start="333" selection-end="333" vertical-scroll-proportion="0.0">
+        <state line="20" column="111" selection-start="614" selection-end="614" vertical-scroll-proportion="-4.5416665">
           <folding />
         </state>
       </provider>
@@ -679,9 +679,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/practices/show.html.erb">
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/practices.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="138" selection-start="958" selection-end="958" vertical-scroll-proportion="0.19770774">
+        <state line="4" column="11" selection-start="65" selection-end="65" vertical-scroll-proportion="0.20618556">
           <folding />
         </state>
       </provider>
