@@ -1,4 +1,4 @@
-<%= form_for([:admin, @technique]) do |f| %>
+<%= form_for([:admin, @technique], :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
 
   <div class="field">
@@ -13,6 +13,11 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
+  <div class="field">
+    <%= f.label :photo %><br />
+    <%= f.file_field :photo %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
