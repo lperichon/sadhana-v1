@@ -1,14 +1,14 @@
 #quicksearch {
-  width: 14.9%;
+
 }
 #quicksearch input {
-  width: 91%;
   margin-left: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
+  width: 92%;
 }
 
-#techniques_accordion {
+#sidebar {
   width: 15%;
   display: inline-block;
 }
