@@ -13,8 +13,10 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
+
   <div class="field">
     <%= f.label :photo %><br />
+    <%= image_tag @technique.photo.url if @technique.photo.present? %>
     <%= f.file_field :photo %>
   </div>
 

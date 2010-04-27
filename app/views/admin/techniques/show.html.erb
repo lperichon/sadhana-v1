@@ -13,6 +13,10 @@
   <%= @technique.description %>
 </p>
 
+<p>
+  <b>Photo:</b>
+  <%= image_tag @technique.photo.url %>
+</p>
 
 <%= link_to 'Edit', edit_admin_technique_path(@technique) %> |
 <%= link_to 'Back', admin_techniques_path %>
