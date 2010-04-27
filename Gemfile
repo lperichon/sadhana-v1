@@ -12,6 +12,8 @@ gem 'ryanb-acts-as-list', :require => 'acts_as_list'
 gem 'devise', '1.1.rc0'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git', :branch => 'rails3'
 
+gem 'nokogiri'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

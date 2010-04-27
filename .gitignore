@@ -1,4 +1,8 @@
-.bundle
-db/*.sqlite3
+config/database.yml
+db/*.sql*
+tmp/*
 log/*.log
-tmp/**/*
+.idea
+.bundle
+*~
+public/system/**/*
