@@ -24,7 +24,7 @@ class PracticeEventsController < UserApplicationController
   # GET /practice_events/new
   # GET /practice_events/new.xml
   def new
-    @practice_event = current_user.practice_events.new
+    @practice_event = current_user.practice_events.new(params[:practice_event])
 
     respond_to do |format|
       format.html # new.html.erb
