@@ -31,7 +31,7 @@
         <div class='techniques-viewport'>
           <div class='techniques-list'>
             <% technique_type.techniques.each do |technique| %>
-              <div class='<%= technique_type.symbol %> practice_technique' technique_id='<%= technique.id %>'><h3><%= technique.name %></h3></div>
+              <div class='<%= technique_type.symbol %> practice_technique' technique_id='<%= technique.id %>'><%= image_tag technique.photo.url(:thumb) %><h3><%= technique.name %></h3></div>
             <% end %>
           </div>
         </div>
@@ -161,7 +161,3 @@ $("#practice_techniques").droppable({
   });
 <% end %>
 <div id='edit_dialog' style='display:none'></div>
-<noscript>
-<%= link_to 'Edit', edit_practice_path(@practice) %> |
-</noscript>
-<%= link_to 'Back', practices_path %>
