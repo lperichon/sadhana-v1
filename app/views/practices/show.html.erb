@@ -173,3 +173,12 @@ $("#practice_techniques").droppable({
 <% end %>
 <div id='edit_dialog' style='display:none'></div>
 <div id='confirm_dialog'></div>
+
+<%= javascript_tag do %>
+  $('#techniques_accordion .techniques-viewport').height($(window).height() - 300);
+  $('#practice_techniques').height($(window).height() - 300);
+  $(window).resize(function() {
+    $('#techniques_accordion .techniques-viewport').height($(window).height() - 300);
+    $('#practice_techniques').height($(window).height() - 300);
+  });
+<% end %>
