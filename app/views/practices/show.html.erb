@@ -136,19 +136,30 @@ $("#practice_techniques").droppable({
 <%= javascript_tag do %>
   $('#delete_link').live('click', function() {
     practice_technique_id = $(this).parents('.practice_technique').attr('practice_technique_id');
-    if(confirm('Are you sure?')){
-      $.ajax({
-          type:'post',
-          data: { '_method': 'delete' },
-          dataType: 'json',
-          url: '/practices/<%= @practice.id %>/practice_techniques/' + practice_technique_id,
-          success: function(data) {
-            $('#practice_technique_'+practice_technique_id).fadeOut('slow', function() {
-                $('#practice_technique_'+practice_technique_id).remove();
-            });
-          }
-      });
-    }
+    $('#confirm_dialog').dialog({
+      resizable: false,
+      height:140,
+      modal: true,
+      buttons: {
+        'Delete': function() {
+          $.ajax({
+              type:'post',
+              data: { '_method': 'delete' },
+              dataType: 'json',
+              url: '/practices/<%= @practice.id %>/practice_techniques/' + practice_technique_id,
+              success: function(data) {
+                $('#practice_technique_'+practice_technique_id).fadeOut('slow', function() {
+                    $('#practice_technique_'+practice_technique_id).remove();
+                });
+              }
+          });
+          $(this).dialog('close');
+        },
+        Cancel: function() {
+          $(this).dialog('close');
+        }
+      }
+    });
   });
 
   $('#edit_link').live('click', function() {
@@ -161,3 +172,4 @@ $("#practice_techniques").droppable({
   });
 <% end %>
 <div id='edit_dialog' style='display:none'></div>
+<div id='confirm_dialog'></div>

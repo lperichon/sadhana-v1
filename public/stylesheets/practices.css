@@ -15,7 +15,7 @@
 
 #techniques_accordion .techniques-viewport {
   min-height: 300px;
-  height: 400px;
+  height: 300px;
   padding: 0;
   overflow: hidden;
   cursor: s-resize;
@@ -46,7 +46,7 @@
 }
 
 #practice_techniques {
-  width: 84.5%;
+  width: 84.4%;
   min-height: 165px;
   display: inline-block;
   vertical-align: top;

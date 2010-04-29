@@ -80,6 +80,7 @@ class PracticesController < UserApplicationController
     respond_to do |format|
       format.html { redirect_to(practices_url) }
       format.xml  { head :ok }
+      format.json { render :json => :ok }
     end
   end
 

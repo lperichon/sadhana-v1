@@ -19,17 +19,28 @@ page << %(
         });
       },
       Delete: function() {
-        if(confirm('Are you sure?')){
-          $.ajax({
-              type:'post',
-              data: { '_method': 'delete' },
-              dataType: 'json',
-              url: '#{practice_event_path(@practice_event)}',
-              success: function() {
-                $('#edit_dialog').dialog('close');
-              }
-          });
-        }
+        $('#confirm_dialog').dialog({
+          resizable: false,
+          height:140,
+          modal: true,
+          buttons: {
+            'Delete': function() {
+              $.ajax({
+                  type:'post',
+                  data: { '_method': 'delete' },
+                  dataType: 'json',
+                  url: '#{practice_event_path(@practice_event)}',
+                  success: function() {
+                    $('#edit_dialog').dialog('close');
+                  }
+              });
+              $(this).dialog('close');
+            },
+            Cancel: function() {
+              $(this).dialog('close');
+            }
+          }
+        });
       },
       Cancel: function() {
         $('#calendar').fullCalendar('renderEvent', #{js_event(@practice_event)});

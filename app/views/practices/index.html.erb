@@ -10,7 +10,7 @@
   </tr>
 
 <% @practices.each do |practice| %>
-  <tr>
+  <tr id='practice_<%= practice.id %>'>
     <td><%= practice.name %></td>
     <td><%= practice.description %></td>
     <td><%= link_to 'Play', play_practice_path(practice) %></td>
@@ -22,10 +22,35 @@
                             url: '/practice_events/new'
                           });"%>
     </td>
-    <td><%= link_to 'Destroy', practice, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to_function 'Destroy', "$('#confirm_dialog').dialog({
+            resizable: false,
+            height:140,
+            modal: true,
+            buttons: {
+              'Delete': function() {
+                $.ajax({
+                    type:'post',
+                    data: { '_method': 'delete' },
+                    dataType: 'json',
+                    url: '/practices/#{practice.id}',
+                    success: function(data) {
+                      $('#practice_#{practice.id}').fadeOut('slow', function() {
+                          $('#practice_#{practice.id}').remove();
+                      });
+                    }
+                });
+                $(this).dialog('close');
+              },
+              Cancel: function() {
+                $(this).dialog('close');
+              }
+            }
+          });"%>
+    </td>
   </tr>
 <% end %>
 </table>
+<div id='confirm_dialog'></div>
 <div id='edit_dialog' style='display:none'></div>
 <br />
 

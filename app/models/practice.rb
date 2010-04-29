@@ -1,6 +1,7 @@
 class Practice < ActiveRecord::Base
   belongs_to :user
-  has_many :practice_techniques, :order => "position"
+  has_many :practice_techniques, :order => "position", :dependent => :destroy
+  has_many :practice_events, :dependent => :destroy
 
   validates :user, :presence => true
   validates :name, :presence => true
