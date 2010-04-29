@@ -4,11 +4,25 @@
   <% practice_technique.techniques.each do |technique| %>
     <div class='associated-technique'>
       <h4><%= technique.name %></h4>
-      <span class='associated-technique-actions'>(<%= link_to_function '-', "$.ajax({
-          type:'put',
-          data: { 'practice_technique[remove_technique_id]': #{technique.id} },
-          dataType: 'script',
-          url: '#{practice_practice_technique_path(practice_technique.practice, practice_technique)}'})" %>)</span>
+      <span class='associated-technique-actions'>(<%= link_to_function '-', "
+      $('#confirm_dialog').dialog({
+      resizable: false,
+      height:140,
+      modal: true,
+      buttons: {
+        'Delete': function() {
+        $.ajax({
+            type:'put',
+            data: { 'practice_technique[remove_technique_id]': #{technique.id} },
+            dataType: 'script',
+            url: '#{practice_practice_technique_path(practice_technique.practice, practice_technique)}'});
+        $(this).dialog('close');
+        },
+        Cancel: function() {
+          $(this).dialog('close');
+        }
+      }
+    });" %>)</span>
     </div>
   <% end %>
   </div>
