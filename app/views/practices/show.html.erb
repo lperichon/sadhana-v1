@@ -31,7 +31,7 @@
         <div class='techniques-viewport'>
           <div class='techniques-list'>
             <% technique_type.techniques.each do |technique| %>
-              <div class='<%= technique_type.symbol %> practice_technique' technique_id='<%= technique.id %>'><%= image_tag technique.photo.url(:thumb) %><h3><%= technique.name %></h3></div>
+              <div class='<%= technique_type.symbol %> technique practice_technique' technique_id='<%= technique.id %>'><%= image_tag technique.photo.url(:thumb) %><h3><%= technique.name %></h3></div>
             <% end %>
           </div>
         </div>
@@ -43,6 +43,7 @@
       <%= render :partial => 'practice_technique', :locals => {:practice_technique => practice_technique} %>
     <% end %>
   </div>
+  <div id='created_practice_technique'></div>
 </div>
 
 <%= javascript_tag do %>
@@ -82,7 +83,7 @@ $('#practice_techniques').sortable(
     appendTo : 'body',
     revert: 'invalid',
     drag: function(event, ui) {
-      ui.helper.css({border:'1px solid black'});
+      ui.helper.css({width: '150px', height: '150px'});
     }
   });
 
@@ -102,24 +103,36 @@ $("#practice_techniques").droppable({
   accept: '.asana',
   drop: function(event, ui) {
     if(ui.draggable.hasClass('ui-draggable')) {
-      ui.draggable.removeClass('ui-draggable').removeClass('technique');
+      ui.draggable.removeClass('ui-draggable').removeClass('technique').addClass('practice_technique');
       // create new practice technique via synchronous ajax
       $.ajax({
           type: 'post',
           async: false,
           data: 'practice_id=<%=@practice.id-%>&practice_technique[technique_id]=' + ui.draggable.attr('technique_id'),
-          dataType: 'json',
+          dataType: 'script',
           beforeSend: function() {
             // inform the user we're working
             ui.draggable.addClass('working');
           },
           complete: function(request){
-              ui.draggable.removeClass('working');
-              response = jQuery.parseJSON(request.responseText)
-              // set the id to the new practice technique's id
-              ui.draggable.attr('id','practice_technique_' + response.practice_technique.id);
-              ui.draggable.attr('practice_technique_id', response.practice_technique.id);
-              ui.draggable.append("<span class='actions'><ul><li><a href='#' id='edit_link'>edit</a></li> <li><a href='#' id='delete_link'>delete</a></li></ul></span>")
+            ui.draggable.removeClass('working');
+            ui.draggable.attr('id',$('#created_practice_technique .practice_technique').attr('id'));
+            ui.draggable.attr('practice_technique_id', $('#created_practice_technique .practice_technique').attr('practice_technique_id'));
+            ui.draggable.html($('#created_practice_technique .practice_technique').html());
+            $('#created_practice_technique').children().remove();
+            $('#' + ui.draggable.attr('id')).droppable({
+              accept: '.mudra',
+              drop: function(event, mudra_ui) {
+                if(mudra_ui.draggable.hasClass('ui-draggable')) {
+                  // associate new practice technique via ajax
+                  $.ajax({
+                      type: 'put',
+                      data: 'practice_id=<%= @practice.id-%>&id=' + ui.draggable.attr('practice_technique_id') + '&practice_technique[add_technique_id]=' + mudra_ui.draggable.attr('technique_id'),
+                      dataType: 'script',
+                      url: '/practices/<%= @practice.id-%>/practice_techniques/' + ui.draggable.attr('practice_technique_id')});
+                }
+              }
+            });
           },
           url: '<%= practice_practice_techniques_path(@practice) %>'});
     }

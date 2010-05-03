@@ -1,0 +1,1 @@
+page << "$('#created_practice_technique').html('#{ escape_javascript render :partial => 'practices/practice_technique', :locals => {:practice_technique => @practice_technique}}');"

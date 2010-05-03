@@ -52,10 +52,12 @@ class PracticeTechniquesController < UserApplicationController
         format.html { redirect_to([@practice, @practice_technique], :notice => 'Practice technique was successfully created.') }
         format.xml  { render :xml => @practice_technique, :status => :created, :location => @practice_technique }
         format.json { render :json => { :practice_technique => @practice_technique } }
+        format.js { }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @practice_technique.errors, :status => :unprocessable_entity }
         format.json { render :json => {:errors => @practice_technique.errors, :status => :unprocessable_entity }}
+        format.js { }
       end
     end
   end

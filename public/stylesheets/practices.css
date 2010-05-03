@@ -36,7 +36,16 @@
   z-index: 1000;
 }
 
-.practice_technique {
+.technique {
+  cursor: move;
+  border: 1px solid black;
+  width: 150px;
+  margin: 10px;
+  background: white;
+  text-align: center;
+}
+
+#practice_techniques .practice_technique {
   cursor: move;
   border: 1px solid black;
   position: relative;
@@ -61,23 +70,25 @@
   margin-left: 5px;
   float: left;
 }
-.practice_technique h3 {
+
+#practice_techniques .practice_technique h3 {
   text-align: center;
 }
 
-.practice_technique img {
-  position: absolute;
+.technique h3 {
+  font-size: 15px;
+  margin: 5px;
 }
 
-.practice_technique #associated_techniques {
+#practice_techniques .practice_technique #associated_techniques {
   text-align: center;
 }
 
-.practice_technique #associated_techniques h4 {
+#practice_techniques .practice_technique #associated_techniques h4 {
   display: inline-block;
 }
 
-.practice_technique.working {
+#practice_techniques .practice_technique.working {
   background: yellow;
 }
 
