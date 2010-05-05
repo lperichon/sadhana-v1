@@ -16,8 +16,7 @@
 #techniques_accordion .techniques-viewport {
   height: 300px;
   padding: 0;
-  overflow: hidden;
-  cursor: s-resize;
+  overflow: auto;
 }
 
 #techniques_accordion .techniques-viewport ul {
@@ -30,10 +29,7 @@
 }
 
 #techniques_accordion .practice_technique {
-  width: 80%;
-  margin-left: 10%;
   margin-top: 10px;
-  z-index: 1000;
 }
 
 .technique {
@@ -61,6 +57,7 @@
   border: 1px solid #ccc;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
+  overflow: auto;
 }
 #practice_techniques .practice_technique {
   width: 150px;
@@ -69,43 +66,52 @@
   margin-bottom: 5px;
   margin-left: 5px;
   float: left;
-}
-
-#practice_techniques .practice_technique h3 {
   text-align: center;
 }
 
-.technique h3 {
+.practice_technique h3 {
   font-size: 15px;
   margin: 5px;
 }
 
-#practice_techniques .practice_technique #associated_techniques {
-  text-align: center;
+#practice_techniques .practice_technique h3 {
+  font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
 }
 
-#practice_techniques .practice_technique #associated_techniques h4 {
-  display: inline-block;
+#practice_techniques .practice_technique h3.long {
+  font-size: 90%;
 }
 
 #practice_techniques .practice_technique.working {
   background: yellow;
 }
 
-#practice_techniques .practice_technique .actions {
+#practice_techniques .practice_technique .back {
   display: none;
+}
+
+#practice_techniques .practice_technique .associated_techniques {
+  padding-left: 20px;
 }
 
 .associated-technique-actions {
   display: none;
 }
 
-#practice_techniques .practice_technique:hover .actions {
+#practice_techniques .practice_technique:hover .back {
   display: inherit;
+}
+
+#practice_techniques .practice_technique:hover .front {
+  display: none;
 }
 
 .associated-technique:hover .associated-technique-actions {
   display: inline-block;
+}
+
+.practice_technique .actions ul {
+  padding: 0;
 }
 
 .practice_technique .actions ul li{

@@ -1,37 +1,42 @@
 <%= div_for(practice_technique, :practice_technique_id => practice_technique.id, :class => practice_technique.technique.technique_type.symbol) do %>
-  <h3><%= practice_technique.technique.name %></h3>
-  <div id='associated_techniques'>
-  <% practice_technique.techniques.each do |technique| %>
-    <div class='associated-technique'>
-      <h4><%= technique.name %></h4>
-      <span class='associated-technique-actions'>(<%= link_to_function '-', "
-      $('#confirm_dialog').dialog({
-      resizable: false,
-      height:140,
-      modal: true,
-      buttons: {
-        'Delete': function() {
-        $.ajax({
-            type:'put',
-            data: { 'practice_technique[remove_technique_id]': #{technique.id} },
-            dataType: 'script',
-            url: '#{practice_practice_technique_path(practice_technique.practice, practice_technique)}'});
-        $(this).dialog('close');
-        },
-        Cancel: function() {
-          $(this).dialog('close');
-        }
-      }
-    });" %>)</span>
-    </div>
-  <% end %>
+  <h3 class='<%= 'long' if practice_technique.technique.name.size > 27 %>'><%= practice_technique.technique.name %></h3>
+  <div class='front'>
+    <%= image_tag practice_technique.technique.photo.url(:thumb) %>
   </div>
-  <span class='actions'>
-    <ul>
-      <li><%= link_to 'edit', '#', :id => 'edit_link' %></li>
-      <li><%= link_to 'delete', '#', :id => 'delete_link'%></li>
+  <div class='back'>
+    <span class='actions'>
+      <ul>
+        <li><%= link_to 'edit', '#', :id => 'edit_link' %></li>
+        <li><%= link_to 'delete', '#', :id => 'delete_link'%></li>
+      </ul>
+    </span>
+    <ul class='associated_techniques'>
+    <% practice_technique.techniques.each do |technique| %>
+      <li class='associated-technique'>
+        <%= technique.name %>
+        <span class='associated-technique-actions'>(<%= link_to_function '-', "
+        $('#confirm_dialog').dialog({
+        resizable: false,
+        height:140,
+        modal: true,
+        buttons: {
+          'Delete': function() {
+          $.ajax({
+              type:'put',
+              data: { 'practice_technique[remove_technique_id]': #{technique.id} },
+              dataType: 'script',
+              url: '#{practice_practice_technique_path(practice_technique.practice, practice_technique)}'});
+          $(this).dialog('close');
+          },
+          Cancel: function() {
+            $(this).dialog('close');
+          }
+        }
+      });" %>)</span>
+      </li>
+    <% end %>
     </ul>
-  </span>
+  </div>
 <% end %>
 
 <%= javascript_tag do %>
