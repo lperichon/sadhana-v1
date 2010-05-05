@@ -47,13 +47,6 @@
 </div>
 
 <%= javascript_tag do %>
-  // $('#techniques_accordion .techniques-viewport').dragscrollable();
-
-  // using the event helper
-  $('#techniques_accordion .techniques-viewport').mousewheel(function(event, delta) {
-    initial_value = $('#techniques_accordion .techniques-viewport').scrollTop();
-    $('#techniques_accordion .techniques-viewport').scrollTop(initial_value + delta*10);
-  });
   $(document).ready(function(){
     $('#q').quicksearch('.techniques-list div');
   });
@@ -188,10 +181,10 @@ $("#practice_techniques").droppable({
 <div id='confirm_dialog'></div>
 
 <%= javascript_tag do %>
-  $('#techniques_accordion .techniques-viewport').height($(window).height() - 300);
-  $('#practice_techniques').height($(window).height() - 300);
+  $('#techniques_accordion').height($(window).height() - 300);
+  $('#practice_techniques').height($(window).height() - 200);
   $(window).resize(function() {
-    $('#techniques_accordion .techniques-viewport').height($(window).height() - 300);
-    $('#practice_techniques').height($(window).height() - 300);
+    $('#techniques_accordion .techniques-viewport').height($(window).height() - 310);
+    $('#practice_techniques').height($(window).height() - 200);
   });
 <% end %>
