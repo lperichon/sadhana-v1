@@ -1,0 +1,5 @@
+<div id='<%= technique_type.symbol %>_techniques_list' class='techniques-list'>
+  <% techniques.each do |technique| %>
+    <div class='<%= technique_type.symbol %> technique practice_technique' technique_id='<%= technique.id %>'><%= image_tag technique.photo.url(:thumb) %><h3><%= technique.name %></h3></div>
+  <% end %>
+</div>

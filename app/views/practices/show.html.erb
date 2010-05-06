@@ -27,13 +27,9 @@
     </div>
     <div id="techniques_accordion">
       <% TechniqueType.all.each do |technique_type| %>
-        <h3><a href="#"><%= technique_type.name %></a></h3>
-        <div class='techniques-viewport'>
-          <div class='techniques-list'>
-            <% technique_type.techniques.each do |technique| %>
-              <div class='<%= technique_type.symbol %> technique practice_technique' technique_id='<%= technique.id %>'><%= image_tag technique.photo.url(:thumb) %><h3><%= technique.name %></h3></div>
-            <% end %>
-          </div>
+        <h3 symbol='<%= technique_type.symbol %>'><a href="#"><%= technique_type.name %></a></h3>
+        <div id='<%= technique_type.symbol %>_techniques_viewport' class='techniques-viewport'>
+          <p>Loading...</p>
         </div>
       <% end %>
     </div>
@@ -136,7 +132,22 @@ $("#practice_techniques").droppable({
 <% end %>
 
 <%= javascript_tag do %>
-  $("#techniques_accordion").accordion();
+  $.ajax({
+    type:'get',
+    data: { 'symbol': 'asana' },
+    dataType: 'script',
+    url: '/techniques'
+  });
+  $("#techniques_accordion").accordion({ changestart: function(event, ui) {
+    if($('#' + ui.newHeader.attr('symbol') + '_techniques_list').length == 0) {
+      $.ajax({
+        type:'get',
+        data: { 'symbol': ui.newHeader.attr('symbol') },
+        dataType: 'script',
+        url: '/techniques'
+      });
+    }
+  }});
 <% end %>
 
 <%= javascript_tag do %>

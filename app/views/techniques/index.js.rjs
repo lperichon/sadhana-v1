@@ -1,0 +1,1 @@
+page << "$('##{@technique_type.symbol}_techniques_viewport').html('#{escape_javascript render :partial => 'techniques_list', :locals => {:technique_type => @technique_type, :techniques => @techniques}}')"
