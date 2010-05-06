@@ -1,6 +1,7 @@
 <div id='slideshow_practice_techniques'>
   <% @practice.practice_techniques.each do |practice_technique| %>
     <div id='<%= dom_id practice_technique %>' class='slideshow_practice_technique' minutes=<%= practice_technique.minutes %> seconds=<%= practice_technique.seconds %>>
+      <%= image_tag practice_technique.technique.photo.url %>
       <h2><%= practice_technique.technique.name %></h2>
     </div>
   <% end %>
@@ -14,7 +15,6 @@
       minutes = parseInt($(next).attr('minutes')) || 0
       seconds = parseInt($(next).attr('seconds')) || 1
       duration = minutes*60 + seconds;
-      console.log('timeoutFn: ' + duration);
       return duration*1000 + <%= @practice.delay*1000 %>; // add an extra second to account for transition
     },
     fx: 'all',

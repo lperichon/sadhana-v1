@@ -87,7 +87,6 @@ $.fn.cycle = function(options, arg2) {
 			startTime += (opts2.delay || 0);
 			if (startTime < 10)
 				startTime = 10;
-			console.log('first timeout: ' + startTime + ' delay: ' + opts2.delay);
 			this.cycleTimeout = setTimeout(function(){go(els,opts2,0,!opts2.rev)}, startTime);
 		}
 	});
@@ -637,7 +636,6 @@ function getTimeout(curr, next, opts, fwd) {
 		var t = opts.timeoutFn(curr,next,opts,fwd);
 		while ((t - opts.speed) < 250) // sanitize timeout
 			t += opts.speed;
-		console.log('calculated timeout: ' + t + '; speed: ' + opts.speed);
 		if (t !== false)
 			return t;
 	}
