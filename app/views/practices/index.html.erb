@@ -1,57 +1,57 @@
-<h1>Listing practices</h1>
+<h2>My practices</h2>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @practices.each do |practice| %>
-  <tr id='practice_<%= practice.id %>'>
-    <td><%= practice.name %></td>
-    <td><%= practice.description %></td>
-    <td><%= link_to 'Play', play_practice_path(practice) %></td>
-    <td><%= link_to 'Show', practice %></td>
-    <td><%= link_to_function 'Add to calendar', "$.ajax({
-                            type:'get',
-                            data: 'practice_event[practice_id]=#{ practice.id }',
-                            dataType: 'script',
-                            url: '/practice_events/new'
-                          });"%>
-    </td>
-    <td><%= link_to_function 'Destroy', "$('#confirm_dialog').dialog({
-            resizable: false,
-            height:140,
-            modal: true,
-            buttons: {
-              'Delete': function() {
-                $.ajax({
-                    type:'post',
-                    data: { '_method': 'delete' },
-                    dataType: 'json',
-                    url: '/practices/#{practice.id}',
-                    success: function(data) {
-                      $('#practice_#{practice.id}').fadeOut('slow', function() {
-                          $('#practice_#{practice.id}').remove();
-                      });
-                    }
-                });
-                $(this).dialog('close');
-              },
-              Cancel: function() {
-                $(this).dialog('close');
+<ul>
+  <% @practices.each do |practice| %>
+  <li id='practice_<%= practice.id %>'>
+    <h3><%= practice.name %></h3>
+    <p><%= practice.description %></p>
+    <ul class='actions'>
+      <li><%= link_to 'Play', play_practice_path(practice) %></li>
+      <li><%= link_to 'Show', practice %></li>
+      <li><%= link_to_function 'Add to calendar', "$.ajax({
+                              type:'get',
+                              data: 'practice_event[practice_id]=#{ practice.id }',
+                              dataType: 'script',
+                              url: '/practice_events/new'
+                            });"%>
+      </li>
+      <li><%= link_to_function 'Destroy', "$('#confirm_dialog').dialog({
+              resizable: false,
+              height:140,
+              modal: true,
+              buttons: {
+                'Delete': function() {
+                  $.ajax({
+                      type:'post',
+                      data: { '_method': 'delete' },
+                      dataType: 'json',
+                      url: '/practices/#{practice.id}',
+                      success: function(data) {
+                        $('#practice_#{practice.id}').fadeOut('slow', function() {
+                            $('#practice_#{practice.id}').remove();
+                        });
+                      }
+                  });
+                  $(this).dialog('close');
+                },
+                Cancel: function() {
+                  $(this).dialog('close');
+                }
               }
-            }
-          });"%>
-    </td>
-  </tr>
-<% end %>
-</table>
+            });"%>
+      </li>
+    </ul>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to 'New Practice', new_practice_path %>
+
+<h2>Shared Practices</h2>
+<h3>Soon!</h3>
+
 <div id='confirm_dialog'></div>
 <div id='edit_dialog' style='display:none'></div>
 <br />
 
-<%= link_to 'New Practice', new_practice_path %>
+
