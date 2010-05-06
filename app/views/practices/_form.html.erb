@@ -1,18 +1,7 @@
 <%= form_for(@practice) do |f| %>
   <%= f.error_messages %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :delay %><br />
-    <%= f.text_field :delay %>
-  </div>
+  <%= render :partial => 'fields', :locals => {:f => f}%>
   <div class="actions">
     <%= f.submit %>
   </div>

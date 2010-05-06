@@ -1,51 +1,16 @@
 <h2>My practices</h2>
 
-<ul>
+<ul id='practices'>
   <% @practices.each do |practice| %>
-  <li id='practice_<%= practice.id %>'>
-    <h3><%= practice.name %></h3>
-    <p><%= practice.description %></p>
-    <ul class='actions'>
-      <li><%= link_to 'Play', play_practice_path(practice) %></li>
-      <li><%= link_to 'Show', practice %></li>
-      <li><%= link_to_function 'Add to calendar', "$.ajax({
-                              type:'get',
-                              data: 'practice_event[practice_id]=#{ practice.id }',
-                              dataType: 'script',
-                              url: '/practice_events/new'
-                            });"%>
-      </li>
-      <li><%= link_to_function 'Destroy', "$('#confirm_dialog').dialog({
-              resizable: false,
-              height:140,
-              modal: true,
-              buttons: {
-                'Delete': function() {
-                  $.ajax({
-                      type:'post',
-                      data: { '_method': 'delete' },
-                      dataType: 'json',
-                      url: '/practices/#{practice.id}',
-                      success: function(data) {
-                        $('#practice_#{practice.id}').fadeOut('slow', function() {
-                            $('#practice_#{practice.id}').remove();
-                        });
-                      }
-                  });
-                  $(this).dialog('close');
-                },
-                Cancel: function() {
-                  $(this).dialog('close');
-                }
-              }
-            });"%>
-      </li>
-    </ul>
-  </li>
+    <%= render :partial => 'practice', :locals => {:practice => practice} %>
   <% end %>
 </ul>
 
-<%= link_to 'New Practice', new_practice_path %>
+<%= link_to_function 'New Practice', "$.ajax({
+      type:'get',
+      dataType: 'script',
+      url: '/practices/new'
+    });" %>
 
 <h2>Shared Practices</h2>
 <h3>Soon!</h3>

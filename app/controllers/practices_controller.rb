@@ -29,6 +29,7 @@ class PracticesController < UserApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @practice }
+      format.js {}
     end
   end
 
@@ -46,9 +47,11 @@ class PracticesController < UserApplicationController
       if @practice.save
         format.html { redirect_to(@practice, :notice => 'Practice was successfully created.') }
         format.xml  { render :xml => @practice, :status => :created, :location => @practice }
+        format.js {}
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @practice.errors, :status => :unprocessable_entity }
+        format.js {}
       end
     end
   end
