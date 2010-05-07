@@ -125,3 +125,11 @@ span.jeditable:hover {
 span.jeditable.editing:hover {
   border: 0;
 }
+
+span.jeditable input, span.jeditable textarea {
+  width: 350px;
+}
+
+span#jeditable_delay input {
+  width: 20px;
+}
