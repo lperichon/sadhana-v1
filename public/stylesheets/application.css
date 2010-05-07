@@ -18,3 +18,11 @@
   float: right;
   margin-right: 10px;
 }
+
+ul.actions {
+  padding: 0;
+}
+
+ul.actions li{
+  display: inline;
+}

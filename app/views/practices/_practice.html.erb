@@ -2,14 +2,14 @@
   <h3><%= practice.name %></h3>
   <p><%= practice.description %></p>
   <ul class='actions'>
-    <li><%= link_to 'Play', play_practice_path(practice) %></li>
-    <li><%= link_to 'Show', practice %></li>
+    <li><%= link_to 'Play', play_practice_path(practice), :class => 'small orange awesome' %></li>
+    <li><%= link_to 'Show', practice, :class => 'small orange awesome' %></li>
     <li><%= link_to_function 'Add to calendar', "$.ajax({
                             type:'get',
                             data: 'practice_event[practice_id]=#{ practice.id }',
                             dataType: 'script',
                             url: '/practice_events/new'
-                          });"%>
+                          });", :class => 'small orange awesome' %>
     </li>
     <li><%= link_to_function 'Destroy', "$('#confirm_dialog').dialog({
             resizable: false,
@@ -34,7 +34,7 @@
                 $(this).dialog('close');
               }
             }
-          });"%>
+          });", :class => 'small orange awesome'%>
     </li>
   </ul>
 </li>
