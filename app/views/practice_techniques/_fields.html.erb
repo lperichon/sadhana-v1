@@ -1,17 +1,25 @@
-<div class="field">
-  <%= f.label :minutes %>
-  <br/>
-  <%= f.text_field :minutes %>
+<div class='time multiple field'>
+  <div class="minutes field">
+    <%= f.label :minutes %>
+    <br/>
+    <%= f.text_field :minutes %>
+  </div>
+
+  <div class="seconds field">
+    <%= f.label :seconds %>
+    <br/>
+    <%= f.text_field :seconds %>
+  </div>
+
+  <div class="compensate field">
+    <%= f.label :compensate %>
+    <br/>
+    <%= f.check_box :compensate %>
+  </div>
 </div>
 
-<div class="field">
-  <%= f.label :seconds %>
+<div class="observations field">
+  <%= f.label :observations %>
   <br/>
-  <%= f.text_field :seconds %>
-</div>
-
-<div class="field">
-  <%= f.label :compensate %>
-  <br/>
-  <%= f.check_box :compensate %>
+  <%= f.text_area :observations %>
 </div>

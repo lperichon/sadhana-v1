@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100426134456) do
+ActiveRecord::Schema.define(:version => 20100510152737) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20100426134456) do
     t.integer  "minutes"
     t.integer  "seconds"
     t.boolean  "compensate"
+    t.text     "observations"
   end
 
   create_table "practice_techniques_techniques", :id => false, :force => true do |t|

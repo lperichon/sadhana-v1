@@ -133,3 +133,25 @@ span.jeditable input, span.jeditable textarea {
 span#jeditable_delay input {
   width: 20px;
 }
+
+.multiple.field {
+  margin: 0;
+}
+
+.time.multiple.field .field {
+  width: 32.5%;
+  display: inline-block;
+}
+
+.time.multiple.field .field input[type = text] {
+  width: 90%;
+}
+
+.compensate.field input {
+  margin-left:36%;
+}
+
+.field.observations textarea {
+  width: 99%;
+  height: 100px;
+}
