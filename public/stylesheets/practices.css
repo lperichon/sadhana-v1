@@ -134,6 +134,10 @@ span#jeditable_delay input {
   width: 20px;
 }
 
+span#jeditable_description input {
+  width: 92%;
+}
+
 .multiple.field {
   margin: 0;
 }
