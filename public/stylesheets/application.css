@@ -24,3 +24,7 @@ ul.actions {
 ul.actions li{
   display: inline;
 }
+
+#confirm_dialog p {
+  margin: 12px 0 0 0;
+}

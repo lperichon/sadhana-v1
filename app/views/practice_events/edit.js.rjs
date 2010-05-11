@@ -1,7 +1,7 @@
-page << "$('#edit_dialog').html('#{escape_javascript render :partial => 'dialog_form'}');"
+page << "$('#edit_event_dialog').html('#{escape_javascript render :partial => 'dialog_form'}');"
 
 page << %(
-  $('#edit_dialog').dialog({
+  $('#edit_event_dialog').dialog({
     autoOpen: true,
     height: 300,
     width: 350,
@@ -11,10 +11,10 @@ page << %(
         $.ajax({
             type:'put',
             dataType: 'script',
-            data: $('#edit_dialog form').serialize(),
-            url: $('#edit_dialog form').attr('action'),
+            data: $('#edit_event_dialog form').serialize(),
+            url: $('#edit_event_dialog form').attr('action'),
             success: function() {
-              $('#edit_dialog').dialog('close');
+              $('#edit_event_dialog').dialog('close');
             }
         });
       },
@@ -31,7 +31,7 @@ page << %(
                   dataType: 'json',
                   url: '#{practice_event_path(@practice_event)}',
                   success: function() {
-                    $('#edit_dialog').dialog('close');
+                    $('#edit_event_dialog').dialog('close');
                   }
               });
               $(this).dialog('close');
@@ -44,7 +44,7 @@ page << %(
       },
       Cancel: function() {
         $('#calendar').fullCalendar('renderEvent', #{js_event(@practice_event)});
-        $('#edit_dialog').dialog('close');
+        $('#edit_event_dialog').dialog('close');
       }
     }
   });
