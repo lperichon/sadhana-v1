@@ -1,0 +1,25 @@
+.fc-header .fc-state-default {
+  border: none;
+}
+
+.fc-header .fc-state-default a {
+  border: none;
+  background: none;
+}
+
+.fc-header .fc-state-default span {
+  -moz-border-radius: 10px;
+  border: solid 1px #E78F08;
+  padding-bottom: 5px;
+  background: #F6A828;
+}
+
+.fc-header .fc-button-prev span {
+  padding-left: 1px;
+  padding-right: 6px;
+}
+
+.fc-header .fc-button-next span {
+  padding-left: 4px;
+  padding-right: 3px;
+}
