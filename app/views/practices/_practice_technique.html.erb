@@ -12,7 +12,7 @@
     <% practice_technique.techniques.each do |technique| %>
       <li class='associated-technique'>
         <%= technique.name %>
-        <span class='associated-technique-actions'>(<%= link_to_function '-', "
+        <span class='associated-technique-actions'><span class='ui-state-default ui-corner-all'><%= link_to_function(content_tag(:span, '(-)', :class => 'ui-icon ui-icon-circle-minus'), "
         $('#confirm_dialog').dialog({
         resizable: false,
         height:140,
@@ -30,7 +30,7 @@
             $(this).dialog('close');
           }
         }
-      });" %>)</span>
+      });") %></span></span>
       </li>
     <% end %>
     </ul>

@@ -1,6 +1,8 @@
 $(document).ready(function(){
   $('.practice_technique .actions li').live('mouseover', function() { $(this).addClass('ui-state-hover');});
   $('.practice_technique .actions li').live('mouseout', function() { $(this).removeClass('ui-state-hover');});
+  $('.associated-technique-actions .ui-state-default').live('mouseover', function() { $(this).addClass('ui-state-hover');});
+  $('.associated-technique-actions .ui-state-default').live('mouseout', function() { $(this).removeClass('ui-state-hover');});
 });
 
 var Practices = {

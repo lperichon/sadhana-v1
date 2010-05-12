@@ -110,6 +110,12 @@
   display: inline-block;
 }
 
+.associated-technique-actions span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+
 .practice_technique .actions {
   margin-top:5px;
   padding:0;
