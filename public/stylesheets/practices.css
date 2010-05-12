@@ -111,11 +111,18 @@
 }
 
 .practice_technique .actions ul {
-  padding: 0;
+  display: table;
+  margin-left:24px;
+  margin-top:5px;
+  padding:0;
 }
 
 .practice_technique .actions ul li{
-  display: inline;
+  display: table-cell;
+}
+
+.practice_technique .ui-button-text-only .ui-button-text {
+  padding:0.1em 0.6em;
 }
 
 span.jeditable:hover {

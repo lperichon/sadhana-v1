@@ -1,25 +1,25 @@
 <div class='time multiple field'>
   <div class="minutes field">
-    <%= f.label :minutes %>
+    <%= f.label :minutes %><span class='ui-state-default ui-corner-all help'><span class='ui-icon ui-icon-help' title='Minutes to hold the technique'>(?)</span></span>
     <br/>
     <%= f.text_field :minutes %>
   </div>
 
   <div class="seconds field">
-    <%= f.label :seconds %>
+    <%= f.label :seconds %><span class='ui-state-default ui-corner-all help'><span class='ui-icon ui-icon-help' title='Seconds to hold the technique'>(?)</span></span>
     <br/>
     <%= f.text_field :seconds %>
   </div>
 
   <div class="compensate field">
-    <%= f.label :compensate %>
+    <%= f.label :compensate %><span class='ui-state-default ui-corner-all help'><span class='ui-icon ui-icon-help' title='Compensate to the other side?'>(?)</span></span>
     <br/>
     <%= f.check_box :compensate %>
   </div>
 </div>
 
 <div class="observations field">
-  <%= f.label :observations %>
+  <%= f.label :observations %><span class='ui-state-default ui-corner-all help'><span class='ui-icon ui-icon-help' title='Any observations?'>(?)</span></span>
   <br/>
   <%= f.text_area :observations %>
 </div>

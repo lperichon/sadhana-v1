@@ -40,6 +40,7 @@
 <% end %>
 
 <%= javascript_tag do %>
+  $('.actions ul').buttonset();
   $('#<%= dom_id practice_technique %>').droppable({
   accept: '.mudra',
   drop: function(event, ui) {
