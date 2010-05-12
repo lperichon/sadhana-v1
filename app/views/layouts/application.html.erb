@@ -23,6 +23,8 @@
     <%= javascript_include_tag 'fullcalendar' %>
     <%= javascript_include_tag 'timepicker' %>
     <%= javascript_include_tag 'jquery.quicksearch' %>
+    <%= javascript_include_tag 'cufon-yui' %>
+    <%= javascript_include_tag 'scriptina_400.font' %>
 
     <% if File.exist? File.join(Rails.public_path, "javascripts/#{controller.controller_name}.js") %>
       <%= javascript_include_tag controller.controller_name %>
@@ -62,5 +64,8 @@
 
       <%= yield %>
     </div>
+  <%= javascript_tag do %>
+    Cufon.now();
+  <% end %>
   </body>
 </html>
