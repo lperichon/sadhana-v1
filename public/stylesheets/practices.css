@@ -110,19 +110,13 @@
   display: inline-block;
 }
 
-.practice_technique .actions ul {
-  display: table;
-  margin-left:24px;
+.practice_technique .actions {
   margin-top:5px;
   padding:0;
 }
 
-.practice_technique .actions ul li{
-  display: table-cell;
-}
-
-.practice_technique .ui-button-text-only .ui-button-text {
-  padding:0.1em 0.6em;
+.practice_technique .actions li{
+  display: inline-block;
 }
 
 span.jeditable:hover {

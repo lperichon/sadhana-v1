@@ -1,10 +1,12 @@
 <div class="field">
-  <%= f.label :practice_id %><br />
+  <%= f.label :practice_id %><span class='ui-state-default ui-corner-all help'><span class='ui-icon ui-icon-help' title='Choose the practice.'>(?)</span></span>
+  <br />
   <%= f.collection_select :practice_id, current_user.practices, :id, :name %>
 </div>
 
 <div class="field">
-  <%= f.label :start_string %><br />
+  <%= f.label :start_string %><span class='ui-state-default ui-corner-all help'><span class='ui-icon ui-icon-help' title='Date and time for the event.'>(?)</span></span>
+  <br />
   <%= f.text_field :start_string %>
 </div>
 

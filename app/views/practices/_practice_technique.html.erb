@@ -4,12 +4,10 @@
     <%= image_tag practice_technique.technique.photo.url(:thumb) %>
   </div>
   <div class='back'>
-    <span class='actions'>
-      <ul>
-        <li><%= link_to 'edit', '#', :id => 'edit_link' %></li>
-        <li><%= link_to 'delete', '#', :id => 'delete_link'%></li>
-      </ul>
-    </span>
+    <ul class='actions'>
+      <li class='ui-state-default ui-corner-all'><%= link_to( content_tag(:span, 'edit', :class => 'ui-icon ui-icon-pencil'), '#', :id => 'edit_link') %></li>
+      <li class='ui-state-default ui-corner-all'><%= link_to( content_tag(:span, 'delete', :class => 'ui-icon ui-icon-trash'), '#', :id => 'delete_link') %></li>
+    </ul>
     <ul class='associated_techniques'>
     <% practice_technique.techniques.each do |technique| %>
       <li class='associated-technique'>
@@ -40,7 +38,6 @@
 <% end %>
 
 <%= javascript_tag do %>
-  $('.actions ul').buttonset();
   $('#<%= dom_id practice_technique %>').droppable({
   accept: '.mudra',
   drop: function(event, ui) {
