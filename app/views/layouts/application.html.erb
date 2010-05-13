@@ -59,8 +59,22 @@
     </div>
 
     <div id='content'>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if notice %>
+        <div class='notice ui-state-highlight ui-corner-all'>
+          <p>
+            <span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+            <%= notice %>
+          </p>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="alert ui-state-error ui-corner-all">
+          <p>
+            <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+            <%= alert %>
+          </p>
+        </div>
+      <% end %>
 
       <%= yield %>
     </div>

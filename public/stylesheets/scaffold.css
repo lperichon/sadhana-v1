@@ -21,11 +21,15 @@ div.field, div.actions {
 }
 
 .notice {
-  color: green;
+  /* color: green; */
+  margin-top: 5px;
+  padding: 0px 0.7em;
 }
 
 .alert {
-  color: red;
+  /* color: red; */
+  margin-top: 5px;
+  padding: 0px 0.7em;
 }
 
 .fieldWithErrors {
