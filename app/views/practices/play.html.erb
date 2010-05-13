@@ -1,5 +1,5 @@
 <div id="countdown"></div>
-<div id='slideshow_practice_techniques'>
+<div id='slideshow_practice_techniques' style='width: auto;'>
   <% @practice.practice_techniques.each do |practice_technique| %>
     <div id='<%= dom_id practice_technique %>' class='slideshow_practice_technique' minutes=<%= practice_technique.minutes %> seconds=<%= practice_technique.seconds %>>
       <div id='main_panel'>
@@ -8,14 +8,18 @@
       </div>
       <div id='info_panel'>
         <h3>Description</h3>
-        <p><%= practice_technique.technique.description %></p>
+        <p><%= practice_technique.technique.description || 'No description'  %></p>
         <h3>Observations</h3>
-        <p><%= practice_technique.observations %></p>
+        <p><%= practice_technique.observations || 'No observations' %></p>
         <h3>Associated techniques</h3>
+        <% if practice_technique.techniques.empty? %>
+          <p>No associated techniques</p>
+        <% end %>
         <ul class='associated_techniques'>
           <% practice_technique.techniques.each do |associated_technique| %>
           <li class='associated_technique'>
             <%= image_tag associated_technique.photo.url(:thumb) %>
+            <h4><%= associated_technique.name %></h4>
           </li>
           <% end %>
         </ul>
@@ -42,8 +46,6 @@
       $('#countdown').counter({min:minutes, sec:seconds, onFinish: function() {$.sound.play('/ping.wav');}});
     },
     fit: 1,
-    width: '100%'
+    width: '99.9%'
   });
 <% end %>
-
-<%= link_to 'Back', practices_path %>

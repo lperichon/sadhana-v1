@@ -168,30 +168,54 @@ span#jeditable_description input {
 }
 
 #countdown {
-  width: 100%;
+  margin: 5px 0;
   text-align: center;
+  border: 1px solid #CCC;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  font-size: 1.5em;
+  line-height: 1.5em;
 }
 
 #slideshow_practice_techniques {
-  width: 100%;
   display: block;
+  width: 98%;
 }
 
 .slideshow_practice_technique {
   display: block;
-  height: 460px;
+  border: 1px solid #CCC;
+  margin: 0;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
 }
 
 #main_panel {
   display: inline-block;
   float: left;
-  width: 30%;
+  width: 29.9%;
   text-align: center;
+  border-right: 1px solid #CCC;
+  height: 460px;
 }
 
 #info_panel {
   display: inline-block;
   float: left;
-  width: 70%;
+  width: 69%;
+  height: 460px;
+  padding: 0 0.5%;
+}
 
+#info_panel .associated_techniques {
+  list-style: none;
+  display: inline;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+#info_panel .associated_techniques .associated_technique {
+  display: inline-block;
+  list-style: none;
+  text-align: center;
 }
