@@ -1,3 +1,14 @@
+<ul class='actions'>
+  <li>
+    <%= link_to_function 'New Practice', "$.ajax({
+          type:'get',
+          dataType: 'script',
+          url: '/practices/new'
+        });", :class => 'blue medium awesome' %>
+  </li>
+</ul>
+
+
 <h2>My practices</h2>
 
 <ul id='practices'>
@@ -5,12 +16,6 @@
     <%= render :partial => 'practice', :locals => {:practice => practice} %>
   <% end %>
 </ul>
-
-<%= link_to_function 'New Practice', "$.ajax({
-      type:'get',
-      dataType: 'script',
-      url: '/practices/new'
-    });", :class => 'blue medium awesome' %>
 
 <h2>Shared Practices</h2>
 <h3>Soon!</h3>
