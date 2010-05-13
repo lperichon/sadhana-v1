@@ -1,30 +1,10 @@
 <div id="countdown"></div>
 <div id='slideshow_practice_techniques' style='width: auto;'>
   <% @practice.practice_techniques.each do |practice_technique| %>
-    <div id='<%= dom_id practice_technique %>' class='slideshow_practice_technique' minutes=<%= practice_technique.minutes %> seconds=<%= practice_technique.seconds %>>
-      <div id='main_panel'>
-        <%= image_tag practice_technique.technique.photo.url %>
-        <h2><%= practice_technique.technique.name %></h2>
-      </div>
-      <div id='info_panel'>
-        <h3>Description</h3>
-        <p><%= practice_technique.technique.description || 'No description'  %></p>
-        <h3>Observations</h3>
-        <p><%= practice_technique.observations || 'No observations' %></p>
-        <h3>Associated techniques</h3>
-        <% if practice_technique.techniques.empty? %>
-          <p>No associated techniques</p>
-        <% end %>
-        <ul class='associated_techniques'>
-          <% practice_technique.techniques.each do |associated_technique| %>
-          <li class='associated_technique'>
-            <%= image_tag associated_technique.photo.url(:thumb) %>
-            <h4><%= associated_technique.name %></h4>
-          </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+    <%= render :partial => 'play_practice_technique', :locals => {:practice_technique => practice_technique} %>
+    <% if practice_technique.compensate? %>
+      <%= render :partial => 'play_practice_technique', :locals => {:practice_technique => practice_technique, :compensation => true} %>
+    <% end %>
   <% end %>
 </div>
 
