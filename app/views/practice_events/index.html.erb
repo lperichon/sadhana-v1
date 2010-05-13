@@ -29,9 +29,13 @@ $('#calendar').fullCalendar({
       dataType: 'script',
       url: '/practice_events/new'
     });
-  }
+  },
+  monthNames: [<%= I18n.t("date.month_names").reject {|month| month == nil}.collect {|month|"'#{month}'"}.join(',') %>],
+  monthNamesShort: [<%= I18n.t("date.abbr_month_names").reject {|month| month == nil}.collect {|month|"'#{month}'"}.join(',') %>],
+  dayNames: [<%= I18n.t("date.day_names").reject {|month| month == nil}.collect {|month|"'#{month}'"}.join(',') %>],
+  dayNamesShort: [<%= I18n.t("date.abbr_day_names").reject {|month| month == nil}.collect {|month|"'#{month}'"}.join(',') %>]
 });
 <% end %>
 <%= render :partial => 'shared/confirm_dialog' %>
-<div id='new_event_dialog' style='display:none' title='New event'></div>
-<div id='edit_event_dialog' style='display:none' title='Edit event'></div>
+<%= render :partial => 'shared/new_event_dialog' %>
+<%= render :partial => 'shared/edit_event_dialog' %>

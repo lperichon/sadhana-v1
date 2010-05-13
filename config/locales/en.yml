@@ -26,6 +26,8 @@ en:
       title: "New event"
     edit_practice_technique_dialog:
       title: "Edit practice technique"
+    edit_event_dialog:
+      title: "Edit event"
   practice:
     help:
       name: "The name you want for your practice."
@@ -39,3 +41,8 @@ en:
     add_to_calendar: "Add to calendar"
     destroy: "Destroy"
     edit: "Edit"
+    update: "Update"
+  practice_event:
+    help:
+      practice: "Choose the practice."
+      start: "Date and time for the event."
