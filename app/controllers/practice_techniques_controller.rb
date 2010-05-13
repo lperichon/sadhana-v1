@@ -6,7 +6,6 @@ class PracticeTechniquesController < UserApplicationController
     @practice_techniques = @practice.practice_techniques
 
     respond_to do |format|
-      format.html # index.html.erb
       format.xml  { render :xml => @practice_techniques }
     end
   end
@@ -18,7 +17,6 @@ class PracticeTechniquesController < UserApplicationController
     @practice_technique = @practice.practice_techniques.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
       format.xml  { render :xml => @practice_technique }
     end
   end
@@ -30,7 +28,6 @@ class PracticeTechniquesController < UserApplicationController
     @practice_technique = @practice.practice_techniques.new
 
     respond_to do |format|
-      format.html # new.html.erb
       format.xml  { render :xml => @practice_technique }
     end
   end
@@ -49,12 +46,10 @@ class PracticeTechniquesController < UserApplicationController
 
     respond_to do |format|
       if @practice_technique.save
-        format.html { redirect_to([@practice, @practice_technique], :notice => 'Practice technique was successfully created.') }
         format.xml  { render :xml => @practice_technique, :status => :created, :location => @practice_technique }
         format.json { render :json => { :practice_technique => @practice_technique } }
         format.js { }
       else
-        format.html { render :action => "new" }
         format.xml  { render :xml => @practice_technique.errors, :status => :unprocessable_entity }
         format.json { render :json => {:errors => @practice_technique.errors, :status => :unprocessable_entity }}
         format.js { }
@@ -70,11 +65,9 @@ class PracticeTechniquesController < UserApplicationController
 
     respond_to do |format|
       if @practice_technique.update_attributes(params[:practice_technique])
-        format.html { redirect_to([@practice,@practice_technique], :notice => 'Practice technique was successfully updated.') }
         format.xml  { head :ok }
         format.js {}
       else
-        format.html { render :action => "edit" }
         format.xml  { render :xml => @practice_technique.errors, :status => :unprocessable_entity }
       end
     end
@@ -88,7 +81,6 @@ class PracticeTechniquesController < UserApplicationController
     @practice_technique.destroy
 
     respond_to do |format|
-      format.html { redirect_to(practice_practice_techniques_url(@practice)) }
       format.xml  { head :ok }
       format.json { render :json => :ok}
     end

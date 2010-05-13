@@ -1,25 +1,25 @@
 <div class='time multiple field'>
   <div class="minutes field">
-    <%= f.label :minutes %><span class='ui-state-default ui-corner-all help'><span class='ui-icon ui-icon-help' title='Minutes to hold the technique'>(?)</span></span>
+    <%= f.label :minutes %><%= field_help t('practice_technique.help.minutes') %>
     <br/>
     <%= f.text_field :minutes %>
   </div>
 
   <div class="seconds field">
-    <%= f.label :seconds %><span class='ui-state-default ui-corner-all help'><span class='ui-icon ui-icon-help' title='Seconds to hold the technique'>(?)</span></span>
+    <%= f.label :seconds %><%= field_help t('practice_technique.help.seconds') %>
     <br/>
     <%= f.text_field :seconds %>
   </div>
 
   <div class="compensate field">
-    <%= f.label :compensate %><span class='ui-state-default ui-corner-all help'><span class='ui-icon ui-icon-help' title='Compensate to the other side?'>(?)</span></span>
+    <%= f.label :compensate %><%= field_help t('practice_technique.help.compensate') %>
     <br/>
     <%= f.check_box :compensate %>
   </div>
 </div>
 
 <div class="observations field">
-  <%= f.label :observations %><span class='ui-state-default ui-corner-all help'><span class='ui-icon ui-icon-help' title='Any observations?'>(?)</span></span>
+  <%= f.label :observations %><%= field_help t('practice_technique.help.observations') %>
   <br/>
   <%= f.text_area :observations %>
 </div>
