@@ -32,6 +32,6 @@ $('#calendar').fullCalendar({
   }
 });
 <% end %>
-<div id='confirm_dialog' style='display:none' title='Confirm delete'><p>Are you sure?</p></div>
+<%= render :partial => 'shared/confirm_dialog' %>
 <div id='new_event_dialog' style='display:none' title='New event'></div>
 <div id='edit_event_dialog' style='display:none' title='Edit event'></div>

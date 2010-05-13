@@ -2,21 +2,21 @@
   <h3><%= practice.name %></h3>
   <p><%= practice.description %></p>
   <ul class='actions'>
-    <li><%= link_to 'Play', play_practice_path(practice), :class => 'small orange awesome' %></li>
-    <li><%= link_to 'Show', practice, :class => 'small orange awesome' %></li>
-    <li><%= link_to_function 'Add to calendar', "$.ajax({
+    <li><%= link_to t('actions.play'), play_practice_path(practice), :class => 'small orange awesome' %></li>
+    <li><%= link_to t('actions.show'), practice, :class => 'small orange awesome' %></li>
+    <li><%= link_to_function t('actions.add_to_calendar'), "$.ajax({
                             type:'get',
                             data: 'practice_event[practice_id]=#{ practice.id }',
                             dataType: 'script',
                             url: '/practice_events/new'
                           });", :class => 'small orange awesome' %>
     </li>
-    <li><%= link_to_function 'Destroy', "$('#confirm_dialog').dialog({
+    <li><%= link_to_function t('actions.destroy'), "$('#confirm_dialog').dialog({
             resizable: false,
             height:140,
             modal: true,
             buttons: {
-              'Delete': function() {
+              #{t('actions.delete')}: function() {
                 $.ajax({
                     type:'post',
                     data: { '_method': 'delete' },
@@ -30,7 +30,7 @@
                 });
                 $(this).dialog('close');
               },
-              Cancel: function() {
+              #{t('actions.cancel')}: function() {
                 $(this).dialog('close');
               }
             }

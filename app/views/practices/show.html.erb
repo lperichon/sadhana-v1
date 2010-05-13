@@ -1,19 +1,15 @@
-<noscript>
-  This view requires javascript enabled if you want to edit, enable it in your browser or go to the <%= link_to 'edit page', edit_practice_path(@practice) %> 
-</noscript>
-
 <p>
-  <b>Name:</b><span class='ui-state-default ui-corner-all help'><span class='ui-icon ui-icon-help' title='The name you want for your practice.'>(?)</span></span>
+  <b><%= Practice.human_attribute_name :name %>:</b><%= field_help t('practice.help.name') %>
   <%= jeditable_field(:practice, :name) %>
 </p>
 
 <p>
-  <b>Description:</b><span class='ui-state-default ui-corner-all help'><span class='ui-icon ui-icon-help' title='A nice description of your practice'>(?)</span></span>
+  <b><%= Practice.human_attribute_name :description %>:</b><%= field_help t('practice.help.description') %>
   <%= jeditable_field(:practice, :description) %>
 </p>
 
 <p>
-  <b>Delay:</b><span class='ui-state-default ui-corner-all help'><span class='ui-icon ui-icon-help' title='Seconds to wait between each practice technique.'>(?)</span></span>
+  <b><%= Practice.human_attribute_name :delay %>:</b><%= field_help t('practice.help.delay') %>
   <%= jeditable_field(:practice, :delay) %>
 </p>
 <div id='practice_editor'>
@@ -29,7 +25,7 @@
       <% TechniqueType.all.each do |technique_type| %>
         <h3 symbol='<%= technique_type.symbol %>'><a href="#"><%= technique_type.name %></a></h3>
         <div id='<%= technique_type.symbol %>_techniques_viewport' class='techniques-viewport'>
-          <p>Loading...</p>
+          <p><%= t('practices.show.loading') %></p>
         </div>
       <% end %>
     </div>
@@ -135,7 +131,7 @@
         height:140,
         modal: true,
         buttons: {
-          'Delete': function() {
+        <%= t('actions.delete') %>: function() {
             $.ajax({
                 type:'post',
                 data: { '_method': 'delete' },
@@ -149,7 +145,7 @@
             });
             $(this).dialog('close');
           },
-          Cancel: function() {
+          <%= t('actions.cancel') %>: function() {
             $(this).dialog('close');
           }
         }
@@ -167,5 +163,5 @@
   });
 <% end %>
 
-<div id='practice_technique_dialog' style='display:none' title='Edit practice technique'></div>
-<div id='confirm_dialog' style='display:none' title='Confirm delete'><p>Are you sure?</p></div>
+<%= render :partial => 'shared/edit_practice_technique_dialog' %>
+<%= render :partial => 'shared/confirm_dialog' %>

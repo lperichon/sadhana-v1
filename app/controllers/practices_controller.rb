@@ -6,7 +6,6 @@ class PracticesController < UserApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @practices }
     end
   end
 
@@ -27,7 +26,6 @@ class PracticesController < UserApplicationController
     @practice = current_user.practices.new
 
     respond_to do |format|
-      format.html # new.html.erb
       format.xml  { render :xml => @practice }
       format.js {}
     end
@@ -36,6 +34,9 @@ class PracticesController < UserApplicationController
   # GET /practices/1/edit
   def edit
     @practice = current_user.practices.find(params[:id])
+    respond_to do |format|
+      format.xml  { render :xml => @practice }
+    end
   end
 
   # POST /practices
@@ -45,11 +46,9 @@ class PracticesController < UserApplicationController
 
     respond_to do |format|
       if @practice.save
-        format.html { redirect_to(@practice, :notice => 'Practice was successfully created.') }
         format.xml  { render :xml => @practice, :status => :created, :location => @practice }
         format.js {}
       else
-        format.html { render :action => "new" }
         format.xml  { render :xml => @practice.errors, :status => :unprocessable_entity }
         format.js {}
       end
@@ -63,11 +62,9 @@ class PracticesController < UserApplicationController
 
     respond_to do |format|
       if @practice.update_attributes(params[:practice])
-        format.html { redirect_to(@practice, :notice => 'Practice was successfully updated.') }
         format.xml  { head :ok }
         format.json { render :json => {:result => @practice.send(params['wants'])} }
       else
-        format.html { render :action => "edit" }
         format.xml  { render :xml => @practice.errors, :status => :unprocessable_entity }
         format.json { render :json => {:result => @practice.send(params['wants'] + '_was')} }
       end
@@ -81,7 +78,6 @@ class PracticesController < UserApplicationController
     @practice.destroy
 
     respond_to do |format|
-      format.html { redirect_to(practices_url) }
       format.xml  { head :ok }
       format.json { render :json => :ok }
     end

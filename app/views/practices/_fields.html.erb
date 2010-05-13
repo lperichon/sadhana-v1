@@ -1,15 +1,15 @@
 <div class="field">
-  <%= f.label :name %><span class='ui-state-default ui-corner-all help'><span class='ui-icon ui-icon-help' title='The name you want for your practice.'>(?)</span></span>
+  <%= f.label :name %><%= field_help t('practice.help.name') %>
   <br />
   <%= f.text_field :name %>
 </div>
 <div class="field">
-  <%= f.label :description %><span class='ui-state-default ui-corner-all help'><span class='ui-icon ui-icon-help' title='A nice description of your practice'>(?)</span></span>
+  <%= f.label :description %><%= field_help t('practice.help.description') %>
   <br />
   <%= f.text_area :description, :rows => 10 %>
 </div>
 <div class="field">
-  <%= f.label :delay %><span class='ui-state-default ui-corner-all help'><span class='ui-icon ui-icon-help' title='Seconds to wait between each practice technique.'>(?)</span></span>
+  <%= f.label :delay %><%= field_help t('practice.help.delay') %>
   <br />
   <%= f.text_field :delay %>
 </div>

@@ -1,6 +1,6 @@
 <ul class='actions'>
   <li>
-    <%= link_to_function 'New Practice', "$.ajax({
+    <%= link_to_function t('practices.index.new_practice'), "$.ajax({
           type:'get',
           dataType: 'script',
           url: '/practices/new'
@@ -9,7 +9,7 @@
 </ul>
 
 
-<h2>My practices</h2>
+<h2><%= t('practices.index.my_practices') %></h2>
 
 <ul id='practices'>
   <% @practices.each do |practice| %>
@@ -17,9 +17,6 @@
   <% end %>
 </ul>
 
-<h2>Shared Practices</h2>
-<h3>Soon!</h3>
-
-<div id='confirm_dialog' style='display:none' title='Confirm delete'><p>Are you sure?</p></div>
-<div id='practice_dialog' style='display:none'></div>
-<div id='new_event_dialog' style='display:none'></div>
+<%= render :partial => 'shared/confirm_dialog' %>
+<%= render :partial => 'shared/new_practice_dialog' %>
+<%= render :partial => 'shared/new_event_dialog' %>

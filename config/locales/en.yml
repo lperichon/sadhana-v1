@@ -3,3 +3,38 @@
 
 en:
   hello: "Hello world"
+  practices:
+    index:
+      new_practice: "New Practice"
+      my_practices: "My practices"
+    show:
+      loading: "Loading..."
+    play_practice_technique:
+      description: "Description"
+      no_description: "No description"
+      observations: "Observations"
+      no_observations: "No observations"
+      associated_techniques: "Associated techniques"
+      no_associated_techniques: "No associated techniques"
+  shared:
+    confirm_dialog:
+      title: "Confirm delete"
+      content: "Are you sure?"
+    new_practice_dialog:
+      title: "New practice"
+    new_event_dialog:
+      title: "New event"
+    edit_practice_technique_dialog:
+      title: "Edit practice technique"
+  practice:
+    help:
+      name: "The name you want for your practice."
+      description: "A nice description of your practice"
+      delay: "Seconds to wait between each practice technique."
+  actions:
+    cancel: "Cancel"
+    delete: "Delete"
+    play: "Play"
+    show: "Show"
+    add_to_calendar: "Add to calendar"
+    destroy: "Destroy"

@@ -1,7 +1,6 @@
-page << "$('#practice_dialog').html('#{escape_javascript render :partial => 'dialog_form'}');"
-page << "$('#practice_dialog').attr('title','New practice');"
+page << "$('#new_practice_dialog').html('#{escape_javascript render :partial => 'dialog_form'}');"
 page << %(
-  $('#practice_dialog').dialog({
+  $('#new_practice_dialog').dialog({
     autoOpen: true,
     height: 460,
     width: 390,
@@ -11,15 +10,15 @@ page << %(
         $.ajax({
             type:'post',
             dataType: 'script',
-            data: $('#practice_dialog form').serialize(),
-            url: $('#practice_dialog form').attr('action'),
+            data: $('#new_practice_dialog form').serialize(),
+            url: $('#new_practice_dialog form').attr('action'),
             success: function() {
-              $('#practice_dialog').dialog('close');
+              $('#new_practice_dialog').dialog('close');
             }
         });
       },
       Cancel: function() {
-        $('#practice_dialog').dialog('close');
+        $('#new_practice_dialog').dialog('close');
       }
     }
   });
