@@ -5,8 +5,8 @@
   </div>
   <div class='back'>
     <ul class='actions'>
-      <li class='ui-state-default ui-corner-all'><%= link_to( content_tag(:span, 'edit', :class => 'ui-icon ui-icon-pencil'), '#', :id => 'edit_link') %></li>
-      <li class='ui-state-default ui-corner-all'><%= link_to( content_tag(:span, 'delete', :class => 'ui-icon ui-icon-trash'), '#', :id => 'delete_link') %></li>
+      <li class='ui-state-default ui-corner-all'><%= link_to( content_tag(:span, t('actions.edit'), :class => 'ui-icon ui-icon-pencil'), '#', :id => 'edit_link') %></li>
+      <li class='ui-state-default ui-corner-all'><%= link_to( content_tag(:span, t('actions.delete'), :class => 'ui-icon ui-icon-trash'), '#', :id => 'delete_link') %></li>
     </ul>
     <ul class='associated_techniques'>
     <% practice_technique.techniques.each do |technique| %>
@@ -18,15 +18,15 @@
         height:140,
         modal: true,
         buttons: {
-          'Delete': function() {
-          $.ajax({
-              type:'put',
-              data: { 'practice_technique[remove_technique_id]': #{technique.id} },
-              dataType: 'script',
-              url: '#{practice_practice_technique_path(practice_technique.practice, practice_technique)}'});
-          $(this).dialog('close');
+          #{t('actions.delete')}: function() {
+            $.ajax({
+                type:'put',
+                data: { 'practice_technique[remove_technique_id]': #{technique.id} },
+                dataType: 'script',
+                url: '#{practice_practice_technique_path(practice_technique.practice, practice_technique)}'});
+            $(this).dialog('close');
           },
-          Cancel: function() {
+          #{t('actions.cancel')}: function() {
             $(this).dialog('close');
           }
         }
