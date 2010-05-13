@@ -1,12 +1,29 @@
+<div id="countdown"></div>
 <div id='slideshow_practice_techniques'>
   <% @practice.practice_techniques.each do |practice_technique| %>
     <div id='<%= dom_id practice_technique %>' class='slideshow_practice_technique' minutes=<%= practice_technique.minutes %> seconds=<%= practice_technique.seconds %>>
-      <%= image_tag practice_technique.technique.photo.url %>
-      <h2><%= practice_technique.technique.name %></h2>
+      <div id='main_panel'>
+        <%= image_tag practice_technique.technique.photo.url %>
+        <h2><%= practice_technique.technique.name %></h2>
+      </div>
+      <div id='info_panel'>
+        <h3>Description</h3>
+        <p><%= practice_technique.technique.description %></p>
+        <h3>Observations</h3>
+        <p><%= practice_technique.observations %></p>
+        <h3>Associated techniques</h3>
+        <ul class='associated_techniques'>
+          <% practice_technique.techniques.each do |associated_technique| %>
+          <li class='associated_technique'>
+            <%= image_tag associated_technique.photo.url(:thumb) %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 </div>
-<div id="countdown"></div>
+
 
 <%= javascript_tag do %>
   $('#slideshow_practice_techniques').cycle({
@@ -23,7 +40,9 @@
       minutes = parseInt($(nextSlideElement).attr('minutes')) || 0
       seconds = parseInt($(nextSlideElement).attr('seconds')) || 1;
       $('#countdown').counter({min:minutes, sec:seconds, onFinish: function() {$.sound.play('/ping.wav');}});
-    }
+    },
+    fit: 1,
+    width: '100%'
   });
 <% end %>
 
