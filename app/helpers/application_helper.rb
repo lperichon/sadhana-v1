@@ -42,4 +42,8 @@ module ApplicationHelper
     end
     output
   end
+
+  def field_help(help)
+    content_tag :span, content_tag(:span, '(?)', :class=>'ui-icon ui-icon-help', :title => help), :class => 'ui-state-default ui-corner-all help'
+  end
 end
