@@ -52,3 +52,10 @@ en:
       seconds: "Seconds to hold the technique"
       compensate: "Compensate to the other side?"
       observations: "Any observations?"
+  menu:
+    my_practices: "My Practices"
+    calendar: "Calendar"
+    sign_out: "Sign out"
+    sign_up: "Sign up"
+    sign_in: "Sign in"
+    signed_in_as: "Signed in as {{email}}. Not you?"

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= controller.controller_name.capitalize %>: <%= controller.action_name %></title>
+    <title>S&aacute;dhana</title>
 
     <%= stylesheet_link_tag 'ui-lightness/jquery-ui-1.8rc3.custom' %>
     <%= stylesheet_link_tag 'awesome' %>
@@ -45,8 +45,8 @@
       <div id='menu'>
         <% if user_signed_in? %>
           <ul class= 'menu'>
-            <li><%= link_to 'My Practices', practices_path %></li>
-            <li><%= link_to 'Calendar', practice_events_path %></li>
+            <li><%= link_to t('menu.my_practices'), practices_path %></li>
+            <li><%= link_to t('menu.calendar'), practice_events_path %></li>
           </ul>
         <% end %>
       </div>
@@ -54,11 +54,11 @@
       <div id="user_nav">
         <p>
           <% if user_signed_in? %>
-            Signed in as <%= current_user.email %>. Not you?
-            <%= link_to "Sign out", destroy_user_session_path %>
+            <%= t('menu.signed_in_as', :email => current_user.email) %>
+            <%= link_to t('menu.sign_out'), destroy_user_session_path %>
           <% else %>
-            <%= link_to "Sign up", new_user_registration_path %> or
-            <%= link_to "Sign in", new_user_session_path %>
+            <%= link_to t('menu.sign_up'), new_user_registration_path %> or
+            <%= link_to t('menu.sign_in'), new_user_session_path %>
           <% end %>
         </p>
       </div>
