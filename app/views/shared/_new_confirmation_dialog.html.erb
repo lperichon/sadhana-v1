@@ -1,0 +1,25 @@
+<div id='new_confirmation_dialog' style='display:none' title='<%= t('shared.new_confirmation_dialog.title') %>'>
+  <%= form_for(resource_name, resource, :url => confirmation_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :email %>
+      <% unless resource.errors[:email].blank? %>
+        <span id='errorExplanation'>- <%= resource.errors[:email].first %></span>
+      <% end %>
+      <br/>
+      <%= f.text_field :email %>
+    </div>
+  <% end %>
+
+  <%= render :partial => "shared/registration_links" %>
+</div>
+
+<%= javascript_tag do %>
+  $('#new_confirmation_dialog').dialog({autoOpen: false, modal: true, buttons: {
+  '<%= t('actions.resend') %>': function() {
+      $('#new_confirmation_dialog form').submit();
+    },
+  '<%= t('actions.cancel') %>': function() {
+      $(this).dialog('close');
+    }
+  }});
+<% end %>

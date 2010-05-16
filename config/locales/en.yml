@@ -28,6 +28,20 @@ en:
       title: "Edit practice technique"
     edit_event_dialog:
       title: "Edit event"
+    new_confirmation_dialog:
+      title: "Resend confirmation instructions"
+    links:
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+      forgot_password: "Forgot your password?"
+      confirmation_instructions: "Didn't receive confirmation instructions?"
+      unlock_instructions: "Didn't receive unlock instructions?"
+    sign_up_dialog:
+      title: "Sign up"
+    forgot_password_dialog:
+      title: "Forgot your password?"
+    sign_in_dialog:
+      title: "Sign in"
   practice:
     help:
       name: "The name you want for your practice."
@@ -42,6 +56,10 @@ en:
     destroy: "Destroy"
     edit: "Edit"
     update: "Update"
+    resend: "Resend"
+    sign_in: "Sign in"
+    save: "Save"
+    sign_up: "Sign up"
   practice_event:
     help:
       practice: "Choose the practice."

@@ -6,7 +6,7 @@ page << %(
     width: 390,
     modal: true,
     buttons: {
-      Save: function() {
+      '#{t('actions.save')}': function() {
         $.ajax({
             type:'post',
             dataType: 'script',
@@ -17,7 +17,7 @@ page << %(
             }
         });
       },
-      Cancel: function() {
+      '#{t('actions.cancel')}: function() {
         $('#new_practice_dialog').dialog('close');
       }
     }

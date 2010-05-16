@@ -18,7 +18,7 @@
         height:140,
         modal: true,
         buttons: {
-          #{t('actions.delete')}: function() {
+          '#{t('actions.delete')}': function() {
             $.ajax({
                 type:'put',
                 data: { 'practice_technique[remove_technique_id]': #{technique.id} },
@@ -26,7 +26,7 @@
                 url: '#{practice_practice_technique_path(practice_technique.practice, practice_technique)}'});
             $(this).dialog('close');
           },
-          #{t('actions.cancel')}: function() {
+          '#{t('actions.cancel')}': function() {
             $(this).dialog('close');
           }
         }

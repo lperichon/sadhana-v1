@@ -57,8 +57,8 @@
             <%= t('menu.signed_in_as', :email => current_user.email) %>
             <%= link_to t('menu.sign_out'), destroy_user_session_path %>
           <% else %>
-            <%= link_to t('menu.sign_up'), new_user_registration_path %> or
-            <%= link_to t('menu.sign_in'), new_user_session_path %>
+            <%= link_to_function t('menu.sign_up'), "$.ajax({ type:'get', dataType: 'script', url: '#{new_user_registration_path}'});" %> or
+            <%= link_to_function t('menu.sign_in'), "$.ajax({ type:'get', dataType: 'script', url: '#{new_user_session_path}'});" %>
           <% end %>
         </p>
       </div>
@@ -84,8 +84,14 @@
 
       <%= yield %>
     </div>
-  <%= javascript_tag do %>
-    Cufon.now();
-  <% end %>
+
+    <%= render :partial => 'shared/sign_in_dialog' %>
+    <%= render :partial => 'shared/sign_up_dialog' %>
+    <%= render :partial => 'shared/new_confirmation_dialog' %>
+    <%= render :partial => 'shared/forgot_password_dialog' %>
+
+    <%= javascript_tag do %>
+      Cufon.now();
+    <% end %>
   </body>
 </html>

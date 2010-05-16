@@ -29,7 +29,7 @@ class Admin::TechniquesController < AdminApplicationController
     @technique = Technique.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # _sign_in_dialog.html.erb
       format.xml  { render :xml => @technique }
     end
   end

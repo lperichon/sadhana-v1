@@ -7,7 +7,7 @@ page << %(
     width: 350,
     modal: true,
     buttons: {
-      Update: function() {
+      '#{t('actions.update')}': function() {
         $.ajax({
             type:'put',
             dataType: 'script',
@@ -18,7 +18,7 @@ page << %(
             }
         });
       },
-      Cancel: function() {
+      '#{t('actions.cancel')}: function() {
         $('#edit_practice_technique_dialog').dialog('close');
       }
     }

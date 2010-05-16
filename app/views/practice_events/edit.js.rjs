@@ -7,7 +7,7 @@ page << %(
     width: 350,
     modal: true,
     buttons: {
-      #{t('actions.update')}: function() {
+      '#{t('actions.update')}': function() {
         $.ajax({
             type:'put',
             dataType: 'script',
@@ -18,13 +18,13 @@ page << %(
             }
         });
       },
-      #{t('actions.delete')}: function() {
+      '#{t('actions.delete')}': function() {
         $('#confirm_dialog').dialog({
           resizable: false,
           height:140,
           modal: true,
           buttons: {
-            #{t('actions.delete')}: function() {
+            '#{t('actions.delete')}': function() {
               $.ajax({
                   type:'post',
                   data: { '_method': 'delete' },
@@ -36,13 +36,13 @@ page << %(
               });
               $(this).dialog('close');
             },
-            #{t('actions.cancel')}: function() {
+            '#{t('actions.cancel')}': function() {
               $(this).dialog('close');
             }
           }
         });
       },
-      #{t('actions.cancel')}: function() {
+      '#{t('actions.cancel')}': function() {
         $('#calendar').fullCalendar('renderEvent', #{js_event(@practice_event)});
         $('#edit_event_dialog').dialog('close');
       }

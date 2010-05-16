@@ -27,7 +27,7 @@ class Admin::TechniqueTypesController < AdminApplicationController
     @technique_type = TechniqueType.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # _sign_in_dialog.html.erb
       format.xml  { render :xml => @technique_type }
     end
   end

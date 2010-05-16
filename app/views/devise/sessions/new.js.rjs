@@ -1,0 +1,1 @@
+page << "$('#sign_in_dialog').dialog('open');"

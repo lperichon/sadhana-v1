@@ -1,0 +1,1 @@
+page << "$('#forgot_password_dialog').dialog('open');"

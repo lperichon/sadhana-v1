@@ -1,0 +1,30 @@
+<div id='sign_in_dialog' style='display:none' title='<%= t('shared.sign_in_dialog.title') %>'>
+  <%= form_for(resource_name, resource, :url => session_path(resource_name)) do |f| %>
+    <div class='field'>
+      <%= f.label :email %><br/>
+      <%= f.text_field :email %>
+    </div>
+    <div class='field'>
+    <%= f.label :password %><br/>
+    <%= f.password_field :password %>
+    </div>
+    <% if devise_mapping.rememberable? -%>
+      <div class='field'>
+        <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+      </div>
+    <% end -%>
+  <% end %>
+  <%= render :partial => "shared/registration_links" %>
+</div>
+
+<%= javascript_tag do %>
+  $('#sign_in_dialog').dialog({autoOpen: false, modal: true, buttons: {
+    '<%= t('actions.sign_in') %>': function() {
+        $('#sign_in_dialog form').submit();
+      },
+    '<%= t('actions.cancel') %>': function() {
+        $(this).dialog('close');
+      }
+    }
+  });
+<% end %>

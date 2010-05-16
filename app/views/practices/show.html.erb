@@ -131,7 +131,7 @@
         height:140,
         modal: true,
         buttons: {
-        <%= t('actions.delete') %>: function() {
+        '<%= t('actions.delete') %>': function() {
             $.ajax({
                 type:'post',
                 data: { '_method': 'delete' },
@@ -145,7 +145,7 @@
             });
             $(this).dialog('close');
           },
-          <%= t('actions.cancel') %>: function() {
+          '<%= t('actions.cancel') %>': function() {
             $(this).dialog('close');
           }
         }
