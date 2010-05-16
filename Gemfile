@@ -14,6 +14,8 @@ gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git', :branch =>
 
 gem 'nokogiri'
 
+gem 'high_voltage', :branch => "rails3"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

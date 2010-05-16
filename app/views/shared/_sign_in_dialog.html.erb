@@ -1,5 +1,5 @@
 <div id='sign_in_dialog' style='display:none' title='<%= t('shared.sign_in_dialog.title') %>'>
-  <%= form_for(resource_name, resource, :url => session_path(resource_name)) do |f| %>
+  <%= form_for(:user, :url => session_path(:user)) do |f| %>
     <div class='field'>
       <%= f.label :email %><br/>
       <%= f.text_field :email %>
@@ -8,13 +8,11 @@
     <%= f.label :password %><br/>
     <%= f.password_field :password %>
     </div>
-    <% if devise_mapping.rememberable? -%>
-      <div class='field'>
-        <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-      </div>
-    <% end -%>
+    <div class='field'>
+      <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+    </div>
   <% end %>
-  <%= render :partial => "shared/registration_links" %>
+  <%= render :partial => "shared/registration_links", :locals => {:action => :sign_in} %>
 </div>
 
 <%= javascript_tag do %>

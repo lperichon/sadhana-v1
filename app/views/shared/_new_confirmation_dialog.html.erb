@@ -1,16 +1,16 @@
 <div id='new_confirmation_dialog' style='display:none' title='<%= t('shared.new_confirmation_dialog.title') %>'>
-  <%= form_for(resource_name, resource, :url => confirmation_path(resource_name)) do |f| %>
+  <%= form_for(:user, :url => confirmation_path(:user)) do |f| %>
     <div class="field">
       <%= f.label :email %>
-      <% unless resource.errors[:email].blank? %>
-        <span id='errorExplanation'>- <%= resource.errors[:email].first %></span>
+      <% unless !@user || @user.errors[:email].blank? %>
+        <span id='errorExplanation'>- <%= @user.errors[:email].first %></span>
       <% end %>
       <br/>
       <%= f.text_field :email %>
     </div>
   <% end %>
 
-  <%= render :partial => "shared/registration_links" %>
+  <%= render :partial => "shared/registration_links", :locals => {:action => :new_confirmation} %>
 </div>
 
 <%= javascript_tag do %>

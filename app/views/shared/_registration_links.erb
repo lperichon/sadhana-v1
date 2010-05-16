@@ -1,17 +1,17 @@
 <div id='registration_links'>
-  <%- if controller_name != 'sessions' %>
+  <%- if action != :sign_in %>
     <%= link_to_function t('shared.links.sign_in'), "$(this).parents('.ui-dialog-content').dialog('close'); $('#sign_in_dialog').dialog('open');" %><br />
   <% end -%>
 
-  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%- if action != :sign_up %>
     <%= link_to_function t('shared.links.sign_up'), "$(this).parents('.ui-dialog-content').dialog('close'); $('#sign_up_dialog').dialog('open');" %><br />
   <% end -%>
 
-  <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+  <%- if action != :forgot_password %>
     <%= link_to_function t('shared.links.forgot_password'), "$(this).parents('.ui-dialog-content').dialog('close'); $('#forgot_password_dialog').dialog('open');" %><br />
   <% end -%>
 
-  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <%- if action != :new_confirmation %>
     <%= link_to_function t('shared.links.confirmation_instructions'), "$(this).parents('.ui-dialog-content').dialog('close'); $('#new_confirmation_dialog').dialog('open');" %><br />
   <% end -%>
 </div>
