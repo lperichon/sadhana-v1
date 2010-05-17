@@ -27,7 +27,9 @@ Sadhana::Application.routes.draw do |map|
     end
   end
 
-  root :to => 'practices#index'
+  root :to => 'high_voltage/pages#show', :id => 'home'
+
+  match 'practices' => 'practices#index', :as => :user_root
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
