@@ -1,6 +1,6 @@
 Sadhana::Application.routes.draw do |map|
   devise_for :admins
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "users/registrations" }
 
   resources :techniques
 

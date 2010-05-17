@@ -46,4 +46,13 @@ module ApplicationHelper
   def field_help(help)
     content_tag :span, content_tag(:span, '(?)', :class=>'ui-icon ui-icon-help', :title => help), :class => 'ui-state-default ui-corner-all help'
   end
+
+  # Shows language selection.
+  def language_selection
+    r = []
+    I18n.backend.available_locales.each do |language_code|
+      r << link_to_unless(I18n.locale == language_code, I18n.t('this_file_language', :locale => language_code) , params.merge(:locale => language_code)) + "&nbsp;"
+    end
+    r
+  end
 end

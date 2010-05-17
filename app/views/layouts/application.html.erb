@@ -54,7 +54,7 @@
       <div id="user_nav">
         <p>
           <% if user_signed_in? %>
-            <%= t('menu.signed_in_as', :email => current_user.email) %>
+            <%= t('menu.signed_in_as', :email => link_to(current_user.email, edit_registration_path(:user))) %>
             <%= link_to t('menu.sign_out'), destroy_user_session_path %>
           <% else %>
             <%= link_to_function t('menu.sign_up'), "$.ajax({ type:'get', dataType: 'script', url: '#{new_user_registration_path}'});" %> or
