@@ -43,6 +43,10 @@ en:
       title: "Forgot your password?"
     sign_in_dialog:
       title: "Sign in"
+    edit_profile_dialog:
+      title: "Edit Profile"
+      current_password_help: "we need your current password to confirm your changes."
+      password_help: "leave blank if you don't want to change it."
   practice:
     help:
       name: "The name you want for your practice."

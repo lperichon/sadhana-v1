@@ -54,11 +54,11 @@
       <div id="user_nav">
         <p>
           <% if user_signed_in? %>
-            <%= t('menu.signed_in_as', :email => link_to(current_user.email, edit_registration_path(:user))) %>
+            <%= t('menu.signed_in_as', :email => link_to_function(current_user.email, "$('#edit_profile_dialog').dialog('open');")) %>
             <%= link_to t('menu.sign_out'), destroy_user_session_path %>
           <% else %>
-            <%= link_to_function t('menu.sign_up'), "$.ajax({ type:'get', dataType: 'script', url: '#{new_user_registration_path}'});" %> or
-            <%= link_to_function t('menu.sign_in'), "$.ajax({ type:'get', dataType: 'script', url: '#{new_user_session_path}'});" %>
+            <%= link_to_function t('menu.sign_up'), "$('#sign_up_dialog').dialog('open');" %> or
+            <%= link_to_function t('menu.sign_in'), "$('#sign_in_dialog').dialog('open');" %>
           <% end %>
         </p>
       </div>
@@ -89,6 +89,9 @@
     <%= render :partial => 'shared/sign_up_dialog' %>
     <%= render :partial => 'shared/new_confirmation_dialog' %>
     <%= render :partial => 'shared/forgot_password_dialog' %>
+    <% if user_signed_in? %>
+      <%= render :partial => 'shared/edit_profile_dialog' %>
+    <% end %>
 
     <%= javascript_tag do %>
       Cufon.now();

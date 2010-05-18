@@ -1,1 +1,0 @@
-page << "$('#sign_up_dialog').dialog('open');"
