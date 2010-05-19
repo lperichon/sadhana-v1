@@ -1,4 +1,4 @@
-<div id='edit_profile_dialog' style='display:none' title='<%= t('shared.edit_profile_dialog..title') %>'>
+<div id='edit_profile_dialog' style='display:none' title='<%= t('shared.edit_profile_dialog.title') %>'>
   <%= form_for(current_user, :url => registration_path(:user), :html => { :method => :put }) do |f| %>
     <div class="field">
       <%= f.label :email %><br/>
@@ -14,7 +14,7 @@
     </div>
     <div class='field'>
       <%= f.label :locale %><br/>
-      <%= select :user, :locale, I18n.backend.available_locales.collect {|l| [I18n.t('this_file_language', :locale => l), l.to_s]} ,{:selected => current_user.locale} %>
+      <%= select :user, :locale, I18n.backend.available_locales.collect {|l| [I18n.t('this_file_language', :locale => l), l.to_s]}, {:selected => current_user.locale} %>
     </div>
     <div class="field">
       <%= f.label :current_password %> <%= field_help t('shared.edit_profile_dialog.current_password_help') %><br/>
