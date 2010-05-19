@@ -17,7 +17,7 @@ page << %(
             }
         });
       },
-      '#{t('actions.cancel')}: function() {
+      '#{t('actions.cancel')}': function() {
         $('#new_practice_dialog').dialog('close');
       }
     }
