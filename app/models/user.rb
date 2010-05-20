@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
 
   has_many :practices
   has_many :practice_events
+
+  acts_as_subscriber
 end

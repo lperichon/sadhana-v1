@@ -1,0 +1,29 @@
+<h1>Listing subscriptions</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Plan</th>
+    <th>State</th>
+    <th>Next Renewal</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @subscriptions.each do |subscription| %>
+  <tr>
+    <td><%= subscription.subscriber.email %></td>
+    <td><%= subscription.plan.name %></td>
+    <td><%= subscription.state %></td>
+    <td><%= subscription.next_renewal_on %></td>
+    <td><%= link_to 'Show', [:admin, subscription] %></td>
+    <td><%= link_to 'Edit', edit_admin_subscription_path(subscription) %></td>
+    <td><%= link_to 'Destroy', [:admin, subscription], {:confirm => 'Are you sure?', :method => :delete} %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Technique type', new_admin_subscription_path %>

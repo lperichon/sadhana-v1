@@ -17,7 +17,18 @@ Sadhana::Application.routes.draw do |map|
     end
   end
 
+  resources :subscriptions do
+    member do
+      get :credit_card
+      get :history
+      post :store_credit_card
+      post :unstore_credit_card
+      get :cancel
+    end
+  end
+
   namespace :admin do
+    resources :subscriptions
     resources :technique_types
     resources :techniques do
       collection do

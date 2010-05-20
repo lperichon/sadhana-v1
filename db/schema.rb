@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100517203157) do
+ActiveRecord::Schema.define(:version => 20100519161229) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -65,6 +65,57 @@ ActiveRecord::Schema.define(:version => 20100517203157) do
     t.integer  "delay"
     t.integer  "user_id"
   end
+
+  create_table "subscription_plans", :force => true do |t|
+    t.string   "name",                      :null => false
+    t.integer  "rate_cents", :default => 0
+    t.integer  "interval",   :default => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subscription_profiles", :force => true do |t|
+    t.integer  "subscription_id"
+    t.string   "state"
+    t.string   "profile_key"
+    t.string   "card_first_name"
+    t.string   "card_last_name"
+    t.string   "card_type"
+    t.string   "card_display_number"
+    t.date     "card_expires_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subscription_transactions", :force => true do |t|
+    t.integer  "subscription_id", :null => false
+    t.integer  "amount_cents"
+    t.boolean  "success"
+    t.string   "reference"
+    t.string   "message"
+    t.string   "action"
+    t.text     "params"
+    t.boolean  "test"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "subscriber_id",                  :null => false
+    t.string   "subscriber_type",                :null => false
+    t.integer  "plan_id"
+    t.string   "state"
+    t.date     "next_renewal_on"
+    t.integer  "warning_level"
+    t.integer  "balance_cents",   :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subscriptions", ["next_renewal_on"], :name => "index_subscriptions_on_next_renewal_on"
+  add_index "subscriptions", ["state"], :name => "index_subscriptions_on_state"
+  add_index "subscriptions", ["subscriber_id"], :name => "index_subscriptions_on_subscriber_id"
+  add_index "subscriptions", ["subscriber_type"], :name => "index_subscriptions_on_subscriber_type"
 
   create_table "technique_types", :force => true do |t|
     t.string   "name"

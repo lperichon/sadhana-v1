@@ -2,6 +2,9 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+# fix for active_merchant. Remove when new gem is released
+require 'active_support/all'
+
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
@@ -39,6 +42,7 @@ module Sadhana
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters << :password
+    config.filter_parameters << :credit_card
 
     # Cookie secret (Originaly from initializers/cookie_verification_secret.rb)
     config.secret_token = '425a9b6ff5b1cec8e884220b1c1521a945a069d14f50e08799104891d08c5012584043a3f98038c62af45dc5a12cb42f5a5e6d78be16217e288d74986c713fa8'

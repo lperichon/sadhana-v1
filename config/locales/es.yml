@@ -1,3 +1,6 @@
 es:
   switch_language: "Cambiar idioma"
   this_file_language: "Español"
+  menu:
+    signed_in_as: "Conectado como {{email}}."
+    sign_out: "Salir"
