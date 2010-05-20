@@ -82,3 +82,6 @@ en:
     sign_up: "Sign up"
     sign_in: "Sign in"
     signed_in_as: "Signed in as {{email}}. Not you?"
+  application:
+    account_past_due: "Your account is past due. You have {{days}} remaining on the grace period."
+    account_due: "Your account is due on {{days}} days."

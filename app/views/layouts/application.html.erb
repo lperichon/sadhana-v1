@@ -81,6 +81,22 @@
           </p>
         </div>
       <% end %>
+      <% if user_signed_in? && current_user.subscription.days_remaining > 0 && current_user.subscription.days_remaining < 7 %>
+        <div class="notice ui-state-error ui-corner-all">
+          <p>
+            <span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+            <%= t('application.account_due', :days => current_user.subscription.days_remaining) %>
+          </p>
+        </div>
+      <% end %>
+      <% if user_signed_in? && current_user.subscription.past_due? %>
+        <div class="alert ui-state-error ui-corner-all">
+          <p>
+            <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+            <%= t('application.account_past_due', :days => current_user.subscription.grace_days_remaining) %>
+          </p>
+        </div>
+      <% end %>
 
       <%= yield %>
     </div>

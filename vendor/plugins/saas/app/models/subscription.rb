@@ -196,7 +196,7 @@ class Subscription < ActiveRecord::Base
     transaction do # makes this atomic
       #debugger
       # charge the card
-      tx  = SubscriptionTransaction.new(:success => true, :message => 'Successfull', :action => 'Manual Charge', :amount => balance_cents)
+      tx  = SubscriptionTransaction.new(:success => true, :message => 'Successfull', :action => 'Manual Charge', :amount_cents => balance_cents)
       # save the transaction
       transactions.push( tx )
       self.update_attribute :balance_cents, 0
