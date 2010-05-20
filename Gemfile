@@ -39,6 +39,10 @@ gem 'lockfile', '1.4.3'
 #   gem 'webrat'
 # end
 
+group :development do
+  gem "ruby-debug"
+end
+
 group :test do
   gem "machinist"
   gem "faker"

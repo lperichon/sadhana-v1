@@ -70,15 +70,18 @@ class Subscription < ActiveRecord::Base
       
       # charge the amount due
       case charge = charge_balance
-        
-      # transaction failed: past due and return false
-      when false:   past_due && false
-        
-      # not charged, subtracted from current balance: update renewal and return true
-      when nil:     active && true
-        
-      # card was charged: update renewal and return amount
-      else          active && charge
+        # transaction failed: past due and return false
+        when false:
+          Rails.logger.debug 'transaction failed: past due and return false'   
+          past_due && false
+        # not charged, subtracted from current balance: update renewal and return true
+        when nil:
+          Rails.logger.debug 'not charged, subtracted from current balance: update renewal and return true'
+          active && true
+        # card was charged: update renewal and return amount
+        else
+          Rails.logger.debug 'card was charged: update renewal and return amount'
+          active && charge
       end
     end
   end

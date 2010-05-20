@@ -1,14 +1,6 @@
 class SubscriptionsController < UserApplicationController
   before_filter :find_subscription
 
-  def show
-  end
-
-  def edit
-    # to change plans
-    @allowed_plans = @subscription.allowed_plans
-  end
-
   def update
     # find the plan
     plan = SubscriptionPlan.find params[:subscription][:plan]
@@ -30,14 +22,13 @@ class SubscriptionsController < UserApplicationController
       when false
         flash[:notice] << "An error occured trying to charge your credit card. Please update your card information."
       when Money
-        flash[:notice] << "Thank you for your payment. Your credit card has been charged #{result.format}"
+        flash[:notice] << "Thank you for your payment. Your credit card has been charged #{result.format(:symbol => true)}"
       end
-      return redirect_to subscription_path(:current)
+      return redirect_to practices_path
     end
     
     # failed above for some reason
-    @allowed_plans = @subscription.allowed_plans
-    render :action => 'edit'
+    redirect_to practices_path
   end
 
   def cancel
@@ -47,39 +38,48 @@ class SubscriptionsController < UserApplicationController
   end
 
   # could put these in separate controllers, but keeping it simple for now
-	def credit_card
-	  @profile = @subscription.profile
-	end
-	
-	def store_credit_card
-	  @subscription.profile.credit_card = params[:profile][:credit_card]
-	  @subscription.profile.request_ip = request.remote_ip
-	  if @subscription.profile.save
-	    case result = @subscription.renew
+  def credit_card
+    @profile = @subscription.profile
+    respond_to do |format|
+      format.js # credit_card.js.rjs
+    end
+  end
+
+  def store_credit_card
+    @profile = @subscription.profile
+    @profile.credit_card = params[:profile][:credit_card]
+    @profile.request_ip = request.remote_ip
+
+    if @subscription.profile.save
+      case result = @subscription.renew
       when false
         flash[:notice] = "An error occured trying to charge your credit card. Please update your card information."
       when Money
-	      flash[:notice] = "Thank you for your payment. Your credit card has been charged #{result.format}"
+        flash[:notice] = "Thank you for your payment. Your credit card has been charged #{result.format(:symbol => true)}"
       else
-	      flash[:notice] = "Credit card info successfully updated. No charges have been made at this time."  
+        flash[:notice] = "Credit card info successfully updated. No charges have been made at this time."
       end
-	    return redirect_to subscription_path(:current)
-    else
-	    @profile = @subscription.profile
-      render :action => 'credit_card'
+    end
+    respond_to do |format|
+      format.js
     end
   end
 
   def unstore_credit_card
     @subscription.profile.unstore_card
     @subscription.profile.save
-    return redirect_to subscription_path(:current) 
+    respond_to do |format|
+      format.js
+    end
   end
-	
-	def history
-	  @transactions = @subscription.transactions
-	end
-	
+
+  def history
+    @transactions = @subscription.transactions
+    respond_to do |format|
+      format.js # history.js.rjs
+    end
+  end
+
   private
 
   def find_subscription

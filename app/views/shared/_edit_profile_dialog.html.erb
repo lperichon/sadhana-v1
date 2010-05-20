@@ -1,4 +1,10 @@
 <div id='edit_profile_dialog' style='display:none' title='<%= t('shared.edit_profile_dialog.title') %>'>
+  <ul>
+    <li><a href="#info">User Info</a></li>
+    <li><a href="#subscription">Subscription</a></li>
+    <li id="ui-tab-dialog-close"></li>
+  </ul>
+  <div id="info">
   <%= form_for(current_user, :url => registration_path(:user), :html => { :method => :put }) do |f| %>
     <div class="field">
       <%= f.label :email %><br/>
@@ -21,16 +27,26 @@
       <%= f.password_field :current_password, :autocomplete => 'off' %>
     </div>
   <% end %>
+  </div>
+  <div id='subscription'>
+    <%= render :partial => 'shared/subscription_tab' %>
+  </div>
 </div>
 
 <%= javascript_tag do %>
+  $('#edit_profile_dialog').tabs();
   $('#edit_profile_dialog').dialog({autoOpen: false, modal: true, buttons: {
     '<%= t('actions.update') %>': function() {
-        $('#edit_profile_dialog form').submit();
+        if($('#edit_profile_dialog').tabs('option', 'selected') == 0) {
+          $('#edit_profile_dialog #info form').submit();
+        } else {
+          $('#edit_profile_dialog #subscription form').submit();
+        }
       },
     '<%= t('actions.cancel') %>': function() {
         $(this).dialog('close');
       }
     }
   });
+  $('#ui-tab-dialog-close').append($('a.ui-dialog-titlebar-close'));
 <% end %>
