@@ -1,11 +1,11 @@
 page << "$('#credit_card').html('#{escape_javascript render :partial => 'credit_card'}');"
 page << %(
   $('#credit_card').dialog({
-    title: "#{ @profile.no_info? ? 'Add a credit card' : 'Update credit card'}",
+    title: "#{ @profile.no_info? ? t('subscriptions.credit_card.add_title') : t('subscriptions.credit_card.update_title')}",
     autoOpen: true,
     modal: true,
     buttons: {
-      "#{@profile.no_info? ? 'Create' : 'Update'}": function() {
+      "#{@profile.no_info? ? t('actions.create') : t('actions.update')}": function() {
         $.ajax({
           type:'post',
           data: $('#credit_card form').serialize(),
@@ -14,7 +14,7 @@ page << %(
         });
         $(this).dialog('close');
       },
-      "Cancel": function() {
+      "#{t('actions.cancel')}": function() {
         $(this).dialog('close');
       }
     }

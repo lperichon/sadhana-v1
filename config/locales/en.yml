@@ -4,6 +4,13 @@
 en:
   switch_language: "Switch language"
   this_file_language: "English"
+  activerecord:
+    attributes:
+      credit_card:
+        type: "Card type"
+        number: "Card number"
+        verification_value: "Card Verification Value (CVV)"
+        expiration_date: "Expiration date"
   practices:
     index:
       new_practice: "New Practice"
@@ -47,6 +54,14 @@ en:
       title: "Edit Profile"
       current_password_help: "we need your current password to confirm your changes."
       password_help: "leave blank if you don't want to change it."
+      info_tab_title: "User Info"
+      subscription_tab_title: "Subscription"
+    subscription_tab:
+      no_credit_card: "(no credit card on file)"
+      card_expiration_date: "Expires: {{date}}"
+      transaction_history: "History"
+      transaction_failed: "FAILED TO"
+      card: "card"
   practice:
     help:
       name: "The name you want for your practice."
@@ -65,6 +80,8 @@ en:
     sign_in: "Sign in"
     save: "Save"
     sign_up: "Sign up"
+    add: "Add"
+    create: "Create"
   practice_event:
     help:
       practice: "Choose the practice."
@@ -86,3 +103,14 @@ en:
     account_past_due: "Your account is past due. You have {{days}} remaining on the grace period."
     account_due: "Your account is due on {{days}} days."
     pay_now_url: "https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif"
+  shared_subscription_tab:
+    current_plan_mark: "(current)"
+  subscriptions:
+    credit_card:
+      add_title: "Add a credit card"
+      update_title: "Update credit card"
+    transaction_history:
+      title: "Transaction history"
+  credit_card:
+    expiration_month: "month"
+    expiration_year: "year"

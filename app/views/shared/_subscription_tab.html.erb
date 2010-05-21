@@ -1,36 +1,35 @@
 <%= form_for current_user.subscription do |f| %>
   <div class='field'>
     <%= f.label :plan %><br />
-    <%= f.select :plan, current_user.subscription.allowed_plans.collect {|p| ["#{p.name}#{' (current)' if(p==current_user.subscription.plan)}" , p.id ] }, :selected => current_user.subscription.plan.id %>
+    <%= f.select :plan, current_user.subscription.allowed_plans.collect {|p| ["#{p.name}#{' ' + t('shared_subscription_tab.current_plan_mark') if(p==current_user.subscription.plan)}" , p.id ] }, :selected => current_user.subscription.plan.id %>
   </div>
   <div class='field'>
-    <%= f.label :credit_card %> (
-      <%= link_to_function ((current_user.subscription.profile && !current_user.subscription.profile.no_info?) ? 'update' : 'add'), "$.ajax({type: 'get', url:'#{credit_card_subscription_path(:current)}', dataType: 'script'});" %>
-      <% if current_user.subscription.profile && !current_user.subscription.profile.no_info? %>
-, <%= link_to_function 'remove', "$.ajax({type: 'post', url:'#{unstore_credit_card_subscription_path(:current)}', dataType: 'script'});" %>
-      <% end %>
-    )<br />
+    <%= f.label :credit_card %> (<%= link_to_function ((current_user.subscription.profile && !current_user.subscription.profile.no_info?) ? t('actions.update') : t('actions.add')), "$.ajax({type: 'get', url:'#{credit_card_subscription_path(:current)}', dataType: 'script'});" -%>
+      <%- if current_user.subscription.profile && !current_user.subscription.profile.no_info? -%>
+, <%= link_to_function 'remove', "$.ajax({type: 'post', url:'#{unstore_credit_card_subscription_path(:current)}', dataType: 'script'});" -%>
+      <%- end -%>
+)<br />
     <% if current_user.subscription.profile.nil? || current_user.subscription.profile.no_info? %>
-      <p>(no credit card on file)</p>
+      <p><%= t('shared.subscription_tab.no_credit_card') %></p>
     <% else %>
       <p>
         <%= "#{current_user.subscription.profile.card_type.titleize} #{current_user.subscription.profile.card_display_number}"%><br/>
-        <%= "Expires: #{current_user.subscription.profile.card_expires_on}" %>
+        <%= t('shared.subscription_tab.card_expiration_date', :date => current_user.subscription.profile.card_expires_on) %>
       </p>
     <% end %>
     <div id='credit_card'></div>
   </div>
   <% if t = current_user.subscription.latest_transaction %>
     <div class='field'>
-      <%= f.label :latest_transaction %> ( <%= link_to_function 'history', "$.ajax({type:'get', url:'#{history_subscription_path(:current)}', dataType:'script'});" %> )<br/>
+      <%= f.label :latest_transaction %> (<%= link_to_function t('shared.subscription_tab.transaction_history'), "$.ajax({type:'get', url:'#{history_subscription_path(:current)}', dataType:'script'});" %>)<br/>
       <p>
         <%# make this a helper %>
-        <%= t.created_at %>:
-        <%= 'FAILED TO' unless t.success? %>
-        <%= t.action.capitalize %><%= 'card' if t.token.present? %><%= "for #{t.amount.format(:symbol => true)}" unless t.amount.nil? %>.
-        <%= t.message %>
+        <%= t.created_at %><br/>
+        <%= t('shared.subscription_tab.transaction_failed') unless t.success? %>
+        <%= t.action.capitalize %><%= t('shared.subscription_tab.card') if t.token.present? %><%= " #{t.amount.format(:symbol => true)}" unless t.amount.nil? %>.
+        <%= t.message %>.
       </p>
     </div>
-    <div id='transaction_history' title='Transaction history'></div>
+    <div id='transaction_history' title='<%= t('subscriptions.transaction_history.title') %>'></div>
   <% end %>
 <% end %>
