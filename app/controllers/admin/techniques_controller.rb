@@ -1,5 +1,3 @@
-require "csv"
-
 class Admin::TechniquesController < AdminApplicationController
   # GET /techniques
   # GET /techniques.xml
@@ -89,15 +87,14 @@ class Admin::TechniquesController < AdminApplicationController
 
   def do_csv_import
     n = 0
-    buffer = open(params[:import][:file], "UserAgent" => "Ruby-CSVReader").read
     technique_type = TechniqueType.find(params[:import][:technique_type_id])
-    CSV.parse(buffer) do |row|
-      t = Technique.new
-      t.name = row[0]
-      t.technique_type = technique_type 
+    csv = FasterCSV.new(params[:import][:file])
+    csv.each do |row|
+      t = Technique.new(:name => row[0], :technique_type => technique_type)
       n = n + 1 if t.save
       GC.start if n%50==0
     end
+    csv.close
     redirect_to admin_techniques_url, :notice => "CSV Import Successful,  #{n} new records added to the database"
   end
 end
