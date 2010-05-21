@@ -4,3 +4,5 @@ es:
   menu:
     signed_in_as: "Conectado como {{email}}."
     sign_out: "Salir"
+  application:
+    pay_now_url: "https://www.paypal.com/es_XC/i/btn/btn_paynowCC_LG.gif"

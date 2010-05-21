@@ -94,6 +94,19 @@
           <p>
             <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
             <%= t('application.account_past_due', :days => current_user.subscription.grace_days_remaining) %>
+
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="perichon@gmail.com">
+            <input type="hidden" name="lc" value="AR">
+            <input type="hidden" name="item_name" value="Sadhana Monthly Fee">
+            <input type="hidden" name="amount" value="2.00">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="button_subtype" value="services">
+            <input type="hidden" name="bn" value="PP-BuyNowBF:btn_paynowCC_LG.gif:NonHostedGuest">
+            <input type="image" src="<%= t('application.pay_now_url') %>" border="0" name="submit">
+            <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
           </p>
         </div>
       <% end %>

@@ -85,3 +85,4 @@ en:
   application:
     account_past_due: "Your account is past due. You have {{days}} remaining on the grace period."
     account_due: "Your account is due on {{days}} days."
+    pay_now_url: "https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif"

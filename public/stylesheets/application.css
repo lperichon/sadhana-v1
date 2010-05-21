@@ -18,6 +18,19 @@
   margin-right: 10px;
 }
 
+.alert {
+  overflow: auto;
+}
+
+.alert p {
+  float: left;
+}
+
+.alert form {
+  float: left;
+  margin-top: 3px;
+}
+
 ul.actions {
   padding: 0;
 }
