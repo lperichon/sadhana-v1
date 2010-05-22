@@ -5,28 +5,7 @@
     <li id="ui-tab-dialog-close"></li>
   </ul>
   <div id="info">
-  <%= form_for(current_user, :url => registration_path(:user), :html => { :method => :put }) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br/>
-      <%= f.text_field :email %>
-    </div>
-    <div class="field">
-      <%= f.label :password %> <%= field_help t('shared.edit_profile_dialog.password_help') %><br/>
-      <%= f.password_field :password, :autocomplete => 'off' %>
-    </div>
-    <div class="field">
-      <%= f.label :password_confirmation %><br/>
-      <%= f.password_field :password_confirmation, :autocomplete => 'off' %>
-    </div>
-    <div class='field'>
-      <%= f.label :locale %><br/>
-      <%= select :user, :locale, I18n.backend.available_locales.collect {|l| [I18n.t('this_file_language', :locale => l), l.to_s]}, {:selected => current_user.locale} %>
-    </div>
-    <div class="field">
-      <%= f.label :current_password %> <%= field_help t('shared.edit_profile_dialog.current_password_help') %><br/>
-      <%= f.password_field :current_password, :autocomplete => 'off' %>
-    </div>
-  <% end %>
+    <%= render :partial => 'shared/registration_tab' %>
   </div>
   <div id='subscription'>
     <%= render :partial => 'shared/subscription_tab' %>
@@ -38,9 +17,9 @@
   $('#edit_profile_dialog').dialog({autoOpen: false, modal: true, buttons: {
     '<%= t('actions.update') %>': function() {
         if($('#edit_profile_dialog').tabs('option', 'selected') == 0) {
-          $('#edit_profile_dialog #info form').submit();
+          $.ajax({type:'post', dataType: 'script', url: $('#edit_profile_dialog #info form').attr('action'), data: $('#edit_profile_dialog #info form').serialize(), success: function(data, textStatus, XMLHttpRequest) { if(XMLHttpRequest.getResponseHeader('Content-Type') != "text/javascript; charset=utf-8") {$('#edit_profile_dialog').dialog('close'); }; }});
         } else {
-          $('#edit_profile_dialog #subscription form').submit();
+          $.ajax({type:'post', dataType: 'script', url: $('#edit_profile_dialog #subscription form').attr('action'), data: $('#edit_profile_dialog #subscription form').serialize()});
         }
       },
     '<%= t('actions.cancel') %>': function() {
