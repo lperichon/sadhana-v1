@@ -2,10 +2,13 @@
   overflow: hidden;
 }
 
-#header h1 {
-  float: left;
-  margin-left: 10px;
-  font-weight: bold;
+#logo {
+  position: absolute;
+  background: transparent url("/images/logo_70.png") no-repeat;
+  text-indent: -9999px;
+  height: 62px;
+  width: 140px;
+  margin: 0;
 }
 
 #header #menu {
