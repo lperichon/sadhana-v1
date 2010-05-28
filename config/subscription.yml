@@ -10,7 +10,10 @@ defaults: &defaults
   
   # grace period length (days) after subscription is past due before it is expired (closed down)
   grace_period: 7
-  
+
+  # Return unused balance on plan change
+  return_unused_balance: false
+
   # define the mailer class name to use (default SubscriptionMailer provided with plugin)
   mailer_class: SubscriptionMailer
       

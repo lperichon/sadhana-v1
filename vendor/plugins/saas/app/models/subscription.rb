@@ -115,7 +115,7 @@ class Subscription < ActiveRecord::Base
     return if plan == new_plan
     
     # return unused prepaid value on current plan
-    self.balance -= plan.prorated_value( days_remaining ) if active?
+    self.balance -= plan.prorated_value( days_remaining ) if SubscriptionConfig.return_unused_balance && active?
     # or they owe the used (although unpaid) value on current plan [comment out if you want to be more forgiving]
     self.balance -= plan.rate - plan.prorated_value( past_due_days ) if past_due?
     
