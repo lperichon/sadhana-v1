@@ -1,10 +1,18 @@
 <ul class='actions'>
   <li>
-    <%= link_to_function t('practices.index.new_practice'), "$.ajax({
-          type:'get',
-          dataType: 'script',
-          url: '/practices/new'
-        });", :class => 'blue medium awesome' %>
+    <%= link_to t('practices.index.new_practice'), new_practice_path, :class => 'blue medium awesome', :id => 'new_practice_link'%>
+    <% unless current_user.practices_subscription_check(current_user.subscription.plan) %>
+      <%= javascript_tag do %>
+        $('#new_practice_link').click(function() {
+          $.ajax({
+            type:'get',
+            dataType: 'script',
+            url: '/practices/new'
+          });
+          return false;
+        });
+      <% end %>
+    <% end %>
   </li>
 </ul>
 

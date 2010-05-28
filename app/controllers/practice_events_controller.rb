@@ -1,11 +1,13 @@
 class PracticeEventsController < UserApplicationController
+  before_filter :require_paid_account, :except => :index
+
   # GET /practice_events
   # GET /practice_events.xml
   def index
     @practice_events = current_user.practice_events.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { require_paid_account(true) } # index.html.erb
       format.xml  { render :xml => @practice_events }
     end
   end
@@ -77,6 +79,16 @@ class PracticeEventsController < UserApplicationController
     respond_to do |format|
       format.xml  { head :ok }
       format.json { render :json => :ok }
+    end
+  end
+
+
+  protected
+
+  def require_paid_account(no_return = false)
+    if current_user.calendar_subscription_check(current_user.subscription.plan)
+      flash[:notice] = 'You require a paid subscription to access the calendar functionality.'
+      return redirect_to :back unless no_return
     end
   end
 end

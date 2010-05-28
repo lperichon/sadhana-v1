@@ -15,7 +15,7 @@ class PracticesController < UserApplicationController
     @practice = current_user.practices.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { require_subscription_check(@practice) } # show.html.erb
       format.xml  { render :xml => @practice }
     end
   end
@@ -26,6 +26,7 @@ class PracticesController < UserApplicationController
     @practice = current_user.practices.new
 
     respond_to do |format|
+      format.html { require_subscription_check(@practice) }
       format.xml  { render :xml => @practice }
       format.js {}
     end
@@ -34,6 +35,7 @@ class PracticesController < UserApplicationController
   # GET /practices/1/edit
   def edit
     @practice = current_user.practices.find(params[:id])
+
     respond_to do |format|
       format.xml  { render :xml => @practice }
     end
@@ -85,5 +87,24 @@ class PracticesController < UserApplicationController
 
   def play
     @practice = current_user.practices.find(params[:id])
+
+    require_subscription_check(@practice)
+  end
+
+
+  protected
+
+  def require_paid_account
+    if current_user.subscription.free?
+      flash[:notice] = 'You require a paid subscription for full functionality.'
+      return redirect_to :back
+    end
+  end
+
+  def require_subscription_check(practice)
+    if current_user.practices_subscription_check(current_user.subscription.plan) && (practice.new_record? || practice.position > current_user.subscription.plan.max_practices.to_i) 
+      flash[:notice] = 'You require a paid subscription for full functionality.'
+      return redirect_to :back
+    end
   end
 end

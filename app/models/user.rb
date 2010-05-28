@@ -7,8 +7,22 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :locale
 
-  has_many :practices
+  has_many :practices, :order => "position"
   has_many :practice_events
 
   acts_as_subscriber
+
+  def subscription_plan_check(plan = self.subscription_plan)
+#    exceeded = {}
+#    exceeded[:practice_count] = practices_subscription_check(plan)
+#    exceeded unless exceeded.empty?
+  end
+
+  def practices_subscription_check(plan)
+    plan.max_practices if plan.max_practices.to_i >= 0 &&  self.practices.count > plan.max_practices.to_i
+  end
+
+  def calendar_subscription_check(plan)
+    plan == SubscriptionPlan.default_plan 
+  end
 end
