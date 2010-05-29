@@ -1,1 +1,25 @@
 <div id='edit_practice_technique_dialog' style='display:none' title='<%= t('shared.edit_practice_technique_dialog.title') %>'></div>
+<%= javascript_tag do %>
+  $('#edit_practice_technique_dialog').dialog({
+    autoOpen: false,
+    height: 300,
+    width: 350,
+    modal: true,
+    buttons: {
+      '<%= t('actions.update') %>': function() {
+        $.ajax({
+            type:'put',
+            dataType: 'script',
+            data: $('#edit_practice_technique_dialog form').serialize(),
+            url: $('#edit_practice_technique_dialog form').attr('action'),
+            success: function() {
+              $('#edit_practice_technique_dialog').dialog('close');
+            }
+        });
+      },
+      '<%= t('actions.cancel')%>': function() {
+        $('#edit_practice_technique_dialog').dialog('close');
+      }
+    }
+  });
+<% end %>

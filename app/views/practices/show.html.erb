@@ -124,42 +124,6 @@
         });
       }
     }});
-    $('#delete_link').live('click', function() {
-      practice_technique_id = $(this).parents('.practice_technique').attr('practice_technique_id');
-      $('#confirm_dialog').dialog({
-        resizable: false,
-        height:140,
-        modal: true,
-        buttons: {
-        '<%= t('actions.delete') %>': function() {
-            $.ajax({
-                type:'post',
-                data: { '_method': 'delete' },
-                dataType: 'json',
-                url: '/practices/<%= @practice.id %>/practice_techniques/' + practice_technique_id,
-                success: function(data) {
-                  $('#practice_technique_'+practice_technique_id).fadeOut('slow', function() {
-                      $('#practice_technique_'+practice_technique_id).remove();
-                  });
-                }
-            });
-            $(this).dialog('close');
-          },
-          '<%= t('actions.cancel') %>': function() {
-            $(this).dialog('close');
-          }
-        }
-      });
-    });
-
-    $('#edit_link').live('click', function() {
-      practice_technique_id = $(this).parents('.practice_technique').attr('practice_technique_id');
-      $.ajax({
-          type:'get',
-          dataType: 'script',
-          url: '/practices/<%= @practice.id %>/practice_techniques/' + practice_technique_id + '/edit'
-      });
-    });
   });
 <% end %>
 

@@ -5,8 +5,37 @@
   </div>
   <div class='back'>
     <ul class='actions'>
-      <li class='ui-state-default ui-corner-all'><%= link_to( content_tag(:span, t('actions.edit'), :class => 'ui-icon ui-icon-pencil'), '#', :id => 'edit_link') %></li>
-      <li class='ui-state-default ui-corner-all'><%= link_to( content_tag(:span, t('actions.delete'), :class => 'ui-icon ui-icon-trash'), '#', :id => 'delete_link') %></li>
+      <li class='ui-state-default ui-corner-all'><%= link_to_function( content_tag(:span, t('actions.edit'), :class => 'ui-icon ui-icon-pencil'), "$.ajax({
+                type:'get',
+                dataType: 'script',
+                url: '/practices/#{ @practice.id }/practice_techniques/' + #{practice_technique.id} + '/edit'
+              });") %>
+      </li>
+      <li class='ui-state-default ui-corner-all'><%= link_to_function( content_tag(:span, t('actions.delete'), :class => 'ui-icon ui-icon-trash'), "$('#confirm_dialog').dialog({
+                resizable: false,
+                height:140,
+                modal: true,
+                buttons: {
+                '#{ t('actions.delete') }': function() {
+                    $.ajax({
+                        type:'post',
+                        data: { '_method': 'delete' },
+                        dataType: 'json',
+                        url: '/practices/#{ @practice.id }/practice_techniques/' + #{ practice_technique.id },
+                        success: function(data) {
+                          $('#practice_technique_'+ #{practice_technique.id}).fadeOut('slow', function() {
+                              $('#practice_technique_'+ #{practice_technique.id}).remove();
+                          });
+                        }
+                    });
+                    $(this).dialog('close');
+                  },
+                  '#{ t('actions.cancel') }': function() {
+                    $(this).dialog('close');
+                  }
+                }
+              });") %>
+      </li>
     </ul>
     <ul class='associated_techniques'>
     <% practice_technique.techniques.each do |technique| %>
