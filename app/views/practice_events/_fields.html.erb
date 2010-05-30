@@ -1,9 +1,12 @@
-<div class="field">
-  <%= f.label :practice_id %><% field_help t('practice_event.help.practice') %>
-  <br />
-  <%= f.collection_select :practice_id, current_user.practices, :id, :name %>
-</div>
-
+<% if @practice_event.practice %>
+  <%= f.hidden_field :practice_id %>
+<% else %>
+  <div class="field">
+    <%= f.label :practice_id %><% field_help t('practice_event.help.practice') %>
+    <br />
+    <%= f.collection_select :practice_id, current_user.practices, :id, :name %>
+  </div>
+<% end %>
 <div class="field">
   <%= f.label :start_string %><% field_help t('practice_event.help.start') %>
   <br />
