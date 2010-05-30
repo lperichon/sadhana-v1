@@ -24,11 +24,11 @@ class SubscriptionsController < UserApplicationController
       when Money
         flash[:notice] << "Thank you for your payment. Your credit card has been charged #{result.format(:symbol => true)}"
       end
-      return redirect_to practices_path
+#      return redirect_to practices_path
     end
     
     # failed above for some reason
-    redirect_to practices_path
+#    redirect_to practices_path
   end
 
   def cancel
