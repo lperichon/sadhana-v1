@@ -1,4 +1,4 @@
-<% if @practice_event.practice %>
+<% if @practice_event.new_record? && @practice_event.practice %>
   <%= f.hidden_field :practice_id %>
 <% else %>
   <div class="field">
