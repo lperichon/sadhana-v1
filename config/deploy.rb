@@ -27,7 +27,7 @@ namespace :deploy do
   end
 
   desc "Set the proper permissions for directories and files on HostingRails accounts"
-  task :symlink do
+  task :after_deploy do
     run(chmod755.collect do |item|
       "chmod 755 #{current_path}/#{item}"
     end.join(" && "))
