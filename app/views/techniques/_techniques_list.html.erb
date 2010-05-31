@@ -1,5 +1,12 @@
 <div id='<%= technique_type.symbol %>_techniques_list' class='techniques-list'>
   <% techniques.each do |technique| %>
-    <div class='<%= technique_type.symbol %> technique practice_technique' technique_id='<%= technique.id %>'><%= image_tag technique.photo.url(:thumb) %><h3><%= technique.name %></h3></div>
+    <div class='<%= technique_type.symbol %> technique practice_technique' technique_id='<%= technique.id %>'><%= image_tag technique.photo.url(:thumb) %><h3><%= link_to_function technique.name, "$.ajax({type:'get', dataType: 'script', url: '/techniques/#{technique.id}'});" %></h3></div>
   <% end %>
 </div>
+<div id='technique_dialog' style='display:none'></div>
+<%= javascript_tag do %>
+  $('#technique_dialog').dialog({
+    autoOpen: false,
+    modal: true
+  });
+<% end %>

@@ -41,6 +41,19 @@
   text-align: center;
 }
 
+#technique_dialog {
+  text-align: center;
+  overflow: hidden;
+}
+
+#technique_dialog img {
+  border: 1px solid black;
+}
+
+#technique_dialog p {
+  text-align: left;
+}
+
 #practice_techniques .practice_technique {
   cursor: move;
   border: 1px solid black;
