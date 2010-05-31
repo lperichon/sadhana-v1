@@ -6,6 +6,10 @@ page << %(
     height: 300,
     width: 350,
     modal: true,
+    closeOnEscape: false,
+    open:function() {
+      $(this).parents(".ui-dialog:first").find(".ui-dialog-titlebar-close").remove(); 
+    } ,
     buttons: {
       '#{t('actions.update')}': function() {
         $.ajax({
