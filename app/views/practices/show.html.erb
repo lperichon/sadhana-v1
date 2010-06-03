@@ -46,7 +46,7 @@
       $('#techniques_accordion .techniques-viewport').height($(window).height() - 310);
       $('#practice_techniques').height($(window).height() - 200);
     });
-    var qs = $('#q').quicksearch('.ui-accordion-content-active .techniques-list .technique', {selector: 'h3'});
+    var qs = $('#q').quicksearch('.techniques-list .technique', {selector: 'h3'});
     $.ajax({
       type:'get',
       data: { 'symbol': 'asana' },
