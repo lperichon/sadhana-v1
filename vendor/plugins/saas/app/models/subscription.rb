@@ -279,23 +279,23 @@ class Subscription < ActiveRecord::Base
   # named scopes
   # used in daily rake task
   # note, 'due' scopes find up to and including the specified day
-  named_scope :due_now, lambda { 
+  scope :due_now, lambda {
     { :conditions => ["next_renewal_on <= ?", Time.zone.today] }
   }
-  named_scope :due_on, lambda {|date|
+  scope :due_on, lambda {|date|
     { :conditions => ["next_renewal_on <= ?", date] }
   }
-  named_scope :due_in, lambda {|days|
+  scope :due_in, lambda {|days|
     { :conditions => ["next_renewal_on <= ?", Time.zone.today + days] }
   }
-  named_scope :due_ago, lambda {|days|
+  scope :due_ago, lambda {|days|
     { :conditions => ["next_renewal_on <= ?", Time.zone.today - days] }
   }
   
-  named_scope :with_no_warnings, lambda {
+  scope :with_no_warnings, lambda {
     { :conditions => { :warning_level => nil } }
   }
-  named_scope :with_warning_level, lambda {|level|
+  scope :with_warning_level, lambda {|level|
     { :conditions => { :warning_level => level } }
   }
   

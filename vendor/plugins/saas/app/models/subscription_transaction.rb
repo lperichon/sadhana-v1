@@ -8,7 +8,7 @@ class SubscriptionTransaction < ActiveRecord::Base
   attr_accessor :token
   
   # find recent 'charge' transactions that are greater or equal to amount
-  named_scope :charges_at_least, lambda {|amount|
+  scope :charges_at_least, lambda {|amount|
     { :conditions => ["action = ? AND amount_cents >= ?", 'charge', amount.cents],
       :order => "created_at DESC" }
   }

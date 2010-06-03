@@ -1,5 +1,5 @@
 class SubscriptionMailer < ActionMailer::Base
-  self.template_root = File.dirname(__FILE__)
+  self.prepend_view_path File.dirname(__FILE__)
     
   def trial_expiring(subscription)
     setup_email(subscription)
