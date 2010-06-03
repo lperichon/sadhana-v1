@@ -15,7 +15,9 @@ module Saas           #:nodoc:
             has_one :subscription, :as => :subscriber, :dependent => :destroy
           end
           validates_associated :subscription
-          
+
+          after_save :control_subscription
+
           include Saas::Acts::Subscriber::InstanceMethods
           extend Saas::Acts::Subscriber::SingletonMethods
         end
@@ -65,7 +67,7 @@ module Saas           #:nodoc:
   		  
         protected
         
-        def after_save
+        def control_subscription
           # this is the best time to create the subscription
           # because cannot build_subscription while self.id is still nil
           if subscription.nil?
