@@ -1,17 +1,19 @@
-<p>
-  <b><%= Practice.human_attribute_name :name %>:</b><%= field_help t('practice.help.name') %>
-  <%= jeditable_field(:practice, :name) %>
-</p>
+<div id='practice_data'>
+  <p>
+    <b><%= Practice.human_attribute_name :name %>:</b><%= field_help t('practice.help.name') %>
+    <%= jeditable_field(:practice, :name) %>
+  </p>
 
-<p>
-  <b><%= Practice.human_attribute_name :description %>:</b><%= field_help t('practice.help.description') %>
-  <%= jeditable_field(:practice, :description) %>
-</p>
+  <p>
+    <b><%= Practice.human_attribute_name :description %>:</b><%= field_help t('practice.help.description') %>
+    <%= jeditable_field(:practice, :description) %>
+  </p>
 
-<p>
-  <b><%= Practice.human_attribute_name :delay %>:</b><%= field_help t('practice.help.delay') %>
-  <%= jeditable_field(:practice, :delay) %>
-</p>
+  <p>
+    <b><%= Practice.human_attribute_name :delay %>:</b><%= field_help t('practice.help.delay') %>
+    <%= jeditable_field(:practice, :delay) %>
+  </p>
+</div>
 <div id='practice_editor'>
   <div id='sidebar'>
     <div class='ui-accordion ui-widget ui-helper-reset ui-accordion-icons'>
@@ -40,11 +42,11 @@
 
 <%= javascript_tag do %>
   $(document).ready(function(){
-    $('#techniques_accordion').height($(window).height() - 300);
-    $('#practice_techniques').height($(window).height() - 200);
+    $('#practice_editor #practice_techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - 60 );
+    $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - 170);
     $(window).resize(function() {
-      $('#techniques_accordion .techniques-viewport').height($(window).height() - 310);
-      $('#practice_techniques').height($(window).height() - 200);
+      $('#practice_editor #practice_techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - 60);
+      $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - 170);
     });
     var qs = $('#q').quicksearch('.techniques-list .technique', {selector: 'h3'});
     $.ajax({

@@ -10,11 +10,11 @@
 
 #sidebar {
   width: 15%;
+  height: 100%;
   display: inline-block;
 }
 
 #techniques_accordion .techniques-viewport {
-  height: 300px;
   padding: 0;
   overflow: auto;
 }
@@ -64,7 +64,7 @@
 
 #practice_techniques {
   width: 84.4%;
-  min-height: 165px;
+  height: 100%;
   display: inline-block;
   vertical-align: top;
   border: 1px solid #ccc;
