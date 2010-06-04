@@ -5,6 +5,10 @@
     <%= f.label :practice_id %><% field_help t('practice_event.help.practice') %>
     <br />
     <%= f.collection_select :practice_id, current_user.practices, :id, :name %>
+    <% unless @practice_event.new_record? %>
+      <%= link_to_function t('actions.show'), "window.location.href = '/practices/' + $('#practice_event_practice_id').val();", :class => 'small orange awesome' %>
+      <%= link_to_function t('actions.play'), "window.location.href = '/practices/' + $('#practice_event_practice_id').val() + '/play';", :class => 'small orange awesome' %>
+    <% end %>
   </div>
 <% end %>
 <div class="field">
