@@ -1,3 +1,24 @@
+<ul id='practice_actions' class='actions'>
+  <li>
+    <%= link_to t('actions.play'), play_practice_path, :class => 'blue medium awesome' %>
+  </li>
+  <li><%= link_to t('actions.add_to_calendar'), new_practice_event_path, :class => 'blue medium awesome', :id => "#{dom_id @practice}_add_to_calendar_link" %>
+    <% unless current_user.calendar_subscription_check(current_user.subscription.plan) %>
+      <% javascript_tag do %>
+        $('#<%= dom_id @practice %>_add_to_calendar_link').click(function() {
+          $.ajax({
+            type:'get',
+            data: 'practice_event[practice_id]=<%= @practice.id %>',
+            dataType: 'script',
+            url: '/practice_events/new'
+          });
+          return false;
+        });
+      <% end %>
+    <% end %>
+  </li>
+</ul>
+
 <div id='practice_data'>
   <p>
     <b><%= Practice.human_attribute_name :name %>:</b><%= field_help t('practice.help.name') %>
@@ -42,11 +63,11 @@
 
 <%= javascript_tag do %>
   $(document).ready(function(){
-    $('#practice_editor #practice_techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - 60 );
-    $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - 170);
+    $('#practice_editor #practice_techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - 60 );
+    $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - 170);
     $(window).resize(function() {
-      $('#practice_editor #practice_techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - 60);
-      $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - 170);
+      $('#practice_editor #practice_techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - 60);
+      $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - 170);
     });
     var qs = $('#q').quicksearch('.techniques-list .technique', {selector: 'h3'});
     $.ajax({
@@ -131,3 +152,4 @@
 
 <%= render :partial => 'shared/edit_practice_technique_dialog' %>
 <%= render :partial => 'shared/confirm_dialog' %>
+<%= render :partial => 'shared/new_event_dialog' %>
