@@ -180,7 +180,7 @@ span#jeditable_description input {
   height: 100px;
 }
 
-#countdown {
+#controls {
   margin: 5px 0;
   text-align: center;
   border: 1px solid #CCC;
@@ -188,6 +188,17 @@ span#jeditable_description input {
   -webkit-border-radius: 4px;
   font-size: 1.5em;
   line-height: 1.5em;
+}
+
+#controls a {
+    vertical-align: 40%;
+}
+
+#countdown {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 1.6em;
 }
 
 #slideshow_practice_techniques {

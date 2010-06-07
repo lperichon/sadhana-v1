@@ -82,6 +82,10 @@ en:
     sign_up: "Sign up"
     add: "Add"
     create: "Create"
+    previous: "Previous"
+    pause: "Pause"
+    next: "Next"
+    resume: "Resume"
   practice_event:
     help:
       practice: "Choose the practice."

@@ -24,13 +24,11 @@
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'jquery.jeditable' %>
     <%= javascript_include_tag 'jquery.cycle' %>
-    <%= javascript_include_tag 'jcountr' %>
+    <%= javascript_include_tag 'jquery.countdown' %>
     <%= javascript_include_tag 'jquery.sound' %>
     <%= javascript_include_tag 'fullcalendar' %>
     <%= javascript_include_tag 'timepicker' %>
     <%= javascript_include_tag 'jquery.quicksearch' %>
-    <%= javascript_include_tag 'cufon-yui' %>
-    <%= javascript_include_tag 'scriptina_400.font' %>
 
     <% if File.exist? File.join(Rails.public_path, "javascripts/#{controller.controller_name}.js") %>
       <%= javascript_include_tag controller.controller_name %>
@@ -120,10 +118,6 @@
     <%= render :partial => 'shared/forgot_password_dialog' %>
     <% if user_signed_in? %>
       <%= render :partial => 'shared/edit_profile_dialog' %>
-    <% end %>
-
-    <%= javascript_tag do %>
-      Cufon.now();
     <% end %>
   </body>
 </html>
