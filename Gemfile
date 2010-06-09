@@ -6,7 +6,7 @@ gem 'rails', '3.0.0.beta3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
-
+gem 'mysql', '2.8.1'
 gem 'ryanb-acts-as-list', '0.1.2', :require => 'acts_as_list'
 
 gem 'devise', '1.1.rc0'
