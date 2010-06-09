@@ -10,7 +10,7 @@ gem 'mysql', '2.8.1'
 gem 'ryanb-acts-as-list', '0.1.2', :require => 'acts_as_list'
 
 gem 'devise', '1.1.rc0'
-gem 'paperclip', '2.3.2', :git => 'git://github.com/isaac/paperclip'
+gem 'paperclip', '2.3.2'
 
 gem 'nokogiri', '1.4.1'
 
