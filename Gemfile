@@ -5,23 +5,16 @@ gem 'rails', '3.0.0.beta3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
-gem 'mysql', '2.8.1'
 gem 'ryanb-acts-as-list', '0.1.2', :require => 'acts_as_list'
-
 gem 'devise', '1.1.rc0'
 gem 'paperclip', '2.3.2'
-
 gem 'nokogiri', '1.4.1'
-
 gem 'high_voltage', '0.9.0', :branch => "rails3"
-
 gem 'active_merchant', '1.5.2', :require => 'active_merchant'
 gem 'money', '3.0.0'
 gem 'state_machine', '0.9.1'
 gem 'lockfile', '1.4.3'
-
-gem 'fastercsv'
+gem 'fastercsv', '1.5.3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -43,10 +36,18 @@ gem 'fastercsv'
 
 group :development do
   gem "ruby-debug"
+  gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
 end
 
 group :test do
   gem "machinist"
   gem "faker"
+  gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
+end
+
+group :production do
+  gem 'mysql', '2.8.1'
+  gem 'mongrel', '1.1.5'
+  gem "thin", '1.2.7'
 end
 
