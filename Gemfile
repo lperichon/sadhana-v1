@@ -6,7 +6,7 @@ gem 'rails', '3.0.0.beta3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'ryanb-acts-as-list', '0.1.2', :require => 'acts_as_list'
-gem 'devise', '1.1.rc0'
+gem 'devise', '1.1.rc1'
 gem 'paperclip', '2.3.2'
 gem 'nokogiri', '1.4.1'
 gem 'high_voltage', '0.9.0', :branch => "rails3"
