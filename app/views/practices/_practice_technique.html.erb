@@ -1,7 +1,7 @@
 <%= div_for(practice_technique, :practice_technique_id => practice_technique.id, :class => practice_technique.technique.technique_type.symbol) do %>
   <h3 class='<%= 'long' if practice_technique.technique.name.size > 27 %>'><%= practice_technique.technique.name %></h3>
   <div class='front'>
-    <%= image_tag practice_technique.technique.photo.url(:thumb) %>
+    <%= image_tag practice_technique.technique.photo.url(:thumb, false) %>
   </div>
   <div class='back'>
     <ul class='actions'>
