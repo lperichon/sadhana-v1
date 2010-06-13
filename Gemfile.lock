@@ -128,7 +128,7 @@ specs:
 - activeresource: 
     version: 3.0.0.beta3
 - bundler: 
-    version: 0.9.26
+    version: 0.9.25
 - cgi_multipart_eof_fix: 
     version: 2.5.0
 - columnize: 
