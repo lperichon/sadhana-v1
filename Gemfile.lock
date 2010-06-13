@@ -34,22 +34,22 @@ dependencies:
     group: 
     - :default
     version: = 3.0.0
-  high_voltage: 
-    group: 
-    - :default
-    version: = 0.9.0
-  ryanb-acts-as-list: 
-    group: 
-    - :default
-    version: = 0.1.2
-    require: 
-    - acts_as_list
   active_merchant: 
     group: 
     - :default
     version: = 1.5.2
     require: 
     - active_merchant
+  ryanb-acts-as-list: 
+    group: 
+    - :default
+    version: = 0.1.2
+    require: 
+    - acts_as_list
+  high_voltage: 
+    group: 
+    - :default
+    version: = 0.9.0
   machinist: 
     group: 
     - :test
@@ -58,14 +58,14 @@ dependencies:
     group: 
     - :production
     version: = 1.2.7
-  paperclip: 
-    group: 
-    - :default
-    version: = 2.3.2
   devise: 
     group: 
     - :default
     version: = 1.1.rc1
+  paperclip: 
+    group: 
+    - :default
+    version: = 2.3.2
   state_machine: 
     group: 
     - :default
@@ -74,10 +74,6 @@ dependencies:
     group: 
     - :default
     version: = 1.4.3
-  capistrano: 
-    group: 
-    - :default
-    version: = 2.5.18
   nokogiri: 
     group: 
     - :default
@@ -116,7 +112,7 @@ specs:
 - treetop: 
     version: 1.4.8
 - mail: 
-    version: 2.2.4
+    version: 2.2.3
 - text-hyphen: 
     version: 1.0.0
 - text-format: 
@@ -133,18 +129,6 @@ specs:
     version: 3.0.0.beta3
 - bundler: 
     version: 0.9.25
-- highline: 
-    version: 1.5.2
-- net-ssh: 
-    version: 2.0.23
-- net-scp: 
-    version: 1.0.2
-- net-sftp: 
-    version: 2.0.4
-- net-ssh-gateway: 
-    version: 1.0.1
-- capistrano: 
-    version: 2.5.18
 - cgi_multipart_eof_fix: 
     version: 2.5.0
 - columnize: 
@@ -201,7 +185,7 @@ specs:
     version: 0.9.1
 - thin: 
     version: 1.2.7
-hash: 2a1321c40efd83d8d39303d0c3a4cc5bc9a03245
+hash: 4bc8ca3c02192ac672db7d36243050a9a66e8788
 sources: 
 - Rubygems: 
     uri: http://rubygems.org
