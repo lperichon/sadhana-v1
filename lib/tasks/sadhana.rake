@@ -1,18 +1,26 @@
 require 'open-uri'
 
-namespace :techniques do
+namespace :asana do
   #rake techniques:download
-  desc "downloads techniques from uni-yoga.org"
+  desc "downloads ALL techniques from uni-yoga.org"
   task :download => :environment do
     puts "Downloading..."
     download
   end
 
   #rake techniques:update
-  desc "update techniques from uni-yoga.org"
+  desc "update existing techniques from uni-yoga.org"
   task :update => :environment do
     puts "Updating..."
     update
+  end
+end
+
+namespace :mudra do
+  desc "sets images on all techniques"
+  task :images => :environment do
+    puts "Setting images..."
+    set_images
   end
 end
 
@@ -95,5 +103,19 @@ def update
     rescue
       puts 'failed assigning ' + filename.to_s + ' to technique = ' + technique.name + '(' + technique_id.to_s + ')'
     end
+  end
+end
+
+def set_images
+  
+  files = Dir.entries("tmp/mudras").sort {|a,b| a.scan(/\d+/)[0].to_i <=> b.scan(/\d+/)[0].to_i}
+
+  mudra = TechniqueType.find_by_symbol('mudra')
+
+  mudra.techniques.each_with_index do |t, idx|
+    idx += 1
+    puts "#{idx} - #{files[idx+1]}"
+    t.photo = File.open("tmp/mudras/#{files[idx+1]}")
+    t.save!
   end
 end
