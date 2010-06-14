@@ -77,3 +77,27 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 #ui-tab-dialog-close a {
   float:none; padding:0;
 }
+
+
+#functionalities_slideshow {
+  float: left;
+  display: block;
+  width: 60%;
+  margin-left: 3%;
+}
+
+#functionalities_slideshow div {
+  display: block;
+  width: 85%;
+}
+
+#functionalities_list {
+  float: left;
+  width: 35%;
+  margin-left: 1%;
+  margin-right: 3%;
+}
+
+#sign_up_button {
+  text-align: center;
+}

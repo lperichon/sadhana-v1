@@ -1,0 +1,35 @@
+<div id='functionalities_slideshow'>
+  <div>
+    <h2>Manage your practices!</h2>
+    <%= image_tag 'screenshot_editor.png' %>
+  </div>
+  <div>
+    <h2>Practice @ home!</h2>
+    <%= image_tag 'screenshot_play.png' %>
+  </div>
+  <div>
+    <h2>Keep track of your practices!</h2>
+    <%= image_tag 'screenshot_calendar.png' %>
+  </div>
+</div>
+<div id="functionalities_list">
+  <h2>With S&aacute;dhana you can...</h2>
+  <ul>
+    <li>Manage your practices!</li>
+    <li>Practice @ home!</li>
+    <li>Keep track of your practices!</li>
+  </ul>
+
+  <h2>Get Started Now!</h2>
+  <p>If you practice Yôga, or teach it professionally, sign up now and start organizing your practices!</p>
+  <div id="sign_up_button">
+    <%= link_to_function 'Get Started Now!', "$('#sign_up_dialog').dialog('open');", :class => 'awesome large blue' %>
+  </div>
+</div>
+
+<%= javascript_tag do %>
+  $('#functionalities_slideshow').cycle({
+    fx: 'all',
+    fit: 1
+  });
+<% end %>
