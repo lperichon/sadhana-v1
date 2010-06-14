@@ -181,24 +181,44 @@ span#jeditable_description input {
 }
 
 #controls {
+  line-height: 2.5em;
   margin: 5px 0;
   text-align: center;
   border: 1px solid #CCC;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  font-size: 1.5em;
-  line-height: 1.5em;
+  display: block;
+  position: relative;
 }
 
-#controls a {
-    vertical-align: 40%;
+#controls #main_controls {
+  display: inline-block;
+  position: absolute;
+}
+
+#main_controls {
+  margin-left: 5px;
+}
+
+#main_controls a {
+  vertical-align: middle;
+}
+
+#play_controls {
+  display: inline-block;
+}
+
+#play_controls a {
+  vertical-align: middle;
 }
 
 #countdown {
     display: inline-block;
     margin-left: 5px;
     margin-right: 5px;
-    font-size: 1.6em;
+    font-size: 2em;
+    vertical-align: middle;
+    line-height: 1.5em;
 }
 
 #slideshow_practice_techniques {

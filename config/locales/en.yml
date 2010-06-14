@@ -86,6 +86,7 @@ en:
     pause: "Pause"
     next: "Next"
     resume: "Resume"
+    config: "Configure"
   practice_event:
     help:
       practice: "Choose the practice."
