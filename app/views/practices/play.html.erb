@@ -2,7 +2,7 @@
   <%= link_to content_tag(:span, t('actions.previous'), :id => 'prev'), "#", :class => "small orange awesome" %>
   <%= link_to_function t('actions.pause'), "$('#slideshow_practice_techniques').cycle('pause'); $('#countdown').countdown('pause');", :class => 'small orange awesome' %>
   <div id="countdown"></div>
-  <%= link_to_function t('actions.resume'), "$('#slideshow_practice_techniques').cycle('resume'); $('#countdown').countdown('resume');", :class => 'small orange awesome' %>
+  <%= link_to_function t('actions.play'), "$('#slideshow_practice_techniques').cycle('resume'); $('#countdown').countdown('resume');", :class => 'small orange awesome' %>
   <%= link_to content_tag(:span, t('actions.next'), :id => 'next'), "#" , :class => 'small orange awesome' %>
 </div>
 <div id='slideshow_practice_techniques' style='width: auto;'>
@@ -16,25 +16,19 @@
 
 
 <%= javascript_tag do %>
-  $('#countdown').countdown({until:"0:0", compact: true, description: ''});
+  $('#countdown').countdown({until:"0:0", compact: true, description: '', onExpiry: function() {$.sound.play('/ping.wav');$('#slideshow_practice_techniques').cycle('next');}});
   $('#slideshow_practice_techniques').cycle({
     prev:    '#prev',
     next:    '#next',
-    delay: (parseInt($('#slideshow_practice_techniques .slideshow_practice_technique').first().attr('minutes'))*60 + parseInt($('#slideshow_practice_techniques .slideshow_practice_technique').first().attr('seconds')))*1000 - 2000,
-    timeoutFn: function(current, next, options, fwd) {
-      minutes = parseInt($(next).attr('minutes')) || 0
-      seconds = parseInt($(next).attr('seconds')) || 1
-      duration = minutes*60 + seconds;
-      return duration*1000 + <%= @practice.delay*1000 %>; // add an extra second to account for transition
-    },
-    fx: 'all',
-    speed: <%= @practice.delay*1000 %>,
+    timeout: 0,
     after: function(currSlideElement, nextSlideElement, options, forwardFlag) {
       minutes = parseInt($(nextSlideElement).attr('minutes')) || 0
       seconds = parseInt($(nextSlideElement).attr('seconds')) || 1;
-      $('#countdown').countdown('change', {until: '+' + minutes + 'm +' + seconds + 's', format: 'MS', onExpiry: function() {$.sound.play('/ping.wav');}});
+      $('#countdown').countdown('change', {until: '+' + minutes + 'm +' + seconds + 's', format: 'MS'});
+      $('#countdown').countdown('pause');
     },
     fit: 1,
     width: '99.9%'
   });
+  $('#countdown').countdown('pause');
 <% end %>
