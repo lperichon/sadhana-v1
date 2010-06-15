@@ -1,13 +1,13 @@
 <div id='controls'>
   <div id="main_controls">
     <%= link_to t('actions.edit'), practice_path(@practice), :class => 'medium blue awesome' %>
-    <%= link_to_function t('actions.config'), "#", :class => 'medium blue awesome' %>
+    <%= link_to_function t('actions.config'), "$('#play_config_dialog').dialog('open');", :class => 'medium blue awesome' %>
   </div>
   <div id="play_controls">
     <%= link_to content_tag(:span, t('actions.previous'), :id => 'prev'), "#", :class => "small orange awesome" %>
-    <%= link_to_function t('actions.pause'), "$('#slideshow_practice_techniques').cycle('pause'); $('#countdown').countdown('pause');", :class => 'small orange awesome' %>
+    <%= link_to_function t('actions.pause'), "$('#countdown').countdown('pause');", :class => 'small orange awesome' %>
     <div id="countdown"></div>
-    <%= link_to_function t('actions.play'), "$('#slideshow_practice_techniques').cycle('resume'); $('#countdown').countdown('resume');", :class => 'small orange awesome' %>
+    <%= link_to_function t('actions.play'), "$('#countdown').countdown('resume');", :class => 'small orange awesome' %>
     <%= link_to content_tag(:span, t('actions.next'), :id => 'next'), "#" , :class => 'small orange awesome' %>
   </div>
 </div>
@@ -23,20 +23,17 @@
 <div id='play_config_dialog' style="display:none"></div>
 
 <%= javascript_tag do %>
-  
-  $('#countdown').countdown({until:"0:0", compact: true, description: '', onExpiry: function() {$.sound.play('/ping.wav');$('#slideshow_practice_techniques').cycle('next');}});
+  $('#play_config_dialog').dialog({autoOpen: false});
   $('#slideshow_practice_techniques').cycle({
     prev:    '#prev',
     next:    '#next',
     timeout: 0,
-    after: function(currSlideElement, nextSlideElement, options, forwardFlag) {
-      minutes = parseInt($(nextSlideElement).attr('minutes')) || 0
+    before: function(currSlideElement, nextSlideElement, options, forwardFlag) {
+      minutes = parseInt($(nextSlideElement).attr('minutes')) || 0;
       seconds = parseInt($(nextSlideElement).attr('seconds')) || 1;
-      $('#countdown').countdown('change', {until: '+' + minutes + 'm +' + seconds + 's', format: 'MS'});
-      $('#countdown').countdown('pause');
+      Practices.resetCountdown(minutes, seconds);
     },
     fit: 1,
     width: '99.9%'
   });
-  $('#countdown').countdown('pause');
 <% end %>

@@ -27,5 +27,11 @@ var Practices = {
         ui.helper.css({border:'1px solid black'});
       }
     });
+  },
+  resetCountdown: function(minutes, seconds) {
+    $('#countdown').countdown('destroy');
+    $('#countdown').countdown({until:"0:0", compact: true, description: '', onExpiry: function() {$.sound.play('/ping.wav');$('#slideshow_practice_techniques').cycle('next');}});
+    $('#countdown').countdown('change', {until: '+' + minutes + 'm +' + seconds + 's', format: 'MS'});
+    $('#countdown').countdown('pause');
   }
 };
