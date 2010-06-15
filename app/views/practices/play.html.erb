@@ -1,7 +1,7 @@
 <div id='controls'>
   <div id="main_controls">
     <%= link_to t('actions.edit'), practice_path(@practice), :class => 'medium blue awesome' %>
-    <%= link_to_function t('actions.config'), "$('#play_config_dialog').dialog('open');", :class => 'medium blue awesome' %>
+    <%= link_to_function t('actions.preferences'), "$('#play_preferences_dialog').dialog('open');", :class => 'medium blue awesome' %>
   </div>
   <div id="play_controls">
     <%= link_to content_tag(:span, t('actions.previous'), :id => 'prev'), "#", :class => "small orange awesome" %>
@@ -20,15 +20,36 @@
   <% end %>
 </div>
 
-<div id='play_config_dialog' style="display:none"></div>
+<div id='play_preferences_dialog' title='Play Preferences' style="display:none">
+  <%= render :partial => 'practices/edit_preferences_dialog_form' %>
+</div>
 
 <%= javascript_tag do %>
-  $('#play_config_dialog').dialog({autoOpen: false});
+  $('#play_preferences_dialog').dialog({
+    autoOpen: false,
+    modal: true,
+    buttons: {
+      '<%=t('actions.save')%>': function() {
+        $.ajax({
+            type:'put',
+            dataType: 'script',
+            data: $('#play_preferences_dialog form').serialize(),
+            url: $('#play_preferences_dialog form').attr('action'),
+            success: function() {
+              window.location.reload()
+            }
+        });
+      },
+      '<%=t('actions.cancel')%>': function() {
+        $('#play_preferences_dialog').dialog('close');
+      }
+    }
+  });
   $('#slideshow_practice_techniques').cycle({
     prev:    '#prev',
     next:    '#next',
     timeout: 0,
-    before: function(currSlideElement, nextSlideElement, options, forwardFlag) {
+    after: function(currSlideElement, nextSlideElement, options, forwardFlag) {
       minutes = parseInt($(nextSlideElement).attr('minutes')) || 0;
       seconds = parseInt($(nextSlideElement).attr('seconds')) || 1;
       Practices.resetCountdown(minutes, seconds);
