@@ -30,11 +30,15 @@ var Practices = {
   },
   resetCountdown: function(minutes, seconds) {
     $('#countdown').countdown('destroy');
-    $('#countdown').countdown({until: '+' + minutes + 'm +' + seconds + 's', format: 'MS', compact: true, description: '', onExpiry: function() {$.sound.play('/ping.wav');$('#slideshow_practice_techniques').cycle('next');}});
     continuous = $('#practice_continuous').is(':checked');
-    $('#countdown').countdown('pause');
-    if(continuous)
-      $('#countdown').countdown('resume');
+    if(continuous) {
+      $('#countdown').countdown({until: '+' + $('#practice_delay').val() + 's', format: 'MS', compact: true, description: '', onExpiry: function() {
+        $('#countdown').countdown('change', {until: '+' + minutes + 'm +' + seconds + 's', format: 'MS', compact: true, description: '', onExpiry: function() {$.sound.play('/ping.wav');$('#slideshow_practice_techniques').cycle('next');}});
+      }});
+    } else {
+      $('#countdown').countdown({until: '+' + minutes + 'm +' + seconds + 's', format: 'MS', compact: true, description: '', onExpiry: function() {$.sound.play('/ping.wav');$('#slideshow_practice_techniques').cycle('next');}});
+      $('#countdown').countdown('pause');
+    }
   },
   toggleDelayFields: function() {
     if($('#practice_continuous').is(':checked')) {
