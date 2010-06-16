@@ -35,8 +35,7 @@ namespace :deploy do
 
   task :copy_files do
     run "cp -pf #{deploy_to}/to_copy/.rvmrc #{current_path}/.rvmrc"
-    run "ln -s #{deploy_to}/shared/vendor/rails #{current_path}/vendor/rails"
-    run "ln -s #{deploy_to}/shared/vendor/gems #{current_path}/vendor/gems"
     run "cp -pf #{deploy_to}/to_copy/database.yml #{current_path}/config/database.yml"
+    run "cp -pf #{deploy_to}/to_copy/production.rb #{current_path}/config/environments/production.rb"
   end
 end
