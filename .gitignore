@@ -4,5 +4,6 @@ tmp/*
 log/*.log
 .idea
 .bundle
+.rvmrc
 *~
 public/system/**/*
