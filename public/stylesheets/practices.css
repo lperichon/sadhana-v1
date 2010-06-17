@@ -71,6 +71,7 @@
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   overflow: auto;
+  background: #fff;
 }
 #practice_techniques .practice_technique {
   width: 150px;

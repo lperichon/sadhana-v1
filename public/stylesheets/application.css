@@ -1,3 +1,30 @@
+html {
+  background-color: #fff; /* fallback color */
+  background-image: url(/images/linear_bg.png); /* fallback image */
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background:
+    -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0.60, rgb(255,255,255)),
+        color-stop(1, rgb(246,167,40))
+    );
+  background:
+    -moz-linear-gradient(
+        center top,
+        rgb(255,255,255) 60%,
+        rgb(246,167,40) 100%
+    );
+  min-height: 100%;
+}
+
+body {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 #header {
   overflow: hidden;
   height: 62px;
@@ -80,15 +107,26 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 
 
 #functionalities_slideshow {
+  margin-top: 20px;
   float: left;
   display: block;
-  width: 60%;
+  width: 650px;
+  height: 375px;
   margin-left: 3%;
+
+  background: #fff;
+  border: 1px solid #ccc;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
 }
 
 #functionalities_slideshow div {
-  display: block;
-  width: 85%;
+  display: inline-block;
+  padding-left: 10px;
+}
+
+#functionalities_slideshow div img {
+  display: inline-block;
 }
 
 #functionalities_list {
