@@ -1,0 +1,4 @@
+#set rails to be the root of the website
+RailsBaseURI /
+#rails app to be main page
+PassengerAppRoot  /home/variete/apps/sadhana/current
