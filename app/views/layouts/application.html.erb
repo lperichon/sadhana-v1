@@ -46,7 +46,9 @@
         <% if user_signed_in? %>
           <ul class= 'menu'>
             <li><%= link_to t('menu.my_practices'), practices_path %></li>
+            <% if false %>
             <li><%= link_to t('menu.calendar'), practice_events_path %></li>
+            <% end %>
           </ul>
         <% end %>
       </div>
