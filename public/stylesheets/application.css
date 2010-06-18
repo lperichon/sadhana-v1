@@ -130,12 +130,48 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 }
 
 #functionalities_list {
-  float: left;
-  width: 35%;
-  margin-left: 1%;
-  margin-right: 3%;
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+#get_started {
+  display: inline-block;
+  width: 500px;
+  margin-top: 20px;
+  margin-left: 10px;
 }
 
 #sign_up_button {
   text-align: center;
+}
+
+.facebook {
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 55px;
+  vertical-align: top;
+}
+
+.twitter-link {
+  text-decoration: none;
+}
+.twitter-link span{
+  background: url("/images/twitter_logo.png") no-repeat;
+  height: 20px;
+  width: 50px;
+  text-indent: -9999px;
+  display: inline-block;
+}
+
+.facebook-link {
+  text-decoration: none;
+}
+.facebook-link span{
+  background: url("/images/facebook_logo.jpg") no-repeat;
+  height: 25px;
+  width: 66px;
+  text-indent: -9999px;
+  display: inline-block;
+  vertical-align: middle;
 }

@@ -11,6 +11,7 @@
     <% if File.exist? File.join(Rails.public_path, "stylesheets/#{controller.controller_name}.css") %>
       <%= stylesheet_link_tag controller.controller_name %>
     <% end %>
+    <%= stylesheet_link_tag 'jquery.tweet' %>
 
     <%= javascript_include_tag 'jquery-1.4.2.min' %>
     <%= javascript_include_tag 'jquery.rails' %>
@@ -29,6 +30,7 @@
     <%= javascript_include_tag 'fullcalendar' %>
     <%= javascript_include_tag 'timepicker' %>
     <%= javascript_include_tag 'jquery.quicksearch' %>
+    <%= javascript_include_tag 'jquery.tweet' %>
 
     <% if File.exist? File.join(Rails.public_path, "javascripts/#{controller.controller_name}.js") %>
       <%= javascript_include_tag controller.controller_name %>

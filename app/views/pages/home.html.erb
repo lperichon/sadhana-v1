@@ -19,15 +19,24 @@
     <li>Practice @ home!</li>
     <li>Keep track of your practices!</li>
   </ul>
+</div>
+<div id="get_started">
+    <h2>Get Started Now!</h2>
+    <p>If you practice Yôga, or teach it professionally, sign up now and start organizing your practices!</p>
+    <div id="sign_up_button">
+      <%= link_to_function 'Get Started Now!', "$('#sign_up_dialog').dialog('open');", :class => 'awesome large blue' %>
+    </div>
+</div>
 
-  <h2>Get Started Now!</h2>
-  <p>If you practice Yôga, or teach it professionally, sign up now and start organizing your practices!</p>
-  <div id="sign_up_button">
-    <%= link_to_function 'Get Started Now!', "$('#sign_up_dialog').dialog('open');", :class => 'awesome large blue' %>
-  </div>
+<div class="tweet"></div>
+
+<div class="facebook">
+  Or find us on <%= link_to content_tag(:span, "facebook"), "http://www.facebook.com/pages/Sadhana/134874333191329", :class=>'facebook-link' %>
 </div>
 
 <%= javascript_tag do %>
+  $('.tweet').tweet({username: 'sadhana_app', avatar_size: 32, count: 1, intro_text: "Follow us on <a href='http://twitter.com/sadhana_app' class='twitter-link'><span>Twitter</span></a>", loading_text: 'Loading...'});
+
   $('#functionalities_slideshow').cycle({
     fx: 'all',
     fit: 1
