@@ -61,6 +61,10 @@
           <% else %>
             <%= link_to_function t('menu.sign_up'), "$('#sign_up_dialog').dialog('open');" %> or
             <%= link_to_function t('menu.sign_in'), "$('#sign_in_dialog').dialog('open');" %>
+            <%= select :user, :locale, I18n.backend.available_locales.collect {|l| [I18n.t('this_file_language', :locale => l), l.to_s]}, {:selected => I18n.locale.to_s} %>
+            <%= javascript_tag do %>
+              $('#user_locale').bind('change', function() { window.location = window.location.pathname + "?locale=" + $('#user_locale').val();});
+            <% end %>
           <% end %>
         </p>
       </div>
