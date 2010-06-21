@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Type</th>
+    <th>Image</th>
     <th>Name</th>
     <th>Description</th>
     <th></th>
@@ -13,6 +14,7 @@
 <% @techniques.each do |technique| %>
   <tr>
     <td><%= technique.technique_type.name %></td>
+    <td><%= technique.photo.url(:thumb, false) %></td>
     <td><%= technique.name %></td>
     <td><%= technique.description %></td>
     <td><%= link_to 'Show', [:admin, technique] %></td>
