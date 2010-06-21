@@ -14,7 +14,7 @@
 <% @techniques.each do |technique| %>
   <tr>
     <td><%= technique.technique_type.name %></td>
-    <td><%= technique.photo.url(:thumb, false) %></td>
+    <td><%= image_tag technique.photo.url(:thumb, false) %></td>
     <td><%= technique.name %></td>
     <td><%= technique.description %></td>
     <td><%= link_to 'Show', [:admin, technique] %></td>
