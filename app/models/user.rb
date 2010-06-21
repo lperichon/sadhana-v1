@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :practices, :order => "position"
   has_many :practice_events
 
+  before_create :set_locale
+
   acts_as_subscriber
 
   def subscription_plan_check(plan = self.subscription_plan)
@@ -24,5 +26,11 @@ class User < ActiveRecord::Base
 
   def calendar_subscription_check(plan)
     plan == SubscriptionPlan.default_plan 
+  end
+
+  private
+
+  def set_locale
+    self.locale = I18n.locale.to_s
   end
 end

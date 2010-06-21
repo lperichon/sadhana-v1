@@ -1,4 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_filter :set_locale
 
   def update
     if resource.update_with_password(params[resource_name])
