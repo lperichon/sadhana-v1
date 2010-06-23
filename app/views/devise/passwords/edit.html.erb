@@ -1,4 +1,4 @@
-<h2>Change your password</h2>
+<h2><%= t('devise.passwords.edit.title') %></h2>
 
 <%= form_for(resource_name, resource, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= f.error_messages %>
@@ -10,7 +10,7 @@
   <p><%= f.label :password_confirmation %></p>
   <p><%= f.password_field :password_confirmation %></p>
 
-  <p><%= f.submit "Change my password" %></p>
+  <p><%= f.submit t('devise.passwords.edit.submit') %></p>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>

@@ -148,3 +148,22 @@ en:
         text_bottom1: "If you didn't request this, please ignore this email."
         text_bottom2: "Your password won't change until you access the link above and create a new one."
         link: "Change my password"
+    confirmations:
+      new:
+        submit: "Resend confirmation instructions"
+        title: "Resend confirmation instructions"
+    passwords:
+      edit:
+        title: "Change your password"
+        submit: "Change my password"
+      new:
+        title: "Forgot your password?"
+        submit: "Send me reset password instructions"
+    registrations:
+      new:
+        title: "Sign up"
+        submit: "Sign up"
+    sessions:
+      new:
+        title: "Sign in"
+        submit: "Sign in"
