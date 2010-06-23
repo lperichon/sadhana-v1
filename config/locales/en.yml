@@ -18,11 +18,8 @@ en:
     show:
       loading: "Loading..."
     play_practice_technique:
-      description: "Description"
       no_description: "No description"
-      observations: "Observations"
       no_observations: "No observations"
-      associated_techniques: "Associated techniques"
       no_associated_techniques: "No associated techniques"
     play:
       play_preferences_dialog:
@@ -70,6 +67,7 @@ en:
       name: "The name you want for your practice."
       description: "A nice description of your practice"
       delay: "Seconds to wait between each practice technique."
+      continuous: "Do not wait between each practice technique."
   actions:
     cancel: "Cancel"
     delete: "Delete"

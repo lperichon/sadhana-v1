@@ -6,15 +6,15 @@
     <h2><%= practice_technique.technique.name %> <%= '(Comp)' if compensation%></h2>
   </div>
   <div id='info_panel'>
-    <h3><%= t('practices.play_practice_technique.description') %></h3>
+    <h3><%= Technique.human_attribute_name :description %></h3>
 
     <p><%= practice_technique.technique.description || t('practices.play_practice_technique.no_description') %></p>
 
-    <h3><%= t('practices.play_practice_technique.observations') %></h3>
+    <h3><%= PracticeTechnique.human_attribute_name :observations %></h3>
 
     <p><%= practice_technique.observations || t('practices.play_practice_technique.no_observations') %></p>
 
-    <h3><%= t('practices.play_practice_technique.associated_techniques') %></h3>
+    <h3><%= PracticeTechnique.human_attribute_name :associated_techniques %></h3>
     <% if practice_technique.techniques.empty? %>
       <p><%= t('practices.play_practice_technique.no_associated_techniques') %></p>
     <% end %>

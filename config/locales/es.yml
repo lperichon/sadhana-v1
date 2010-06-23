@@ -1,13 +1,10 @@
 es:
   switch_language: "Cambiar idioma"
   this_file_language: "Español"
-  menu:
-    signed_in_as: "Conectado como {{email}}."
-    sign_out: "Salir"
-  application:
-    pay_now_url: "https://www.paypal.com/es_XC/i/btn/btn_paynowCC_LG.gif"
   activerecord:
     attributes:
+      technique:
+        description: "Description"
       practice:
         name: Nombre
         description: Descripción
@@ -27,3 +24,164 @@ es:
         minutes: Minutos
         seconds: Segundos
         compensate: Compensación
+        observations: Observaciones
+        associated_techniques: "Técnicas asociadas"
+      credit_card:
+        type: Tipo
+        number: Número
+        verification_value: "Codigo de verificación (CVV)"
+        expiration_date: "Fecha de vencimiento"
+  practices:
+    index:
+      new_practice: "Nueva práctica"
+      my_practices: "Mis prácticas"
+    show:
+      loading: "Cargando..."
+    play_practice_technique:
+      no_description: "No description"
+      no_observations: "No observations"
+      no_associated_techniques: "No associated techniques"
+    play:
+      play_preferences_dialog:
+        title: "Preferencias de ejecución"
+  shared:
+    confirm_dialog:
+      title: "Confirmar eliminación"
+      content: "¿Está seguro?"
+    new_practice_dialog:
+      title: "Nueva práctica"
+    new_event_dialog:
+      title: "Nuevo evento"
+    edit_practice_technique_dialog:
+      title: "Editar técnica de la práctica"
+    edit_event_dialog:
+      title: "Editar evento"
+    new_confirmation_dialog:
+      title: "Reenviar instrucciones de confirmación"
+    links:
+      sign_in: "Entrar"
+      sign_up: "Registrarse"
+      forgot_password: "¿Olvidó su contraseña?"
+      confirmation_instructions: "¿No recibió el email de confirmación?"
+      unlock_instructions: "Didn't receive unlock instructions?"
+    sign_up_dialog:
+      title: "Registrarse"
+    forgot_password_dialog:
+      title: "¿Olvidó su contraseña?"
+    sign_in_dialog:
+      title: "Entrar"
+    edit_profile_dialog:
+      title: "Editar perfil"
+      current_password_help: "Necesitamos su contraseña actual para confirmar los cambios."
+      password_help: "Dejar en blanco si no desea modificar su contraseña."
+      info_tab_title: "Usuario"
+      subscription_tab_title: "Suscripción"
+    subscription_tab:
+      no_credit_card: "(no hay tarjeta)"
+      card_expiration_date: "Vencimiento: {{date}}"
+      transaction_history: "Historia"
+      transaction_failed: "FRACASO"
+      card: "tarjeta"
+  practice:
+    help:
+      name: "El nombre que desea darle a su práctica."
+      description: "Una descripción de su práctica."
+      delay: "Segundos a esperar entre técnicas."
+      continuous: "No esperar entre técnicas."
+  actions:
+    cancel: "Cancelar"
+    delete: "Eliminar"
+    play: "Reproducir"
+    show: "Ver"
+    add_to_calendar: "Agregar al calendario"
+    destroy: "Eliminar"
+    edit: "Editar"
+    update: "Actualizar"
+    resend: "Reenviar"
+    sign_in: "Entrar"
+    save: "Guardar"
+    sign_up: "Registrarse"
+    add: "Agregar"
+    create: "Crear"
+    previous: "Anterior"
+    pause: "Pausa"
+    next: "Siguiente"
+    resume: "Continuar"
+    config: "Configurar"
+    preferences: "Preferencias"
+  practice_event:
+    help:
+      practice: "Elija la práctica."
+      start: "Fecha y hora del evento."
+  practice_technique:
+    help:
+      minutes: "Minutos de permanencia en la técnica."
+      seconds: "Segundos de permanencia en la técnica."
+      compensate: "¿Requiere compensación hacia el otro lado?"
+      observations: "¿Algúna observación?"
+  menu:
+    my_practices: "Mis prácticas"
+    calendar: "Calendario"
+    sign_out: "Salir"
+    sign_up: "Registrarse"
+    sign_in: "Entrar"
+    signed_in_as: "Conectado como {{email}}."
+    signup_or_siginin: "{{signup}} ó {{signin}}"
+  application:
+    account_past_due: "Su cuenta esta por vencer. Tiene {{days}} días restantes para realizar el pago."
+    account_due: "Su cuenta vence en {{days}} días."
+    pay_now_url: "https://www.paypal.com/es_XC/i/btn/btn_paynowCC_LG.gif"
+  shared_subscription_tab:
+    current_plan_mark: "(actual)"
+  subscriptions:
+    credit_card:
+      add_title: "Agregar una tarjeta"
+      update_title: "Actualizar tarjeta"
+    transaction_history:
+      title: "Historial de transacciones"
+  credit_card:
+    expiration_month: "mes"
+    expiration_year: "año"
+  home:
+    functionalities:
+      manage: "¡Administre sus prácticas!"
+      practice: "¡Practique en su casa!"
+      calendar: "¡Agende sus prácticas!"
+      list_title: "Con Sádhana usted puede..."
+    get_started:
+      title: "¡Comience ahora!"
+      text: "¡Si usted practica Yôga, o enseña profesionalmente, registrese ahora y comience a organizar sus prácticas!"
+      button: "¡Comience ahora!"
+    find_us_on_fb: "Ó encuentrenos en {{facebook}}"
+    follow_us_on_twitter: "Síganos en {{twitter}}"
+  devise:
+    mailer_views:
+      confirmation_instructions:
+        welcome: "¡Bienvenido {{email}}!"
+        text: "Puede confirmar su cuenta ingresando en el siguiente link:"
+        link: "Confirmar mi cuenta"
+      reset_password_instructions:
+        welcome: "Hola {{email}}!"
+        text_top: "Alguien ha requerido un cambio de contraseña en su cuenta, puede hacerlo ingresando al siguiente link:"
+        text_bottom1: "Si usted no realizo este pedido por favor ignore este email."
+        text_bottom2: "Su contraseña no será modificado hasta que ingrese y lo modifique."
+        link: "Cambiar mi contraseña"
+    confirmations:
+      new:
+        submit: "Reenviar instrucciones de confirmación"
+        title: "Reenviar instrucciones de confirmación"
+    passwords:
+      edit:
+        title: "Cambiar mi contraseña"
+        submit: "Cambiar mi contraseña"
+      new:
+        title: "¿Olvidó su contraseña?"
+        submit: "Enviarme instrucciones para modificar mi contraseña"
+    registrations:
+      new:
+        title: "Registrarse"
+        submit: "Registrarse"
+    sessions:
+      new:
+        title: "Entrar"
+        submit: "Entrar"
