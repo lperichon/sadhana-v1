@@ -105,6 +105,7 @@ en:
     sign_up: "Sign up"
     sign_in: "Sign in"
     signed_in_as: "Signed in as {{email}}. Not you?"
+    signup_or_siginin: "{{signup}} or {{signin}}"
   application:
     account_past_due: "Your account is past due. You have {{days}} remaining on the grace period."
     account_due: "Your account is due on {{days}} days."
@@ -120,3 +121,15 @@ en:
   credit_card:
     expiration_month: "month"
     expiration_year: "year"
+  home:
+    functionalities:
+      manage: "Manage your practices!"
+      practice: "Practice @ home!"
+      calendar: "Keep track of your practices!"
+      list_title: "With Sádhana you can..."
+    get_started:
+      title: "Get Started Now!"
+      text: "If you practice Yôga, or teach it professionally, sign up now and start organizing your practices!"
+      button: "Get Started Now!"
+    find_us_on_fb: "Or find us on {{facebook}}"
+    follow_us_on_twitter: "Follow us on {{twitter}}"

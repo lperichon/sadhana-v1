@@ -1,41 +1,41 @@
 <div id='functionalities_slideshow'>
   <div>
-    <h2>Manage your practices!</h2>
+    <h2><%= t('home.functionalities.manage') %></h2>
     <%= image_tag 'screenshot_editor.png' %>
   </div>
   <div>
-    <h2>Practice @ home!</h2>
+    <h2><%= t('home.functionalities.practice') %></h2>
     <%= image_tag 'screenshot_play.png' %>
   </div>
   <div>
-    <h2>Keep track of your practices!</h2>
+    <h2><%= t('home.functionalities.calendar') %></h2>
     <%= image_tag 'screenshot_calendar.png' %>
   </div>
 </div>
 <div id="functionalities_list">
-  <h2>With S&aacute;dhana you can...</h2>
+  <h2><%= t('home.functionalities.list_title') %></h2>
   <ul>
-    <li>Manage your practices!</li>
-    <li>Practice @ home!</li>
-    <li>Keep track of your practices!</li>
+    <li><%= t('home.functionalities.manage') %></li>
+    <li><%= t('home.functionalities.practice') %></li>
+    <li><%= t('home.functionalities.calendar') %></li>
   </ul>
 </div>
 <div id="get_started">
-    <h2>Get Started Now!</h2>
-    <p>If you practice Yôga, or teach it professionally, sign up now and start organizing your practices!</p>
+    <h2><%= t('home.get_started.title') %></h2>
+    <p><%= t('home.get_started.text') %></p>
     <div id="sign_up_button">
-      <%= link_to_function 'Get Started Now!', "$('#sign_up_dialog').dialog('open');", :class => 'awesome large blue' %>
+      <%= link_to_function t('home.get_started.button'), "$('#sign_up_dialog').dialog('open');", :class => 'awesome large blue' %>
     </div>
 </div>
 
 <div class="tweet"></div>
 
 <div class="facebook">
-  Or find us on <%= link_to content_tag(:span, "facebook"), "http://www.facebook.com/pages/Sadhana/134874333191329", :class=>'facebook-link' %>
+  <%= t('home.find_us_on_fb', :facebook => link_to(content_tag(:span, "facebook"), "http://www.facebook.com/pages/Sadhana/134874333191329", :class=>'facebook-link')) %>
 </div>
 
 <%= javascript_tag do %>
-  $('.tweet').tweet({username: 'sadhana_app', avatar_size: 32, count: 1, intro_text: "Follow us on <a href='http://twitter.com/sadhana_app' class='twitter-link'><span>Twitter</span></a>", loading_text: 'Loading...'});
+  $('.tweet').tweet({username: 'sadhana_app', avatar_size: 32, count: 1, intro_text: '<%= t('home.follow_us_on_twitter', :twitter => link_to(content_tag(:span,'Twitter'), 'http://twitter.com/sadhana_app', :class=>'twitter-link')) %>', loading_text: 'Loading...'});
 
   $('#functionalities_slideshow').cycle({
     fx: 'all',
