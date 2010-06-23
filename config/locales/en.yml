@@ -24,6 +24,9 @@ en:
       no_observations: "No observations"
       associated_techniques: "Associated techniques"
       no_associated_techniques: "No associated techniques"
+    play:
+      play_preferences_dialog:
+        title: "Play Preferences"
   shared:
     confirm_dialog:
       title: "Confirm delete"

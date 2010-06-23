@@ -6,3 +6,23 @@ es:
     sign_out: "Salir"
   application:
     pay_now_url: "https://www.paypal.com/es_XC/i/btn/btn_paynowCC_LG.gif"
+  activerecord:
+    attributes:
+      practice:
+        name: Nombre
+        description: Descripción
+        continuous: Continuo
+        delay: Delay
+      user:
+        email: Email
+        password: Contraseña
+        password_confirmation: "Confirmación de contraseña"
+        current_password: "Contraseña actual"
+        locale: Idioma
+      subscription:
+        plan: Plan
+        credit_card: "Tarjeta de crédito"
+      practice_technique:
+        minutes: Minutos
+        seconds: Segundos
+        compensate: Compensación
