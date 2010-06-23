@@ -19,6 +19,7 @@ es:
         password_confirmation: "Confirmación de contraseña"
         current_password: "Contraseña actual"
         locale: Idioma
+        remember_me: Recordarme
       subscription:
         plan: Plan
         credit_card: "Tarjeta de crédito"
