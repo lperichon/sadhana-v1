@@ -137,7 +137,7 @@ en:
     find_us_on_fb: "Or find us on {{facebook}}"
     follow_us_on_twitter: "Follow us on {{twitter}}"
   devise:
-    mailer:
+    mailer_views:
       confirmation_instructions:
         welcome: "Welcome {{email}}!"
         text: "You can confirm your account through the link below:"
