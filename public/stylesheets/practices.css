@@ -209,6 +209,7 @@ span#jeditable_description input {
   -webkit-border-radius: 4px;
   display: block;
   position: relative;
+  background: #fff;
 }
 
 #controls #main_controls {
@@ -252,6 +253,7 @@ span#jeditable_description input {
   margin: 0;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
+  background: #fff;
 }
 
 #main_panel {
