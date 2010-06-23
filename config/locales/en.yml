@@ -136,3 +136,15 @@ en:
       button: "Get Started Now!"
     find_us_on_fb: "Or find us on {{facebook}}"
     follow_us_on_twitter: "Follow us on {{twitter}}"
+  devise:
+    mailer:
+      confirmation_instructions:
+        welcome: "Welcome {{email}}!"
+        text: "You can confirm your account through the link below:"
+        link: "Confirm my account"
+      reset_password_instructions:
+        welcome: "Hello {{email}}!"
+        text_top: "Someone has requested a link to change your password, and you can do this through the link below."
+        text_bottom1: "If you didn't request this, please ignore this email."
+        text_bottom2: "Your password won't change until you access the link above and create a new one."
+        link: "Change my password"
