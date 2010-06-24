@@ -130,6 +130,7 @@ es:
     signed_in_as: "Conectado como {{email}}."
     signup_or_siginin: "{{signup}} o {{signin}}"
     credits: "Créditos"
+    profile: "Perfil"
   application:
     account_past_due: "Su cuenta esta por vencer. Tiene {{days}} días restantes para realizar el pago."
     account_due: "Su cuenta vence en {{days}} días."

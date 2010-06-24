@@ -15,6 +15,7 @@ gem 'money', '3.0.0'
 gem 'state_machine', '0.9.1'
 gem 'lockfile', '1.4.3'
 gem 'fastercsv', '1.5.3'
+gem 'puret'
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -67,6 +67,7 @@
           <% if false %>
           <%= link_to t('menu.calendar'), practice_events_path %>
           <% end %>
+          <%= link_to_function(t('menu.profile'), "$('#edit_profile_dialog').dialog('open');") %>
         <% end %>
 
         <% if user_signed_in? %>

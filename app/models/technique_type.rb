@@ -1,5 +1,6 @@
 class TechniqueType < ActiveRecord::Base
+  puret :name
   has_many :techniques
-
-  validates_presence_of :name, :symbol
+  accepts_nested_attributes_for :translations, :allow_destroy => true  
+  validates_presence_of :symbol
 end

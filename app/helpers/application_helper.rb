@@ -55,4 +55,14 @@ module ApplicationHelper
     end
     r
   end
+
+  def add_name_translation_link(name, form)
+    link_to_function name do |page|
+      translation = render(:partial => 'task', :locals => { :pf => form, :task => Task.new })
+      page << %{
+var new_task_id = "new_" + new Date().getTime();
+$('tasks').insert({ bottom: "#{ escape_javascript task }".replace(/new_\\d+/g, new_task_id) });
+}
+    end
+  end
 end
