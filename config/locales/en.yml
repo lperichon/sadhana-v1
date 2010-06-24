@@ -62,6 +62,8 @@ en:
       transaction_history: "History"
       transaction_failed: "FAILED TO"
       card: "card"
+    credits_dialog:
+      title: "Credits"
   practice:
     help:
       name: "The name you want for your practice."
@@ -107,6 +109,7 @@ en:
     sign_in: "Sign in"
     signed_in_as: "Signed in as {{email}}. Not you?"
     signup_or_siginin: "{{signup}} or {{signin}}"
+    credits: Credits
   application:
     account_past_due: "Your account is past due. You have {{days}} remaining on the grace period."
     account_due: "Your account is due on {{days}} days."

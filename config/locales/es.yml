@@ -45,6 +45,8 @@ es:
       play_preferences_dialog:
         title: "Preferencias de ejecución"
   shared:
+    credits_dialog:
+      title: Créditos
     confirm_dialog:
       title: "Confirmar eliminación"
       content: "¿Está seguro?"
@@ -126,7 +128,8 @@ es:
     sign_up: "Registrarse"
     sign_in: "Entrar"
     signed_in_as: "Conectado como {{email}}."
-    signup_or_siginin: "{{signup}} ó {{signin}}"
+    signup_or_siginin: "{{signup}} o {{signin}}"
+    credits: "Créditos"
   application:
     account_past_due: "Su cuenta esta por vencer. Tiene {{days}} días restantes para realizar el pago."
     account_due: "Su cuenta vence en {{days}} días."
@@ -152,7 +155,7 @@ es:
       title: "¡Comience ahora!"
       text: "¡Si usted practica Yôga, o enseña profesionalmente, registrese ahora y comience a organizar sus prácticas!"
       button: "¡Comience ahora!"
-    find_us_on_fb: "Ó encuentrenos en {{facebook}}"
+    find_us_on_fb: "O encuentrenos en {{facebook}}"
     follow_us_on_twitter: "Síganos en {{twitter}}"
   devise:
     mailer_views:

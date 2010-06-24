@@ -41,12 +41,24 @@ body {
 
 #header #menu {
   float: right;
+  margin-top: 3px;
+}
+
+#header #welcome {
+  text-align: right;
+  margin-top: 3px;
   margin-right: 10px;
 }
 
-#header #user_nav {
-  float: right;
+#header #locale {
+  float:right;
+  margin-top: 3px;
   margin-right: 10px;
+  margin-left: 4px;
+}
+
+#header #welcome_spacer {
+  height: 8px;
 }
 
 .alert {

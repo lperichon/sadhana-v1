@@ -11,11 +11,11 @@ pre {
   padding: 10px;
   font-size: 11px;
 }
-
+/*
 a { color: #000; }
 a:visited { color: #666; }
 a:hover { color: black; }
-
+*/
 div.field, div.actions {
   margin-bottom: 10px;
 }

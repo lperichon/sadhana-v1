@@ -4,6 +4,7 @@
     <title>S&aacute;dhana</title>
 
     <%= stylesheet_link_tag 'ui-lightness/jquery-ui-1.8rc3.custom' %>
+    <%= stylesheet_link_tag 'ui.selectmenu' %>
     <%= stylesheet_link_tag 'awesome' %>
     <%= stylesheet_link_tag 'application' %>
     <%= stylesheet_link_tag 'scaffold' %>
@@ -22,6 +23,7 @@
         $.datepicker.regional['es']
       <% end %>
     <% end %>
+    <%= javascript_include_tag 'ui.selectmenu' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'jquery.jeditable' %>
     <%= javascript_include_tag 'jquery.cycle' %>
@@ -41,32 +43,44 @@
   <body>
     <div id='header' class='ui-widget-header ui-corner-all'>
       <a href="/"><h1 id='logo'>S&aacute;dhana</h1></a>
-
-      <div id='menu'>
+      <div id="welcome">
         <% if user_signed_in? %>
-          <ul class= 'menu'>
-            <li><%= link_to t('menu.my_practices'), practices_path %></li>
-            <% if false %>
-            <li><%= link_to t('menu.calendar'), practice_events_path %></li>
-            <% end %>
-          </ul>
+          <%= t('menu.signed_in_as', :email => current_user.email) %>
+        <% else %>
+          <div id="welcome_spacer"></div>
         <% end %>
       </div>
 
-      <div id="user_nav">
-        <p>
-          <% if user_signed_in? %>
-            <%= t('menu.signed_in_as', :email => link_to_function(current_user.email, "$('#edit_profile_dialog').dialog('open');")) %>
-            <%= link_to t('menu.sign_out'), destroy_user_session_path %>
-          <% else %>
-            <%= t('menu.signup_or_siginin', :signup => link_to_function(t('menu.sign_up'), "$('#sign_up_dialog').dialog('open');"), :signin => link_to_function(t('menu.sign_in'), "$('#sign_in_dialog').dialog('open');")) %>
-            <%= select :user, :locale, I18n.backend.available_locales.collect {|l| [I18n.t('this_file_language', :locale => l), l.to_s]}, {:selected => I18n.locale.to_s} %>
-            <%= javascript_tag do %>
-              $('#user_locale').bind('change', function() { window.location = window.location.pathname + "?locale=" + $('#user_locale').val();});
-            <% end %>
+      <div id="locale">
+        <% unless user_signed_in? %>
+          <%= select :user, :locale, I18n.backend.available_locales.collect {|l| [I18n.t('this_file_language', :locale => l), l.to_s]}, {:selected => I18n.locale.to_s} %>
+          <%= javascript_tag do %>
+            $('#user_locale').selectmenu({width: 100});
+            $('#user_locale').bind('change', function() { window.location = window.location.pathname + "?locale=" + $('#user_locale').val();});
           <% end %>
-        </p>
+        <% end %>
       </div>
+
+      <div id='menu'>
+        <% if user_signed_in? %>
+          <%= link_to t('menu.my_practices'), practices_path %>
+          <% if false %>
+          <%= link_to t('menu.calendar'), practice_events_path %>
+          <% end %>
+        <% end %>
+
+        <% if user_signed_in? %>
+          <%= link_to t('menu.sign_out'), destroy_user_session_path %>
+        <% else %>
+          <%= link_to_function(t('menu.credits'), "$('#credits_dialog').dialog('open');") %>
+          <%= link_to_function(t('menu.sign_up'), "$('#sign_up_dialog').dialog('open');") %>
+          <%= link_to_function(t('menu.sign_in'), "$('#sign_in_dialog').dialog('open');") %>
+        <% end %>
+      </div>
+
+      <%= javascript_tag do %>
+         $('#menu a').button();
+      <% end %>
     </div>
 
     <div id='content'>
@@ -119,6 +133,7 @@
       <%= yield %>
     </div>
 
+    <%= render :partial => 'shared/credits_dialog' %>
     <%= render :partial => 'shared/sign_in_dialog' %>
     <%= render :partial => 'shared/sign_up_dialog' %>
     <%= render :partial => 'shared/new_confirmation_dialog' %>

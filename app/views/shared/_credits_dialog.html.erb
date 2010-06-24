@@ -1,0 +1,12 @@
+<div id='credits_dialog' style='display:none' title='<%= t('shared.credits_dialog.title') %>'>
+  <p>Querémos agradecer a las siguientes personas, que nos ayudaron y nos ayudan todos los dias a hacer que Sádhana sea cada vez mejor:</p>
+  <ul>
+    <li>Maestro Edgardo Caramella</li>
+    <li>Instr. Natalia Sanmartin Gil</li>
+    <li>Instr. Melina Flores</li>
+    <li>Instr. Lucía Gagliardini y toda la Sede Belgrano</li>
+  </ul>
+</div>
+<%= javascript_tag do %>
+  $('#credits_dialog').dialog({autoOpen: false, modal: true, width: 410});
+<% end %>
