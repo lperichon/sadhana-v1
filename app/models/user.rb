@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def practices_subscription_check(plan)
-    plan.max_practices if plan.max_practices.to_i >= 0 &&  self.practices.count > plan.max_practices.to_i
+    plan.max_practices if plan.max_practices.to_i >= 0 &&  self.practices.count >= plan.max_practices.to_i
   end
 
   def calendar_subscription_check(plan)
