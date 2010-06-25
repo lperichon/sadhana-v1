@@ -12,7 +12,8 @@ class PracticeTechnique < ActiveRecord::Base
   validates :seconds, :presence => true, :numericality => true
 
   def add_technique_id=(technique_id)
-    techniques << Technique.find(technique_id)
+    t = Technique.find(technique_id)
+    techniques << t unless techniques.include?(t)
   end
 
   def remove_technique_id=(technique_id)
