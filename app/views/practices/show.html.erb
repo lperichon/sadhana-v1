@@ -113,7 +113,7 @@
                 ui.draggable.html($('#created_practice_technique .practice_technique').html());
                 $('#created_practice_technique').children().remove();
                 $('#' + ui.draggable.attr('id')).droppable({
-                  accept: '.mudra',
+                  accept: '.mudra, .manos',
                   drop: function(event, mudra_ui) {
                     if(mudra_ui.draggable.hasClass('ui-draggable')) {
                       // associate new practice technique via ajax

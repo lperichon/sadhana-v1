@@ -18,7 +18,7 @@ var Practices = {
       }
     });
 
-    $('#techniques_accordion .mudra').draggable({
+    $('#techniques_accordion .mudra, #techniques_accordion .manos').draggable({
       scroll: false,
       helper: 'clone',
       appendTo : 'body',
