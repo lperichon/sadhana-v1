@@ -1,5 +1,5 @@
 class Admin::SubscriptionsController < AdminApplicationController
-    # GET /subscriptions
+  # GET /subscriptions
   # GET /subscriptions.xml
   def index
     @subscriptions = Subscription.all
@@ -58,15 +58,28 @@ class Admin::SubscriptionsController < AdminApplicationController
   def update
     @subscription = Subscription.find(params[:id])
 
-    respond_to do |format|
-      if @subscription.update_attributes(params[:subscription])
-        format.html { redirect_to([:admin, @subscription], :notice => 'Subscription was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @subscription.errors, :status => :unprocessable_entity }
+    # find the plan
+    plan = SubscriptionPlan.find params[:subscription][:plan]
+    if plan.nil?
+      flash[:notice] = "Plan not available"
+      
+    # perform the change
+    # note, use #change_plan, dont just assign it
+    elsif @subscription.change_plan(plan)
+      flash[:notice] = "Successfully changed plans. "
+
+      # after change_plan, call renew
+      case result = @subscription.renew
+      when false
+        flash[:notice] << "An error occured trying to charge your credit card. Please update your card information."
+      when Money
+        flash[:notice] << "Thank you for your payment. Your credit card has been charged #{result.format(:symbol => true)}"
       end
+#      return redirect_to practices_path
     end
+
+    # failed above for some reason
+    redirect_to admin_subscription_path(@subscription)
   end
 
   # DELETE /subscriptions/1

@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   acts_as_subscriber
 
   def subscription_plan_check(plan = self.subscription_plan)
+    !plan.available
 #    exceeded = {}
 #    exceeded[:practice_count] = practices_subscription_check(plan)
 #    exceeded unless exceeded.empty?

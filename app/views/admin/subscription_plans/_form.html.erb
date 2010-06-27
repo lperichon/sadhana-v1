@@ -1,0 +1,26 @@
+<%= form_for([:admin, @subscription_plan]) do |f| %>
+  <%= f.error_messages %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :rate_cents %><br />
+    <%= f.text_field :rate_cents %>
+  </div>
+  <div class="field">
+    <%= f.label :interval %><br />
+    <%= f.text_field :interval %>
+  </div>
+  <div class="field">
+    <%= f.label :available %><br />
+    <%= f.check_box :available %>
+  </div>
+  <div class="field">
+    <%= f.label :max_practices %><br />
+    <%= f.text_field :max_practices %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

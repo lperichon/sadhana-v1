@@ -28,6 +28,7 @@ Sadhana::Application.routes.draw do |map|
   end
 
   namespace :admin do
+    resources :subscription_plans
     resources :subscriptions
     resources :technique_types
     resources :techniques do

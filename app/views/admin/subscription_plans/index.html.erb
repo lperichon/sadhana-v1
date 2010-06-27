@@ -1,0 +1,31 @@
+<h1>Listing subscription plans</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Rate (cents)</th>
+    <th>Interval</th>
+    <th>Available</th>
+    <th>Max practices</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @subscription_plans.each do |subscription_plan| %>
+  <tr>
+    <td><%= subscription_plan.name %></td>
+    <td><%= subscription_plan.rate_cents %></td>
+    <td><%= subscription_plan.interval %></td>
+    <td><%= subscription_plan.available %></td>
+    <td><%= subscription_plan.max_practices %></td>
+    <td><%= link_to 'Show', [:admin, subscription_plan] %></td>
+    <td><%= link_to 'Edit', edit_admin_subscription_plan_path(subscription_plan) %></td>
+    <td><%= link_to 'Destroy', [:admin, subscription_plan], {:confirm => 'Are you sure?', :method => :delete} %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Subscription plan', new_admin_subscription_plan_path %>
