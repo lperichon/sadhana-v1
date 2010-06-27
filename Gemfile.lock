@@ -34,22 +34,22 @@ dependencies:
     group: 
     - :default
     version: = 3.0.0
-  high_voltage: 
-    group: 
-    - :default
-    version: = 0.9.0
-  ryanb-acts-as-list: 
-    group: 
-    - :default
-    version: = 0.1.2
-    require: 
-    - acts_as_list
   active_merchant: 
     group: 
     - :default
     version: = 1.5.2
     require: 
     - active_merchant
+  ryanb-acts-as-list: 
+    group: 
+    - :default
+    version: = 0.1.2
+    require: 
+    - acts_as_list
+  high_voltage: 
+    group: 
+    - :default
+    version: = 0.9.0
   machinist: 
     group: 
     - :test
@@ -58,18 +58,22 @@ dependencies:
     group: 
     - :production
     version: = 1.2.7
-  puret: 
+  will_paginate: 
     group: 
     - :default
-    version: ">= 0"
-  paperclip: 
-    group: 
-    - :default
-    version: = 2.3.2
+    version: = 3.0.pre
   devise: 
     group: 
     - :default
     version: = 1.1.rc1
+  paperclip: 
+    group: 
+    - :default
+    version: = 2.3.2
+  puret: 
+    group: 
+    - :default
+    version: = 1.0.3
   state_machine: 
     group: 
     - :default
@@ -100,7 +104,7 @@ specs:
 - activemodel: 
     version: 3.0.0.beta3
 - erubis: 
-    version: 2.6.5
+    version: 2.6.6
 - rack: 
     version: 1.1.0
 - rack-mount: 
@@ -191,7 +195,9 @@ specs:
     version: 0.9.1
 - thin: 
     version: 1.2.7
-hash: 85f90b2787cde3e5aea3d7abc72a68b33cf1b441
+- will_paginate: 
+    version: 3.0.pre
+hash: 3f84783da39c6031a5ff553a36ebc22c0a6df6e1
 sources: 
 - Rubygems: 
     uri: http://rubygems.org

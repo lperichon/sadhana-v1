@@ -187,3 +187,7 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
   display: inline-block;
   vertical-align: middle;
 }
+
+.pagination {
+  text-align: center;
+}

@@ -2,7 +2,7 @@ class PracticesController < UserApplicationController
   # GET /practices
   # GET /practices.xml
   def index
-    @practices = current_user.practices.all
+    @practices = current_user.practices.paginate :page => params[:page], :per_page => 5
 
     respond_to do |format|
       format.html # index.html.erb
