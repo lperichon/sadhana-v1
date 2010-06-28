@@ -296,6 +296,7 @@ es:
     credits_dialog:
       title: Créditos
       text1: "Querémos agradecer a las siguientes personas, que nos ayudaron y nos ayudan todos los dias a hacer que Sádhana sea cada vez mejor"
+      all_belgrano: "y toda la Sede Belgrano"
     confirm_dialog:
       title: "Confirmar eliminación"
       content: "¿Está seguro?"

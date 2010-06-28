@@ -104,6 +104,7 @@ en:
     credits_dialog:
       text1: "We want to thank the following people, who helped us build Sádhana and work to make it better every day"
       title: "Credits"
+      all_belgrano: "and all of Belgrano School"
   practice:
     help:
       name: "The name you want for your practice."
