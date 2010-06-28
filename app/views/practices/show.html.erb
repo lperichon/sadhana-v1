@@ -2,7 +2,6 @@
   <li>
     <%= link_to t('actions.play'), play_practice_path, :class => 'blue medium awesome' %>
   </li>
-  <% if false %>
   <li><%= link_to t('actions.add_to_calendar'), new_practice_event_path, :class => 'blue medium awesome', :id => "#{dom_id @practice}_add_to_calendar_link" %>
     <% unless current_user.calendar_subscription_check(current_user.subscription.plan) %>
       <% javascript_tag do %>
@@ -18,7 +17,6 @@
       <% end %>
     <% end %>
   </li>
-  <% end %>
 </ul>
 
 <div id='practice_data'>
