@@ -203,15 +203,30 @@ es:
       timeout: 'Tu sesión ha expirado, por favor accede de nuevo para continuar.'
       inactive: 'Tu cuenta no ha sido activada.'
     sessions:
+      new:
+        title: "Entrar"
+        submit: "Entrar"
       signed_in: 'Ha ingresado exitosamente.'
       signed_out: 'Ha salido exitosamente.'
     passwords:
+      edit:
+        title: "Cambiar mi contraseña"
+        submit: "Cambiar mi contraseña"
+      new:
+        title: "¿Olvidó su contraseña?"
+        submit: "Enviarme instrucciones para modificar mi contraseña"
       send_instructions: 'Recibirás un email con instrucciones para cambiar tu contraseña en poco minutos.'
       updated: 'Tu contraseña ha sido modificada. Ya has accedido a tu cuenta.'
     confirmations:
+      new:
+        submit: "Reenviar instrucciones de confirmación"
+        title: "Reenviar instrucciones de confirmación"
       send_instructions: 'Recibirás un email con instrucciones para confirmar tu cuenta en poco minutos.'
       confirmed: 'Tu cuenta ha sido confirmada. Ya has accedido a tu cuenta.'
     registrations:
+      new:
+        title: "Registrarse"
+        submit: "Registrarse"
       signed_up: 'Te has registrado correctamente. Si está disponible, te habremos enviado un email de confirmación.'
       updated: 'Has actualizado tu cuenta correctamente.'
       destroyed: '!Adiós! Tu cuenta ha sido cancelada. Esperamos verte pronto.'
@@ -222,6 +237,17 @@ es:
       confirmation_instructions: 'Instrucciones de confirmación'
       reset_password_instructions: 'Instrucciones para cambiar tu contraseña'
       unlock_instructions: 'Instrucciones para desbloquear tu cuenta'
+    mailer_views:
+      confirmation_instructions:
+        welcome: "¡Bienvenido {{email}}!"
+        text: "Puede confirmar su cuenta ingresando en el siguiente link:"
+        link: "Confirmar mi cuenta"
+      reset_password_instructions:
+        welcome: "Hola {{email}}!"
+        text_top: "Alguien ha requerido un cambio de contraseña en su cuenta, puede hacerlo ingresando al siguiente link:"
+        text_bottom1: "Si usted no realizo este pedido por favor ignore este email."
+        text_bottom2: "Su contraseña no será modificado hasta que ingrese y lo modifique."
+        link: "Cambiar mi contraseña"
   # Application translations
   activerecord:
     attributes:
@@ -380,34 +406,3 @@ es:
       button: "¡Comience ahora!"
     find_us_on_fb: "O encuentrenos en {{facebook}}"
     follow_us_on_twitter: "Síganos en {{twitter}}"
-  devise:
-    mailer_views:
-      confirmation_instructions:
-        welcome: "¡Bienvenido {{email}}!"
-        text: "Puede confirmar su cuenta ingresando en el siguiente link:"
-        link: "Confirmar mi cuenta"
-      reset_password_instructions:
-        welcome: "Hola {{email}}!"
-        text_top: "Alguien ha requerido un cambio de contraseña en su cuenta, puede hacerlo ingresando al siguiente link:"
-        text_bottom1: "Si usted no realizo este pedido por favor ignore este email."
-        text_bottom2: "Su contraseña no será modificado hasta que ingrese y lo modifique."
-        link: "Cambiar mi contraseña"
-    confirmations:
-      new:
-        submit: "Reenviar instrucciones de confirmación"
-        title: "Reenviar instrucciones de confirmación"
-    passwords:
-      edit:
-        title: "Cambiar mi contraseña"
-        submit: "Cambiar mi contraseña"
-      new:
-        title: "¿Olvidó su contraseña?"
-        submit: "Enviarme instrucciones para modificar mi contraseña"
-    registrations:
-      new:
-        title: "Registrarse"
-        submit: "Registrarse"
-    sessions:
-      new:
-        title: "Entrar"
-        submit: "Entrar"
