@@ -145,17 +145,23 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
   display: inline-block;
   margin-top: 20px;
   margin-left: 10px;
+  width: 40%;
 }
 
 #get_started {
   display: inline-block;
-  width: 500px;
+  width: 40%;
   margin-top: 20px;
   margin-left: 10px;
 }
 
 #sign_up_button {
   text-align: center;
+}
+
+#social {
+  display: block;
+  width: 100%;
 }
 
 .facebook {
