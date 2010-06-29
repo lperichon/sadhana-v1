@@ -223,3 +223,6 @@ en:
       button: "Get Started Now!"
     find_us_on_fb: "Or find us on {{facebook}}"
     follow_us_on_twitter: "Follow us on {{twitter}}"
+  practice_events:
+    index:
+      new_practice_event: "New event"

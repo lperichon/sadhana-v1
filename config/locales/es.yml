@@ -305,6 +305,9 @@ es:
     play:
       play_preferences_dialog:
         title: "Preferencias de ejecución"
+  practice_events:
+    index:
+      new_practice_event: "Nuevo evento"
   shared:
     credits_dialog:
       title: Créditos
