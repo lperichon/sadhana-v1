@@ -296,18 +296,20 @@ es:
       new_practice: "Nueva práctica"
       my_practices: "Mis prácticas"
       new_invitation: "Invitar a un amigo"
+      paid_account_notice: "Necesita una suscripción paga para acceder a todas las funcionalidades."
     show:
       loading: "Cargando..."
     play_practice_technique:
-      no_description: "No description"
-      no_observations: "No observations"
-      no_associated_techniques: "No associated techniques"
+      no_description: "No hay descripción"
+      no_observations: "No hay observaciones"
+      no_associated_techniques: "No hay técnicas asociadas"
     play:
       play_preferences_dialog:
         title: "Preferencias de ejecución"
   practice_events:
     index:
       new_practice_event: "Nuevo evento"
+    paid_account_notice: "Necesita una suscripción paga para acceder al calendario."
   shared:
     credits_dialog:
       title: Créditos

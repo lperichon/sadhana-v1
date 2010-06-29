@@ -5,7 +5,7 @@ class PracticesController < UserApplicationController
     @practices = current_user.practices.paginate :page => params[:page], :per_page => 5
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html {require_subscription_check(nil, true)} # index.html.erb
     end
   end
 
@@ -94,17 +94,10 @@ class PracticesController < UserApplicationController
 
   protected
 
-  def require_paid_account
-    if current_user.subscription.free?
-      flash[:notice] = 'You require a paid subscription for full functionality.'
-      return redirect_to :back
-    end
-  end
-
-  def require_subscription_check(practice)
-    if current_user.practices_subscription_check(current_user.subscription.plan) && (practice.new_record? || practice.position > current_user.subscription.plan.max_practices.to_i) 
-      flash[:notice] = 'You require a paid subscription for full functionality.'
-      return redirect_to :back
+  def require_subscription_check(practice, no_return = false)
+    if current_user.practices_subscription_check(current_user.subscription.plan) && (practice.nil? || practice.new_record? || practice.position > current_user.subscription.plan.max_practices.to_i) 
+      flash[:notice] = t('practices.paid_account_notice')
+      return redirect_to :back unless no_return
     end
   end
 end
