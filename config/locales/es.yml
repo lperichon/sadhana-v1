@@ -296,7 +296,7 @@ es:
       new_practice: "Nueva práctica"
       my_practices: "Mis prácticas"
       new_invitation: "Invitar a un amigo"
-      paid_account_notice: "Necesita una suscripción paga para acceder a todas las funcionalidades."
+    paid_account_notice: "Necesita una suscripción paga para acceder a todas las funcionalidades."
     show:
       loading: "Cargando..."
     play_practice_technique:
