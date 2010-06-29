@@ -10,7 +10,6 @@ en:
       not_found: "not found"
       already_confirmed: "was already confirmed"
       not_locked: "was not locked"
-
   devise:
     failure:
       unauthenticated: 'You need to sign in or sign up before continuing.'
@@ -42,7 +41,47 @@ en:
       confirmation_instructions: 'Confirmation instructions'
       reset_password_instructions: 'Reset password instructions'
       unlock_instructions: 'Unlock Instructions'
-  # Application translations
+    mailer_views:
+      confirmation_instructions:
+        welcome: "Welcome {{email}}!"
+        text: "You can confirm your account through the link below:"
+        link: "Confirm my account"
+      reset_password_instructions:
+        welcome: "Hello {{email}}!"
+        text_top: "Someone has requested a link to change your password, and you can do this through the link below."
+        text_bottom1: "If you didn't request this, please ignore this email."
+        text_bottom2: "Your password won't change until you access the link above and create a new one."
+        link: "Change my password"
+      invitation:
+        welcome: "Hello {{email}}!"
+        text_top: "Someone has invited you to {{root_url}}, you can accept it through the link below."
+        link: "Accept invitation"
+        text_bottom1: "If you don't want to accept the invitation, please ignore this email."
+        text_bottom2: "Your account won't be created until you access the link above and set your password."
+    invitations:
+      edit:
+        title: "Set your password"
+        submit: "Set my password"
+    confirmations:
+      new:
+        submit: "Resend confirmation instructions"
+        title: "Resend confirmation instructions"
+    passwords:
+      edit:
+        title: "Change your password"
+        submit: "Change my password"
+      new:
+        title: "Forgot your password?"
+        submit: "Send me reset password instructions"
+    registrations:
+      new:
+        title: "Sign up"
+        submit: "Sign up"
+    sessions:
+      new:
+        title: "Sign in"
+        submit: "Sign in"
+# Application translations
   activerecord:
     attributes:
       credit_card:
@@ -54,6 +93,7 @@ en:
     index:
       new_practice: "New Practice"
       my_practices: "My practices"
+      new_invitation: "Invite a friend"
     show:
       loading: "Loading..."
     play_practice_technique:
@@ -77,6 +117,8 @@ en:
       title: "Edit event"
     new_confirmation_dialog:
       title: "Resend confirmation instructions"
+    new_invitation_dialog:
+      title: "Invite a friend"
     links:
       sign_in: "Sign in"
       sign_up: "Sign up"
@@ -132,6 +174,7 @@ en:
     resume: "Resume"
     config: "Configure"
     preferences: "Preferences"
+    invite: "Invite"
   practice_event:
     help:
       practice: "Choose the practice."
@@ -179,34 +222,3 @@ en:
       button: "Get Started Now!"
     find_us_on_fb: "Or find us on {{facebook}}"
     follow_us_on_twitter: "Follow us on {{twitter}}"
-  devise:
-    mailer_views:
-      confirmation_instructions:
-        welcome: "Welcome {{email}}!"
-        text: "You can confirm your account through the link below:"
-        link: "Confirm my account"
-      reset_password_instructions:
-        welcome: "Hello {{email}}!"
-        text_top: "Someone has requested a link to change your password, and you can do this through the link below."
-        text_bottom1: "If you didn't request this, please ignore this email."
-        text_bottom2: "Your password won't change until you access the link above and create a new one."
-        link: "Change my password"
-    confirmations:
-      new:
-        submit: "Resend confirmation instructions"
-        title: "Resend confirmation instructions"
-    passwords:
-      edit:
-        title: "Change your password"
-        submit: "Change my password"
-      new:
-        title: "Forgot your password?"
-        submit: "Send me reset password instructions"
-    registrations:
-      new:
-        title: "Sign up"
-        submit: "Sign up"
-    sessions:
-      new:
-        title: "Sign in"
-        submit: "Sign in"

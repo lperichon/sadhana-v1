@@ -78,6 +78,10 @@ dependencies:
     group: 
     - :default
     version: = 0.9.1
+  devise_invitable: 
+    group: 
+    - :default
+    version: ">= 0"
   lockfile: 
     group: 
     - :default
@@ -147,6 +151,9 @@ specs:
     version: 0.10.7
 - devise: 
     version: 1.1.rc1
+- devise_invitable: 
+    version: 0.3.0
+    source: 0
 - eventmachine: 
     version: 0.12.10
 - faker: 
@@ -178,7 +185,7 @@ specs:
 - puret: 
     version: 1.0.3
 - thor: 
-    version: 0.13.6
+    version: 0.13.7
 - railties: 
     version: 3.0.0.beta3
 - rails: 
@@ -197,7 +204,11 @@ specs:
     version: 1.2.7
 - will_paginate: 
     version: 3.0.pre
-hash: 3f84783da39c6031a5ff553a36ebc22c0a6df6e1
+hash: 59ee66998b09308cb14144c11a6ee71c4a658819
 sources: 
+- Git: 
+    uri: http://github.com/rymai/devise_invitable.git
+    git: http://github.com/rymai/devise_invitable.git
+    ref: 69a23267b4db688fc9b161b53dde3de1355b597f
 - Rubygems: 
     uri: http://rubygems.org

@@ -14,6 +14,9 @@
       <% end %>
     <% end %>
   </li>
+  <li>
+    <%= link_to_function t('practices.index.new_invitation'), "$('#new_invitation_dialog').dialog('open')", :class => 'blue medium awesome' %>
+  </li>
 </ul>
 
 
@@ -27,6 +30,7 @@
 
 <%= will_paginate @practices, :previous_label => t('actions.previous'), :next_label => t('actions.next') %>
 
+<%= render :partial=> 'shared/new_invitation_dialog' %>
 <%= render :partial => 'shared/confirm_dialog' %>
 <%= render :partial => 'shared/new_practice_dialog' %>
 <%= render :partial => 'shared/new_event_dialog' %>

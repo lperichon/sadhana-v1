@@ -7,6 +7,7 @@ gem 'rails', '3.0.0.beta3'
 
 gem 'ryanb-acts-as-list', '0.1.2', :require => 'acts_as_list'
 gem 'devise', '1.1.rc1'
+gem 'devise_invitable', :git => 'http://github.com/rymai/devise_invitable.git'
 gem 'paperclip', '2.3.2'
 gem 'nokogiri', '1.4.1'
 gem 'high_voltage', '0.9.0', :branch => "rails3"

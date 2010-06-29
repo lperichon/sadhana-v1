@@ -1,0 +1,8 @@
+<%= t('devise.mailer_views.invitation.welcome', :email => @resource.email) %>
+
+<%= t('devise.mailer_views.invitation.text_top', :root_url => root_url) %>
+
+<%= link_to t('devise.mailer_views.invitation.link'), edit_user_invitation_url(:invitation_token => @resource.invitation_token) %>
+
+<%= t('devise.mailer_views.invitation.text_bottom1') %>
+<%= t('devise.mailer_views.invitation.text_bottom2') %>

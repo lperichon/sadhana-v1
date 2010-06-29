@@ -202,6 +202,12 @@ es:
       invalid_token: 'Token de autenticación incorrecto.'
       timeout: 'Tu sesión ha expirado, por favor accede de nuevo para continuar.'
       inactive: 'Tu cuenta no ha sido activada.'
+    invitations:
+      send_instructions: 'Se envio un email con instrucciones para configurar la contraseña.'
+      updated: 'Su contraseña fue configurada exitosamente.'
+      edit:
+        title: 'Configurar contraseña'
+        submit: 'Configurar contraseña'
     sessions:
       new:
         title: "Entrar"
@@ -215,24 +221,24 @@ es:
       new:
         title: "¿Olvidó su contraseña?"
         submit: "Enviarme instrucciones para modificar mi contraseña"
-      send_instructions: 'Recibirás un email con instrucciones para cambiar tu contraseña en poco minutos.'
-      updated: 'Tu contraseña ha sido modificada. Ya has accedido a tu cuenta.'
+      send_instructions: 'Recibirá un email con instrucciones para cambiar su contraseña en pocos minutos.'
+      updated: 'Su contraseña ha sido modificada exitosamente.'
     confirmations:
       new:
         submit: "Reenviar instrucciones de confirmación"
         title: "Reenviar instrucciones de confirmación"
-      send_instructions: 'Recibirás un email con instrucciones para confirmar tu cuenta en poco minutos.'
-      confirmed: 'Tu cuenta ha sido confirmada. Ya has accedido a tu cuenta.'
+      send_instructions: 'Recibirá un email con instrucciones para confirmar su cuenta en pocos minutos.'
+      confirmed: 'Su cuenta ha sido confirmada exitosamente.'
     registrations:
       new:
         title: "Registrarse"
         submit: "Registrarse"
-      signed_up: 'Te has registrado correctamente. Si está disponible, te habremos enviado un email de confirmación.'
-      updated: 'Has actualizado tu cuenta correctamente.'
-      destroyed: '!Adiós! Tu cuenta ha sido cancelada. Esperamos verte pronto.'
+      signed_up: 'Se ha registrado exitosamente. Recibirá un email de confirmación en pocos minutos.'
+      updated: 'Ha actualizado su cuenta exitosamente.'
+      destroyed: 'Su cuenta ha sido cancelada.'
     unlocks:
-      send_instructions: 'Recibirás un email con instrucciones para desbloquear tu cuenta en pocos minutos.'
-      unlocked: 'Tu cuenta ha sido desbloqueada. Ya has accedido a tu cuenta.'
+      send_instructions: 'Recibirá un email con instrucciones para desbloquear su cuenta en pocos minutos.'
+      unlocked: 'Su cuenta ha sido desbloqueada exitosamente.'
     mailer:
       confirmation_instructions: 'Instrucciones de confirmación'
       reset_password_instructions: 'Instrucciones para cambiar tu contraseña'
@@ -248,7 +254,13 @@ es:
         text_bottom1: "Si usted no realizo este pedido por favor ignore este email."
         text_bottom2: "Su contraseña no será modificado hasta que ingrese y lo modifique."
         link: "Cambiar mi contraseña"
-  # Application translations
+      invitation:
+        welcome: "Hola {{email}}!"
+        text_top: "Ha sido invitado a {{root_url}}, puedes aceptar tu invitación ingresando al siguiente link:"
+        link: "Aceptar invitación"
+        text_bottom1: "Si no desea aceptar la invitación, puede ignorar este email."
+        text_bottom2: "Su cuenta no será creada hasta que ingrese y configure su contraseña."
+# Application translations
   activerecord:
     attributes:
       technique:
@@ -283,6 +295,7 @@ es:
     index:
       new_practice: "Nueva práctica"
       my_practices: "Mis prácticas"
+      new_invitation: "Invitar a un amigo"
     show:
       loading: "Cargando..."
     play_practice_technique:
@@ -310,6 +323,8 @@ es:
       title: "Editar evento"
     new_confirmation_dialog:
       title: "Reenviar instrucciones de confirmación"
+    new_invitation_dialog:
+      title: "Invitar a un amigo"
     links:
       sign_in: "Entrar"
       sign_up: "Registrarse"
@@ -361,6 +376,7 @@ es:
     resume: "Continuar"
     config: "Configurar"
     preferences: "Preferencias"
+    invite: Invitar
   practice_event:
     help:
       practice: "Elija la práctica."
