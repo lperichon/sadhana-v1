@@ -48,6 +48,7 @@ class PracticesController < UserApplicationController
 
     respond_to do |format|
       if @practice.save
+        format.html { redirect_to practice_path(@practice)}
         format.xml  { render :xml => @practice, :status => :created, :location => @practice }
         format.js {}
       else

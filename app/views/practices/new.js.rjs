@@ -7,32 +7,11 @@ page << %(
     modal: true,
     buttons: {
       '#{t('actions.save')}': function() {
-        $.ajax({
-            type:'post',
-            dataType: 'script',
-            data: $('#new_practice_dialog form').serialize(),
-            url: $('#new_practice_dialog form').attr('action'),
-            success: function() {
-              $('#new_practice_dialog').dialog('close');
-            }
-        });
+         $('#new_practice_dialog form').submit();
       },
       '#{t('actions.cancel')}': function() {
         $('#new_practice_dialog').dialog('close');
       }
     }
-  });
-
-  $('#new_practice_dialog').submit(function(e) {
-          $.ajax({
-            type:'post',
-            dataType: 'script',
-            data: $('#new_practice_dialog form').serialize(),
-            url: $('#new_practice_dialog form').attr('action'),
-            success: function() {
-              $('#new_practice_dialog').dialog('close');
-            }
-          });
-          return false;
   });
 )
