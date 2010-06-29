@@ -175,6 +175,7 @@ en:
     config: "Configure"
     preferences: "Preferences"
     invite: "Invite"
+    remove: "remove"
   practice_event:
     help:
       practice: "Choose the practice."

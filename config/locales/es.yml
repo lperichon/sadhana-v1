@@ -356,6 +356,7 @@ es:
       delay: "Segundos a esperar entre técnicas."
       continuous: "No esperar entre técnicas."
   actions:
+    remove: "eliminar"
     cancel: "Cancelar"
     delete: "Eliminar"
     play: "Reproducir"

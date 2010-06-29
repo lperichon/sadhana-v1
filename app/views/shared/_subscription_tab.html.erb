@@ -3,10 +3,13 @@
     <%= f.label :plan %><br />
     <%= f.select :plan, current_user.subscription.allowed_plans.collect {|p| ["#{p.name}#{' ' + t('shared_subscription_tab.current_plan_mark') if(p==current_user.subscription.plan)}" , p.id ] }, :selected => current_user.subscription.plan.id %>
   </div>
+  <% if false %>
   <div class='field'>
-    <%= f.label :credit_card %> (<%= link_to_function ((current_user.subscription.profile && !current_user.subscription.profile.no_info?) ? t('actions.update') : t('actions.add')), "$.ajax({type: 'get', url:'#{credit_card_subscription_path(:current)}', dataType: 'script'});" -%>
+    <%= f.label :credit_card %> (
+
+<%= link_to_function ((current_user.subscription.profile && !current_user.subscription.profile.no_info?) ? t('actions.update') : t('actions.add')), "$.ajax({type: 'get', url:'#{credit_card_subscription_path(:current)}', dataType: 'script'});" -%>
       <%- if current_user.subscription.profile && !current_user.subscription.profile.no_info? -%>
-, <%= link_to_function 'remove', "$.ajax({type: 'post', url:'#{unstore_credit_card_subscription_path(:current)}', dataType: 'script'});" -%>
+, <%= link_to_function t('actions.remove'), "$.ajax({type: 'post', url:'#{unstore_credit_card_subscription_path(:current)}', dataType: 'script'});" -%>
       <%- end -%>
 )<br />
     <% if current_user.subscription.profile.nil? || current_user.subscription.profile.no_info? %>
@@ -19,6 +22,7 @@
     <% end %>
     <div id='credit_card'></div>
   </div>
+  <% end %>
   <% if t = current_user.subscription.latest_transaction %>
     <div class='field'>
       <%= f.label :latest_transaction %> (<%= link_to_function t('shared.subscription_tab.transaction_history'), "$.ajax({type:'get', url:'#{history_subscription_path(:current)}', dataType:'script'});" %>)<br/>
