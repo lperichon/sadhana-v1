@@ -10,7 +10,9 @@ class Subscription < ActiveRecord::Base
   after_create      :initialize_state_from_plan
   # if you destroy a subscription all transaction history is lost so you may not really want to do that
   before_destroy    :cancel
-  
+
+  attr_accessor :current_password
+
   attr_accessible # none
   
   # ------------

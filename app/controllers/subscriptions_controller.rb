@@ -3,6 +3,12 @@ class SubscriptionsController < UserApplicationController
 
   def update
     # find the plan
+    current_password = params[:subscription].delete(:current_password)
+    unless current_user.valid_password? current_password
+      @subscription.errors.add(:current_password, current_password.blank? ? :blank : :invalid)
+      return
+    end
+
     plan = SubscriptionPlan.find params[:subscription][:plan]
     if plan.nil?
       flash[:notice] = "Plan not available"

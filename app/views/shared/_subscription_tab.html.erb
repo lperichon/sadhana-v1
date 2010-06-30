@@ -36,4 +36,8 @@
     </div>
     <div id='transaction_history' title='<%= t('subscriptions.transaction_history.title') %>'></div>
   <% end %>
+  <div class="field">
+    <%= f.label :current_password %> <%= field_help t('shared.edit_profile_dialog.current_password_help') %><br/>
+    <%= f.password_field :current_password, :autocomplete => 'off' %>
+  </div>
 <% end %>
