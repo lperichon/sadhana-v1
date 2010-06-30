@@ -154,6 +154,7 @@ en:
       description: "A nice description of your practice"
       delay: "Seconds to wait between each practice technique."
       continuous: "Do not wait between each practice technique."
+    time_format: "{{minutes}} minutes {{seconds}} seconds"
   actions:
     cancel: "Cancel"
     delete: "Delete"
@@ -177,6 +178,7 @@ en:
     preferences: "Preferences"
     invite: "Invite"
     remove: "remove"
+    play_preferences: "Play preferences"
   practice_event:
     help:
       practice: "Choose the practice."

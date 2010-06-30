@@ -1,1 +1,2 @@
 page << "$('##{dom_id @practice_technique}').replaceWith('#{ escape_javascript render :partial => 'practices/practice_technique', :locals => {:practice_technique => @practice_technique}}');"
+page << "$('#practice_time').html('#{t('practice.time_format', :minutes =>@practice.total_time / 60, :seconds => @practice.total_time % 60 )}')"

@@ -66,9 +66,11 @@ class PracticesController < UserApplicationController
     respond_to do |format|
       if @practice.update_attributes(params[:practice])
         format.xml  { head :ok }
+        format.js {}
         format.json { render :json => {:result => @practice.send(params['wants'])} }
       else
         format.xml  { render :xml => @practice.errors, :status => :unprocessable_entity }
+        format.js {}
         format.json { render :json => {:result => @practice.send(params['wants'] + '_was')} }
       end
     end

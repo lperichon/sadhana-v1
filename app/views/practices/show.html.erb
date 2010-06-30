@@ -2,6 +2,7 @@
   <li>
     <%= link_to t('actions.play'), play_practice_path, :class => 'blue medium awesome' %>
   </li>
+  <li><%= link_to_function t('actions.play_preferences'), "$('#play_preferences_dialog').dialog('open');", :class => 'medium blue awesome' %></li>
   <li><%= link_to t('actions.add_to_calendar'), new_practice_event_path, :class => 'blue medium awesome', :id => "#{dom_id @practice}_add_to_calendar_link" %>
     <% unless current_user.calendar_subscription_check(current_user.subscription.plan) %>
       <% javascript_tag do %>
@@ -28,6 +29,11 @@
   <p>
     <b><%= Practice.human_attribute_name :description %>:</b><%= field_help t('practice.help.description') %>
     <%= jeditable_field(:practice, :description) %>
+  </p>
+
+  <p>
+    <b><%= Practice.human_attribute_name :total_time %>:</b><%= field_help t('practice.help.total_time') %>
+    <span id='practice_time'><%= t('practice.time_format', :minutes =>@practice.total_time / 60, :seconds => @practice.total_time % 60 )%></span>
   </p>
 </div>
 <div id='practice_editor'>
@@ -56,6 +62,15 @@
   <div id='created_practice_technique'></div>
 </div>
 
+<div id='play_preferences_dialog' title='<%= t('practices.play.play_preferences_dialog.title') %>' style="display:none">
+  <%= render :partial => 'practices/edit_preferences_dialog_form' %>
+</div>
+
+<%= render :partial => 'shared/edit_practice_technique_dialog' %>
+<%= render :partial => 'shared/confirm_dialog' %>
+<%= render :partial => 'shared/new_event_dialog' %>
+
+
 <%= javascript_tag do %>
   $(document).ready(function(){
     $('#practice_editor #practice_techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 75 );
@@ -64,6 +79,28 @@
       $('#practice_editor #practice_techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 75);
       $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 215);
     });
+
+    $('#play_preferences_dialog').dialog({
+      autoOpen: false,
+      modal: true,
+      buttons: {
+        '<%=t('actions.save')%>': function() {
+          $.ajax({
+            type:'put',
+            dataType: 'script',
+            data: $('#play_preferences_dialog form').serialize(),
+            url: $('#play_preferences_dialog form').attr('action'),
+            success: function() {
+              $('#play_preferences_dialog').dialog('close');
+            }
+          });
+        },
+        '<%=t('actions.cancel')%>': function() {
+          $('#play_preferences_dialog').dialog('close');
+        }
+      }
+    });
+
     var qs = $('#q').quicksearch('.techniques-list .technique', {selector: 'h3'});
     $.ajax({
       type:'get',
@@ -144,7 +181,3 @@
     }});
   });
 <% end %>
-
-<%= render :partial => 'shared/edit_practice_technique_dialog' %>
-<%= render :partial => 'shared/confirm_dialog' %>
-<%= render :partial => 'shared/new_event_dialog' %>

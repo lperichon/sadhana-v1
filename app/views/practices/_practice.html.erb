@@ -1,5 +1,6 @@
 <li id='practice_<%= practice.id %>' class="practice">
   <h3><%= practice.name %></h3>
+  <p class="time">(<%= t('practice.time_format', :minutes =>practice.total_time / 60, :seconds => practice.total_time % 60 ) %>)</p>
   <p><%= practice.description %></p>
   <ul class='actions'>
     <li><%= link_to t('actions.play'), play_practice_path(practice), :class => 'small orange awesome' %></li>

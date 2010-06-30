@@ -384,6 +384,7 @@ es:
     resume: "Continuar"
     config: "Configurar"
     preferences: "Preferencias"
+    play_preferences: "Preferencias de ejecución"
     invite: Invitar
   practice_event:
     help:
