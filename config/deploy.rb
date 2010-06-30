@@ -25,7 +25,7 @@ task :staging do
 set :rails_env, :staging
 set :deploy_to, "/home/#{user}/apps/#{application}-staging"
 
-after "deploy:symlink", "deploy:copy_files"
+after "deploy:symlink", "deploy:copy_staging_files"
 end
 
 namespace :deploy do
@@ -40,9 +40,15 @@ namespace :deploy do
     end.join(" && "))
   end
 
-  task :copy_files do
+  task :copy_production_files do
     run "cp -pf #{deploy_to}/to_copy/.rvmrc #{current_path}/.rvmrc"
     run "cp -pf #{deploy_to}/to_copy/database.yml #{current_path}/config/database.yml"
     run "cp -pf #{deploy_to}/to_copy/production.rb #{current_path}/config/environments/production.rb"
+  end
+
+  task :copy_staging_files do
+    run "cp -pf #{deploy_to}/to_copy/.rvmrc #{current_path}/.rvmrc"
+    run "cp -pf #{deploy_to}/to_copy/database.yml #{current_path}/config/database.yml"
+    run "cp -pf #{deploy_to}/to_copy/staging.rb #{current_path}/config/environments/staging.rb"
   end
 end
