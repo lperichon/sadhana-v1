@@ -270,6 +270,7 @@ es:
         description: Descripción
         continuous: Continuo
         delay: Delay
+        total_time: "Tiempo Total"
       user:
         email: Email
         password: Contraseña
@@ -355,6 +356,7 @@ es:
       transaction_failed: "FRACASO"
       card: "tarjeta"
   practice:
+    time_format: "{{minutes}} minutos {{seconds}} segundos"
     help:
       name: "El nombre que desea darle a su práctica."
       description: "Una descripción de su práctica."
