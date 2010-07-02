@@ -58,6 +58,12 @@ dependencies:
     group: 
     - :production
     version: = 1.2.7
+  lperichon-devise_invitable: 
+    group: 
+    - :default
+    version: = 0.3.0
+    require: 
+    - devise_invitable
   will_paginate: 
     group: 
     - :default
@@ -78,10 +84,6 @@ dependencies:
     group: 
     - :default
     version: = 0.9.1
-  devise_invitable: 
-    group: 
-    - :default
-    version: ">= 0"
   lockfile: 
     group: 
     - :default
@@ -100,7 +102,7 @@ specs:
 - i18n: 
     version: 0.3.7
 - memcache-client: 
-    version: 1.8.3
+    version: 1.8.4
 - tzinfo: 
     version: 0.3.22
 - activesupport: 
@@ -151,9 +153,6 @@ specs:
     version: 0.10.7
 - devise: 
     version: 1.1.rc1
-- devise_invitable: 
-    version: 0.3.0
-    source: 0
 - eventmachine: 
     version: 0.12.10
 - faker: 
@@ -170,6 +169,8 @@ specs:
     version: "0.43"
 - lockfile: 
     version: 1.4.3
+- lperichon-devise_invitable: 
+    version: 0.3.0
 - machinist: 
     version: 1.0.6
 - money: 
@@ -204,11 +205,9 @@ specs:
     version: 1.2.7
 - will_paginate: 
     version: 3.0.pre
-hash: 59ee66998b09308cb14144c11a6ee71c4a658819
+hash: 651e6bc3d7010cbf28f2aaeb9e971bab5466e7d9
 sources: 
-- Git: 
-    uri: http://github.com/rymai/devise_invitable.git
-    git: http://github.com/rymai/devise_invitable.git
-    ref: 69a23267b4db688fc9b161b53dde3de1355b597f
 - Rubygems: 
     uri: http://rubygems.org
+- Rubygems: 
+    uri: http://gems.github.com
