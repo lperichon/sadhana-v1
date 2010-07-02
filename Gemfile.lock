@@ -102,7 +102,7 @@ specs:
 - i18n: 
     version: 0.3.7
 - memcache-client: 
-    version: 1.8.4
+    version: 1.8.3
 - tzinfo: 
     version: 0.3.22
 - activesupport: 
@@ -142,7 +142,7 @@ specs:
 - activeresource: 
     version: 3.0.0.beta3
 - bundler: 
-    version: 0.9.25
+    version: 0.9.26
 - cgi_multipart_eof_fix: 
     version: 2.5.0
 - columnize: 
