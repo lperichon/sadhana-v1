@@ -18,7 +18,7 @@ task :production do
 set :rails_env, :production
 set :deploy_to, "/home/#{user}/apps/#{application}"
 
-after "deploy:symlink", "deploy:copy_files"
+after "deploy:symlink", "deploy:copy_production_files"
 end
 
 task :staging do
