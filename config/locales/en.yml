@@ -224,8 +224,8 @@ en:
       title: "Get Started Now!"
       text: "If you practice Yôga, or teach it professionally, sign up now and start organizing your practices!"
       button: "Get Started Now!"
-    find_us_on_fb: "Or find us on {{facebook}}"
-    follow_us_on_twitter: "Follow us on {{twitter}}"
+    find_us_on_fb_html: "Or find us on {{facebook}}"
+    follow_us_on_twitter_html: "Follow us on {{twitter}}"
   practice_events:
     index:
       new_practice_event: "New event"

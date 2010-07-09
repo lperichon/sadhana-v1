@@ -129,8 +129,6 @@ ActiveRecord::Schema.define(:version => 20100629145502) do
     t.datetime "updated_at"
   end
 
-  add_index "technique_type_translations", ["technique_type_id", "locale"], :name => "index_technique_type_translations_on_technique_type_id_and_locale", :unique => true
-
   create_table "technique_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"

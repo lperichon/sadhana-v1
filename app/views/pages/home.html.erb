@@ -32,11 +32,11 @@
 <div class="tweet"></div>
 
 <div class="facebook">
-  <%= t('home.find_us_on_fb', :facebook => link_to(content_tag(:span, "facebook"), "http://www.facebook.com/pages/Sadhana/134874333191329", :class=>'facebook-link')) %>
+  <%= t('home.find_us_on_fb_html', :facebook => link_to(content_tag(:span, "facebook"), "http://www.facebook.com/pages/Sadhana/134874333191329", :class=>'facebook-link')) %>
 </div>
 </div>
 <%= javascript_tag do %>
-  $('.tweet').tweet({username: 'sadhana_app', avatar_size: 32, count: 1, intro_text: '<%= t('home.follow_us_on_twitter', :twitter => link_to(content_tag(:span,'Twitter'), 'http://twitter.com/sadhana_app', :class=>'twitter-link')) %>', loading_text: 'Loading...'});
+  $('.tweet').tweet({username: 'sadhana_app', avatar_size: 32, count: 1, intro_text: '<%= t('home.follow_us_on_twitter_html', :twitter => link_to(content_tag(:span,'Twitter'), 'http://twitter.com/sadhana_app', :class=>'twitter-link')) %>', loading_text: 'Loading...'});
 
   $('#functionalities_slideshow').cycle({
     fx: 'all',

@@ -1,13 +1,13 @@
 source 'http://rubygems.org'
 source 'http://gems.github.com'
 
-gem 'rails', '3.0.0.beta3'
+gem 'rails', '3.0.0.beta4'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'ryanb-acts-as-list', '0.1.2', :require => 'acts_as_list'
-gem 'devise', '1.1.rc1'
+gem 'devise', '1.1.rc2'
 gem 'lperichon-devise_invitable','0.3.0', :require => 'devise_invitable'
 gem 'paperclip', '2.3.2'
 gem 'nokogiri', '1.4.1'

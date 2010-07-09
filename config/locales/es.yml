@@ -431,5 +431,5 @@ es:
       title: "¡Comience ahora!"
       text: "¡Si usted practica Yôga, o enseña profesionalmente, registrese ahora y comience a organizar sus prácticas!"
       button: "¡Comience ahora!"
-    find_us_on_fb: "O encuentrenos en {{facebook}}"
-    follow_us_on_twitter: "Síganos en {{twitter}}"
+    find_us_on_fb_html: "O encuentrenos en {{facebook}}"
+    follow_us_on_twitter_html: "Síganos en {{twitter}}"
