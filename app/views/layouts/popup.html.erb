@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>S&aacute;dhana</title>
+
+    <%= stylesheet_link_tag 'ui-lightness/jquery-ui-1.8rc3.custom' %>
+    <%= stylesheet_link_tag 'awesome' %>
+    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'scaffold' %>
+
+    <% if File.exist? File.join(Rails.public_path, "stylesheets/#{controller.controller_name}.css") %>
+      <%= stylesheet_link_tag controller.controller_name %>
+    <% end %>
+
+    <%= javascript_include_tag 'jquery-1.4.2.min' %>
+    <%= javascript_include_tag 'jquery.rails' %>
+    <%= javascript_include_tag 'jquery-ui-1.8rc3.custom.min' %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'jquery.quicksearch' %>
+
+    <% if File.exist? File.join(Rails.public_path, "javascripts/#{controller.controller_name}.js") %>
+      <%= javascript_include_tag controller.controller_name %>
+    <% end %>
+
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div id='header' class='ui-widget-header ui-corner-all'>
+      <a href="/"><h1 id='logo'>S&aacute;dhana</h1></a>
+    </div>
+
+    <div id='content'>
+      <div id='notifications'>
+        <% if notice %>
+          <div class='notice ui-state-highlight ui-corner-all'>
+            <p>
+              <span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+              <%= notice %>
+            </p>
+          </div>
+        <% end %>
+        <% if alert %>
+          <div class="alert ui-state-error ui-corner-all">
+            <p>
+              <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+              <%= alert %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+      <%= yield %>
+    </div>
+
+    <%= render :partial => 'shared/credits_dialog' %>
+    <%= render :partial => 'shared/sign_in_dialog' %>
+    <%= render :partial => 'shared/sign_up_dialog' %>
+    <%= render :partial => 'shared/new_confirmation_dialog' %>
+    <%= render :partial => 'shared/forgot_password_dialog' %>
+    <% if user_signed_in? %>
+      <%= render :partial => 'shared/edit_profile_dialog' %>
+    <% end %>
+  </body>
+</html>

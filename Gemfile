@@ -20,6 +20,9 @@ gem 'fastercsv', '1.5.3'
 gem 'puret', '1.0.3'
 gem 'will_paginate', '3.0.pre'
 
+gem 'lperichon-contacts', '1.0', :require => 'contacts'
+gem 'oauth', '0.4.1'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

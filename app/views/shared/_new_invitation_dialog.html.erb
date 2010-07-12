@@ -1,5 +1,7 @@
 <div id='new_invitation_dialog' style='display:none' title='<%= t('shared.new_invitation_dialog.title') %>'>
   <%= render :partial => 'devise/invitations/dialog_form' %>
+  <a href="/contacts?provider=google" onclick="popUp(this.href,'console',400,400);return false;"target="_blank">Google</a>
+  
 </div>
 
 <%= javascript_tag do %>

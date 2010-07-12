@@ -1,0 +1,223 @@
+--- 
+dependencies: 
+  faker: 
+    group: 
+    - :test
+    version: ">= 0"
+  fastercsv: 
+    group: 
+    - :default
+    version: = 1.5.3
+  ruby-debug: 
+    group: 
+    - :development
+    version: ">= 0"
+  rails: 
+    group: 
+    - :default
+    version: = 3.0.0.beta4
+  mongrel: 
+    group: 
+    - :production
+    version: = 1.1.5
+  mysql: 
+    group: 
+    - :production
+    version: = 2.8.1
+  sqlite3-ruby: 
+    group: 
+    - :test
+    version: = 1.2.5
+    require: 
+    - sqlite3
+  money: 
+    group: 
+    - :default
+    version: = 3.0.0
+  lperichon-contacts: 
+    group: 
+    - :default
+    version: = 1.0
+    require: 
+    - contacts
+  oauth: 
+    group: 
+    - :default
+    version: = 0.4.1
+  active_merchant: 
+    group: 
+    - :default
+    version: = 1.5.2
+    require: 
+    - active_merchant
+  ryanb-acts-as-list: 
+    group: 
+    - :default
+    version: = 0.1.2
+    require: 
+    - acts_as_list
+  high_voltage: 
+    group: 
+    - :default
+    version: = 0.9.0
+  machinist: 
+    group: 
+    - :test
+    version: ">= 0"
+  thin: 
+    group: 
+    - :production
+    version: = 1.2.7
+  lperichon-devise_invitable: 
+    group: 
+    - :default
+    version: = 0.3.0
+    require: 
+    - devise_invitable
+  will_paginate: 
+    group: 
+    - :default
+    version: = 3.0.pre
+  devise: 
+    group: 
+    - :default
+    version: = 1.1.rc2
+  paperclip: 
+    group: 
+    - :default
+    version: = 2.3.2
+  puret: 
+    group: 
+    - :default
+    version: = 1.0.3
+  state_machine: 
+    group: 
+    - :default
+    version: = 0.9.1
+  lockfile: 
+    group: 
+    - :default
+    version: = 1.4.3
+  nokogiri: 
+    group: 
+    - :default
+    version: = 1.4.1
+specs: 
+- rake: 
+    version: 0.8.7
+- abstract: 
+    version: 1.0.0
+- activesupport: 
+    version: 3.0.0.beta4
+- builder: 
+    version: 2.1.2
+- i18n: 
+    version: 0.4.1
+- activemodel: 
+    version: 3.0.0.beta4
+- erubis: 
+    version: 2.6.6
+- rack: 
+    version: 1.1.0
+- rack-mount: 
+    version: 0.6.7
+- rack-test: 
+    version: 0.5.4
+- tzinfo: 
+    version: 0.3.22
+- actionpack: 
+    version: 3.0.0.beta4
+- mime-types: 
+    version: "1.16"
+- polyglot: 
+    version: 0.3.1
+- treetop: 
+    version: 1.4.8
+- mail: 
+    version: 2.2.5
+- actionmailer: 
+    version: 3.0.0.beta4
+- active_merchant: 
+    version: 1.5.2
+- arel: 
+    version: 0.4.0
+- activerecord: 
+    version: 3.0.0.beta4
+- activeresource: 
+    version: 3.0.0.beta4
+- bcrypt-ruby: 
+    version: 2.1.2
+- bundler: 
+    version: 0.9.26
+- cgi_multipart_eof_fix: 
+    version: 2.5.0
+- columnize: 
+    version: 0.3.1
+- daemons: 
+    version: 1.1.0
+- warden: 
+    version: 0.10.7
+- devise: 
+    version: 1.1.rc2
+- eventmachine: 
+    version: 0.12.10
+- faker: 
+    version: 0.3.1
+- fastercsv: 
+    version: 1.5.3
+- fastthread: 
+    version: 1.0.7
+- gem_plugin: 
+    version: 0.2.3
+- high_voltage: 
+    version: 0.9.0
+- linecache: 
+    version: "0.43"
+- lockfile: 
+    version: 1.4.3
+- lperichon-contacts: 
+    version: "1.0"
+- lperichon-devise_invitable: 
+    version: 0.3.0
+- machinist: 
+    version: 1.0.6
+- money: 
+    version: 3.0.0
+- mongrel: 
+    version: 1.1.5
+- mysql: 
+    version: 2.8.1
+- nokogiri: 
+    version: 1.4.1
+- oauth: 
+    version: 0.4.1
+- paperclip: 
+    version: 2.3.2
+- puret: 
+    version: 1.0.3
+- thor: 
+    version: 0.13.7
+- railties: 
+    version: 3.0.0.beta4
+- rails: 
+    version: 3.0.0.beta4
+- ruby-debug-base: 
+    version: 0.10.3
+- ruby-debug: 
+    version: 0.10.3
+- ryanb-acts-as-list: 
+    version: 0.1.2
+- sqlite3-ruby: 
+    version: 1.2.5
+- state_machine: 
+    version: 0.9.1
+- thin: 
+    version: 1.2.7
+- will_paginate: 
+    version: 3.0.pre
+hash: 7d730dba9dc4803642cec3b6330746134a2d5e47
+sources: 
+- Rubygems: 
+    uri: http://rubygems.org
+- Rubygems: 
+    uri: http://gems.github.com
