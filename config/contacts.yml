@@ -3,5 +3,9 @@ development:
     consumer_key: 'sadhana.com.ar'
     consumer_secret: 'kdZ1aPkDsgJ5zN2YRb2iApuM'
   yahoo:
-    consumer_key: 'dj0yJmk9Ym5qbG1zNWtKaEx0JmQ9WVdrOVMyZzVVV3MxTnpJbWNHbzlOakl3TmpreE5qSS0mcz1jb25zdW1lcnNlY3JldCZ4PTVj'
-    consumer_secret: '9dcd7085905e5dcbf26ddc82f600858524d3cdfb'
+    consumer_key: 'dj0yJmk9Qm16MFJmMjY2Y1FsJmQ9WVdrOVMyZzVVV3MxTnpJbWNHbzlOakl3TmpreE5qSS0mcz1jb25zdW1lcnNlY3JldCZ4PTFm'
+    consumer_secret: '95e017f9fc9ab055434c91b8477fb0e0b9ff9732'
+  windows_live:
+    aplication_id: '00000000400416AC'
+    secret_key: 'cRYUVhNlT8DrJu5z5ZV4HwCNGa4uU3jG'
+    privacy_policy_url: 'http://local.sadhana.com.ar/'
