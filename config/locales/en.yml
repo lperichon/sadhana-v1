@@ -120,6 +120,7 @@ en:
       title: "Resend confirmation instructions"
     new_invitation_dialog:
       title: "Invite a friend"
+      invite_from: "Invite a friend from"
     links:
       sign_in: "Sign in"
       sign_up: "Sign up"

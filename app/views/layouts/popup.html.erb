@@ -50,14 +50,5 @@
       </div>
       <%= yield %>
     </div>
-
-    <%= render :partial => 'shared/credits_dialog' %>
-    <%= render :partial => 'shared/sign_in_dialog' %>
-    <%= render :partial => 'shared/sign_up_dialog' %>
-    <%= render :partial => 'shared/new_confirmation_dialog' %>
-    <%= render :partial => 'shared/forgot_password_dialog' %>
-    <% if user_signed_in? %>
-      <%= render :partial => 'shared/edit_profile_dialog' %>
-    <% end %>
   </body>
 </html>

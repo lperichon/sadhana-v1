@@ -331,6 +331,7 @@ es:
       title: "Reenviar instrucciones de confirmación"
     new_invitation_dialog:
       title: "Invitar a un amigo"
+      invite_from: "Invitar desde"
     links:
       sign_in: "Entrar"
       sign_up: "Registrarse"

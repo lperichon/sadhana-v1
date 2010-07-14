@@ -9,7 +9,7 @@ function popUp(strURL, strType, strHeight, strWidth) {
    newWin.close();
  var strOptions="";
  if (strType=="console")
-   strOptions="resizable,height="+
+   strOptions="resizable,scrollbars,height="+
      strHeight+",width="+strWidth;
  if (strType=="fixed")
    strOptions="status,height="+
@@ -20,4 +20,5 @@ function popUp(strURL, strType, strHeight, strWidth) {
      strHeight+",width="+strWidth;
  newWin = window.open(strURL, 'newWin', strOptions);
  newWin.focus();
+ return newWin;
 }

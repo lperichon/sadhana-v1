@@ -1,5 +1,8 @@
-<ul>
+<ul id="invite_contacts">
 <% @contacts.each do |contact| %>
-  <li><%= contact.name %> - <%= contact.email %></li>
+  <li class="contact">
+    <h3><%= contact.name %></h3>
+    <p><%= contact.email %></p>
+  </li>
 <% end %>
 </ul>
