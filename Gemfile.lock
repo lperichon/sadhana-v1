@@ -33,7 +33,7 @@ dependencies:
   lperichon-contacts: 
     group: 
     - :default
-    version: = 1.0.2
+    version: = 1.0.4
     require: 
     - contacts
   money: 
@@ -182,7 +182,7 @@ specs:
 - lockfile: 
     version: 1.4.3
 - lperichon-contacts: 
-    version: 1.0.2
+    version: 1.0.4
 - lperichon-devise_invitable: 
     version: 0.3.0
 - machinist: 
@@ -221,7 +221,7 @@ specs:
     version: 1.2.7
 - will_paginate: 
     version: 3.0.pre
-hash: ca7c6eae17571ada7826ecd836808074aad4c9b8
+hash: 3f0020f6100c1af678b9bfc7ba7d5df7746f6d45
 sources: 
 - Rubygems: 
     uri: http://rubygems.org
