@@ -33,6 +33,7 @@
     <%= javascript_include_tag 'timepicker' %>
     <%= javascript_include_tag 'jquery.quicksearch' %>
     <%= javascript_include_tag 'jquery.tweet' %>
+    <%= javascript_include_tag 'jquery.jstore-all-min' %>
 
     <% if File.exist? File.join(Rails.public_path, "javascripts/#{controller.controller_name}.js") %>
       <%= javascript_include_tag controller.controller_name %>

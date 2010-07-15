@@ -73,6 +73,23 @@
 
 <%= javascript_tag do %>
   $(document).ready(function(){
+
+    // First, we must tell jStore where to find the HTML file which embeds our flash script.
+    // If you move the jStore.swf or jStore.Flash.html files out of their default directories (document root),
+    // use this variable to define where to access the .html file. Within the .html file, you can set up the
+    // path to the .swf file.
+    // Then, set up the default engine we wish to use.
+    jQuery.extend(jQuery.jStore.defaults, {
+        flash: 'jStore.Flash.html'
+    })
+
+    // Finally, we trigger jStore's load function. This is a new step in the
+    // activation procedure of jStore, since Version 1.1
+    $(function(){
+        jQuery.jStore.load();
+    });
+
+    // Resize window to fit
     $('#practice_editor #practice_techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 75 );
     $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 215);
     $(window).resize(function() {
@@ -80,6 +97,7 @@
       $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 215);
     });
 
+    // Initialize play preferences dialog
     $('#play_preferences_dialog').dialog({
       autoOpen: false,
       modal: true,
@@ -101,17 +119,36 @@
       }
     });
 
+    // Initialize quick search
     var qs = $('#q').quicksearch('.techniques-list .technique', {selector: 'h3'});
-    $.ajax({
-      type:'get',
-      data: { 'symbol': 'asana' },
-      dataType: 'script',
-      url: '/techniques',
-      complete: function(){
+
+    // Start loading ásanas
+
+    jQuery.jStore.ready(function(engine){
+    engine.ready(function() {
+    cached_asanas = jQuery.jStore.get('asana');
+
+    if(cached_asanas) {
+        $('#asana_techniques_viewport').html(cached_asanas);
         Practices.accordion_draggable();
         qs.cache();
-      }
-    });
+    } else {
+        $.ajax({
+          type:'get',
+          data: { 'symbol': 'asana' },
+          dataType: 'html',
+          url: '/techniques',
+          success: function(data){
+            jQuery.jStore.set('asana', data);
+            cached_asanas = data
+            $('#asana_techniques_viewport').html(cached_asanas);
+            Practices.accordion_draggable();
+            qs.cache();
+          }
+        });
+    }
+    })});
+    // Enable sorting practice techniques
     $('#practice_techniques').sortable(
     {
       revert: 'invalid',
@@ -126,6 +163,7 @@
       }
     );
 
+    // Enable adding techniques to practice (only ásanas for now)
     $("#practice_techniques").droppable({
       accept: '.asana',
       drop: function(event, ui) {
@@ -165,18 +203,31 @@
         }
       }
     });
+
+    // Initilize techniques accordion
     $("#techniques_accordion").accordion({ changestart: function(event, ui) {
-      if($('#' + ui.newHeader.attr('symbol') + '_techniques_list').length == 0) {
-        $.ajax({
-          type:'get',
-          data: { 'symbol': ui.newHeader.attr('symbol') },
-          dataType: 'script',
-          url: '/techniques',
-          complete: function() {
+      technique_type_symbol = ui.newHeader.attr('symbol');
+      if($('#' + technique_type_symbol + '_techniques_list').length == 0) {
+        cached_techniques = jQuery.jStore.get(technique_type_symbol);
+        if(cached_techniques) {
+            $('#' + technique_type_symbol + '_techniques_viewport').html(cached_techniques);
             Practices.accordion_draggable();
             qs.cache();
-          }
-        });
+        } else {
+            $.ajax({
+              type:'get',
+              data: { 'symbol': technique_type_symbol },
+              dataType: 'html',
+              url: '/techniques',
+              success: function(data){
+                jQuery.jStore.set(technique_type_symbol, data);
+                cached_techniques = data
+                $('#' + technique_type_symbol + '_techniques_viewport').html(cached_techniques);
+                Practices.accordion_draggable();
+                qs.cache();
+              }
+            });
+        }
       }
     }});
   });

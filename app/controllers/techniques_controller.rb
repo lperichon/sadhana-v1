@@ -6,6 +6,7 @@ class TechniquesController < UserApplicationController
     @techniques = @technique_type.techniques
 
     respond_to do |format|
+      format.html { render :partial => 'techniques_list', :locals => {:technique_type => @technique_type, :techniques => @techniques}, :layout => false}
       format.js {}
     end
   end
