@@ -33,13 +33,13 @@
 }
 
 #practice_editor {
-  padding-left: 175px;
+  padding-left: 190px;
   padding-right: 8px;
 }
 
 #sidebar {
-  width: 175px;
-  right: 175px;
+  width: 190px;
+  right: 190px;
   float: left;
   position: relative;
   margin-right: -100%;
