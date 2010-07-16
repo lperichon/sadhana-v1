@@ -90,10 +90,11 @@
     });
 
     // Resize window to fit
-    $('#practice_editor #practice_techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 75 );
+    ff_diff = $.browser.mozilla ? 5 : 0;
+    $('#practice_editor #practice_techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 75 + ff_diff);
     $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 215);
     $(window).resize(function() {
-      $('#practice_editor #practice_techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 75);
+      $('#practice_editor #practice_techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 75 + ff_diff);
       $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 215);
     });
 

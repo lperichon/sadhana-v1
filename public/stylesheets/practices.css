@@ -32,10 +32,17 @@
   width: 92%;
 }
 
+#practice_editor {
+  padding-left: 175px;
+  padding-right: 8px;
+}
+
 #sidebar {
-  width: 15%;
-  height: 100%;
-  display: inline-block;
+  width: 175px;
+  right: 175px;
+  float: left;
+  position: relative;
+  margin-right: -100%;
 }
 
 #techniques_accordion .techniques-viewport {
@@ -87,9 +94,11 @@
 }
 
 #practice_techniques {
-  width: 84%;
-  height: 100%;
-  display: inline-block;
+  width: 100%;
+  margin-top:1px;
+  margin-left: 5px;
+  float: left;
+  position: relative;
   vertical-align: top;
   border: 1px solid #ccc;
   -moz-border-radius: 5px;
