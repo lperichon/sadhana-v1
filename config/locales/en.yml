@@ -33,7 +33,7 @@ en:
       updated: 'You updated your account successfully.'
       destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
       edit:
-        title: "Edit {{resource_name}}"
+        title: "Edit %{resource_name}"
     unlocks:
       send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
       unlocked: 'Your account was successfully unlocked. You are now signed in.'
@@ -43,18 +43,18 @@ en:
       unlock_instructions: 'Unlock Instructions'
     mailer_views:
       confirmation_instructions:
-        welcome: "Welcome {{email}}!"
+        welcome: "Welcome %{email}!"
         text: "You can confirm your account through the link below:"
         link: "Confirm my account"
       reset_password_instructions:
-        welcome: "Hello {{email}}!"
+        welcome: "Hello %{email}!"
         text_top: "Someone has requested a link to change your password, and you can do this through the link below."
         text_bottom1: "If you didn't request this, please ignore this email."
         text_bottom2: "Your password won't change until you access the link above and create a new one."
         link: "Change my password"
       invitation:
-        welcome: "Hello {{email}}!"
-        text_top: "Someone has invited you to {{root_url}}, you can accept it through the link below."
+        welcome: "Hello %{email}!"
+        text_top: "Someone has invited you to %{root_url}, you can accept it through the link below."
         link: "Accept invitation"
         text_bottom1: "If you don't want to accept the invitation, please ignore this email."
         text_bottom2: "Your account won't be created until you access the link above and set your password."
@@ -141,7 +141,7 @@ en:
       subscription_tab_title: "Subscription"
     subscription_tab:
       no_credit_card: "(no credit card on file)"
-      card_expiration_date: "Expires: {{date}}"
+      card_expiration_date: "Expires: %{date}"
       transaction_history: "History"
       transaction_failed: "FAILED TO"
       card: "card"
@@ -155,7 +155,7 @@ en:
       description: "A nice description of your practice"
       delay: "Seconds to wait between each practice technique."
       continuous: "Do not wait between each practice technique."
-    time_format: "{{minutes}} minutes {{seconds}} seconds"
+    time_format: "%{minutes} minutes %{seconds} seconds"
   actions:
     cancel: "Cancel"
     delete: "Delete"
@@ -196,13 +196,13 @@ en:
     sign_out: "Sign out"
     sign_up: "Sign up"
     sign_in: "Sign in"
-    signed_in_as: "Signed in as {{email}}. Not you?"
-    signup_or_siginin: "{{signup}} or {{signin}}"
+    signed_in_as: "Signed in as %{email}. Not you?"
+    signup_or_siginin: "%{signup} or %{signin}"
     credits: Credits
     profile: "Profile"
   application:
-    account_past_due: "Your account is past due. You have {{days}} remaining on the grace period."
-    account_due: "Your account is due on {{days}} days."
+    account_past_due: "Your account is past due. You have %{days} remaining on the grace period."
+    account_due: "Your account is due on %{days} days."
     pay_now_url: "https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif"
   shared_subscription_tab:
     current_plan_mark: "(current)"
@@ -225,8 +225,8 @@ en:
       title: "Get Started Now!"
       text: "If you practice Yôga, or teach it professionally, sign up now and start organizing your practices!"
       button: "Get Started Now!"
-    find_us_on_fb_html: "Or find us on {{facebook}}"
-    follow_us_on_twitter_html: "Follow us on {{twitter}}"
+    find_us_on_fb_html: "Or find us on %{facebook}"
+    follow_us_on_twitter_html: "Follow us on %{twitter}"
   practice_events:
     index:
       new_practice_event: "New event"
