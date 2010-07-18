@@ -1,15 +1,4 @@
-development:
-  google:
-    consumer_key: 'sadhana.com.ar'
-    consumer_secret: 'kdZ1aPkDsgJ5zN2YRb2iApuM'
-  yahoo:
-    consumer_key: 'dj0yJmk9Qm16MFJmMjY2Y1FsJmQ9WVdrOVMyZzVVV3MxTnpJbWNHbzlOakl3TmpreE5qSS0mcz1jb25zdW1lcnNlY3JldCZ4PTFm'
-    consumer_secret: '95e017f9fc9ab055434c91b8477fb0e0b9ff9732'
-  windows_live:
-    application_id: '00000000400416AC'
-    secret_key: 'cRYUVhNlT8DrJu5z5ZV4HwCNGa4uU3jG'
-    privacy_policy_url: 'http://local.sadhana.com.ar/'
-production:
+config: &config
   google:
     consumer_key: ENV['GOOGLE_CONSUMER_KEY']
     consumer_secret: ENV['GOOGLE_CONSUMER_SECRET']
@@ -19,4 +8,9 @@ production:
   windows_live:
     application_id: ENV['WINDOWSLIVE_APP_ID']
     secret_key: ENV['WINDOWSLIVE_CONSUMER_KEY']
-    privacy_policy_url: ENV['WINDOWSLIVE_POLICY']
+    privacy_policy_url: ENV['WINDOWSLIVE_POLICY_URL']
+
+development:
+  <<: *config
+production:
+  <<: *config
