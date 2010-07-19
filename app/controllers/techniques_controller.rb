@@ -4,6 +4,7 @@ class TechniquesController < UserApplicationController
   def index
     @technique_type = TechniqueType.find_by_symbol(params[:symbol])
     @techniques = @technique_type.techniques
+    @techniques_token = ENV['TECHNIQUES_TOKEN']
 
     respond_to do |format|
       format.html { render :partial => 'techniques_list', :locals => {:technique_type => @technique_type, :techniques => @techniques}, :layout => false}

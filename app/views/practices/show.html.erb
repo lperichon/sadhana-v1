@@ -128,8 +128,9 @@
     jQuery.jStore.ready(function(engine){
     engine.ready(function() {
     cached_asanas = jQuery.jStore.get('asana');
-
-    if(cached_asanas) {
+    cached_techniques_token = jQuery.jStore.get('techniques_token');
+    actual_techniques_token = '<%= ENV['TECHNIQUES_TOKEN'] %>';
+    if(cached_techniques_token && actual_techniques_token == cached_techniques_token && cached_asanas) {
         $('#asana_techniques_viewport').html(cached_asanas);
         Practices.accordion_draggable();
         qs.cache();
@@ -141,6 +142,7 @@
           url: '/techniques',
           success: function(data){
             jQuery.jStore.set('asana', data);
+            jQuery.jStore.set('techniques_token', actual_techniques_token);
             cached_asanas = data
             $('#asana_techniques_viewport').html(cached_asanas);
             Practices.accordion_draggable();
