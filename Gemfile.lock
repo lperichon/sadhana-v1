@@ -40,22 +40,22 @@ dependencies:
     group: 
     - :default
     version: = 3.0.0
-  high_voltage: 
-    group: 
-    - :default
-    version: = 0.9.0
-  ryanb-acts-as-list: 
-    group: 
-    - :default
-    version: = 0.1.2
-    require: 
-    - acts_as_list
   active_merchant: 
     group: 
     - :default
     version: = 1.5.2
     require: 
     - active_merchant
+  ryanb-acts-as-list: 
+    group: 
+    - :default
+    version: = 0.1.2
+    require: 
+    - acts_as_list
+  high_voltage: 
+    group: 
+    - :default
+    version: = 0.9.0
   oauth: 
     group: 
     - :default
@@ -78,22 +78,22 @@ dependencies:
     group: 
     - :default
     version: = 1.4.3
-  puret: 
-    group: 
-    - :default
-    version: = 1.0.3
-  paperclip: 
-    group: 
-    - :default
-    version: = 2.3.2
-  devise: 
-    group: 
-    - :default
-    version: = 1.1.rc2
   will_paginate: 
     group: 
     - :default
     version: = 3.0.pre
+  devise: 
+    group: 
+    - :default
+    version: = 1.1.rc2
+  paperclip: 
+    group: 
+    - :default
+    version: = 2.3.2
+  puret: 
+    group: 
+    - :default
+    version: = 1.0.3
   state_machine: 
     group: 
     - :default
@@ -102,6 +102,10 @@ dependencies:
     group: 
     - :default
     version: = 1.4.3
+  aws-s3: 
+    group: 
+    - :default
+    version: = 0.6.2
   nokogiri: 
     group: 
     - :default
@@ -149,6 +153,10 @@ specs:
     version: 3.0.0.beta4
 - activeresource: 
     version: 3.0.0.beta4
+- xml-simple: 
+    version: 1.0.12
+- aws-s3: 
+    version: 0.6.2
 - bcrypt-ruby: 
     version: 2.1.2
 - bundler: 
@@ -202,7 +210,7 @@ specs:
 - puret: 
     version: 1.0.3
 - thor: 
-    version: 0.13.7
+    version: 0.13.8
 - railties: 
     version: 3.0.0.beta4
 - rails: 
@@ -221,7 +229,7 @@ specs:
     version: 1.2.7
 - will_paginate: 
     version: 3.0.pre
-hash: 93dfe58e24b7887dbd28c6031b0e045e23cd1476
+hash: fd60f472e3afee48b537f20a699ce5140fcf2cda
 sources: 
 - Rubygems: 
     uri: http://rubygems.org
