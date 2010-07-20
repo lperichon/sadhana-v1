@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 var Contacts = {
   select_contact: function(email) {
-    opener.document.forms[7].user_email.value = email;
+    opener.document.forms[6].user_email.value = email;
     self.close();
   }
 };
