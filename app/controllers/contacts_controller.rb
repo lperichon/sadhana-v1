@@ -5,7 +5,7 @@ class ContactsController < UserApplicationController
     if params[:provider].present?
       provider = params[:provider].to_sym
       consumer = Contacts.new(provider)
-      url = consumer.authentication_url('http://local.sadhana.com.ar/contacts')
+      url = consumer.authentication_url(url_for :controller => 'contacts', :action => 'index')
       session[:consumer] = consumer.serialize
       session[:provider] = provider
       redirect_to url
