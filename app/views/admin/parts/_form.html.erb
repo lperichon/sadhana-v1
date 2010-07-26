@@ -1,0 +1,18 @@
+<%= form_for([:admin, @part]) do |f| %>
+  <%= f.error_messages %>
+  <div class="field" id="name_field">
+    <%= f.fields_for :translations do |ft| %>
+      <%= ft.label :name %> (<%= ft.object.locale %>)<br />
+      <%= ft.text_field :name %>
+
+      <% unless ft.object.new_record? %>
+        <%= ft.check_box '_destroy' %>
+        <%= ft.label '_destroy', 'Remove' %>
+      <% end %><br/>
+    <% end %>
+    <%= link_to_function 'Add translation', "$('#add_translation_link').before('#{ escape_javascript render :partial => 'name_translation_form', :locals => {:f => f, :translation => @part.translations.new}}')", :id => 'add_translation_link' %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
