@@ -7,6 +7,11 @@
     <br />
     <%= f.text_field :delay %>
   </div>
+  <div class="field">
+    <%= f.label :sound_filename %><%= field_help t('practice.help.sound_filename') %>
+    <br />
+    <%= f.select :sound_filename, {'Goblet', 'goblet', 'Chime', 'chime'}, {:selected => @practice.sound_filename}, {} %>
+  </div>
 <% end %>
 
 <%= javascript_tag do %>

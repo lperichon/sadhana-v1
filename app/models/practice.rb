@@ -18,4 +18,10 @@ class Practice < ActiveRecord::Base
   def total_time
     self.practice_techniques.all.sum {|pt| (pt.minutes*60 + pt.seconds + (self.continuous ? self.delay : 0)) * (pt.compensate ? 2 : 1) }
   end
+
+  def sound_filename
+    filename = read_attribute(:sound_filename)
+    filename = 'chime' if filename.blank?
+    filename
+  end
 end

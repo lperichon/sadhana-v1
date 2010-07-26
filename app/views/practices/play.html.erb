@@ -28,7 +28,10 @@
   $(document).ready(function(){
   $("#jpId").jPlayer( {
     ready: function () {
-      this.element.jPlayer("setFile", "/sounds/goblet.mp3", "/sounds/goblet.ogg"); // Defines the mp3
+      this.element.jPlayer("setFile", "/sounds/<%= @practice.sound_filename %>.mp3", "/sounds/<%= @practice.sound_filename %>.ogg"); // Defines the mp3
+      this.element.jPlayer("onSoundComplete", function() {
+        this.element.jPlayer("setFile", "/sounds/<%= @practice.sound_filename %>.mp3", "/sounds/<%= @practice.sound_filename %>.ogg"); // Defines the mp3
+      });
     },
     nativeSupport: true,
     oggSupport: true,
