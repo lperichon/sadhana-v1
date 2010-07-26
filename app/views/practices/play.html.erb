@@ -25,6 +25,17 @@
 </div>
 
 <%= javascript_tag do %>
+  $(document).ready(function(){
+  $("#jpId").jPlayer( {
+    ready: function () {
+      this.element.jPlayer("setFile", "/sounds/goblet.mp3", "/sounds/goblet.ogg"); // Defines the mp3
+    },
+    nativeSupport: true,
+    oggSupport: true,
+    swfPath: "/"
+  });
+  });
+
   $('#play_preferences_dialog').dialog({
     autoOpen: false,
     modal: true,

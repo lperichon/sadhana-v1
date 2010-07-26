@@ -33,10 +33,10 @@ var Practices = {
     continuous = $('#practice_continuous').is(':checked');
     if(continuous) {
       $('#countdown').countdown({until: '+' + $('#practice_delay').val() + 's', format: 'MS', compact: true, description: '', onExpiry: function() {
-        $('#countdown').countdown('change', {until: '+' + minutes + 'm +' + seconds + 's', format: 'MS', compact: true, description: '', onExpiry: function() {$.sound.play('/ping.wav');$('#slideshow_practice_techniques').cycle('next');}});
+        $('#countdown').countdown('change', {until: '+' + minutes + 'm +' + seconds + 's', format: 'MS', compact: true, description: '', onExpiry: function() {$('#jpId').jPlayer('play');$('#slideshow_practice_techniques').cycle('next');}});
       }});
     } else {
-      $('#countdown').countdown({until: '+' + minutes + 'm +' + seconds + 's', format: 'MS', compact: true, description: '', onExpiry: function() {$.sound.play('/ping.wav');$('#slideshow_practice_techniques').cycle('next');}});
+      $('#countdown').countdown({until: '+' + minutes + 'm +' + seconds + 's', format: 'MS', compact: true, description: '', onExpiry: function() {$('#jpId').jPlayer('play');$('#slideshow_practice_techniques').cycle('next');}});
       $('#countdown').countdown('pause');
     }
   },

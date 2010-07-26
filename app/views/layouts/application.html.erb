@@ -28,7 +28,7 @@
     <%= javascript_include_tag 'jquery.jeditable' %>
     <%= javascript_include_tag 'jquery.cycle' %>
     <%= javascript_include_tag 'jquery.countdown' %>
-    <%= javascript_include_tag 'jquery.sound' %>
+    <%= javascript_include_tag 'jquery.jplayer.min' %>
     <%= javascript_include_tag 'fullcalendar' %>
     <%= javascript_include_tag 'timepicker' %>
     <%= javascript_include_tag 'jquery.quicksearch' %>
@@ -145,5 +145,6 @@
     <% if user_signed_in? %>
       <%= render :partial => 'shared/edit_profile_dialog' %>
     <% end %>
+    <div id="jpId"></div>
   </body>
 </html>
