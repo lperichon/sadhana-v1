@@ -58,7 +58,7 @@
     <ul>
       <li><a href="#part-techniques-1">Old</a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>
       <% @practice.practice_parts.each do |pp| %>
-        <li id="practice_part_<%= pp.id %>"><a href="#part-techniques-<%= pp.id %>"><%= pp.part.name %></a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>
+        <li part_id="<%= pp.id %>" id="practice_part_<%= pp.id %>"><a href="#part-techniques-<%= pp.id %>"><%= pp.part.name %></a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>
       <%end %>
       <button id="add_tab">Add Anga</button>
     </ul>
@@ -181,6 +181,35 @@
                 url: '<%= sort_practice_practice_parts_path(@practice) %>'
               });
             }
+    });
+
+
+    $('.ui-icon-close').live('click', function(e) {
+      practice_part_id = $(e.target).parent().attr('part_id');
+      $('#confirm_dialog').dialog({
+        resizable: false,
+        height:140,
+        modal: true,
+        buttons: {
+        '<%= t('actions.delete') %>': function() {
+            $.ajax({
+                type:'post',
+                data: { '_method': 'delete' },
+                dataType: 'json',
+                url: '/practices/<%= @practice.id %>/practice_parts/' + practice_part_id,
+                success: function(data) {
+                  $('#practice_part_'+ practice_part_id).fadeOut('slow', function() {
+                      $('#practice_part_'+ practice_part_id).remove();
+                  });
+                }
+            });
+            $(this).dialog('close');
+          },
+         '<%= t('actions.cancel') %>': function() {
+            $(this).dialog('close');
+          }
+        }
+      });
     });
 
     // Enable sorting practice techniques

@@ -20,7 +20,7 @@ class PracticePartsController < UserApplicationController
     @practice_part.destroy
 
     respond_to do |format|
-      format.js { }
+      format.json { render :json => :ok}
     end
   end
 
