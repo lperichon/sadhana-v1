@@ -12,4 +12,23 @@ class PracticePartsController < UserApplicationController
       end
     end
   end
+
+  # DELETE /practice_techniques/1
+  def destroy
+    @practice = current_user.practices.find(params[:practice_id])
+    @practice_part = @practice.practice_parts.find(params[:id])
+    @practice_part.destroy
+
+    respond_to do |format|
+      format.js { }
+    end
+  end
+
+  def sort
+    @practice = current_user.practices.find(params[:practice_id])
+    params[:practice_part].each_with_index do |id, index|
+      @practice.practice_parts.update_all(['position=?', index+1], ['id=?', id])
+    end
+    render :nothing => true
+  end
 end

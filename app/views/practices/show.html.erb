@@ -58,7 +58,7 @@
     <ul>
       <li><a href="#part-techniques-1">Old</a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>
       <% @practice.practice_parts.each do |pp| %>
-        <li><a href="#part-techniques-<%= pp.id %>"><%= pp.part.name %></a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>
+        <li id="practice_part_<%= pp.id %>"><a href="#part-techniques-<%= pp.id %>"><%= pp.part.name %></a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>
       <%end %>
       <button id="add_tab">Add Anga</button>
     </ul>
@@ -170,7 +170,18 @@
     $('#add_tab').click(function() {$('#new_practice_part_dialog').dialog('open');});
     $('#add_tab').button({icons: {secondary: 'ui-icon-circle-plus'}});
     $('#add_tab').removeClass('ui-corner-all').addClass('ui-corner-top');
-    $('#practice_parts').tabs({tabTemplate: '<li><a href="#{href}">#{label}</a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>'});
+    $('#practice_parts').tabs({tabTemplate: '<li id="new_practice_part"><a href="#{href}">#{label}</a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>'})
+        .find(".ui-tabs-nav").sortable({
+            axis:'x',
+            update: function(){
+              $.ajax({
+                type: 'post',
+                data: $('#practice_parts .ui-tabs-nav').sortable('serialize') + '&practice_id=<%=@practice.id-%>',
+                dataType: 'script',
+                url: '<%= sort_practice_practice_parts_path(@practice) %>'
+              });
+            }
+    });
 
     // Enable sorting practice techniques
     $('#practice_techniques').sortable(

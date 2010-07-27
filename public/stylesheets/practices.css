@@ -117,6 +117,13 @@
     cursor: pointer;
 }
 
+.ui-sortable-helper {
+    height: 30px;
+}
+
+.ui-sortable-helper .ui-icon-close {
+}
+
 #practice_parts .ui-tabs-nav li a {
     padding-top: 4px;
     padding-bottom: 4px;

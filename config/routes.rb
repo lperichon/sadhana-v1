@@ -17,7 +17,11 @@ Sadhana::Application.routes.draw do |map|
         post :sort 
       end
     end
-    resources :practice_parts
+    resources :practice_parts do
+      collection do
+        post :sort
+      end
+    end
   end
 
   resources :subscriptions do
