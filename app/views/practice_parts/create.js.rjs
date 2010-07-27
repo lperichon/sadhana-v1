@@ -1,0 +1,1 @@
+page << "$('#practice_parts').tabs('add', '#part-techniques-#{@practice_part.id}', '#{@practice_part.part.name}');"

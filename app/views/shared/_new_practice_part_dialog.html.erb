@@ -1,0 +1,27 @@
+<div id='new_practice_part_dialog' style='display:none' title='Add a new anga'>
+  <%= render :partial => 'practice_parts/dialog_form' %>
+</div>
+<%= javascript_tag do %>
+  $('#new_practice_part_dialog').dialog({
+    autoOpen: false,
+    height: 300,
+    width: 400,
+    modal: true,
+    buttons: {
+      '<%= t('actions.add') %>': function() {
+        $.ajax({
+            type:'post',
+            dataType: 'script',
+            data: $('#new_practice_part_dialog form').serialize(),
+            url: $('#new_practice_part_dialog form').attr('action'),
+            success: function() {
+              $('#new_practice_part_dialog').dialog('close');
+            }
+        });
+      },
+      '<%= t('actions.cancel')%>': function() {
+        $('#new_practice_part_dialog').dialog('close');
+      }
+    }
+  });
+<% end %>

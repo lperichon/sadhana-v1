@@ -85,7 +85,7 @@
   text-align: left;
 }
 
-#practice_techniques .practice_technique {
+.part-techniques .practice_technique {
   cursor: move;
   border: 1px solid black;
   position: relative;
@@ -93,7 +93,7 @@
   height: 100px;
 }
 
-#practice_techniques {
+#practice_parts {
   width: 100%;
   margin-top:1px;
   margin-left: 5px;
@@ -106,7 +106,38 @@
   overflow: auto;
   background: #fff;
 }
-#practice_techniques .practice_technique {
+
+#practice_parts ul {
+    height: 28px;
+}
+
+#practice_parts li .ui-icon-close {
+    float: left;
+    margin: 0.4em 0.2em 0 0;
+    cursor: pointer;
+}
+
+#practice_parts .ui-tabs-nav li a {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+#practice_parts button {
+  margin-top: 1px;
+  height: 27px;
+  border-bottom: 0;
+}
+
+#practice_parts button .ui-button-text {
+    padding:0.4em 2.1em 0.4em 1.1em;
+}
+
+#practice_parts button .ui-icon {
+    right: 4px;
+    margin-top: -7px;
+}
+
+.part-techniques .practice_technique {
   width: 150px;
   height: 150px;
   margin-top: 5px;
@@ -121,23 +152,23 @@
   margin: 5px;
 }
 
-#practice_techniques .practice_technique h3 {
+.part-techniques .practice_technique h3 {
   font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
 }
 
-#practice_techniques .practice_technique h3.long {
+.part-techniques .practice_technique h3.long {
   font-size: 90%;
 }
 
-#practice_techniques .practice_technique.working {
+.part-techniques .practice_technique.working {
   background: yellow;
 }
 
-#practice_techniques .practice_technique .back {
+.part-techniques .practice_technique .back {
   display: none;
 }
 
-#practice_techniques .practice_technique .associated_techniques {
+.part-techniques .practice_technique .associated_techniques {
   padding-left: 20px;
 }
 
@@ -145,11 +176,11 @@
   display: none;
 }
 
-#practice_techniques .practice_technique:hover .back {
+.part-techniques .practice_technique:hover .back {
   display: inherit;
 }
 
-#practice_techniques .practice_technique:hover .front {
+.part-techniques .practice_technique:hover .front {
   display: none;
 }
 

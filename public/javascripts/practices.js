@@ -47,5 +47,8 @@ var Practices = {
     else {
       $('#delay_field').hide();
     }
+  },
+  addAnga: function() {
+      $('#practice_parts').tabs('add','#new_tab','new tab');
   }
 };
