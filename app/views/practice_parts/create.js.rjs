@@ -1,6 +1,7 @@
 page << "$('#practice_parts').tabs('add', '#part-techniques-#{@practice_part.id}', '#{@practice_part.part.name}');"
 page << "$('#new_practice_part').attr('id', 'practice_part_#{@practice_part.id}').attr('part_id', '#{@practice_part.id}');"
 page << %(
+    $('#part-techniques-#{@practice_part.id}').height(Practices.calculateEditorHeight());
     // Enable sorting practice techniques
     $('#part-techniques-#{@practice_part.id}').sortable(
     {

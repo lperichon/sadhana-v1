@@ -52,12 +52,15 @@ var Practices = {
       $('#practice_parts').tabs('add','#new_tab','new tab');
   },
   adjustEditorSize: function() {
-    ff_diff = $.browser.mozilla ? 2 : 0;
-    $('#practice_editor .part-techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 140 + ff_diff);
+    $('#practice_editor .part-techniques').height(Practices.calculateEditorHeight());
     $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 215);
     $(window).resize(function() {
-      $('#practice_editor .part-techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 140 + ff_diff);
+      $('#practice_editor .part-techniques').height(Practices.calculateEditorHeight());
       $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 215);
     });
+  },
+  calculateEditorHeight: function() {
+    ff_diff = $.browser.mozilla ? 2 : 0;
+    return $(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 140 + ff_diff;
   }
 };
