@@ -9,7 +9,7 @@ var Practices = {
   accordion_draggable: function() {
     $('#techniques_accordion .asana').draggable({
       scroll: false,
-      connectToSortable: '#practice_techniques',
+      connectToSortable: '.part-techniques',
       helper: 'clone',
       appendTo : 'body',
       revert: 'invalid',

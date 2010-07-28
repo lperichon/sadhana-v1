@@ -107,6 +107,10 @@
   background: #fff;
 }
 
+.part-techniques {
+    overflow: auto;
+}
+
 #practice_parts ul {
     height: 28px;
 }

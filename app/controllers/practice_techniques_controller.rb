@@ -50,7 +50,7 @@ class PracticeTechniquesController < UserApplicationController
     @practice_technique = @practice_part.practice_techniques.new(params[:practice_technique])
 
     respond_to do |format|
-      if @practice_technique.save
+      if @practice_technique.save!
         format.xml  { render :xml => @practice_technique, :status => :created, :location => @practice_technique }
         format.json { render :json => { :practice_technique => @practice_technique } }
         format.js { }

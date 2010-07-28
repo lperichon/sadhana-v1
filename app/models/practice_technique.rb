@@ -7,7 +7,6 @@ class PracticeTechnique < ActiveRecord::Base
 
   after_initialize :initialize_practice_technique
 
-  validates :practice, :presence => true
   validates :practice_part, :presence => true
   validates :technique, :presence => true
   validates :minutes, :presence => true, :numericality => true

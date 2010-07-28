@@ -52,7 +52,7 @@
                 type:'put',
                 data: { 'practice_technique[remove_technique_id]': #{technique.id} },
                 dataType: 'script',
-                url: '#{practice_practice_technique_path(practice_technique.practice, practice_technique)}'});
+                url: '#{practice_practice_part_practice_technique_path(practice, practice_part, practice_technique)}'});
             $(this).dialog('close');
           },
           '#{t('actions.cancel')}': function() {
@@ -74,9 +74,9 @@
         // associate new practice technique via ajax
         $.ajax({
             type: 'put',
-            data: 'practice_id=<%= practice_technique.practice.id-%>&id=' + $(this).attr('practice_technique_id') + '&practice_technique[add_technique_id]=' + ui.draggable.attr('technique_id'),
+            data: 'practice_id=<%= practice.id-%>&practice_part_id=<%= practice_part.id-%>&id=' + $(this).attr('practice_technique_id') + '&practice_technique[add_technique_id]=' + ui.draggable.attr('technique_id'),
             dataType: 'script',
-            url: '/practices/<%= practice_technique.practice.id-%>/practice_techniques/' + $(this).attr('practice_technique_id')});
+            url: '/practices/<%= practice.id-%>/practice_parts/<%= practice_part.id-%>/practice_techniques/' + $(this).attr('practice_technique_id')});
       }
     }
   });
