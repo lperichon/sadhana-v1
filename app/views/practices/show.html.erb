@@ -63,11 +63,7 @@
     </ul>
 
     <% @practice.practice_parts.each do |pp| %>
-        <div id='part-techniques-<%= pp.id %>' class="part-techniques">
-          <% pp.practice_techniques.each do |practice_technique| %>
-            <%= render :partial => 'practice_technique', :locals => {:practice_technique => practice_technique} %>
-          <% end %>
-        </div>
+        <%= render :partial => 'practice_part', :locals => {:practice => @practice, :practice_part => pp} %>
     <% end %>
   </div>
   <div id='created_practice_technique'></div>
@@ -206,62 +202,6 @@
           }
         }
       });
-    });
-
-    // Enable sorting practice techniques
-    $('#practice_techniques').sortable(
-    {
-      revert: 'invalid',
-      opacity: 0.4,
-      update: function(){
-        $.ajax({
-            type: 'post',
-            data: $('#practice_techniques').sortable('serialize') + '&practice_id=<%=@practice.id-%>',
-            dataType: 'script',
-            url: '<%= sort_practice_practice_techniques_path(@practice) %>'})
-        }
-      }
-    );
-
-    // Enable adding techniques to practice (only ásanas for now)
-    $("#practice_techniques").droppable({
-      accept: '.asana',
-      drop: function(event, ui) {
-        if(ui.draggable.hasClass('ui-draggable')) {
-          ui.draggable.removeClass('ui-draggable').removeClass('technique').addClass('practice_technique');
-          // create new practice technique via synchronous ajax
-          $.ajax({
-              type: 'post',
-              async: false,
-              data: 'practice_id=<%=@practice.id-%>&practice_technique[technique_id]=' + ui.draggable.attr('technique_id'),
-              dataType: 'script',
-              beforeSend: function() {
-                // inform the user we're working
-                ui.draggable.addClass('working');
-              },
-              complete: function(request){
-                ui.draggable.removeClass('working');
-                ui.draggable.attr('id',$('#created_practice_technique .practice_technique').attr('id'));
-                ui.draggable.attr('practice_technique_id', $('#created_practice_technique .practice_technique').attr('practice_technique_id'));
-                ui.draggable.html($('#created_practice_technique .practice_technique').html());
-                $('#created_practice_technique').children().remove();
-                $('#' + ui.draggable.attr('id')).droppable({
-                  accept: '.mudra, .manos',
-                  drop: function(event, mudra_ui) {
-                    if(mudra_ui.draggable.hasClass('ui-draggable')) {
-                      // associate new practice technique via ajax
-                      $.ajax({
-                          type: 'put',
-                          data: 'practice_id=<%= @practice.id-%>&id=' + ui.draggable.attr('practice_technique_id') + '&practice_technique[add_technique_id]=' + mudra_ui.draggable.attr('technique_id'),
-                          dataType: 'script',
-                          url: '/practices/<%= @practice.id-%>/practice_techniques/' + ui.draggable.attr('practice_technique_id')});
-                    }
-                  }
-                });
-              },
-              url: '<%= practice_practice_techniques_path(@practice) %>'});
-        }
-      }
     });
 
     // Initilize techniques accordion

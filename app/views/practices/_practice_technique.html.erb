@@ -8,7 +8,7 @@
       <li class='ui-state-default ui-corner-all'><%= link_to_function( content_tag(:span, t('actions.edit'), :class => 'ui-icon ui-icon-pencil'), "$.ajax({
                 type:'get',
                 dataType: 'script',
-                url: '/practices/#{ @practice.id }/practice_techniques/' + #{practice_technique.id} + '/edit'
+                url: '/practices/#{ practice.id }/practice_parts/#{practice_part.id}/practice_techniques/' + #{practice_technique.id} + '/edit'
               });") %>
       </li>
       <li class='ui-state-default ui-corner-all'><%= link_to_function( content_tag(:span, t('actions.delete'), :class => 'ui-icon ui-icon-trash'), "$('#confirm_dialog').dialog({
@@ -21,7 +21,7 @@
                         type:'post',
                         data: { '_method': 'delete' },
                         dataType: 'json',
-                        url: '/practices/#{ @practice.id }/practice_techniques/' + #{ practice_technique.id },
+                        url: '/practices/#{ practice.id }/practice_parts/#{practice_part.id}/practice_techniques/' + #{ practice_technique.id },
                         success: function(data) {
                           $('#practice_technique_'+ #{practice_technique.id}).fadeOut('slow', function() {
                               $('#practice_technique_'+ #{practice_technique.id}).remove();

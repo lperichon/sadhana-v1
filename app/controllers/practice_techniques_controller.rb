@@ -3,7 +3,8 @@ class PracticeTechniquesController < UserApplicationController
   # GET /practice_techniques.xml
   def index
     @practice = current_user.practices.find(params[:practice_id])
-    @practice_techniques = @practice.practice_techniques
+    @practice_part = @practice.practice_parts.find(params[:practice_part_id])
+    @practice_techniques = @practice_part.practice_techniques
 
     respond_to do |format|
       format.xml  { render :xml => @practice_techniques }
@@ -14,7 +15,8 @@ class PracticeTechniquesController < UserApplicationController
   # GET /practice_techniques/1.xml
   def show
     @practice = current_user.practices.find(params[:practice_id])
-    @practice_technique = @practice.practice_techniques.find(params[:id])
+    @practice_part = @practice.practice_parts.find(params[:practice_part_id])
+    @practice_technique = @practice_part.practice_techniques.find(params[:id])
 
     respond_to do |format|
       format.xml  { render :xml => @practice_technique }
@@ -25,7 +27,8 @@ class PracticeTechniquesController < UserApplicationController
   # GET /practice_techniques/new.xml
   def new
     @practice = current_user.practices.find(params[:practice_id])
-    @practice_technique = @practice.practice_techniques.new
+    @practice_part = @practice.practice_parts.find(params[:practice_part_id])
+    @practice_technique = @practice_part.practice_techniques.new
 
     respond_to do |format|
       format.xml  { render :xml => @practice_technique }
@@ -35,14 +38,16 @@ class PracticeTechniquesController < UserApplicationController
   # GET /practice_techniques/1/edit
   def edit
     @practice = current_user.practices.find(params[:practice_id])
-    @practice_technique = @practice.practice_techniques.find(params[:id])
+    @practice_part = @practice.practice_parts.find(params[:practice_part_id])
+    @practice_technique = @practice_part.practice_techniques.find(params[:id])
   end
 
   # POST /practice_techniques
   # POST /practice_techniques.xml
   def create
     @practice = current_user.practices.find(params[:practice_id])
-    @practice_technique = @practice.practice_techniques.new(params[:practice_technique])
+    @practice_part = @practice.practice_parts.find(params[:practice_part_id])
+    @practice_technique = @practice_part.practice_techniques.new(params[:practice_technique])
 
     respond_to do |format|
       if @practice_technique.save
@@ -61,7 +66,8 @@ class PracticeTechniquesController < UserApplicationController
   # PUT /practice_techniques/1.xml
   def update
     @practice = current_user.practices.find(params[:practice_id])
-    @practice_technique = @practice.practice_techniques.find(params[:id])
+    @practice_part = @practice.practice_parts.find(params[:practice_part_id])
+    @practice_technique = @practice_part.practice_techniques.find(params[:id])
 
     respond_to do |format|
       if @practice_technique.update_attributes(params[:practice_technique])
@@ -77,7 +83,8 @@ class PracticeTechniquesController < UserApplicationController
   # DELETE /practice_techniques/1.xml
   def destroy
     @practice = current_user.practices.find(params[:practice_id])
-    @practice_technique = @practice.practice_techniques.find(params[:id])
+    @practice_part = @practice.practice_parts.find(params[:practice_part_id])
+    @practice_technique = @practice_part.practice_techniques.find(params[:id])
     @practice_technique.destroy
 
     respond_to do |format|
@@ -88,8 +95,9 @@ class PracticeTechniquesController < UserApplicationController
 
   def sort
     @practice = current_user.practices.find(params[:practice_id])
+    @practice_part = @practice.practice_parts.find(params[:practice_part_id])
     params[:practice_technique].each_with_index do |id, index|
-      @practice.practice_techniques.update_all(['position=?', index+1], ['id=?', id])
+      @practice_part.practice_techniques.update_all(['position=?', index+1], ['id=?', id])
     end
     render :nothing => true
   end

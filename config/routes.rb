@@ -12,15 +12,15 @@ Sadhana::Application.routes.draw do |map|
     member do
       get :play
     end
-    resources :practice_techniques do
-      collection do
-        post :sort 
-      end
-    end
     resources :practice_parts do
       collection do
         post :sort
       end
+      resources :practice_techniques do
+      collection do
+        post :sort
+      end
+    end
     end
   end
 
