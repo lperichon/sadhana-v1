@@ -97,13 +97,7 @@
     });
 
     // Resize window to fit
-    ff_diff = $.browser.mozilla ? 2 : 0;
-    $('#practice_editor .part-techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 140 + ff_diff);
-    $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 215);
-    $(window).resize(function() {
-      $('#practice_editor .part-techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 140 + ff_diff);
-      $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 215);
-    });
+    Practices.adjustEditorSize();
 
     // Initialize play preferences dialog
     $('#play_preferences_dialog').dialog({
@@ -164,6 +158,7 @@
     $('#add_tab').removeClass('ui-corner-all').addClass('ui-corner-top');
     $('#practice_parts').tabs({
         tabTemplate: '<li id="new_practice_part"><a href="#{href}">#{label}</a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>',
+        panelTemplate: '<div class="part-techniques"></div>',
         select: function(event, ui) {
           Practices.accordion_draggable('#' + $(ui.panel).attr('id'));
         },
@@ -184,6 +179,7 @@
 
 
     $('.ui-icon-close').live('click', function(e) {
+      var index = $('#practice_parts').tabs().index($(this).parent());
       practice_part_id = $(e.target).parent().attr('part_id');
       $('#confirm_dialog').dialog({
         resizable: false,
@@ -198,7 +194,7 @@
                 url: '/practices/<%= @practice.id %>/practice_parts/' + practice_part_id,
                 success: function(data) {
                   $('#practice_part_'+ practice_part_id).fadeOut('slow', function() {
-                      $('#practice_part_'+ practice_part_id).remove();
+                      $('#practice_parts').tabs('remove', index);
                   });
                 }
             });

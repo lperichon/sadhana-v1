@@ -50,5 +50,14 @@ var Practices = {
   },
   addAnga: function() {
       $('#practice_parts').tabs('add','#new_tab','new tab');
+  },
+  adjustEditorSize: function() {
+    ff_diff = $.browser.mozilla ? 2 : 0;
+    $('#practice_editor .part-techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 140 + ff_diff);
+    $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 215);
+    $(window).resize(function() {
+      $('#practice_editor .part-techniques').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 140 + ff_diff);
+      $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - 215);
+    });
   }
 };
