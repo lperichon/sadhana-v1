@@ -139,7 +139,7 @@
     actual_techniques_token = '<%= ENV['TECHNIQUES_TOKEN'] %>';
     if( cached_techniques_token && actual_techniques_token == cached_techniques_token && cached_asanas) {
         $('#asana_techniques_viewport').html(cached_asanas);
-        Practices.accordion_draggable();
+        Practices.accordion_draggable($('.ui-tabs-selected a').attr('href'));
         qs.cache();
     } else {
         $.ajax({
@@ -152,7 +152,7 @@
             jQuery.jStore.set('techniques_token', actual_techniques_token);
             cached_asanas = data
             $('#asana_techniques_viewport').html(cached_asanas);
-            Practices.accordion_draggable();
+            Practices.accordion_draggable($('.ui-tabs-selected a').attr('href'));
             qs.cache();
           }
         });
@@ -162,8 +162,15 @@
     $('#add_tab').click(function() {$('#new_practice_part_dialog').dialog('open');});
     $('#add_tab').button({icons: {secondary: 'ui-icon-circle-plus'}});
     $('#add_tab').removeClass('ui-corner-all').addClass('ui-corner-top');
-    $('#practice_parts').tabs({tabTemplate: '<li id="new_practice_part"><a href="#{href}">#{label}</a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>'})
-        .find(".ui-tabs-nav").sortable({
+    $('#practice_parts').tabs({
+        tabTemplate: '<li id="new_practice_part"><a href="#{href}">#{label}</a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>',
+        select: function(event, ui) {
+          Practices.accordion_draggable('#' + $(ui.panel).attr('id'));
+        },
+        show: function(event, ui) {
+          $('#' + $(ui.panel).attr('id')).sortable('refresh');
+        }
+    }).find(".ui-tabs-nav").sortable({
             axis:'x',
             update: function(){
               $.ajax({
@@ -211,7 +218,7 @@
         cached_techniques = jQuery.jStore.get(technique_type_symbol);
         if(cached_techniques) {
             $('#' + technique_type_symbol + '_techniques_viewport').html(cached_techniques);
-            Practices.accordion_draggable();
+            Practices.accordion_draggable($('.ui-tabs-selected a').attr('href'));
             qs.cache();
         } else {
             $.ajax({
@@ -223,7 +230,7 @@
                 jQuery.jStore.set(technique_type_symbol, data);
                 cached_techniques = data
                 $('#' + technique_type_symbol + '_techniques_viewport').html(cached_techniques);
-                Practices.accordion_draggable();
+                Practices.accordion_draggable($('.ui-tabs-selected a').attr('href'));
                 qs.cache();
               }
             });

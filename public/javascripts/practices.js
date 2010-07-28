@@ -6,10 +6,10 @@ $(document).ready(function(){
 });
 
 var Practices = {
-  accordion_draggable: function() {
+  accordion_draggable: function(sortable_id) {
     $('#techniques_accordion .asana').draggable({
       scroll: false,
-      connectToSortable: '.part-techniques',
+      connectToSortable: sortable_id,
       helper: 'clone',
       appendTo : 'body',
       revert: 'invalid',
