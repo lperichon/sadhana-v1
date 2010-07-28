@@ -56,21 +56,17 @@
   </div>
   <div id="practice_parts">
     <ul>
-      <li><a href="#part-techniques-1">Old</a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>
       <% @practice.practice_parts.each do |pp| %>
         <li part_id="<%= pp.id %>" id="practice_part_<%= pp.id %>"><a href="#part-techniques-<%= pp.id %>"><%= pp.part.name %></a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>
       <%end %>
       <button id="add_tab">Add Anga</button>
     </ul>
 
-    <div id='part-techniques-1' class="part-techniques">
-      <% @practice.practice_techniques.each do |practice_technique| %>
-        <%= render :partial => 'practice_technique', :locals => {:practice_technique => practice_technique} %>
-      <% end %>
-    </div>
-
     <% @practice.practice_parts.each do |pp| %>
         <div id='part-techniques-<%= pp.id %>' class="part-techniques">
+          <% pp.practice_techniques.each do |practice_technique| %>
+            <%= render :partial => 'practice_technique', :locals => {:practice_technique => practice_technique} %>
+          <% end %>
         </div>
     <% end %>
   </div>
@@ -149,7 +145,7 @@
         $('#asana_techniques_viewport').html(cached_asanas);
         Practices.accordion_draggable();
         qs.cache();
-    } else if(null) {
+    } else {
         $.ajax({
           type:'get',
           data: { 'symbol': 'asana' },

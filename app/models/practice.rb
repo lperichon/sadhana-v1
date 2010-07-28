@@ -17,7 +17,7 @@ class Practice < ActiveRecord::Base
   end
 
   def total_time
-    self.practice_techniques.all.sum {|pt| (pt.minutes*60 + pt.seconds + (self.continuous ? self.delay : 0)) * (pt.compensate ? 2 : 1) }
+    self.practice_parts.all.sum {|pp| pp.total_time }
   end
 
   def sound_filename
