@@ -89,7 +89,7 @@ class PracticeTechniquesController < UserApplicationController
 
     respond_to do |format|
       format.xml  { head :ok }
-      format.json { render :json => :ok}
+      format.js {}
     end
   end
 

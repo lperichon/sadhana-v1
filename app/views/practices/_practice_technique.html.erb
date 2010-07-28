@@ -20,7 +20,7 @@
                     $.ajax({
                         type:'post',
                         data: { '_method': 'delete' },
-                        dataType: 'json',
+                        dataType: 'script',
                         url: '/practices/#{ practice.id }/practice_parts/#{practice_part.id}/practice_techniques/' + #{ practice_technique.id },
                         success: function(data) {
                           $('#practice_technique_'+ #{practice_technique.id}).fadeOut('slow', function() {
