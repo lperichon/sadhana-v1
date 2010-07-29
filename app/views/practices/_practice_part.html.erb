@@ -20,9 +20,9 @@
       }
     );
 
-    // Enable adding techniques to part (only ásanas for now)
+    // Enable adding techniques to part
     $("#part-techniques-<%= practice_part.id %>").droppable({
-      accept: '.asana',
+      accept: '<%= practice_part.part.primary_technique_type %>',
       drop: function(event, ui) {
         if(ui.draggable.hasClass('ui-draggable')) {
           ui.draggable.removeClass('ui-draggable').removeClass('technique').addClass('practice_technique');
@@ -43,13 +43,13 @@
                 ui.draggable.html($('#created_practice_technique .practice_technique').html());
                 $('#created_practice_technique').children().remove();
                 $('#' + ui.draggable.attr('id')).droppable({
-                  accept: '.mudra, .manos',
-                  drop: function(event, mudra_ui) {
-                    if(mudra_ui.draggable.hasClass('ui-draggable')) {
+                  accept: '<%= practice_part.part.secondary_technique_types %>',
+                  drop: function(event, associated_technique_ui) {
+                    if(associated_technique_ui.draggable.hasClass('ui-draggable')) {
                       // associate new practice technique via ajax
                       $.ajax({
                           type: 'put',
-                          data: 'practice_id=<%= practice.id-%>&practice_part_id=<%= practice_part.id-%>&id=' + ui.draggable.attr('practice_technique_id') + '&practice_technique[add_technique_id]=' + mudra_ui.draggable.attr('technique_id'),
+                          data: 'practice_id=<%= practice.id-%>&practice_part_id=<%= practice_part.id-%>&id=' + ui.draggable.attr('practice_technique_id') + '&practice_technique[add_technique_id]=' + associated_technique_ui.draggable.attr('technique_id'),
                           dataType: 'script',
                           url: '/practices/<%= practice.id-%>/practice_parts/<%= practice_part.id %>/practice_techniques/' + ui.draggable.attr('practice_technique_id')});
                     }

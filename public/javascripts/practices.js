@@ -6,8 +6,8 @@ $(document).ready(function(){
 });
 
 var Practices = {
-  accordion_draggable: function(sortable_id) {
-    $('#techniques_accordion .asana').draggable({
+  accordion_draggable: function(sortable_id, primary_technique_type, secondary_technique_types) {
+    $('#techniques_accordion ' + primary_technique_type).draggable({
       scroll: false,
       connectToSortable: sortable_id,
       helper: 'clone',
@@ -17,8 +17,12 @@ var Practices = {
         ui.helper.css({width: '150px', height: '150px'});
       }
     });
-
-    $('#techniques_accordion .mudra, #techniques_accordion .manos').draggable({
+    if(secondary_technique_types.length > 0) {
+    secondary_technique_types_array = secondary_technique_types.split(',');
+    selector = jQuery.map(secondary_technique_types_array, function(type, i){
+      return ('#techniques_accordion ' + type.trim());
+    }).join(',');
+    $(selector).draggable({
       scroll: false,
       helper: 'clone',
       appendTo : 'body',
@@ -27,6 +31,7 @@ var Practices = {
         ui.helper.css({border:'1px solid black'});
       }
     });
+    }
   },
   resetCountdown: function(minutes, seconds) {
     $('#countdown').countdown('destroy');
