@@ -179,7 +179,7 @@
 
 
     $('.ui-icon-close').live('click', function(e) {
-      var index = $('#practice_parts').tabs().index($(this).parent());
+      index = $('li', $('#practice_parts')).index($(this).parent());
       practice_part_id = $(e.target).parent().attr('part_id');
       $('#confirm_dialog').dialog({
         resizable: false,
@@ -190,12 +190,10 @@
             $.ajax({
                 type:'post',
                 data: { '_method': 'delete' },
-                dataType: 'json',
+                dataType: 'script',
                 url: '/practices/<%= @practice.id %>/practice_parts/' + practice_part_id,
                 success: function(data) {
-                  $('#practice_part_'+ practice_part_id).fadeOut('slow', function() {
-                      $('#practice_parts').tabs('remove', index);
-                  });
+                  $('#practice_parts').tabs('remove', index);
                 }
             });
             $(this).dialog('close');
