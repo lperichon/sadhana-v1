@@ -249,6 +249,11 @@ span#jeditable_description input {
   height: 100px;
 }
 
+.field.description textarea {
+    width: 99%;
+    height: 100px;
+}
+
 #controls {
   line-height: 2.5em;
   margin: 5px 0;
@@ -333,4 +338,24 @@ span#jeditable_description input {
   display: inline-block;
   list-style: none;
   text-align: center;
+}
+
+div[aria-labelledby = 'ui-dialog-title-edit_practice_dialog'] .ui-dialog-titlebar {
+  display: none;
+}
+
+div[aria-labelledby = 'ui-dialog-title-edit_practice_dialog'] .ui-dialog-content, div[aria-labelledby = 'ui-dialog-title-edit_practice_dialog'] .ui-tabs {
+  padding:0;
+}
+
+#edit_practice_dialog .ui-tabs-nav .ui-state-active {
+  background: #EEE url(http://localhost:3000/stylesheets/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png) repeat-x 20% 10%;
+}
+
+#practice-ui-tab-dialog-close {
+  position:absolute; right:0; top:20px;
+}
+
+#practice-ui-tab-dialog-close a {
+  float:none; padding:0;
 }

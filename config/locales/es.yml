@@ -307,6 +307,9 @@ es:
     play:
       play_preferences_dialog:
         title: "Preferencias de ejecución"
+    edit_practice_dialog:
+      info_tab_title: "Editar datos"
+      play_preferences_tab_title: "Preferencias de ejecución"
   practice_events:
     index:
       new_practice_event: "Nuevo evento"

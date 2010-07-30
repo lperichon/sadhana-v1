@@ -1,12 +1,12 @@
 module ApplicationHelper
   def jeditable_field(object_name, field_name, options = {})
     options.reverse_merge!({:type => 'text', :rows => '1'})
-    object = self.instance_variable_get("@#{object_name}")
+    object = options[:object] || self.instance_variable_get("@#{object_name}")
     field = object.send(field_name)
-    output = content_tag(:span, field, {:id => "jeditable_#{field_name}", :class => 'jeditable'})
+    output = content_tag(:span, field, {:id => "jeditable_#{dom_id object}_#{field_name}", :class => 'jeditable'})
     output << javascript_tag do %(
       $(document).ready(function() {
-        $('#jeditable_#{field_name}').editable(
+        $('#jeditable_#{dom_id object}_#{field_name}').editable(
             function(value, settings) {
               var result;
               $.ajax({

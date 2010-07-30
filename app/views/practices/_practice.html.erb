@@ -1,7 +1,7 @@
 <li id='practice_<%= practice.id %>' class="practice">
-  <h3><%= practice.name %></h3>
+  <h3><%= jeditable_field(:practice, :name, :object => practice) %></h3>
   <p class="time">(<%= t('practice.time_format', :minutes =>practice.total_time / 60, :seconds => practice.total_time % 60 ) %>)</p>
-  <p><%= practice.description %></p>
+  <p><%= jeditable_field(:practice, :description, :object => practice) %></p>
   <ul class='actions'>
     <li><%= link_to t('actions.play'), play_practice_path(practice), :class => 'small orange awesome' %></li>
     <li><%= link_to t('actions.edit'), practice, :class => 'small orange awesome' %></li>
