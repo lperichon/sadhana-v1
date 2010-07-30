@@ -359,3 +359,9 @@ div[aria-labelledby = 'ui-dialog-title-edit_practice_dialog'] .ui-dialog-content
 #practice-ui-tab-dialog-close a {
   float:none; padding:0;
 }
+
+.practice_technique_time {
+  position: absolute;
+  bottom: 0;
+  right: 2px;
+}
