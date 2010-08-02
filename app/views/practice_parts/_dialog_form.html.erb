@@ -2,7 +2,7 @@
   <%= f.error_messages %>
 
   <div class="part field">
-      <%= f.label :part %><%= field_help t('practice_part.help.part') %>
+      <%= f.label :part, t('practice_part.help.part') %>
       <br/>
       <%= f.collection_select :part_id, Part.all, :id, :name %>
 </div>

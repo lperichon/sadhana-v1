@@ -271,6 +271,7 @@ es:
         continuous: Continuo
         delay: Delay
         total_time: "Tiempo Total"
+        sound_filename: "Sonido"
       user:
         email: Email
         password: Contraseña
@@ -300,6 +301,8 @@ es:
     paid_account_notice: "Necesita una suscripción paga para acceder a todas las funcionalidades."
     show:
       loading: "Cargando..."
+      practice_parts:
+        add: "Agregar anga"
     play_practice_technique:
       no_description: "No hay descripción"
       no_observations: "No hay observaciones"
@@ -359,6 +362,8 @@ es:
       transaction_history: "Historia"
       transaction_failed: "FRACASO"
       card: "tarjeta"
+    new_practice_part_dialog:
+      title: "Agregar un nuevo anga"
   practice:
     time_format: "%{minutes} minutos %{seconds} segundos"
     help:
@@ -366,6 +371,11 @@ es:
       description: "Una descripción de su práctica."
       delay: "Segundos a esperar entre técnicas."
       continuous: "No esperar entre técnicas."
+      total_time: "Tiempo total de la práctica, considerando la espera entre técnicas."
+      sound_filename: "Elija un sonido para indicar el cambio de técnicas."
+  practice_part:
+    help:
+      part: "Elija un anga."
   actions:
     remove: "eliminar"
     cancel: "Cancelar"

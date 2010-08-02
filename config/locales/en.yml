@@ -89,6 +89,8 @@ en:
         number: "Card number"
         verification_value: "Card Verification Value (CVV)"
         expiration_date: "Expiration date"
+      practice:
+        sound_filename: Sound
   practices:
     index:
       new_practice: "New Practice"
@@ -96,6 +98,8 @@ en:
       new_invitation: "Invite a friend"
     show:
       loading: "Loading..."
+      practice_parts:
+        add: "Add anga"
     play_practice_technique:
       no_description: "No description"
       no_observations: "No observations"
@@ -149,12 +153,16 @@ en:
       text1: "We want to thank the following people, who helped us build Sádhana and work to make it better every day"
       title: "Credits"
       all_belgrano: "and all of Belgrano School"
+    new_practice_part_dialog:
+      title: "Add a new anga"
   practice:
     help:
       name: "The name you want for your practice."
       description: "A nice description of your practice"
       delay: "Seconds to wait between each practice technique."
       continuous: "Do not wait between each practice technique."
+      total_time: "Total practice time, taking into consideration the delay between techniques."
+      sound_filename: "Choose a sound to hear between techniques."
     time_format: "%{minutes} minutes %{seconds} seconds"
   actions:
     cancel: "Cancel"
@@ -231,3 +239,6 @@ en:
     index:
       new_practice_event: "New event"
     paid_account_notice: "You require a paid subscription to access the calendar functionality."
+  practice_part:
+    help:
+      part: "Choose an anga."
