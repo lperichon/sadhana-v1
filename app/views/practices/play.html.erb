@@ -12,11 +12,13 @@
   </div>
 </div>
 <div id='slideshow_practice_techniques' style='width: auto;'>
-  <% @practice.practice_techniques.each do |practice_technique| %>
+  <% @practice.practice_parts.each do |practice_part| %>
+  <% practice_part.practice_techniques.each do |practice_technique| %>
     <%= render :partial => 'play_practice_technique', :locals => {:practice_technique => practice_technique} %>
     <% if practice_technique.compensate? %>
       <%= render :partial => 'play_practice_technique', :locals => {:practice_technique => practice_technique, :compensation => true} %>
     <% end %>
+  <% end %>
   <% end %>
 </div>
 

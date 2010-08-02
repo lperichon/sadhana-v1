@@ -2,7 +2,7 @@
 
 <div id='<%= dom_id practice_technique %>' class='slideshow_practice_technique' minutes=<%= practice_technique.minutes %> seconds=<%= practice_technique.seconds %>>
   <div id='main_panel'>
-    <%= image_tag practice_technique.technique.photo.url(:original, false) %>
+    <%= image_tag practice_technique.technique.photo.url(:medium, false) %>
     <h2><%= practice_technique.technique.name %> <%= '(Comp)' if compensation%></h2>
   </div>
   <div id='info_panel'>
