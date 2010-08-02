@@ -27,7 +27,8 @@ module ApplicationHelper
             type    : '#{options[:type]}',
             rows   : '#{options[:rows]}',
             width : 'none',
-            tooltip   : ' Click to edit...',
+            tooltip   : ' #{t('application_helper.jeditable_tooltip')}',
+            placeholder: '#{t('application_helper.jeditable_tooltip')}',
             style     : 'display: inline;',
             onedit    : function() {
               $(this).addClass('editing');

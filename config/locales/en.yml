@@ -242,3 +242,5 @@ en:
   practice_part:
     help:
       part: "Choose an anga."
+  application_helper:
+    jeditable_tooltip: "Click to edit..."

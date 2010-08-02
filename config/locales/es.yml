@@ -447,3 +447,5 @@ es:
       button: "¡Comience ahora!"
     find_us_on_fb_html: "O encuentrenos en %{facebook}"
     follow_us_on_twitter_html: "Síganos en %{twitter}"
+  application_helper:
+    jeditable_tooltip: "Haga click para editar..."
