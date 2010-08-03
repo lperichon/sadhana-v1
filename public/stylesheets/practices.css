@@ -326,6 +326,12 @@ span#jeditable_description input {
     width: 29.9%;
 }
 
+#main_panel img {
+    bottom:0;
+    left: 0;
+    position:absolute;
+}
+
 #info_panel {
   display: inline-block;
   float: left;
