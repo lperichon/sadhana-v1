@@ -17,7 +17,7 @@ var Practices = {
         ui.helper.css({width: '150px', height: '150px'});
       }
     });
-    if(secondary_technique_types.length > 0) {
+    if(secondary_technique_types && secondary_technique_types.length > 0) {
     secondary_technique_types_array = secondary_technique_types.split(',');
     selector = jQuery.map(secondary_technique_types_array, function(type, i){
       return ('#techniques_accordion ' + type.trim());
