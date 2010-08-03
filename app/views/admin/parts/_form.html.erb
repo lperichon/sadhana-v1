@@ -1,4 +1,16 @@
 <%= form_for([:admin, @part]) do |f| %>
+  <div class="field">
+    <%= f.label :symbol %><br />
+    <%= f.text_field :symbol %>
+  </div>
+  <div class="field">
+    <%= f.label :primary_technique_type %><br />
+    <%= f.text_field :primary_technique_type %>
+  </div>
+  <div class="field">
+    <%= f.label :secondary_technique_types %><br />
+    <%= f.text_field :secondary_technique_types %>
+  </div>
   <%= f.error_messages %>
   <div class="field" id="name_field">
     <%= f.fields_for :translations do |ft| %>
