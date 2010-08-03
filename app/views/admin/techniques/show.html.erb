@@ -15,7 +15,7 @@
 
 <p>
   <b>Photo:</b>
-  <%= image_tag @technique.photo.url %>
+  <%= image_tag @technique.photo.url(:medium) %>
 </p>
 
 <%= link_to 'Edit', edit_admin_technique_path(@technique) %> |
