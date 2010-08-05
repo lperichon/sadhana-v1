@@ -9,7 +9,7 @@ gem 'rails', '3.0.0.beta4'
 gem 'ryanb-acts-as-list', '0.1.2', :require => 'acts_as_list'
 gem 'devise', '1.1.rc2'
 gem 'lperichon-devise_invitable','0.3.0', :require => 'devise_invitable'
-gem 'paperclip', '2.3.2'
+gem 'paperclip', '2.3.3'
 gem 'nokogiri', '1.4.1'
 gem 'high_voltage', '0.9.0', :branch => "rails3"
 gem 'active_merchant', '1.5.2', :require => 'active_merchant'

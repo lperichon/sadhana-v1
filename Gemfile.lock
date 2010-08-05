@@ -89,7 +89,7 @@ dependencies:
   paperclip: 
     group: 
     - :default
-    version: = 2.3.2
+    version: = 2.3.3
   puret: 
     group: 
     - :default
@@ -206,7 +206,7 @@ specs:
 - oauth: 
     version: 0.4.1
 - paperclip: 
-    version: 2.3.2
+    version: 2.3.3
 - puret: 
     version: 1.0.3
 - thor: 
@@ -229,7 +229,7 @@ specs:
     version: 1.2.7
 - will_paginate: 
     version: 3.0.pre
-hash: fd60f472e3afee48b537f20a699ce5140fcf2cda
+hash: aecdeab054bcfabf54005165844b1a368c94cefb
 sources: 
 - Rubygems: 
     uri: http://rubygems.org
