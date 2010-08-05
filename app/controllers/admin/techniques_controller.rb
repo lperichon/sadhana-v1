@@ -4,7 +4,7 @@ class Admin::TechniquesController < AdminApplicationController
   # GET /techniques
   # GET /techniques.xml
   def index
-    @techniques = Technique.all
+    @techniques = Technique.where('parent_id IS NULL')
 
     respond_to do |format|
       format.html # index.html.erb
