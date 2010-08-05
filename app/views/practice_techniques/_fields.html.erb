@@ -23,3 +23,15 @@
   <br/>
   <%= f.text_area :observations %>
 </div>
+
+<div class="field">
+  <%= f.label :technique %><%= field_help t('practice_technique.help.technique') %>
+  <div id="technique_select_box">
+      <% @practice_technique.technique.family_members.each do |technique| %>
+          <%= div_for(technique, :technique_id => technique.id, :class => 'technique') do %>
+              <h3 class='<%= 'long' if technique.name.size > 27 %>'><%= technique.name %></h3>
+              <%= image_tag technique.photo.url(:thumb, false) %>
+          <% end %>
+      <% end %>
+  </div>
+</div>

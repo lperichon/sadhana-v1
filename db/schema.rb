@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100729164030) do
+ActiveRecord::Schema.define(:version => 20100804215643) do
 
   create_table "admins", :force => true do |t|
     t.string    "email",                               :default => "", :null => false
@@ -33,11 +33,11 @@ ActiveRecord::Schema.define(:version => 20100729164030) do
   add_index "admins", ["unlock_token"], :name => "index_admins_on_unlock_token", :unique => true
 
   create_table "part_translations", :force => true do |t|
-    t.integer  "part_id"
-    t.string   "locale"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "part_id"
+    t.string    "locale"
+    t.string    "name"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   add_index "part_translations", ["part_id", "locale"], :name => "index_part_translations_on_part_id_and_locale", :unique => true
@@ -57,11 +57,11 @@ ActiveRecord::Schema.define(:version => 20100729164030) do
   end
 
   create_table "practice_parts", :force => true do |t|
-    t.integer  "practice_id"
-    t.integer  "part_id"
-    t.integer  "position"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "practice_id"
+    t.integer   "part_id"
+    t.integer   "position"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "practice_techniques", :force => true do |t|
@@ -173,6 +173,7 @@ ActiveRecord::Schema.define(:version => 20100729164030) do
     t.string    "photo_content_type"
     t.integer   "photo_file_size"
     t.timestamp "photo_updated_at"
+    t.integer   "parent_id"
   end
 
   create_table "users", :force => true do |t|

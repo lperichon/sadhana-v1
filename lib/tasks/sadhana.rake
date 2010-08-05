@@ -8,6 +8,13 @@ namespace :asana do
     download
   end
 
+  #rake techniques:download
+  desc "downloads ALL families from uni-yoga.org"
+  task :download_families => :environment do
+    puts "Downloading..."
+    download_families
+  end
+
   #rake techniques:update
   desc "update existing techniques from uni-yoga.org"
   task :update => :environment do
@@ -63,6 +70,52 @@ def download
   end
 end
 
+
+def download_families
+  filenames = {}
+
+  page_html = Nokogiri::HTML(open("http://www.uni-yoga.org/yoga_asanas_consultor.php"))
+  baseuri = URI.parse('http://uni-yoga.org')
+  page_html.css('#auto_completar ul li').each do |e|
+    asana_name =  e.css('.asana_nome').inner_text
+    photo_url = e.css('table tr td img').first['src'].gsub(/\/mini\//, '/normal/')
+    iuri = baseuri + URI.parse(URI.encode(photo_url))
+    photo_basename =  File.basename(iuri.path)
+    asana_code = photo_basename.gsub(/\..*\.jpg/, '')
+
+    puts asana_code + ' - ' + asana_name + ' - ' + photo_basename
+    begin
+      technique = Technique.create!(:technique_type => TechniqueType.find_by_symbol('asana'), :code => asana_code, :name => asana_name )
+
+      filename = File.join('tmp', photo_basename)
+      file = File.open(filename, 'wb')
+      file.write iuri.read
+
+      filenames[technique.id] = filename
+
+      Technique.where("code like '#{asana_code}.%'").each do |t|
+        puts "Setting as parent of " + t.name
+        t.parent = technique
+        t.save
+      end
+    rescue
+      puts 'rescued ' + filename
+    end
+  end
+  
+  filenames.each do |technique_id, filename|
+    technique = Technique.find(technique_id)
+    puts 'assigning photo to technique ' + technique.name + '(' + technique_id.to_s + ')'
+    begin
+      technique.photo = File.open(filename, 'rb')
+      technique.save!
+    rescue
+      puts 'failed assigning ' + filename.to_s + ' to technique = ' + technique.name + '(' + technique_id.to_s + ')'
+    end
+  end
+end
+
+
 def update
   filenames = {}
   (1..110).each do |i|
@@ -107,7 +160,6 @@ def update
 end
 
 def set_images
-  
   files = Dir.entries("tmp/mudras").sort {|a,b| a.scan(/\d+/)[0].to_i <=> b.scan(/\d+/)[0].to_i}
 
   mudra = TechniqueType.find_by_symbol('mudra')

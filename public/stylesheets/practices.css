@@ -149,18 +149,19 @@
   margin-left: 5px;
   float: left;
   text-align: center;
+  overflow: hidden;
 }
 
-.practice_technique h3 {
+.practice_technique h3, #technique_select_box h3 {
   font-size: 15px;
   margin: 5px;
 }
 
-.part-techniques .practice_technique h3 {
+.part-techniques .practice_technique h3, #technique_select_box h3 {
   font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
 }
 
-.part-techniques .practice_technique h3.long {
+.part-techniques .practice_technique h3.long, #technique_select_box h3.long {
   font-size: 90%;
 }
 
@@ -377,4 +378,19 @@ div[aria-labelledby = 'ui-dialog-title-edit_practice_dialog'] .ui-dialog-content
   position: absolute;
   bottom: 0;
   right: 2px;
+}
+
+#technique_select_box {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 190px;
+    white-space: nowrap;
+}
+
+#technique_select_box .technique {
+    display: inline-block;
+    white-space: normal;
+    height:150px;
+    overflow: hidden;
+    vertical-align: middle;
 }
