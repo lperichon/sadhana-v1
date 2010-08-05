@@ -17,7 +17,7 @@ class Technique < ActiveRecord::Base
     else
       family_members = []
       family_members << self
-      family_members << self.children
+      family_members.concat self.children
     end
   end
 end
