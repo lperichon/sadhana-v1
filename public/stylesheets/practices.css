@@ -26,10 +26,11 @@
 
 }
 #quicksearch input {
+  padding-left: 15px;
   margin-left: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
-  width: 92%;
+  width: 85%;
 }
 
 #practice_editor {
