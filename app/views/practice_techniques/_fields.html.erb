@@ -26,12 +26,23 @@
 
 <div class="field">
   <%= f.label :technique %><%= field_help t('practice_technique.help.technique') %>
+  <%= f.hidden_field :technique_id %>
   <div id="technique_select_box">
       <% @practice_technique.technique.family_members.each do |technique| %>
-          <%= div_for(technique, :technique_id => technique.id, :class => 'technique') do %>
+          <%= div_for(technique, :technique_id => technique.id, :class => "technique #{'selected' if technique == @practice_technique.technique}") do %>
               <h3 class='<%= 'long' if technique.name.size > 27 %>'><%= technique.name %></h3>
               <%= image_tag technique.photo.url(:thumb, false) %>
           <% end %>
       <% end %>
   </div>
 </div>
+
+<%= javascript_tag do %>
+    $('#technique_select_box .technique').click(
+        function() {
+          $('#practice_technique_technique_id').val($(this).attr('technique_id'));
+          $('#technique_select_box .technique.selected').removeClass('selected');
+          $(this).addClass('selected');
+        }
+    );
+<% end %>

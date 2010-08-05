@@ -393,4 +393,9 @@ div[aria-labelledby = 'ui-dialog-title-edit_practice_dialog'] .ui-dialog-content
     height:150px;
     overflow: hidden;
     vertical-align: middle;
+    cursor: pointer;
+}
+
+#technique_select_box .technique.selected {
+  border: 2px solid black;
 }
