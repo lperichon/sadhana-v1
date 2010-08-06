@@ -53,9 +53,3 @@ group :test do
   gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
 end
 
-group :production do
-  gem 'mysql', '2.8.1'
-  gem 'mongrel', '1.1.5'
-  gem "thin", '1.2.7'
-end
-
