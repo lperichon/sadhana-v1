@@ -11,6 +11,7 @@ module ApplicationHelper
               var result;
               $.ajax({
                 type: 'PUT',
+                url: '#{url_for(object)}' ,
                 async: false,
                 data: {
                   authenticity_token: #{form_authenticity_token.to_json },
