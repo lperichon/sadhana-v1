@@ -23,7 +23,7 @@
 <div id='practice_data'>
   <p>
     <b><%= Practice.human_attribute_name :total_time %>:</b><%= field_help t('practice.help.total_time') %>
-    <span id='practice_time'><%= t('practice.time_format', :minutes =>@practice.total_time / 60, :seconds => @practice.total_time % 60 )%></span>
+    <span id='practice_time'><%= practice_time(@practice) %></span>
   </p>
 </div>
 <div id='practice_editor'>

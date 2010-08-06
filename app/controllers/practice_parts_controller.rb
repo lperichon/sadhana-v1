@@ -29,6 +29,8 @@ class PracticePartsController < UserApplicationController
     params[:practice_part].each_with_index do |id, index|
       @practice.practice_parts.update_all(['position=?', index+1], ['id=?', id])
     end
-    render :nothing => true
+    respond_to do |format|
+      format.js { }
+    end
   end
 end

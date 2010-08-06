@@ -1,1 +1,1 @@
-page << "$('#practice_time').html('#{t('practice.time_format', :minutes =>@practice.total_time / 60, :seconds => @practice.total_time % 60 )}')"
+page << "$('#practice_time').html('#{practice_time(@practice)}')"
