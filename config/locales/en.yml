@@ -194,10 +194,11 @@ en:
       start: "Date and time for the event."
   practice_technique:
     help:
-      minutes: "Minutes to hold the technique"
-      seconds: "Seconds to hold the technique"
+      minutes: "Minutes to hold the technique."
+      seconds: "Seconds to hold the technique."
       compensate: "Compensate to the other side?"
       observations: "Any observations?"
+      technique: "Choose a technique."
   menu:
     my_practices: "My Practices"
     calendar: "Calendar"

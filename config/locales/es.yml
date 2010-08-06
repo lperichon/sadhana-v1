@@ -288,6 +288,7 @@ es:
         compensate: Compensación
         observations: Observaciones
         associated_techniques: "Técnicas asociadas"
+        technique: Técnica
       credit_card:
         type: Tipo
         number: Número
@@ -410,6 +411,7 @@ es:
       seconds: "Segundos de permanencia en la técnica."
       compensate: "¿Requiere compensación hacia el otro lado?"
       observations: "¿Algúna observación?"
+      technique: "Elija una técnica."
   menu:
     my_practices: "Mis prácticas"
     calendar: "Calendario"
