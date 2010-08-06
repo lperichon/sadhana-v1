@@ -44,10 +44,11 @@ class PracticesController < UserApplicationController
   # POST /practices
   # POST /practices.xml
   def create
+    asana = Part.find_by_symbol('asana')
     @practice = current_user.practices.new(params[:practice])
-
     respond_to do |format|
       if @practice.save
+        @practice.practice_parts.create(:part => asana)
         format.html { redirect_to practice_path(@practice)}
         format.xml  { render :xml => @practice, :status => :created, :location => @practice }
         format.js {}
