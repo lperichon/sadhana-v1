@@ -294,6 +294,9 @@ es:
         number: Número
         verification_value: "Codigo de verificación (CVV)"
         expiration_date: "Fecha de vencimiento"
+      practice_event:
+        practice: Práctica
+        date: Fecha
   practices:
     index:
       new_practice: "Nueva práctica"
