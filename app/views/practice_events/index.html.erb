@@ -1,7 +1,16 @@
+<% if @practice_events.empty? && !current_user.calendar_subscription_check(current_user.subscription.plan)%>
+  <div class="notice ui-state-highlight ui-corner-all">
+    <p>
+      <span class="ui-icon ui-icon-lightbulb" style="float: left; margin-right: .3em;"></span>
+      <%= t('practice_events.index.create_practice_tip') %>
+    </p>
+  </div>
+<% end %>
+
 <ul class='actions'>
   <li>
     <%= link_to t('practice_events.index.new_practice_event'), new_practice_event_path, :class => 'blue medium awesome', :id => 'new_practice_event_link'%>
-    <% unless current_user.practices_subscription_check(current_user.subscription.plan) %>
+    <% unless current_user.calendar_subscription_check(current_user.subscription.plan) %>
       <%= javascript_tag do %>
         $('#new_practice_event_link').click(function() {
           $.ajax({
