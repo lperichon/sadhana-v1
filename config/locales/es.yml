@@ -302,7 +302,9 @@ es:
       new_practice: "Nueva práctica"
       my_practices: "Mis prácticas"
       new_invitation: "Invitar a un amigo"
-    paid_account_notice: "Necesita una suscripción paga para acceder a todas las funcionalidades."
+    paid_account_notice:
+      one: "Su subscripción solo permite trabajar con %{count} práctica. %{upgrade_link}"
+      other: "Su subscripción solo permite trabajar con %{count} prácticas. %{upgrade_link}"
     show:
       loading: "Cargando..."
       practice_parts:
@@ -404,6 +406,7 @@ es:
     preferences: "Preferencias"
     play_preferences: "Preferencias de ejecución"
     invite: Invitar
+    upgrade_now: "Mejore su subscripción ahora!"
   practice_event:
     help:
       practice: "Elija la práctica."

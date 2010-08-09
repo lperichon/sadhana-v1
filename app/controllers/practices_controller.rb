@@ -5,7 +5,7 @@ class PracticesController < UserApplicationController
     @practices = current_user.practices.paginate :page => params[:page], :per_page => 5
 
     respond_to do |format|
-      format.html {require_subscription_check(nil, true)} # index.html.erb
+      format.html {} # index.html.erb
     end
   end
 
@@ -99,8 +99,8 @@ class PracticesController < UserApplicationController
   protected
 
   def require_subscription_check(practice, no_return = false)
-    if current_user.practices_subscription_check(current_user.subscription.plan) && (practice.nil? || practice.new_record? || practice.position > current_user.subscription.plan.max_practices.to_i) 
-      flash[:notice] = t('practices.paid_account_notice')
+    if current_user.practices_subscription_check(current_user.subscription.plan) && (practice.nil? || practice.new_record? || practice.position > current_user.subscription.plan.max_practices.to_i)
+      flash[:notice] = t('practices.paid_account_notice', :count => current_user.subscription.plan.max_practices.to_i, :upgrade_link => self.class.helpers.link_to_function(t('actions.upgrade_now'),"$('#edit_profile_dialog').dialog('open').tabs('select', 1);")).html_safe
       return redirect_to :back unless no_return
     end
   end

@@ -107,7 +107,9 @@ en:
     play:
       play_preferences_dialog:
         title: "Play Preferences"
-    paid_account_notice: "You require a paid subscription for full functionality."
+    paid_account_notice:
+      one: "Your subscription only supports working with %{count} practice. %{upgrade_link}"
+      other: "Your subscription only supports working with %{count} practice. %{upgrade_link}" 
   shared:
     confirm_dialog:
       title: "Confirm delete"
@@ -188,6 +190,7 @@ en:
     invite: "Invite"
     remove: "remove"
     play_preferences: "Play preferences"
+    upgrade_now: "Upgrade Now!"
   practice_event:
     help:
       practice: "Choose the practice."
