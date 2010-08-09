@@ -87,7 +87,7 @@ class PracticeEventsController < UserApplicationController
 
   def require_paid_account(no_return = false)
     if current_user.calendar_subscription_check(current_user.subscription.plan)
-      flash[:notice] = t('practice_events.paid_account_notice', :upgrade_link => self.class.helpers.link_to_function(t('actions.upgrade_now'),"$('#edit_profile_dialog').dialog('open').tabs('select', 1);")).html_safe
+      flash.now[:notice] = t('practice_events.paid_account_notice', :upgrade_link => self.class.helpers.link_to_function(t('actions.upgrade_now'),"$('#edit_profile_dialog').dialog('open').tabs('select', 1);")).html_safe
       return redirect_to :back unless no_return
     end
   end
