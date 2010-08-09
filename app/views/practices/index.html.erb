@@ -1,3 +1,12 @@
+<% if !@practices.empty? %>
+  <div class="notice ui-state-highlight ui-corner-all">
+    <p>
+      <span class="ui-icon ui-icon-lightbulb" style="float: left; margin-right: .3em;"></span>
+      <%= t('practices.index.create_practice_tip') %>
+    </p>
+  </div>
+<% end %>
+
 <ul class='actions'>
   <li>
     <%= link_to t('practices.index.new_practice'), new_practice_path, :class => 'blue medium awesome', :id => 'new_practice_link'%>

@@ -302,6 +302,7 @@ es:
       new_practice: "Nueva práctica"
       my_practices: "Mis prácticas"
       new_invitation: "Invitar a un amigo"
+      create_practice_tip: "Cree una nueva práctica haciendo click en el boton 'Nueva práctica'."
     paid_account_notice:
       one: "Su subscripción solo permite trabajar con %{count} práctica. %{upgrade_link}"
       other: "Su subscripción solo permite trabajar con %{count} prácticas. %{upgrade_link}"
