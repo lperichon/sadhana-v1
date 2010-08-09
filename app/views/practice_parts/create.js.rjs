@@ -1,6 +1,6 @@
 page << "$('#practice_time').html('#{practice_time(@practice)}')"
 page << "$('#practice_parts').tabs('add', '#part-techniques-#{@practice_part.id}', '#{@practice_part.part.name}');"
-page << "$('#new_practice_part').attr('id', 'practice_part_#{@practice_part.id}').attr('part_id', '#{@practice_part.id}');"
+page << "$('#new_practice_part').attr('id', 'practice_part_#{@practice_part.id}').attr('part_id', '#{@practice_part.id}').attr('primary_technique_type', '#{@practice_part.part.primary_technique_type}').attr('secondary_technique_types', '#{@practice_part.part.secondary_technique_types}');"
 page << %(
     $('#part-techniques-#{@practice_part.id}').height(Practices.calculateEditorHeight());
     // Enable sorting practice techniques
@@ -18,9 +18,9 @@ page << %(
       }
     );
 
-    // Enable adding techniques to part (only ásanas for now)
+    // Enable adding techniques to part
     $("#part-techniques-#{@practice_part.id}").droppable({
-      accept: '.asana',
+      accept: '#{@practice_part.part.primary_technique_type}',
       drop: function(event, ui) {
         if(ui.draggable.hasClass('ui-draggable')) {
           ui.draggable.removeClass('ui-draggable').removeClass('technique').addClass('practice_technique');
@@ -41,7 +41,7 @@ page << %(
                 ui.draggable.html($('#created_practice_technique .practice_technique').html());
                 $('#created_practice_technique').children().remove();
                 $('#' + ui.draggable.attr('id')).droppable({
-                  accept: '.mudra, .manos',
+                  accept: '#{@practice_part.part.secondary_technique_types}',
                   drop: function(event, mudra_ui) {
                     if(mudra_ui.draggable.hasClass('ui-draggable')) {
                       // associate new practice technique via ajax
