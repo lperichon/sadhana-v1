@@ -197,3 +197,13 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 .pagination {
   text-align: center;
 }
+
+.ui-icon-calendar {
+  position: absolute;
+  margin: 5px;
+  background-image: url(http://local.sadhana.com.ar/stylesheets/ui-lightness/images/ui-icons_222222_256x240.png);
+}
+
+#practice_event_start_string {
+  padding-left: 15px;
+}
