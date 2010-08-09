@@ -322,7 +322,7 @@ es:
   practice_events:
     index:
       new_practice_event: "Nuevo evento"
-    paid_account_notice: "Necesita una suscripción paga para acceder al calendario."
+    paid_account_notice: "Necesita una suscripción paga para acceder al calendario. %{upgrade_link}"
   shared:
     credits_dialog:
       title: Créditos

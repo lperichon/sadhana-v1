@@ -242,7 +242,7 @@ en:
   practice_events:
     index:
       new_practice_event: "New event"
-    paid_account_notice: "You require a paid subscription to access the calendar functionality."
+    paid_account_notice: "You require a paid subscription to access the calendar functionality. %{upgrade_link}"
   practice_part:
     help:
       part: "Choose an anga."
