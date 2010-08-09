@@ -250,3 +250,6 @@ en:
       part: "Choose an anga."
   application_helper:
     jeditable_tooltip: "Click to edit..."
+  subscription:
+    help:
+      plan: "Choose a new plan."

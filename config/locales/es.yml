@@ -282,6 +282,7 @@ es:
       subscription:
         plan: Plan
         credit_card: "Tarjeta de crédito"
+        current_password: "Contraseña actual"
       practice_technique:
         minutes: Minutos
         seconds: Segundos
@@ -459,3 +460,6 @@ es:
     follow_us_on_twitter_html: "Síganos en %{twitter}"
   application_helper:
     jeditable_tooltip: "Haga click para editar..."
+  subscription:
+    help:
+      plan: "Elija un nuevo plan."

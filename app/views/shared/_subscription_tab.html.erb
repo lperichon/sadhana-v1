@@ -1,6 +1,6 @@
 <%= form_for current_user.subscription do |f| %>
   <div class='field'>
-    <%= f.label :plan %><br />
+    <%= f.label :plan %><%= field_help t('subscription.help.plan') %><br />
     <%= f.select :plan, current_user.subscription.allowed_plans.collect {|p| ["#{p.name}#{' ' + t('shared_subscription_tab.current_plan_mark') if(p==current_user.subscription.plan)}" , p.id ] }, :selected => current_user.subscription.plan.id %>
   </div>
   <% if false %>
@@ -37,7 +37,7 @@
     <div id='transaction_history' title='<%= t('subscriptions.transaction_history.title') %>'></div>
   <% end %>
   <div class="field">
-    <%= f.label :current_password %> <%= field_help t('shared.edit_profile_dialog.current_password_help') %><br/>
+    <%= f.label :current_password %><%= field_help t('shared.edit_profile_dialog.current_password_help') %><br/>
     <%= f.password_field :current_password, :autocomplete => 'off' %>
   </div>
 <% end %>
