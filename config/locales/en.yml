@@ -101,6 +101,10 @@ en:
       loading: "Loading..."
       practice_parts:
         add: "Add anga"
+      add_techniques_tip: "Drag and drop the ásanas and order them."
+      add_associated_techniques_tip: "Did you know that you can associate techniques? Drag and drop a mudrá to an ásana."
+      add_angas_tip: "Separate your practice in parts, create new angas by clicking on the 'Add anga' tab."
+      sort_angas_tip: "Did you know that you can order the angas in your practice? Drag the tabs and sort them."
     play_practice_technique:
       no_description: "No description"
       no_observations: "No observations"

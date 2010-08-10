@@ -1,0 +1,34 @@
+<% tips = [] %>
+<% if @practice.practice_parts.collect { |pp| pp.practice_techniques }.flatten.empty? %>
+  <% tips << t('practices.show.add_techniques_tip') %>
+<% end %>
+<% if @practice.practice_parts.collect { |pp| pp.practice_techniques.collect { |pt| pt.techniques } }.flatten.empty? %>
+    <% tips << t('practices.show.add_associated_techniques_tip') %>
+<% end %>
+<% if @practice.practice_parts.size <= 1 %>
+    <% tips << t('practices.show.add_angas_tip') %>
+<% end %>
+<% if @practice.practice_parts.all.sort { |a,b| a.id <=> b.id } == @practice.practice_parts %>
+    <% tips << t('practices.show.sort_angas_tip') %>
+<% end %>
+<% unless tips.empty? %>
+<div class="notice ui-state-highlight ui-corner-all">
+  <p>
+    <span class="ui-icon ui-icon-lightbulb" style="float: left; margin-right: .3em;"></span>
+    <% tips.each_with_index do |tip, index| %>
+      <span class="tip">
+        <%= tip %>
+        <% if tips.size > 1 && index == (tips.size-1) %>
+          <%= link_to_function t('actions.next'), "$(this).parent().hide(); $('#tips .tip').first().show();" %>
+        <% else%>
+          <%= link_to_function t('actions.next'), "$(this).parent().hide(); $(this).parent().next().show();" %>
+        <% end %>
+      </span>
+    <% end %>
+  </p>
+</div>
+<% javascript_tag do %>
+    $('#tips .tip').hide();
+    $('#tips .tip').first().show();
+<% end %>
+<% end %>

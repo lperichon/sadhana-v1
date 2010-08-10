@@ -7,3 +7,5 @@ page << %(
         url: '#{edit_practice_practice_part_practice_technique_path(@practice, @practice_part, @practice_technique)}'
     });
 )
+page << "$('#tips').html('#{ escape_javascript render :partial => 'practices/practice_tips'}');"
+page << "Practices.adjustEditorSize();"

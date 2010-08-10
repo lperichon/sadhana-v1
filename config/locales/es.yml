@@ -311,6 +311,10 @@ es:
       loading: "Cargando..."
       practice_parts:
         add: "Agregar anga"
+      add_techniques_tip: "Arrastre y ordene los ásanas que desee."
+      add_associated_techniques_tip: "¿Sabía que puede asociar técnicas? Arrastre un mudrá a un ásana."
+      add_angas_tip: "Separe su práctica en partes. Cree nuevos angas haciendo click en la pestaña 'Agregar anga'."
+      sort_angas_tip: "¿Sabía que puede ordenar los angas de la práctica? Arrastre y ordene las pestañas."
     play_practice_technique:
       no_description: "No hay descripción"
       no_observations: "No hay observaciones"
