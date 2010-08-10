@@ -1,0 +1,38 @@
+<div id='plans_dialog' style='display:none' title='<%= t('shared.plans_dialog.title') %>'>
+  <div id="plans">
+    <div id='free' class="plan">
+      <h2>Free</h2>
+      <ul>
+        <li><%= t('shared.plans_dialog.private_practice', :count => 1).html_safe %></li>
+        <li><%= t('shared.plans_dialog.unlimited_shared_practices').html_safe %></li>
+        <li class='limited'><%= t('shared.plans_dialog.calendar').html_safe %></li>
+        <li class='limited'><%= t('shared.plans_dialog.share').html_safe %></li>
+        <li class="price"><%= t('shared.plans_dialog.free') %></li>
+      </ul>
+    </div>
+    <div id='yogin' class="plan recommended">
+      <h2>Yôgin</h2>
+      <ul>
+        <li><%= t('shared.plans_dialog.unlimited_private_practices').html_safe %></li>
+        <li><%= t('shared.plans_dialog.unlimited_shared_practices').html_safe %></li>
+        <li class='unlimited'><%= t('shared.plans_dialog.calendar').html_safe %></li>
+        <li class='limited'><%= t('shared.plans_dialog.share').html_safe %></li>
+        <li class="price">US$ <span class="limited">2</span>/<%= t('datetime.prompts.month') %></li>
+      </ul>
+    </div>
+    <div id='saddhu' class="plan disabled">
+      <h2>Saddhu</h2>
+      <ul>
+        <li><%= t('shared.plans_dialog.unlimited_private_practices').html_safe %></li>
+        <li><%= t('shared.plans_dialog.unlimited_shared_practices').html_safe %></li>
+        <li class='unlimited'><%= t('shared.plans_dialog.calendar').html_safe %></li>
+        <li class='unlimited'><%= t('shared.plans_dialog.share').html_safe %></li>
+        <li class="price"><span class="limited"><%= t('shared.plans_dialog.unavailable') %></span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<%= javascript_tag do %>
+  $('#plans_dialog').dialog({autoOpen: false, modal: true, width: 810, height: 285});
+<% end %>

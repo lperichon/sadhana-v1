@@ -2,6 +2,7 @@
   <div class='field'>
     <%= f.label :plan %><%= field_help t('subscription.help.plan') %><br />
     <%= f.select :plan, current_user.subscription.allowed_plans.collect {|p| ["#{p.name}#{' ' + t('shared_subscription_tab.current_plan_mark') if(p==current_user.subscription.plan)}" , p.id ] }, :selected => current_user.subscription.plan.id %>
+    <%= link_to_function 'Compare plans', "$('#plans_dialog').dialog('open');" %>
   </div>
   <% if false %>
   <div class='field'>

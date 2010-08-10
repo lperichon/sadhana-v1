@@ -377,6 +377,17 @@ es:
       card: "tarjeta"
     new_practice_part_dialog:
       title: "Agregar un nuevo anga"
+    plans_dialog:
+      title: "¡Elija el plan adecuado para usted!"
+      private_practice:
+        one: "<span class='limited'>%{count}</span> práctica privada"
+        other: "<span class='limited'>%{count}</span> prácticas privadas"
+      unlimited_private_practices: "Prácticas privadas <span class='unlimited'>ilimitadas</span>"
+      unlimited_shared_practices: "Prácticas compartidas <span class='unlimited'>ilimitadas</span> "
+      calendar: "Calendario de prácticas"
+      share: "Comparta sus prácticas"
+      free: "¡Gratis!"
+      unavailable: "No disponible"
   practice:
     time_format: "%{minutes} minutos %{seconds} segundos"
     help:

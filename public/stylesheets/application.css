@@ -51,7 +51,7 @@ body {
 }
 
 #header #locale {
-  float:right;
+  float: right;
   margin-top: 3px;
   margin-right: 10px;
   margin-left: 4px;
@@ -207,3 +207,74 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 #practice_event_start_string {
   padding-left: 15px;
 }
+
+#plans .plan {
+  float: left;
+  border: 1px solid black;
+  width: 250px;
+  height: 200px;
+  margin-top: 20px;
+  text-align: center;
+  background: white;
+  position: relative;
+}
+
+#plans #free {
+  border-right:0 none;
+  left:10px;
+}
+#plans #saddhu {
+  border-left:0 none;
+  left:-3px;
+}
+
+#plans .plan ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#plans .plan ul li.price {
+  /*position: absolute;
+  bottom: %;
+  width: 100%;*/
+  margin-top: 5%;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#plans .plan ul li.limited {
+  text-decoration: line-through;
+}
+
+#plans .plan h2 {
+  margin-top: 0.5em;
+}
+
+#plans .plan.recommended {
+  font-size: 150%;
+  width: 270px;
+  height: 240px;
+  margin-top: 0;
+  background: LightGoldenRodYellow;
+  box-shadow: 10px 10px 5px #888;
+  -moz-box-shadow:10px 10px 5px #888888;
+  -webkit-box-shadow:10px 10px 5px #888888;
+  z-index: 1;
+}
+
+#plans .plan.recommended ul {
+  font-size: 70%;
+  line-height:150%;
+}
+
+#plans .limited {
+  color: #ef8c08;
+  font-weight: bold;
+}
+
+#plans .unlimited {
+  color: #96C846;
+  font-weight: bold;
+}
+

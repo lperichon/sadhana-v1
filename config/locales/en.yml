@@ -162,6 +162,17 @@ en:
       all_belgrano: "and all of Belgrano School"
     new_practice_part_dialog:
       title: "Add a new anga"
+    plans_dialog:
+      title: "Choose the right plan for you!"
+      private_practice:
+        one: "<span class='limited'>%{count}</span> private practice"
+        other: "<span class='limited'>%{count}</span> private practices"
+      unlimited_private_practices: "<span class='unlimited'>Unlimited</span> private practices"
+      unlimited_shared_practices: "<span class='unlimited'>Unlimited</span> shared practices"
+      calendar: "Practice calendar"
+      share: "Share your practices"
+      free: "Free!"
+      unavailable: "Unavailable"
   practice:
     help:
       name: "The name you want for your practice."
