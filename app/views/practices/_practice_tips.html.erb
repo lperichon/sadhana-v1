@@ -20,7 +20,7 @@
         <%= tip %>
         <% if tips.size > 1 && index == (tips.size-1) %>
           <%= link_to_function t('actions.next'), "$(this).parent().hide(); $('#tips .tip').first().show();" %>
-        <% else%>
+        <% elsif tips.size > 1%>
           <%= link_to_function t('actions.next'), "$(this).parent().hide(); $(this).parent().next().show();" %>
         <% end %>
       </span>
