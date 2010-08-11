@@ -1,3 +1,13 @@
+$.extend($.ui.tabs.prototype, {
+    refreshPositions: function() {
+        console.log('refresh positions');
+        this.list = this.element.find('ol,ul').eq(0);
+        this.lis = $('li:has(a[href])', this.list);
+        this.anchors = this.lis.map(function() { return $('a', this)[0]; });
+        return this;
+    }
+});
+
 $(document).ready(function(){
     $('.help').live('mouseover', function() { $(this).addClass('ui-state-hover');});
     $('.help').live('mouseout', function() { $(this).removeClass('ui-state-hover');});
