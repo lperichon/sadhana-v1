@@ -1,17 +1,21 @@
-page << "$('#new_practice_dialog').html('#{escape_javascript render :partial => 'dialog_form'}');"
-page << %(
-  $('#new_practice_dialog').dialog({
-    autoOpen: true,
-    height: 460,
-    width: 390,
-    modal: true,
-    buttons: {
-      '#{t('actions.save')}': function() {
-         $('#new_practice_dialog form').submit();
-      },
-      '#{t('actions.cancel')}': function() {
-        $('#new_practice_dialog').dialog('close');
-      }
-    }
-  });
-)
+if current_user.practices_subscription_check(current_user.subscription.plan)
+    page << "$('#notifications').replaceWith('#{escape_javascript render :partial => 'shared/notifications'}');"
+else
+    page << "$('#new_practice_dialog').html('#{escape_javascript render :partial => 'dialog_form'}');"
+    page << %(
+      $('#new_practice_dialog').dialog({
+        autoOpen: true,
+        height: 460,
+        width: 390,
+        modal: true,
+        buttons: {
+          '#{t('actions.save')}': function() {
+             $('#new_practice_dialog form').submit();
+          },
+          '#{t('actions.cancel')}': function() {
+            $('#new_practice_dialog').dialog('close');
+          }
+        }
+      });
+    )
+end

@@ -6,18 +6,16 @@
     <li><%= link_to t('actions.play'), play_practice_path(practice), :class => 'small orange awesome' %></li>
     <li><%= link_to t('actions.edit'), practice, :class => 'small orange awesome' %></li>
     <li><%= link_to t('actions.add_to_calendar'), new_practice_event_path, :class => 'small orange awesome', :id => "#{dom_id practice}_add_to_calendar_link" %>
-    <% unless current_user.calendar_subscription_check(current_user.subscription.plan) %>
-      <%= javascript_tag do %>
-        $('#<%= dom_id practice %>_add_to_calendar_link').click(function() {
-          $.ajax({
-            type:'get',
-            data: 'practice_event[practice_id]=<%= practice.id %>',
-            dataType: 'script',
-            url: '/practice_events/new'
-          });
-          return false;
+    <%= javascript_tag do %>
+      $('#<%= dom_id practice %>_add_to_calendar_link').click(function() {
+        $.ajax({
+          type:'get',
+          data: 'practice_event[practice_id]=<%= practice.id %>',
+          dataType: 'script',
+          url: '<%= new_practice_event_path %>'
         });
-      <% end %>
+        return false;
+      });
     <% end %>
     </li>
     <li><%= link_to_function t('actions.destroy'), "$('#confirm_dialog').dialog({

@@ -1,5 +1,5 @@
 class PracticeEventsController < UserApplicationController
-  before_filter :require_paid_account, :except => :index
+  before_filter :require_paid_account, :except => [:index, :new]
 
   # GET /practice_events
   # GET /practice_events.xml
@@ -29,7 +29,7 @@ class PracticeEventsController < UserApplicationController
 
     respond_to do |format|
       format.xml  { render :xml => @practice_event }
-      format.js {}
+      format.js { require_paid_account(true) }
     end
   end
 

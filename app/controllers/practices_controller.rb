@@ -26,9 +26,8 @@ class PracticesController < UserApplicationController
     @practice = current_user.practices.new
 
     respond_to do |format|
-      format.html { require_subscription_check(@practice) }
       format.xml  { render :xml => @practice }
-      format.js {}
+      format.js { require_subscription_check(@practice, true)}
     end
   end
 
@@ -100,7 +99,7 @@ class PracticesController < UserApplicationController
 
   def require_subscription_check(practice, no_return = false)
     if current_user.practices_subscription_check(current_user.subscription.plan) && (practice.nil? || practice.new_record? || practice.position > current_user.subscription.plan.max_practices.to_i)
-      flash[:notice] = t('practices.paid_account_notice', :count => current_user.subscription.plan.max_practices.to_i, :upgrade_link => self.class.helpers.link_to_function(t('actions.upgrade_now'),"$('#edit_profile_dialog').dialog('open').tabs('select', 1);")).html_safe
+      flash.now[:notice] = t('practices.paid_account_notice', :count => current_user.subscription.plan.max_practices.to_i, :upgrade_link => self.class.helpers.link_to_function(t('actions.upgrade_now'),"$('#edit_profile_dialog').dialog('open').tabs('select', 1);")).html_safe
       return redirect_to :back unless no_return
     end
   end

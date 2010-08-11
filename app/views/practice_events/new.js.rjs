@@ -1,25 +1,29 @@
-page << "$('#new_event_dialog').html('#{escape_javascript render :partial => 'dialog_form'}');"
-page << %(
-  $('#new_event_dialog').dialog({
-    autoOpen: true,
-    height: 300,
-    width: 350,
-    modal: true,
-    buttons: {
-      '#{t('actions.save')}': function() {
-        $.ajax({
-            type:'post',
-            dataType: 'script',
-            data: $('#new_event_dialog form').serialize(),
-            url: $('#new_event_dialog form').attr('action'),
-            success: function() {
-              $('#new_event_dialog').dialog('close');
-            }
-        });
-      },
-      '#{t('actions.cancel')}': function() {
-        $('#new_event_dialog').dialog('close');
-      }
-    }
-  });
-)
+if current_user.calendar_subscription_check(current_user.subscription.plan)
+    page << "$('#notifications').replaceWith('#{escape_javascript render :partial => 'shared/notifications'}');"
+else
+    page << "$('#new_event_dialog').html('#{escape_javascript render :partial => 'dialog_form'}');"
+    page << %(
+      $('#new_event_dialog').dialog({
+        autoOpen: true,
+        height: 300,
+        width: 350,
+        modal: true,
+        buttons: {
+          '#{t('actions.save')}': function() {
+            $.ajax({
+                type:'post',
+                dataType: 'script',
+                data: $('#new_event_dialog form').serialize(),
+                url: $('#new_event_dialog form').attr('action'),
+                success: function() {
+                  $('#new_event_dialog').dialog('close');
+                }
+            });
+          },
+          '#{t('actions.cancel')}': function() {
+            $('#new_event_dialog').dialog('close');
+          }
+        }
+      });
+    )
+end

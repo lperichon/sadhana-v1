@@ -10,17 +10,15 @@
 <ul class='actions'>
   <li>
     <%= link_to t('practice_events.index.new_practice_event'), new_practice_event_path, :class => 'blue medium awesome', :id => 'new_practice_event_link'%>
-    <% unless current_user.calendar_subscription_check(current_user.subscription.plan) %>
-      <%= javascript_tag do %>
-        $('#new_practice_event_link').click(function() {
-          $.ajax({
-            type:'get',
-            dataType: 'script',
-            url: '/practice_events/new'
-          });
-          return false;
+    <%= javascript_tag do %>
+      $('#new_practice_event_link').click(function() {
+        $.ajax({
+          type:'get',
+          dataType: 'script',
+          url: '/practice_events/new'
         });
-      <% end %>
+        return false;
+      });
     <% end %>
   </li>
   <li>
