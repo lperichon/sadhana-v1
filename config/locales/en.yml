@@ -156,6 +156,7 @@ en:
       transaction_history: "History"
       transaction_failed: "FAILED TO"
       card: "card"
+      compare_plans: "Compare plans"
     credits_dialog:
       text1: "We want to thank the following people, who helped us build Sádhana and work to make it better every day"
       title: "Credits"

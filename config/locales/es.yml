@@ -375,6 +375,7 @@ es:
       transaction_history: "Historia"
       transaction_failed: "FRACASO"
       card: "tarjeta"
+      compare_plans: "Comparar planes"
     new_practice_part_dialog:
       title: "Agregar un nuevo anga"
     plans_dialog:
