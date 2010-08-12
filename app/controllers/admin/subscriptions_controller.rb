@@ -1,4 +1,10 @@
 class Admin::SubscriptionsController < AdminApplicationController
+  def manual_charge
+    @subscription = Subscription.find(params[:id])
+    @subscription.manual_charge_balance
+    redirect_to admin_subscriptions_path
+  end
+
   # GET /subscriptions
   # GET /subscriptions.xml
   def index

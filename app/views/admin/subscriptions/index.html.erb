@@ -5,6 +5,7 @@
     <th>Email</th>
     <th>Plan</th>
     <th>State</th>
+    <th>Balance</th>
     <th>Next Renewal</th>
     <th></th>
     <th></th>
@@ -16,9 +17,11 @@
     <td><%= subscription.subscriber.email %></td>
     <td><%= subscription.plan.name %></td>
     <td><%= subscription.state %></td>
+    <td><%= subscription.balance %></td>
     <td><%= subscription.next_renewal_on %></td>
     <td><%= link_to 'Show', [:admin, subscription] %></td>
     <td><%= link_to 'Edit', edit_admin_subscription_path(subscription) %></td>
+    <td><%= button_to 'Manual charge balance', manual_charge_admin_subscription_path(subscription) %></td>
   </tr>
 <% end %>
 </table>

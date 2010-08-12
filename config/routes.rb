@@ -37,7 +37,11 @@ Sadhana::Application.routes.draw do |map|
   namespace :admin do
     resources :parts
     resources :subscription_plans
-    resources :subscriptions
+    resources :subscriptions do
+      member do
+        post :manual_charge
+      end
+    end
     resources :technique_types
     resources :techniques do
       collection do

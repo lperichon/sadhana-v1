@@ -25,11 +25,11 @@ class SubscriptionsController < UserApplicationController
       
       # after change_plan, call renew
       case result = @subscription.renew
-      when false
-        flash[:notice] << "An error occured trying to charge your credit card. Please update your card information."
-      when Money
-        flash[:notice] << "Thank you for your payment. Your credit card has been charged #{result.format(:symbol => true)}"
-      end
+      #when false
+      #  flash[:notice] << "An error occured trying to charge your credit card. Please update your card information."
+      #when Money
+      #  flash[:notice] << "Thank you for your payment. Your credit card has been charged #{result.format(:symbol => true)}"
+      #end
 #      return redirect_to practices_path
     end
     
