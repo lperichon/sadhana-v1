@@ -24,7 +24,8 @@ class SubscriptionsController < UserApplicationController
       flash[:notice] = "Successfully changed plans. "
       
       # after change_plan, call renew
-      case result = @subscription.renew
+      @subscription.renew
+      #case result =
       #when false
       #  flash[:notice] << "An error occured trying to charge your credit card. Please update your card information."
       #when Money
