@@ -1,7 +1,7 @@
 namespace :saas do
   desc "Daily subscription processing, including renewals and email messages"
   task :daily => :environment do
-    Lockfile('subscription_daily_lock', :retries => 0) do
+    #Lockfile('subscription_daily_lock', :retries => 0) do
 
       # send warnings that trial ending in 3 days
       Subscription.with_state(:trial).with_no_warnings.due_in(3.days).each do |sub|
@@ -29,6 +29,6 @@ namespace :saas do
         end
       end
 
-    end
+    #end
   end
 end
