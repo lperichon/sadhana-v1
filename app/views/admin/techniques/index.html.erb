@@ -11,34 +11,10 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
-<% @techniques.each do |technique| %>
-  <tr>
-    <td><%= technique.technique_type.name %></td>
-    <td><%= technique.code %></td>
-    <td><%= technique.parent.name if technique.parent %></td>
-    <td><%= image_tag technique.photo.url(:thumb, false) %></td>
-    <td><%= technique.name %></td>
-    <td><%= technique.description %></td>
-    <td><%= link_to 'Show', [:admin, technique] %></td>
-    <td><%= link_to 'Edit', edit_admin_technique_path(technique) %></td>
-    <td><%= link_to 'Destroy', [:admin, technique], :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-  <% technique.children.each do |child| %>
-  <tr>
-    <td><%= child.technique_type.name %></td>
-    <td><%= child.code %></td>
-    <td><%= child.parent.name if child.parent %></td>
-    <td><%= image_tag child.photo.url(:thumb, false) %></td>
-    <td><%= child.name %></td>
-    <td><%= child.description %></td>
-    <td><%= link_to 'Show', [:admin, child] %></td>
-    <td><%= link_to 'Edit', edit_admin_technique_path(child) %></td>
-    <td><%= link_to 'Destroy', [:admin, child], :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-  <% end %>
-<% end %>
+<%= render :partial => 'techniques_rows'%>
 </table>
 
 <br />

@@ -1,0 +1,18 @@
+<tr id="<%= dom_id technique %>">
+  <td><%= technique.technique_type.name %></td>
+  <td><%= technique.code %></td>
+  <td><%= technique.parent.name if technique.parent %></td>
+  <td><%= image_tag technique.photo.url(:thumb, false) %></td>
+  <td><%= technique.name %></td>
+  <td><%= technique.description %></td>
+  <td><%= link_to_function 'Show children', "$.ajax({
+                      type:'get',
+                      data: 'parent_id=#{technique.id}',
+                      dataType: 'script',
+                      url: '/admin/techniques'
+                    });" %>
+  </td>
+  <td><%= link_to 'Show', [:admin, technique] %></td>
+  <td><%= link_to 'Edit', edit_admin_technique_path(technique) %></td>
+  <td><%= link_to 'Destroy', [:admin, technique], :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>

@@ -4,11 +4,18 @@ class Admin::TechniquesController < AdminApplicationController
   # GET /techniques
   # GET /techniques.xml
   def index
-    @techniques = Technique.where('parent_id IS NULL')
+    parent_id = params[:parent_id] || nil
+    if parent_id.nil?
+      @techniques = Technique.where('parent_id IS NULL')
+    else
+      @parent = Technique.find(parent_id)
+      @techniques = Technique.where("parent_id = #{parent_id}")
+    end
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @techniques }
+      format.js {}
     end
   end
 
