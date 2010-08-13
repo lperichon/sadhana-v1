@@ -160,7 +160,7 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 }
 
 #social {
-  display: block;
+  display: inline-block;
   width: 100%;
 }
 
