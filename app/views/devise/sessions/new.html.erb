@@ -1,17 +1,12 @@
+<%= render :partial => 'shared/functionalities_slideshow' %>
+<div class="page-content">
 <h2><%= t('devise.sessions.new.title') %></h2>
 
 <%= form_for(resource_name, resource, :url => session_path(resource_name)) do |f| %>
-  <p><%= f.label :email %></p>
-  <p><%= f.text_field :email %></p>
+  <%= render :partial => 'shared/sign_in_fields', :locals => {:f => f} %>
 
-  <p><%= f.label :password %></p>
-  <p><%= f.password_field :password %></p>
-
-  <% if devise_mapping.rememberable? -%>
-    <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
-  <% end -%>
-
-  <p><%= f.submit t('devise.sessions.new.submit') %></p>
+  <p><%= f.submit t('devise.sessions.new.submit'), :class=> 'awesome medium blue' %></p>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
+</div>

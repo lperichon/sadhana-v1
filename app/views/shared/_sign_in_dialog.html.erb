@@ -1,16 +1,6 @@
 <div id='sign_in_dialog' style='display:none' title='<%= t('shared.sign_in_dialog.title') %>'>
   <%= form_for(:user, :url => session_path(:user)) do |f| %>
-    <div class='field'>
-      <%= f.label :email %><br/>
-      <%= f.text_field :email %>
-    </div>
-    <div class='field'>
-    <%= f.label :password %><br/>
-    <%= f.password_field :password %>
-    </div>
-    <div class='field'>
-      <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-    </div>
+    <%= render :partial => 'shared/sign_in_fields', :locals => {:f => f} %>
   <% end %>
   <%= render :partial => "shared/registration_links", :locals => {:action => :sign_in} %>
 </div>

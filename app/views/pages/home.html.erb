@@ -1,17 +1,5 @@
-<div id='functionalities_slideshow'>
-  <div>
-    <h2><%= t('home.functionalities.manage') %></h2>
-    <%= image_tag 'screenshot_editor.png' %>
-  </div>
-  <div>
-    <h2><%= t('home.functionalities.practice') %></h2>
-    <%= image_tag 'screenshot_play.png' %>
-  </div>
-  <div>
-    <h2><%= t('home.functionalities.calendar') %></h2>
-    <%= image_tag 'screenshot_calendar.png' %>
-  </div>
-</div>
+<%= render :partial => 'shared/functionalities_slideshow' %>
+
 <div id="functionalities_list">
   <h2><%= t('home.functionalities.list_title') %></h2>
   <ul>
@@ -37,9 +25,4 @@
 </div>
 <%= javascript_tag do %>
   $('.tweet').tweet({username: 'sadhana_app', avatar_size: 32, count: 1, intro_text: '<%= t('home.follow_us_on_twitter_html', :twitter => link_to(content_tag(:span,'Twitter'), 'http://twitter.com/sadhana_app', :class=>'twitter-link')) %>', loading_text: 'Loading...'});
-
-  $('#functionalities_slideshow').cycle({
-    fx: 'all',
-    fit: 1
-  });
 <% end %>

@@ -141,6 +141,11 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
   display: inline-block;
 }
 
+.page-content {
+    margin-left: 20px;
+    display: inline-block;
+}
+
 #functionalities_list {
   display: inline-block;
   margin-top: 20px;
