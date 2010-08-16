@@ -1,17 +1,6 @@
 <div id='sign_up_dialog' style='display:none' title='<%= t('shared.sign_up_dialog.title') %>'>
-  <%= form_for(:user, :url => registration_path(:user)) do |f| %>
-    <div class='field'>
-      <%= f.label :email %><br/>
-      <%= f.text_field :email %>
-    </div>
-    <div class='field'>
-      <%= f.label :password %><br/>
-      <%= f.password_field :password %>
-    </div>
-    <div class='field'>
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation %>
-    </div>
+  <%= form_for(User.new, :url => registration_path(:user)) do |f| %>
+    <%= render :partial => 'shared/sign_up_fields', :locals => {:f => f} %>
   <% end %>
   <%= render :partial => "shared/registration_links", :locals => {:action => :sign_up} %>
 </div>

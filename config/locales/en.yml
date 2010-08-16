@@ -64,7 +64,7 @@ en:
         submit: "Set my password"
     confirmations:
       new:
-        submit: "Resend confirmation instructions"
+        submit: "Resend"
         title: "Resend confirmation instructions"
     passwords:
       edit:
@@ -72,7 +72,7 @@ en:
         submit: "Change my password"
       new:
         title: "Forgot your password?"
-        submit: "Send me reset password instructions"
+        submit: "Send reset instructions"
     registrations:
       new:
         title: "Sign up"

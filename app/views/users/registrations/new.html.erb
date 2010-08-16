@@ -1,18 +1,13 @@
-<h2>Sign up</h2>
+<%= render :partial => 'shared/functionalities_slideshow' %>
+<div class="page-content">
+<h2><%= t('devise.registrations.new.title') %></h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<%= form_for(resource_name, resource, :url => registration_path(resource_name)) do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => 'shared/sign_up_fields', :locals => {:f => f} %>
 
-  <p><%= f.label :email %></p>
-  <p><%= f.text_field :email %></p>
-
-  <p><%= f.label :password %></p>
-  <p><%= f.password_field :password %></p>
-
-  <p><%= f.label :password_confirmation %></p>
-  <p><%= f.password_field :password_confirmation %></p>
-
-  <p><%= f.submit "Sign up" %></p>
+  <p><%= f.submit t('devise.registrations.new.submit'), :class => 'awesome medium blue' %></p>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
+</div>

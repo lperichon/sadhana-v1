@@ -1,12 +1,17 @@
-<h2><%= t('devise.passwords.new.title') %></h2>
+<%= render :partial => 'shared/functionalities_slideshow' %>
+<div class="page-content">
+    <h2><%= t('devise.passwords.new.title') %></h2>
 
-<%= form_for(resource_name, resource, :url => password_path(resource_name)) do |f| %>
-  <%= f.error_messages %>
+    <%= form_for(resource_name, resource, :url => password_path(resource_name)) do |f| %>
+      <%= f.error_messages %>
 
-  <p><%= f.label :email %></p>
-  <p><%= f.text_field :email %></p>
+      <div class="field">
+        <%= f.label :email %><br/>
+        <%= f.text_field :email %>
+      </div>
 
-  <p><%= f.submit t('devise.passwords.new.submit') %></p>
-<% end %>
+      <p><%= f.submit t('devise.passwords.new.submit'), :class => 'awesome medium blue' %></p>
+    <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+    <%= render :partial => "devise/shared/links" %>
+</div>

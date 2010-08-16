@@ -1,1 +1,0 @@
-page << "$('#edit_profile_dialog #info').html('#{escape_javascript render :partial => 'shared/registration_tab'}');"

@@ -220,12 +220,12 @@ es:
         submit: "Cambiar mi contraseña"
       new:
         title: "¿Olvidó su contraseña?"
-        submit: "Enviarme instrucciones para modificar mi contraseña"
+        submit: "Enviarme instrucciones"
       send_instructions: 'Recibirá un email con instrucciones para cambiar su contraseña en pocos minutos.'
       updated: 'Su contraseña ha sido modificada exitosamente.'
     confirmations:
       new:
-        submit: "Reenviar instrucciones de confirmación"
+        submit: "Reenviar"
         title: "Reenviar instrucciones de confirmación"
       send_instructions: 'Recibirá un email con instrucciones para confirmar su cuenta en pocos minutos.'
       confirmed: 'Su cuenta ha sido confirmada exitosamente.'
