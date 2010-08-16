@@ -62,6 +62,7 @@ en:
       edit:
         title: "Set your password"
         submit: "Set my password"
+        setup_password: "Complete the invitation by setting your password."
     confirmations:
       new:
         submit: "Resend"

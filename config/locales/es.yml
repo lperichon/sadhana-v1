@@ -208,6 +208,7 @@ es:
       edit:
         title: 'Configurar contraseña'
         submit: 'Configurar contraseña'
+        setup_password: "Complete la invitación configurando su contraseña."
     sessions:
       new:
         title: "Entrar"
