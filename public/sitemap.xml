@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns="http://www.sitemaps.org/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://sadhana.com.ar</loc>
-    <image:image>
-       <image:loc>http://sadhana.com.ar/images/screenshot_editor.jpg</image:loc>
-    </image:image>
-    <image:image>
-       <image:loc>http://sadhana.com.ar/images/screenshot_calendar.jpg</image:loc>
-    </image:image>
-    <image:image>
-       <image:loc>http://sadhana.com.ar/images/screenshot_play.jpg</image:loc>
-    </image:image>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
