@@ -351,9 +351,9 @@ es:
       title: "Reenviar instrucciones de confirmación"
     new_invitation_dialog:
       title: "Invitar a un amigo"
-      invite_from: "Invitar desde"
+      invite_from: "Seleccionar un contacto de"
       share_on_facebook: "Estoy usando esta herramienta para armar mis prácticas. Se puede crear una práctica gratis!"
-      share_from: "O comparta desde:"
+      share_from: "O compartir en"
     links:
       sign_in: "Entrar"
       sign_up: "Registrarse"

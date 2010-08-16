@@ -132,9 +132,9 @@ en:
       title: "Resend confirmation instructions"
     new_invitation_dialog:
       title: "Invite a friend"
-      invite_from: "Invite a friend from"
+      invite_from: "Select a contact from"
       share_on_facebook: "Im using this tool to create my practices. Sign up and create a practice for free!"
-      share_from: "Or share on:"
+      share_from: "Or share on"
     links:
       sign_in: "Sign in"
       sign_up: "Sign up"
