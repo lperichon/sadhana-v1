@@ -133,6 +133,8 @@ en:
     new_invitation_dialog:
       title: "Invite a friend"
       invite_from: "Invite a friend from"
+      share_on_facebook: "Im using this tool to create my practices. Sign up and create a practice for free!"
+      share_from: "Or share on:"
     links:
       sign_in: "Sign in"
       sign_up: "Sign up"
@@ -185,6 +187,7 @@ en:
       sound_filename: "Choose a sound to hear between techniques."
     time_format: "%{minutes} minutes %{seconds} seconds"
   actions:
+    share: "Share"
     cancel: "Cancel"
     delete: "Delete"
     play: "Play"

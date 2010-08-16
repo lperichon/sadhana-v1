@@ -283,3 +283,6 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
   font-weight: bold;
 }
 
+.twitter-share-button {
+  vertical-align: top;
+}

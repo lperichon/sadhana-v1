@@ -5,6 +5,11 @@
   <a href="/contacts?provider=yahoo" onclick="popUp(this.href,'console',515,505); return false;"target="_blank">Yahoo</a>
   <a href="/contacts?provider=windows_live" onclick="popUp(this.href,'console',550,915); return false;"target="_blank">Windows Live</a>
   </p>
+  <p>
+    <%= t('shared.new_invitation_dialog.share_from') %>
+    <a name="fb_share" type="button" share_url="http://sadhana.com.ar" href="http://www.facebook.com/sharer.php"><%= t('actions.share') %></a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sadhana.com.ar" data-text="<%= t('shared.new_invitation_dialog.share_on_facebook') %>" data-count="none" data-via="sadhana_app" data-related="lperichon">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+  </p>
 </div>
 
 <%= javascript_tag do %>

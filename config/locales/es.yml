@@ -352,6 +352,8 @@ es:
     new_invitation_dialog:
       title: "Invitar a un amigo"
       invite_from: "Invitar desde"
+      share_on_facebook: "Estoy usando esta herramienta para armar mis prácticas. Se puede crear una práctica gratis!"
+      share_from: "O comparta desde:"
     links:
       sign_in: "Entrar"
       sign_up: "Registrarse"
@@ -427,6 +429,7 @@ es:
     play_preferences: "Preferencias de ejecución"
     invite: Invitar
     upgrade_now: "Mejore su subscripción ahora!"
+    share: "Compartir"
   practice_event:
     help:
       practice: "Elija la práctica."
