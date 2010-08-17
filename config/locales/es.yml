@@ -455,6 +455,7 @@ es:
     account_past_due: "Su cuenta esta por vencer. Tiene %{days} días restantes para realizar el pago."
     account_due: "Su cuenta vence en %{days} días."
     pay_now_url: "https://www.paypal.com/es_XC/i/btn/btn_paynowCC_LG.gif"
+    paypal_item_name: "Suscripción mensual a Sádhana"
   shared_subscription_tab:
     current_plan_mark: "(actual)"
   subscriptions:

@@ -237,6 +237,7 @@ en:
     account_past_due: "Your account is past due. You have %{days} remaining on the grace period."
     account_due: "Your account is due on %{days} days."
     pay_now_url: "https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif"
+    paypal_item_name: "Sádhana Monthly Fee"
   shared_subscription_tab:
     current_plan_mark: "(current)"
   subscriptions:

@@ -1,0 +1,31 @@
+class PaymentsController < ApplicationController
+  include ActiveMerchant::Billing::Integrations
+
+  def paypal_ipn
+    notify = Paypal::Notification.new(request.raw_post)
+
+    subscription = Subscription.find(notify.item_id)
+
+    if notify.acknowledge
+      begin
+
+        if notify.complete?
+          if subscription.balance == notify.amount
+            subscription.charge_manual_balance
+          else
+            subscription.balance -= notify.amount
+            subscription.save
+          end
+
+        else
+          logger.error("Failed to verify Paypal's notification, please investigate")
+        end
+
+      rescue => e
+        raise
+      end
+    end
+
+    render :nothing
+  end
+end

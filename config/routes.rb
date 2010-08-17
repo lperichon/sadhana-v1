@@ -55,6 +55,8 @@ Sadhana::Application.routes.draw do |map|
 
   match 'practices' => 'practices#index', :as => :user_root
 
+  match 'payments/paypal_ipn' => 'payments#paypal_ipn', :as => :paypal_ipn
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
