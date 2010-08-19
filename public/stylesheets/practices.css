@@ -73,6 +73,10 @@
   text-align: center;
 }
 
+.technique.ui-draggable-dragging{
+  display: table;
+}
+
 #technique_dialog {
   text-align: center;
   overflow: hidden;
