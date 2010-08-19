@@ -58,11 +58,14 @@ var Practices = {
   },
   adjustEditorSize: function() {
     $('#practice_editor .part-techniques').height(Practices.calculateEditorHeight());
-    $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - $('#tips').height() -215);
+    $('#techniques_accordion .techniques-viewport').height(Practices.calculateAccordeonHeight());
     $(window).resize(function() {
       $('#practice_editor .part-techniques').height(Practices.calculateEditorHeight());
-      $('#techniques_accordion .techniques-viewport').height($(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - $('#tips').height() - 215);
+      $('#techniques_accordion .techniques-viewport').height(Practices.calculateAccordeonHeight());
     });
+  },
+  calculateAccordeonHeight: function() {
+    return $(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - $('#tips').height() -251;
   },
   calculateEditorHeight: function() {
     ff_diff = $.browser.mozilla ? 2 : 0;
