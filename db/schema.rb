@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100819195223) do
+ActiveRecord::Schema.define(:version => 20100819233301) do
 
   create_table "admins", :force => true do |t|
     t.string    "email",                               :default => "", :null => false
@@ -43,9 +43,15 @@ ActiveRecord::Schema.define(:version => 20100819195223) do
   add_index "part_translations", ["part_id", "locale"], :name => "index_part_translations_on_part_id_and_locale", :unique => true
 
   create_table "parts", :force => true do |t|
-    t.string "symbol"
-    t.string "primary_technique_type"
-    t.string "secondary_technique_types"
+    t.string  "symbol"
+    t.string  "primary_technique_type"
+    t.string  "secondary_technique_types"
+    t.integer "technique_type_id"
+  end
+
+  create_table "parts_technique_types", :id => false, :force => true do |t|
+    t.integer "part_id"
+    t.integer "technique_type_id"
   end
 
   create_table "practice_events", :force => true do |t|

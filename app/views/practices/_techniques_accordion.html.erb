@@ -1,0 +1,10 @@
+<div id="techniques_accordion">
+  <% part.ordered_technique_types.each do |technique_type| %>
+      <h3 symbol='<%= technique_type.symbol %>'><a href="#"><%= technique_type.name %></a></h3>
+
+      <div id='<%= technique_type.symbol %>_techniques_viewport' class='techniques-viewport'>
+        <p><%= t('practices.show.loading') %></p>
+      </div>
+  <% end %>
+</div>
+

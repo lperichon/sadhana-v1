@@ -39,19 +39,14 @@
         </div>
       </form>
     </div>
-    <div id="techniques_accordion">
-      <% TechniqueType.all.each do |technique_type| %>
-        <h3 symbol='<%= technique_type.symbol %>'><a href="#"><%= technique_type.name %></a></h3>
-        <div id='<%= technique_type.symbol %>_techniques_viewport' class='techniques-viewport'>
-          <p><%= t('practices.show.loading') %></p>
-        </div>
-      <% end %>
+    <div id="accordion_container">
+      <%= render :partial => 'techniques_accordion', :locals => {:part => @practice.practice_parts.first.part} %>
     </div>
   </div>
   <div id="practice_parts">
     <ul>
       <% @practice.practice_parts.each do |pp| %>
-        <li part_id="<%= pp.id %>" primary_technique_type="<%= pp.part.primary_technique_type %>" secondary_technique_types="<%= pp.part.secondary_technique_types %>" id="practice_part_<%= pp.id %>"><a href="#part-techniques-<%= pp.id %>"><%= pp.part.name %></a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>
+        <li part_symbol="<%= pp.part.symbol %>" part_id="<%= pp.id %>" primary_technique_type="<%= pp.part.primary_technique_type %>" secondary_technique_types="<%= pp.part.secondary_technique_types %>" id="practice_part_<%= pp.id %>"><a href="#part-techniques-<%= pp.id %>"><%= pp.part.name %></a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>
       <%end %>
       <button id="add_tab"><%= t('practices.show.practice_parts.add') %></button>
     </ul>
@@ -139,35 +134,15 @@
       $('#practice-ui-tab-dialog-close').append($('#edit_practice_dialog').siblings('.ui-dialog-titlebar').children('.ui-dialog-titlebar-close'));
 
     // Initialize quick search
-    var qs = $('#q').quicksearch('.techniques-list .technique', {selector: 'h3'});
+    Practices.init_quicksearch();
 
-    // Start loading ásanas
+    // Start loading first technique type
 
     jQuery.jStore.ready(function(engine){
     engine.ready(function() {
-    cached_asanas = jQuery.jStore.get('asana');
-    cached_techniques_token = jQuery.jStore.get('techniques_token');
+    technique_type_symbol = '<%=  @practice.practice_parts.first.part.symbol %>'
     actual_techniques_token = '<%= ENV['TECHNIQUES_TOKEN'] %>';
-    if( cached_techniques_token && actual_techniques_token == cached_techniques_token && cached_asanas) {
-        $('#asana_techniques_viewport').html(cached_asanas);
-        Practices.accordion_draggable($('.ui-tabs-selected a').attr('href'), $('.ui-tabs-selected').attr('primary_technique_type'), $('.ui-tabs-selected').attr('secondary_technique_types'));
-        qs.cache();
-    } else {
-        $.ajax({
-          type:'get',
-          data: { 'symbol': 'asana' },
-          dataType: 'html',
-          url: '/techniques',
-          success: function(data){
-            jQuery.jStore.set('asana', data);
-            jQuery.jStore.set('techniques_token', actual_techniques_token);
-            cached_asanas = data
-            $('#asana_techniques_viewport').html(cached_asanas);
-            Practices.accordion_draggable($('.ui-tabs-selected a').attr('href'), $('.ui-tabs-selected').attr('primary_technique_type'), $('.ui-tabs-selected').attr('secondary_technique_types'));
-            qs.cache();
-          }
-        });
-    }
+    Practices.load_accordion_techniques(technique_type_symbol, actual_techniques_token);
     })});
 
     $('#add_tab').click(function() {$('#new_practice_part_dialog').dialog('open');});
@@ -177,6 +152,15 @@
         tabTemplate: '<li id="new_practice_part"><a href="#{href}">#{label}</a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>',
         panelTemplate: '<div class="part-techniques"></div>',
         select: function(event, ui) {
+          $.ajax({
+            type:'get',
+            data: {'symbol': $(ui.tab).parent().attr('part_symbol')},
+            dataType: 'script',
+            url: '/parts/1',
+            success: function() {
+              
+            }
+          });
           Practices.accordion_draggable('#' + $(ui.panel).attr('id'), $(ui.tab).parent().attr('primary_technique_type'), $(ui.tab).parent().attr('secondary_technique_types'));
         },
         show: function(event, ui) {
@@ -194,7 +178,6 @@
               $('#practice_parts').tabs('refreshPositions');
             }
     });
-
 
     $('.ui-icon-close').live('click', function(e) {
       index = $('li', $('#practice_parts')).index($(this).parent());
@@ -224,30 +207,6 @@
     });
 
     // Initilize techniques accordion
-    $("#techniques_accordion").accordion({ changestart: function(event, ui) {
-      technique_type_symbol = ui.newHeader.attr('symbol');
-      if($('#' + technique_type_symbol + '_techniques_list').length == 0) {
-        cached_techniques = jQuery.jStore.get(technique_type_symbol);
-        if(cached_techniques) {
-            $('#' + technique_type_symbol + '_techniques_viewport').html(cached_techniques);
-            Practices.accordion_draggable($('.ui-tabs-selected a').attr('href'), $('.ui-tabs-selected').attr('primary_technique_type'), $('.ui-tabs-selected').attr('secondary_technique_types'));
-            qs.cache();
-        } else {
-            $.ajax({
-              type:'get',
-              data: { 'symbol': technique_type_symbol },
-              dataType: 'html',
-              url: '/techniques',
-              success: function(data){
-                jQuery.jStore.set(technique_type_symbol, data);
-                cached_techniques = data
-                $('#' + technique_type_symbol + '_techniques_viewport').html(cached_techniques);
-                Practices.accordion_draggable($('.ui-tabs-selected a').attr('href'), $('.ui-tabs-selected').attr('primary_technique_type'), $('.ui-tabs-selected').attr('secondary_technique_types'));
-                qs.cache();
-              }
-            });
-        }
-      }
-    }});
+    Practices.init_accordion();
   });
 <% end %>
