@@ -10,4 +10,17 @@ class Part < ActiveRecord::Base
     ott.concat self.technique_types
     ott
   end
+
+  def primary_technique_type
+    ".#{self.technique_type.symbol}"
+  end
+
+  def secondary_technique_types
+    str = ""
+    self.technique_types.each_with_index do |tt, index|
+      str << ", " if index > 0
+      str << ".#{tt.symbol}"
+    end
+    str
+  end
 end
