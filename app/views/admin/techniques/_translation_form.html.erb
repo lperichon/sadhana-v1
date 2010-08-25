@@ -1,0 +1,8 @@
+<%= f.fields_for :translations, translation do |ft| %>
+   <%= ft.select :locale, I18n.backend.available_locales.collect {|l| [I18n.t('this_file_language', :locale => l), l.to_s]} %><br />
+   <%= ft.label :name %><br/>
+   <%= ft.text_field :name %><br/>
+   <%= ft.label :description %><br/>
+   <%= ft.text_area :description %>
+<% end %>
+<br/>

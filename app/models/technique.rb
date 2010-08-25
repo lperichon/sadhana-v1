@@ -10,6 +10,7 @@ class Technique < ActiveRecord::Base
                     :styles => { :thumb => "100x100>", :medium => "370x450>"},
                     :default_url => "/images/missing_:style.png", :path => ":attachment/:id/:style/:filename"
   puret :name, :description
+  accepts_nested_attributes_for :translations, :allow_destroy => true
   validates_presence_of :technique_type
 
   def family_members
