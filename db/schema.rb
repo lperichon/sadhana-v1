@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100820161806) do
+ActiveRecord::Schema.define(:version => 20100825140233) do
 
   create_table "admins", :force => true do |t|
     t.string    "email",                               :default => "", :null => false
@@ -150,6 +150,17 @@ ActiveRecord::Schema.define(:version => 20100820161806) do
   add_index "subscriptions", ["state"], :name => "index_subscriptions_on_state"
   add_index "subscriptions", ["subscriber_id"], :name => "index_subscriptions_on_subscriber_id"
   add_index "subscriptions", ["subscriber_type"], :name => "index_subscriptions_on_subscriber_type"
+
+  create_table "technique_translations", :force => true do |t|
+    t.integer  "technique_id"
+    t.string   "locale"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "technique_translations", ["technique_id", "locale"], :name => "index_technique_translations_on_technique_id_and_locale", :unique => true
 
   create_table "technique_type_translations", :force => true do |t|
     t.integer   "technique_type_id"

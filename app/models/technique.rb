@@ -9,7 +9,8 @@ class Technique < ActiveRecord::Base
                     :bucket => ENV['S3_BUCKET'].to_s,
                     :styles => { :thumb => "100x100>", :medium => "370x450>"},
                     :default_url => "/images/missing_:style.png", :path => ":attachment/:id/:style/:filename"
-  validates_presence_of :name, :technique_type
+  puret :name, :description
+  validates_presence_of :technique_type
 
   def family_members
     if self.parent.present?
