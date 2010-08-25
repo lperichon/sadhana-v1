@@ -155,12 +155,10 @@ ActiveRecord::Schema.define(:version => 20100825201507) do
     t.integer  "technique_id"
     t.string   "locale"
     t.string   "name"
-    t.string   "description"
+    t.text     "description",  :limit => 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "technique_translations", ["technique_id", "locale"], :name => "index_technique_translations_on_technique_id_and_locale", :unique => true
 
   create_table "technique_type_translations", :force => true do |t|
     t.integer   "technique_type_id"
