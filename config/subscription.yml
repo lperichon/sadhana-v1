@@ -50,7 +50,11 @@ test:
 cucumber:
   <<: *defaults
   gateway_name: bogus
-    
+
+staging:
+  <<: *defaults
+  gateway_name: bogus
+
 production:
   <<: *defaults  
   test: false
