@@ -1,4 +1,5 @@
 config/database.yml
+config/contacts.yml
 db/*.sql*
 tmp/*
 log/*.log
