@@ -203,7 +203,8 @@ es:
       timeout: 'Tu sesión ha expirado, por favor accede de nuevo para continuar.'
       inactive: 'Tu cuenta no ha sido activada.'
     invitations:
-      send_instructions: 'Se envio un email con la invitación.'
+      send_instructions: 'Se envió un email con la invitación y se agregó el usuario a sus contactos.'
+      user_exists: 'Se agregó el usuario a sus contactos.'
       updated: 'Su contraseña fue configurada exitosamente.'
       edit:
         title: 'Configurar contraseña'
@@ -495,3 +496,4 @@ es:
       new_invitation_dialog:
         title: "Nuevo contacto"
       my_contacts: "Mis contactos"
+      create_contact_tip: "Cree un nuevo contacto! Haga click en el boton 'Nuevo contacto'."

@@ -59,7 +59,8 @@ en:
         text_bottom1: "If you don't want to accept the invitation, please ignore this email."
         text_bottom2: "Your account won't be created until you access the link above and set your password."
     invitations:
-      send_instructions: 'An invitation email has been sent.'
+      send_instructions: 'An invitation email has been sent and the user has been added to your contacts.'
+      user_exists: 'The user has been added to your contacts.'
       updated: 'Your password has been configured successfully.'
       edit:
         title: "Set your password"
@@ -287,3 +288,4 @@ en:
       new_invitation_dialog:
         title: "New contact"
       my_contacts: "My contacts"
+      create_contact_tip: "Create a new contact! click on the 'New contact' button."
