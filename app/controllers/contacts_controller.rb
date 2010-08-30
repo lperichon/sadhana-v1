@@ -8,4 +8,16 @@ class ContactsController < UserApplicationController
       format.xml  { render :xml => @contacts }
     end
   end
+
+  # DELETE /contacts/1
+  # DELETE /contacts/1.xml
+  def destroy
+    contact = current_user.contacts.find(params[:id])
+    current_user.contacts.delete contact
+
+    respond_to do |format|
+      format.xml  { head :ok }
+      format.json { render :json => :ok }
+    end
+  end
 end

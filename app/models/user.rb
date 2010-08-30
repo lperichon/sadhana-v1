@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
   has_many :practices, :order => "position"
   has_many :practice_events
 
-  has_many :user_contacts
-  has_many :contacts, :through => :user_contacts, :class_name => 'User'
+  has_many :user_contacts, :dependent => :destroy
+  has_many :contacts, :through => :user_contacts, :uniq => true
 
   before_create :set_locale
 

@@ -87,9 +87,15 @@ ul.actions li form {
 }
 
 input[type='submit'].awesome {
-    border: 0;
-    font-size: 12px;
-    margin: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-left-width: 0;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.gecko input[type='submit'].awesome {
+   padding: 2px;
 }
 
 #confirm_dialog p {

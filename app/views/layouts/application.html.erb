@@ -34,6 +34,7 @@
     <%= javascript_include_tag 'jquery.quicksearch' %>
     <%= javascript_include_tag 'jquery.tweet' %>
     <%= javascript_include_tag 'jquery.jstore-all-min' %>
+    <%= javascript_include_tag 'css_browser_selector' %>
 
     <% if File.exist? File.join(Rails.public_path, "javascripts/#{controller.controller_name}.js") %>
       <%= javascript_include_tag controller.controller_name %>

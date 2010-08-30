@@ -1,8 +1,33 @@
-<li class="contact">
+<li id="<%= dom_id contact %>"class="contact">
   <h3><%= contact.email %></h3>
   <ul class='actions'>
     <% if contact.invited? %>
         <li><%= button_to 'Resend Invitation', {:controller => 'users/invitations', :action => 'create', :user => { :email => contact.email}}, :class => 'awesome small orange'%></li>
     <% end %>
+    <li><%= link_to_function t('actions.destroy'), "$('#confirm_dialog').dialog({
+            resizable: false,
+            height:140,
+            modal: true,
+            buttons: {
+              '#{t('actions.delete')}': function() {
+                $.ajax({
+                    type:'post',
+                    data: { '_method': 'delete' },
+                    dataType: 'json',
+                    url: '/contacts/#{contact.id}',
+                    success: function(data) {
+                      $('##{dom_id contact}').fadeOut('slow', function() {
+                          $('##{dom_id contact}').remove();
+                      });
+                    }
+                });
+                $(this).dialog('close');
+              },
+              '#{t('actions.cancel')}': function() {
+                $(this).dialog('close');
+              }
+            }
+          });", :class => 'small orange awesome'%>
+    </li>
   </ul>
 </li>
