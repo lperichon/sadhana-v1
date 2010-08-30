@@ -203,7 +203,7 @@ es:
       timeout: 'Tu sesión ha expirado, por favor accede de nuevo para continuar.'
       inactive: 'Tu cuenta no ha sido activada.'
     invitations:
-      send_instructions: 'Se envio un email con instrucciones para configurar la contraseña.'
+      send_instructions: 'Se envio un email con la invitación.'
       updated: 'Su contraseña fue configurada exitosamente.'
       edit:
         title: 'Configurar contraseña'
@@ -484,3 +484,7 @@ es:
   subscription:
     help:
       plan: "Elija un nuevo plan."
+  users:
+    invitations:
+      invite_another: "%{new_invitation_link}."
+      invite_another_link: "Invitar más amigos"

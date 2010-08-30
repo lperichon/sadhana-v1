@@ -59,6 +59,8 @@ en:
         text_bottom1: "If you don't want to accept the invitation, please ignore this email."
         text_bottom2: "Your account won't be created until you access the link above and set your password."
     invitations:
+      send_instructions: 'An invitation email has been sent.'
+      updated: 'Your password has been configured successfully.'
       edit:
         title: "Set your password"
         submit: "Set my password"
@@ -274,3 +276,7 @@ en:
   subscription:
     help:
       plan: "Choose a new plan."
+  users:
+    invitations:
+      invite_another: "%{new_invitation_link}."
+      invite_another_link: "Invite more friends"
