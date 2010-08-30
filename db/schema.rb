@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100825201507) do
+ActiveRecord::Schema.define(:version => 20100830144041) do
 
   create_table "admins", :force => true do |t|
     t.string    "email",                               :default => "", :null => false
@@ -152,13 +152,15 @@ ActiveRecord::Schema.define(:version => 20100825201507) do
   add_index "subscriptions", ["subscriber_type"], :name => "index_subscriptions_on_subscriber_type"
 
   create_table "technique_translations", :force => true do |t|
-    t.integer  "technique_id"
-    t.string   "locale"
-    t.string   "name"
-    t.text     "description",  :limit => 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "technique_id"
+    t.string    "locale"
+    t.string    "name"
+    t.text      "description"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
+
+  add_index "technique_translations", ["technique_id", "locale"], :name => "index_technique_translations_on_technique_id_and_locale", :unique => true
 
   create_table "technique_type_translations", :force => true do |t|
     t.integer   "technique_type_id"
@@ -187,6 +189,11 @@ ActiveRecord::Schema.define(:version => 20100825201507) do
     t.integer   "photo_file_size"
     t.timestamp "photo_updated_at"
     t.integer   "parent_id"
+  end
+
+  create_table "user_contacts", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "contact_id"
   end
 
   create_table "users", :force => true do |t|

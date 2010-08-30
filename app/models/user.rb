@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   has_many :practices, :order => "position"
   has_many :practice_events
 
+  has_many :user_contacts
+  has_many :contacts, :through => :user_contacts, :class_name => 'User'
+
   before_create :set_locale
 
   acts_as_subscriber
