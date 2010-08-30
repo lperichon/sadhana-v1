@@ -1,9 +1,9 @@
 <div id='new_invitation_dialog' style='display:none' title='<%= t('shared.new_invitation_dialog.title') %>'>
   <%= render :partial => 'devise/invitations/dialog_form' %>
   <p> <%= t('shared.new_invitation_dialog.invite_from') %>
-  <a href="/contacts?provider=google" onclick="popUp(this.href,'console',400,400); return false;"target="_blank">Google</a>
-  <a href="/contacts?provider=yahoo" onclick="popUp(this.href,'console',515,505); return false;"target="_blank">Yahoo</a>
-  <a href="/contacts?provider=windows_live" onclick="popUp(this.href,'console',550,915); return false;"target="_blank">Windows Live</a>
+  <a href="/external_contacts?provider=google" onclick="popUp(this.href,'console',400,400); return false;"target="_blank">Google</a>
+  <a href="/external_contacts?provider=yahoo" onclick="popUp(this.href,'console',515,505); return false;"target="_blank">Yahoo</a>
+  <a href="/external_contacts?provider=windows_live" onclick="popUp(this.href,'console',550,915); return false;"target="_blank">Windows Live</a>
   </p>
   <p>
     <%= t('shared.new_invitation_dialog.share_from') %>
