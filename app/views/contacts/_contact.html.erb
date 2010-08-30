@@ -1,5 +1,8 @@
 <li class="contact">
   <h3><%= contact.email %></h3>
   <ul class='actions'>
+    <% if contact.invited? %>
+        <li><%= button_to 'Resend Invitation', {:controller => 'users/invitations', :action => 'create', :user => { :email => contact.email}}, :class => 'awesome small orange'%></li>
+    <% end %>
   </ul>
 </li>

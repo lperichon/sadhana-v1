@@ -82,6 +82,16 @@ ul.actions li{
   display: inline;
 }
 
+ul.actions li form {
+    display: inline-block;
+}
+
+input[type='submit'].awesome {
+    border: 0;
+    font-size: 12px;
+    margin: 0;
+}
+
 #confirm_dialog p {
   margin: 12px 0 0 0;
 }
