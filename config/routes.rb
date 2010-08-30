@@ -6,6 +6,7 @@ Sadhana::Application.routes.draw do |map|
 
   resources :techniques
 
+  resources :contacts
   resources :external_contacts
 
   resources :practice_events

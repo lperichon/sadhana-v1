@@ -227,6 +227,7 @@ en:
       technique: "Choose a technique."
   menu:
     my_practices: "My Practices"
+    contacts: "Contacts"
     calendar: "Calendar"
     sign_out: "Sign out"
     sign_up: "Sign up"
@@ -280,3 +281,9 @@ en:
     invitations:
       invite_another: "%{new_invitation_link}."
       invite_another_link: "Invite more friends"
+  contacts:
+    index:
+      new_contact: "New contact"
+      new_invitation_dialog:
+        title: "New contact"
+      my_contacts: "My contacts"

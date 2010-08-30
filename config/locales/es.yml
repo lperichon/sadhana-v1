@@ -451,6 +451,7 @@ es:
     signup_or_siginin: "%{signup} o %{signin}"
     credits: "Créditos"
     profile: "Perfil"
+    contacts: "Contactos"
   application:
     account_past_due: "Su cuenta esta por vencer. Tiene %{days} días restantes para realizar el pago."
     account_due: "Su cuenta vence en %{days} días."
@@ -488,3 +489,9 @@ es:
     invitations:
       invite_another: "%{new_invitation_link}."
       invite_another_link: "Invitar más amigos"
+  contacts:
+    index:
+      new_contact: "Nuevo contacto"
+      new_invitation_dialog:
+        title: "Nuevo contacto"
+      my_contacts: "Mis contactos"

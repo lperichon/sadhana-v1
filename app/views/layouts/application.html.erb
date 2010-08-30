@@ -69,6 +69,7 @@
       <div id='menu'>
         <% if user_signed_in? %>
           <%= link_to t('menu.my_practices'), practices_path %>
+          <%= link_to t('menu.contacts'), contacts_path %>
           <%= link_to t('menu.calendar'), practice_events_path %>
           <%= link_to_function(t('menu.profile'), "$('#edit_profile_dialog').dialog('open');") %>
         <% end %>

@@ -1,0 +1,42 @@
+<% if @contacts.empty? %>
+  <div class="notice ui-state-highlight ui-corner-all">
+    <p>
+      <span class="ui-icon ui-icon-lightbulb" style="float: left; margin-right: .3em;"></span>
+      <%= t('contacts.index.create_contact_tip') %>
+    </p>
+  </div>
+<% end %>
+
+<ul class='actions'>
+  <li>
+    <%= link_to_function t('contacts.index.new_contact'), "$('#new_invitation_dialog').dialog('open')", :class => 'blue medium awesome' %>
+  </li>
+</ul>
+
+
+<h2><%= t('contacts.index.my_contacts') %></h2>
+
+<ul id='contacts'>
+  <% @contacts.each do |contact| %>
+    <%= render :partial => 'contact', :locals => {:contact => contact} %>
+  <% end %>
+</ul>
+
+<%= will_paginate @contacts, :previous_label => t('actions.previous'), :next_label => t('actions.next') %>
+
+<div id='new_invitation_dialog' style='display:none' title='<%= t('contacts.index.new_invitation_dialog.title') %>'>
+  <%= render :partial => 'shared/invitation_fields' %>
+</div>
+
+<%= javascript_tag do %>
+  $('#new_invitation_dialog').dialog({autoOpen: false, modal: true, width: 400, buttons: {
+    '<%= t('actions.invite') %>': function() {
+        $('#new_invitation_dialog form').submit();
+      },
+    '<%= t('actions.cancel') %>': function() {
+        $(this).dialog('close');
+      }
+    }
+  });
+<% end %>
+<%= render :partial => 'shared/confirm_dialog' %>
