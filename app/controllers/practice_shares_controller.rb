@@ -1,5 +1,5 @@
 class PracticeSharesController < UserApplicationController
-  before_filter :require_paid_account
+  before_filter :require_paid_account, :except => :new
 
   # GET /practice_shares/new
   # GET /practice_shares/new.xml
@@ -7,7 +7,6 @@ class PracticeSharesController < UserApplicationController
     @practice = current_user.practices.find(params[:practice_id])
 
     respond_to do |format|
-      format.xml  { render :xml => @practice }
       format.js { require_paid_account(true) }
     end
   end
@@ -29,7 +28,7 @@ class PracticeSharesController < UserApplicationController
     end
 
     respond_to do |format|
-      format.js { require_paid_account(true) }
+      format.js {}
     end
   end
 

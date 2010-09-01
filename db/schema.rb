@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100901133929) do
+ActiveRecord::Schema.define(:version => 20100901230744) do
 
   create_table "admins", :force => true do |t|
     t.string    "email",                               :default => "", :null => false
@@ -104,13 +104,14 @@ ActiveRecord::Schema.define(:version => 20100901133929) do
   end
 
   create_table "subscription_plans", :force => true do |t|
-    t.string    "name",                         :null => false
-    t.integer   "rate_cents",    :default => 0
-    t.integer   "interval",      :default => 1
+    t.string    "name",                               :null => false
+    t.integer   "rate_cents",      :default => 0
+    t.integer   "interval",        :default => 1
     t.timestamp "created_at"
     t.timestamp "updated_at"
     t.integer   "max_practices"
     t.boolean   "available"
+    t.boolean   "share_practices", :default => false
   end
 
   create_table "subscription_profiles", :force => true do |t|

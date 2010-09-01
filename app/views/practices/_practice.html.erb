@@ -23,7 +23,6 @@
       $('#<%= dom_id practice %>_share_link').click(function() {
         $.ajax({
           type:'get',
-          data: 'practice_id=<%= practice.id %>',
           dataType: 'script',
           url: '<%= new_practice_practice_share_path(practice) %>'
         });
