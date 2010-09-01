@@ -1,0 +1,7 @@
+<%= render :partial => 'dialog_form' %>
+<h3>Viewers</h3>
+<ul id='viewers'>
+<% @practice.viewers.each do |viewer| %>
+    <li class='viewer'><%= viewer.email %></li>
+<% end %>
+</ul>

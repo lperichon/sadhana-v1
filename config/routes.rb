@@ -15,6 +15,7 @@ Sadhana::Application.routes.draw do |map|
     member do
       get :play
     end
+    resources :practice_shares
     resources :practice_parts do
       collection do
         post :sort

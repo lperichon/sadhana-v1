@@ -1,0 +1,18 @@
+<%= form_for(:user, :url => practice_practice_shares_path(@practice)) do |f| %>
+  <%= f.label :email %><br/>
+  <%= f.text_field :email, :autocomplete => 'off' %>
+  <%= render :partial => 'shared/external_contact_links' %>
+  <%= f.submit 'Share', :class => 'awesome medium blue', :id => 'share_button' %>
+<% end %>
+
+<%= javascript_tag do %>
+  $('#share_button').click(function(){
+    $.ajax({
+      type:'post',
+      dataType: 'script',
+      data: $('#practice_share_dialog form').serialize(),
+      url: $('#practice_share_dialog form').attr('action'),
+    });
+    return false;
+  })
+<% end %>

@@ -20,6 +20,17 @@ class User < ActiveRecord::Base
 
   acts_as_subscriber
 
+  def add_to_contacts(user, corresponded = false)
+    unless self.contacts.include?(user)
+      self.contacts << user
+      self.save
+    end
+    if corresponded
+      user.contacts << self
+      user.save(:validate => false)
+    end
+  end
+
   def subscription_plan_check(plan = self.subscription_plan)
     plan != self.subscription_plan && !plan.available
 #    exceeded = {}
@@ -33,6 +44,10 @@ class User < ActiveRecord::Base
 
   def calendar_subscription_check(plan)
     plan == SubscriptionPlan.default_plan 
+  end
+
+  def share_subscription_check(plan)
+    practices_subscription_check(plan)
   end
 
   private

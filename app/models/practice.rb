@@ -28,4 +28,10 @@ class Practice < ActiveRecord::Base
     filename = 'chime' if filename.blank?
     filename
   end
+
+  def share_with(user)
+    ShareMailer.share_notification(self, user).deliver
+    self.viewers << user
+    self.save
+  end
 end

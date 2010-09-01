@@ -180,6 +180,8 @@ en:
       share: "Share your practices"
       free: "Free!"
       unavailable: "Unavailable"
+    practice_share_dialog:
+      title: "Share practice"
   practice:
     help:
       name: "The name you want for your practice."

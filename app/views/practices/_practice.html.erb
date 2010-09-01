@@ -18,6 +18,19 @@
       });
     <% end %>
     </li>
+    <li><%= link_to t('actions.share'), new_practice_practice_share_path(practice), :class => 'small orange awesome', :id => "#{dom_id practice}_share_link" %>
+    <%= javascript_tag do %>
+      $('#<%= dom_id practice %>_share_link').click(function() {
+        $.ajax({
+          type:'get',
+          data: 'practice_id=<%= practice.id %>',
+          dataType: 'script',
+          url: '<%= new_practice_practice_share_path(practice) %>'
+        });
+        return false;
+      });
+    <% end %>
+    </li>
     <li><%= link_to_function t('actions.destroy'), "$('#confirm_dialog').dialog({
             resizable: false,
             height:140,

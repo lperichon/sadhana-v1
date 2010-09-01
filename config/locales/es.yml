@@ -355,6 +355,8 @@ es:
       invite_from: "Seleccionar un contacto de"
       share_on_facebook: "Estoy usando esta herramienta para armar mis prácticas. Se puede crear una práctica gratis!"
       share_from: "O compartir en"
+    practice_share_dialog:
+      title: "Compartir práctica"
     links:
       sign_in: "Entrar"
       sign_up: "Registrarse"
