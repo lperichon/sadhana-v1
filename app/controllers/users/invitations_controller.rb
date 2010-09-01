@@ -5,7 +5,7 @@ class Users::InvitationsController < Devise::InvitationsController
 
     if resource.errors.empty?
       set_flash_message :notice, :send_instructions
-      add_to_contacts
+      add_to_contacts(true)
       redirect_to :back
     elsif resource.errors[:email].present? && resource.id.present?
       set_flash_message :notice, :user_exists
@@ -16,10 +16,14 @@ class Users::InvitationsController < Devise::InvitationsController
     end
   end
 
-  def add_to_contacts
+  def add_to_contacts(corresponded = false)
     unless current_user.contacts.include?(self.resource)
       current_user.contacts << self.resource
       current_user.save
+    end
+    if corresponded
+      self.resource << current_user
+      self.resource.save(:validate => false)
     end
     flash.now[:notice] << ' ' + t('users.invitations.invite_another', :new_invitation_link => self.class.helpers.link_to_function(t('users.invitations.invite_another_link'),"$('#new_invitation_dialog').dialog('open')"))
   end
