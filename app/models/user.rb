@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_many :user_contacts, :dependent => :destroy
   has_many :contacts, :through => :user_contacts, :uniq => true
 
+  has_and_belongs_to_many :shared_practices, :join_table => 'practices_users', :class_name => 'Practice'
+
   before_create :set_locale
 
   acts_as_subscriber

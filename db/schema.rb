@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100830144041) do
+ActiveRecord::Schema.define(:version => 20100901133929) do
 
   create_table "admins", :force => true do |t|
     t.string    "email",                               :default => "", :null => false
@@ -96,6 +96,11 @@ ActiveRecord::Schema.define(:version => 20100830144041) do
     t.integer   "position"
     t.boolean   "continuous"
     t.string    "sound_filename"
+  end
+
+  create_table "practices_users", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "practice_id"
   end
 
   create_table "subscription_plans", :force => true do |t|
