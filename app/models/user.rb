@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
   end
 
   def share_subscription_check(plan)
-    practices_subscription_check(plan)
+    practices_subscription_check(plan) && plan.share_practices
   end
 
   private

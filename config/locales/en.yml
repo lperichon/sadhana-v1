@@ -291,3 +291,5 @@ en:
         title: "New contact"
       my_contacts: "My contacts"
       create_contact_tip: "Create a new contact! click on the 'New contact' button."
+  practice_shares:
+    paid_account_notice: "Your current subscription does not allow sharing practices. %{upgrade_link}"

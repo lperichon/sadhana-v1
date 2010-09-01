@@ -307,8 +307,8 @@ es:
       new_invitation: "Invitar a un amigo"
       create_practice_tip: "Cree una nueva práctica haciendo click en el boton 'Nueva práctica'."
     paid_account_notice:
-      one: "Su subscripción solo permite trabajar con %{count} práctica. %{upgrade_link}"
-      other: "Su subscripción solo permite trabajar con %{count} prácticas. %{upgrade_link}"
+      one: "Su suscripción solo permite trabajar con %{count} práctica. %{upgrade_link}"
+      other: "Su suscripción solo permite trabajar con %{count} prácticas. %{upgrade_link}"
     show:
       loading: "Cargando..."
       practice_parts:
@@ -431,7 +431,7 @@ es:
     preferences: "Preferencias"
     play_preferences: "Preferencias de ejecución"
     invite: Invitar
-    upgrade_now: "Mejore su subscripción ahora!"
+    upgrade_now: "Mejore su suscripción ahora!"
     share: "Compartir"
   practice_event:
     help:
@@ -499,3 +499,5 @@ es:
         title: "Nuevo contacto"
       my_contacts: "Mis contactos"
       create_contact_tip: "Cree un nuevo contacto! Haga click en el boton 'Nuevo contacto'."
+  practice_shares:
+    paid_account_notice: "Su suscripción actual no permite compartir prácticas. %{upgrade_link}"
