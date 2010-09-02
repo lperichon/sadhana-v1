@@ -50,6 +50,10 @@ class User < ActiveRecord::Base
     practices_subscription_check(plan) && plan.share_practices
   end
 
+  def all_practices
+    (self.practices + self.shared_practices).sort {|a,b| a.id <=> b.id }
+  end
+
   private
 
   def set_locale
