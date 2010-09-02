@@ -302,3 +302,11 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 .twitter-share-button {
   vertical-align: top;
 }
+
+.buttons {
+  overflow: auto;
+}
+
+#share_button {
+  float: right;
+}
