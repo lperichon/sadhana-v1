@@ -118,7 +118,8 @@ en:
         title: "Play Preferences"
     paid_account_notice:
       one: "Your subscription only supports working with %{count} practice. %{upgrade_link}"
-      other: "Your subscription only supports working with %{count} practice. %{upgrade_link}" 
+      other: "Your subscription only supports working with %{count} practice. %{upgrade_link}"
+    not_owner_notice: "Only the owner can edit a practice." 
   shared:
     confirm_dialog:
       title: "Confirm delete"

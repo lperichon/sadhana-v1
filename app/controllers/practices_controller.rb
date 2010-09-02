@@ -12,7 +12,12 @@ class PracticesController < UserApplicationController
   # GET /practices/1
   # GET /practices/1.xml
   def show
-    @practice = current_user.practices.find(params[:id])
+    begin
+      @practice = current_user.practices.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:notice] = t('practices.not_owner_notice')
+      redirect_to :back
+    end
 
     respond_to do |format|
       format.html { require_subscription_check(@practice) } # show.html.erb
@@ -89,7 +94,11 @@ class PracticesController < UserApplicationController
   end
 
   def play
-    @practice = current_user.practices.find(params[:id])
+    begin
+      @practice = current_user.practices.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      @practice = current_user.shared_practices.find(params[:id])
+    end
 
     require_subscription_check(@practice)
   end
@@ -98,7 +107,7 @@ class PracticesController < UserApplicationController
   protected
 
   def require_subscription_check(practice, no_return = false)
-    if current_user.practices_subscription_check(current_user.subscription.plan) && (practice.nil? || practice.new_record? || practice.position > current_user.subscription.plan.max_practices.to_i)
+    if practice.user == current_user && current_user.practices_subscription_check(current_user.subscription.plan) && (practice.nil? || practice.new_record? || practice.position > current_user.subscription.plan.max_practices.to_i)
       flash.now[:notice] = t('practices.paid_account_notice', :count => current_user.subscription.plan.max_practices.to_i, :upgrade_link => self.class.helpers.link_to_function(t('actions.upgrade_now'),"$('#edit_profile_dialog').dialog('open').tabs('select', 1);")).html_safe
       return redirect_to :back unless no_return
     end
