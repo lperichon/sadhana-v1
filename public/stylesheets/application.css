@@ -304,7 +304,7 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 }
 
 .buttons {
-  overflow: auto;
+  overflow: hidden;
 }
 
 #share_button {
