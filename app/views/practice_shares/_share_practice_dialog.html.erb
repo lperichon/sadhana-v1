@@ -1,7 +1,36 @@
 <%= render :partial => 'dialog_form' %>
-<h3>Viewers</h3>
+<h3><%= t('practice_shares.share_practice_dialog.viewers') %></h3>
 <ul id='viewers'>
 <% @practice.viewers.each do |viewer| %>
-    <li class='viewer'><%= viewer.email %></li>
+    <li class='viewer'>
+        <%= viewer.email %>
+        <div class='delete-share ui-state-default ui-corner-all'><%= link_to_function( content_tag(:span, t('actions.delete'), :class => 'ui-icon ui-icon-trash'), "$('#confirm_dialog').dialog({
+                resizable: false,
+                height:140,
+                modal: true,
+                buttons: {
+                '#{ t('actions.delete') }': function() {
+                    $.ajax({
+                        type:'post',
+                        data: { '_method': 'delete', 'email': '#{viewer.email}' },
+                        dataType: 'script',
+                        url: '/practices/#{ @practice.id }/practice_shares/1'
+                    });
+                    $(this).dialog('close');
+                  },
+                  '#{ t('actions.cancel') }': function() {
+                    $(this).dialog('close');
+                  }
+                }
+              });") %>
+      </div>
+    </li>
 <% end %>
 </ul>
+
+<%= javascript_tag do %>
+    $('.delete-share').hover(
+        function(){ $(this).addClass('ui-state-hover'); },
+        function(){ $(this).removeClass('ui-state-hover'); }
+    );
+<% end %>

@@ -404,3 +404,8 @@ div[aria-labelledby = 'ui-dialog-title-edit_practice_dialog'] .ui-dialog-content
 #technique_select_box .technique.selected {
   border: 2px solid black;
 }
+
+.delete-share {
+  display: inline-block;
+  float: right;
+}

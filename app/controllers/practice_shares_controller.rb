@@ -32,6 +32,12 @@ class PracticeSharesController < UserApplicationController
     end
   end
 
+  def destroy
+    @practice = current_user.practices.find(params[:practice_id])
+    @user = User.find_by_email(params[:email])
+    @practice.viewers.delete @user
+  end
+
   protected
 
   def require_paid_account(no_return = false)
