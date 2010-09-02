@@ -1,4 +1,4 @@
-if current_user.share_subscription_check(current_user.subscription.plan)
+if @practice.nil? || current_user.share_subscription_check(current_user.subscription.plan)
     page << "$('#notifications').replaceWith('#{escape_javascript render :partial => 'shared/notifications'}');"
 else
     page << "$('#practice_share_dialog').html('#{escape_javascript render :partial => 'share_practice_dialog'}');"

@@ -4,8 +4,11 @@ class PracticeSharesController < UserApplicationController
   # GET /practice_shares/new
   # GET /practice_shares/new.xml
   def new
-    @practice = current_user.practices.find(params[:practice_id])
-
+    begin
+      @practice = current_user.practices.find(params[:practice_id])
+    rescue ActiveRecord::RecordNotFound
+      flash.now[:notice] = t('practice_shares.not_owner_notice')
+    end
     respond_to do |format|
       format.js { require_paid_account(true) }
     end
