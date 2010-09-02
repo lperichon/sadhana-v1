@@ -1,1 +1,2 @@
 page << "$('#practice_share_dialog').html('#{escape_javascript render :partial => 'share_practice_dialog'}');"
+page << "$('#practice_share_dialog form #user_email').val('');"
