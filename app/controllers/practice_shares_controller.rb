@@ -19,7 +19,7 @@ class PracticeSharesController < UserApplicationController
 
     if @user.errors.empty?
       current_user.add_to_contacts(@user, true)
-    elsif @user.errors[:email].present? && resource.id.present?
+    elsif @user.errors[:email].present? && @user.id.present?
       current_user.add_to_contacts(@user, true)
     end
 
