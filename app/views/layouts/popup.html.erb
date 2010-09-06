@@ -12,6 +12,10 @@
       <%= stylesheet_link_tag controller.controller_name %>
     <% end %>
 
+    <% if controller.controller_name == 'contacts' %>
+      <%= stylesheet_link_tag 'external_contacts' %>
+    <% end %>
+
     <%= javascript_include_tag 'jquery-1.4.2.min' %>
     <%= javascript_include_tag 'jquery.rails' %>
     <%= javascript_include_tag 'jquery-ui-1.8rc3.custom.min' %>
@@ -20,6 +24,10 @@
 
     <% if File.exist? File.join(Rails.public_path, "javascripts/#{controller.controller_name}.js") %>
       <%= javascript_include_tag controller.controller_name %>
+    <% end %>
+
+    <% if controller.controller_name == 'contacts' %>
+      <%= javascript_include_tag 'external_contacts' %>
     <% end %>
 
     <%= csrf_meta_tag %>

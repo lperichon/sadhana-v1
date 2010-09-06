@@ -1,6 +1,14 @@
 class ContactsController < UserApplicationController
   # GET /contacts
   # GET /contacts.xml
+  layout 'application', :except => :select
+
+
+  def select
+    @contacts = current_user.contacts
+    render :action => :select, :layout => 'popup'
+  end
+
   def index
     @contacts = current_user.contacts.paginate :page => params[:page], :per_page => 5
     respond_to do |format|

@@ -506,4 +506,7 @@ es:
     paid_account_notice: "Su suscripción actual no permite compartir prácticas. %{upgrade_link}"
     share_practice_dialog:
       viewers: 'Visores'
+      select_sadhana_contacts: "O de sus %{sadhana_contacts}."
     not_owner_notice: "Solo puede compartir sus propias prácticas."
+    dialog_form:
+      sadhana_contacts: "Contactos de Sádhana"

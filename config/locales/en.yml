@@ -298,4 +298,7 @@ en:
     paid_account_notice: "Your current subscription does not allow sharing practices. %{upgrade_link}"
     share_practice_dialog:
       viewers: 'Viewers'
+      select_sadhana_contacts: "Or select from your %{sadhana_contacts}."
     not_owner_notice: "You can only share the practices you own."
+    dialog_form:
+      sadhana_contacts: "Sádhana Contacts"
