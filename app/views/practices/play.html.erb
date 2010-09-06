@@ -1,7 +1,10 @@
+<% @practice.reload %>
 <div id='controls'>
   <div id="main_controls">
-    <%= link_to t('actions.edit'), practice_path(@practice), :class => 'medium blue awesome' %>
-    <%= link_to_function t('actions.preferences'), "$('#play_preferences_dialog').dialog('open');", :class => 'medium blue awesome' %>
+    <% if @practice.user == current_user %>
+      <%= link_to t('actions.edit'), practice_path(@practice), :class => 'medium blue awesome' %>
+      <%= link_to_function t('actions.preferences'), "$('#play_preferences_dialog').dialog('open');", :class => 'medium blue awesome' %>
+    <% end %>
   </div>
   <div id="play_controls">
     <%= link_to content_tag(:span, t('actions.previous'), :id => 'prev'), "#", :class => "small orange awesome" %>
