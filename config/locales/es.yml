@@ -510,3 +510,9 @@ es:
     not_owner_notice: "Solo puede compartir sus propias prácticas."
     dialog_form:
       sadhana_contacts: "Contactos de Sádhana"
+  share_mailer:
+    share_notification:
+      hello: "Hola %{email}!"
+      text_top: "He compartido una práctica contigo usando %{root_url}. Puedes verla haciendo click en el link:"
+      link: "Reproducir práctica compartida"
+      invitation: "Si todavia no aceptaste la invitación, haz click en el siguiente link para configurar tu contraseña:"

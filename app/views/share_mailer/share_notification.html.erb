@@ -1,1 +1,9 @@
 <%= t('share_mailer.share_notification.hello', :email => @user.email) %>
+<%= t('share_mailer.share_notification.text_top', :root_url => root_url) %>
+
+<%= link_to t('share_mailer.share_notification.link'), play_practice_url(@practice) %>
+
+<% if @user.invited? %>
+  <%= t('share_mailer.share_notification.invitation') %>
+  <%= link_to t('devise.mailer_views.invitation.link'), edit_user_invitation_url(:invitation_token => @user.invitation_token) %>
+<% end %>
