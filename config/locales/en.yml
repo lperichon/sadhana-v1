@@ -119,7 +119,9 @@ en:
     paid_account_notice:
       one: "Your subscription only supports working with %{count} practice. %{upgrade_link}"
       other: "Your subscription only supports working with %{count} practice. %{upgrade_link}"
-    not_owner_notice: "Only the owner can edit a practice." 
+    not_owner_notice: "Only the owner can edit a practice."
+    practice:
+      owner: "by %{owner}"
   shared:
     confirm_dialog:
       title: "Confirm delete"

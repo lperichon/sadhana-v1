@@ -328,6 +328,8 @@ es:
       info_tab_title: "Editar datos"
       play_preferences_tab_title: "Preferencias de ejecución"
     not_owner_notice: "Las prácticas solo pueden ser editadas por su dueño."
+    practice:
+      owner: "por %{owner}"
   practice_events:
     index:
       new_practice_event: "Nuevo evento"

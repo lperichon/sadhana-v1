@@ -1,14 +1,16 @@
+<% practice.reload %>
 <li id='practice_<%= practice.id %>' class="practice">
   <h3>
-    <% if current_user.practices.include? practice %>
+    <% if current_user == practice.user %>
       <%= jeditable_field(:practice, :name, :object => practice) %>
     <% else %>
       <%= practice.name %>
+      <%= t('practices.practice.owner', :owner => practice.user.email) %>
     <% end %>
   </h3>
   <p class="time">(<%= t('practice.time_format', :minutes =>practice.total_time / 60, :seconds => practice.total_time % 60 ) %>)</p>
   <p>
-    <% if current_user.practices.include? practice %>
+    <% if current_user == practice.user %>
       <%= jeditable_field(:practice, :description, :object => practice) %>
     <% else %>
       <%= practice.description %>
