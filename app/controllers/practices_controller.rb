@@ -84,12 +84,15 @@ class PracticesController < UserApplicationController
   # DELETE /practices/1
   # DELETE /practices/1.xml
   def destroy
-    begin
-      @practice = current_user.practices.find(params[:id])
-      @practice.destroy
-    rescue ActiveRecord::RecordNotFound
+    @practice = Practice.unscoped.find(:first, :conditions => {:id => params[:id], :user_id => current_user.id})
+
+    if @practice.nil?
       @practice = current_user.shared_practices.find(params[:id])
       current_user.shared_practices.delete @practice
+    elsif @practice.archived?
+      @practice.destroy
+    else
+      @practice.archive
     end
 
     respond_to do |format|

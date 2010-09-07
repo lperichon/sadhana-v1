@@ -15,6 +15,18 @@ class Practice < ActiveRecord::Base
 
   after_initialize :initialize_values
 
+  state_machine :state, :initial => :created do
+    event :archive do
+      transition all => :archived
+    end
+    event :restore do
+      transition :archived => :created
+    end
+  end
+
+  default_scope without_state(:archived)
+
+
   def initialize_values
     self.delay ||= 1
   end

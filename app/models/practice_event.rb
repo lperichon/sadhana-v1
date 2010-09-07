@@ -24,4 +24,12 @@ class PracticeEvent < ActiveRecord::Base
   def validate_start_string
     errors.add(:start_string, "is invalid") if @start_invalid
   end
+
+  def practice
+    if self[:practice_id] && self[:practice].nil?
+      Practice.unscoped.find(self[:practice_id])
+    else
+      self[:practice]
+    end
+  end
 end

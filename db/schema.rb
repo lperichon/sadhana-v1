@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100901230744) do
+ActiveRecord::Schema.define(:version => 20100907191600) do
 
   create_table "admins", :force => true do |t|
     t.string    "email",                               :default => "", :null => false
@@ -87,15 +87,16 @@ ActiveRecord::Schema.define(:version => 20100901230744) do
   end
 
   create_table "practices", :force => true do |t|
-    t.string    "name"
-    t.text      "description"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "delay"
-    t.integer   "user_id"
-    t.integer   "position"
-    t.boolean   "continuous"
-    t.string    "sound_filename"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "delay"
+    t.integer  "user_id"
+    t.integer  "position"
+    t.boolean  "continuous"
+    t.string   "sound_filename"
+    t.string   "state",          :default => "created"
   end
 
   create_table "practices_users", :id => false, :force => true do |t|
