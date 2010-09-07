@@ -242,9 +242,14 @@ es:
       send_instructions: 'Recibirá un email con instrucciones para desbloquear su cuenta en pocos minutos.'
       unlocked: 'Su cuenta ha sido desbloqueada exitosamente.'
     mailer:
-      confirmation_instructions: 'Instrucciones de confirmación'
-      reset_password_instructions: 'Instrucciones para cambiar tu contraseña'
-      unlock_instructions: 'Instrucciones para desbloquear tu cuenta'
+      confirmation_instructions:
+        subject: 'Instrucciones de confirmación'
+      reset_password_instructions:
+        subject: 'Instrucciones para cambiar tu contraseña'
+      unlock_instructions:
+        subject: 'Instrucciones para desbloquear tu cuenta'
+      invitation:
+        subject: 'Invitación a Sádhana'
     mailer_views:
       confirmation_instructions:
         welcome: "¡Bienvenido %{email}!"
