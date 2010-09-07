@@ -308,3 +308,4 @@ en:
       text_top: "I have shared a practice with you using %{root_url}. You can see it by clicking on the link below:"
       link: "Play shared practice"
       invitation: "If you still didn't accept the invitation, click on the link below to setup your password:"
+      subject: "I have shared a practice with you"
