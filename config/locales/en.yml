@@ -231,6 +231,7 @@ en:
     upgrade_now: "Upgrade Now!"
     destroy_completely: "destroy completely"
     undo: "undo"
+    restore: "restore"
   practice_event:
     help:
       practice: "Choose the practice."

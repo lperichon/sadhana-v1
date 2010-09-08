@@ -3,8 +3,8 @@ page << "$('#edit_event_dialog').html('#{escape_javascript render :partial => 'd
 page << %(
   $('#edit_event_dialog').dialog({
     autoOpen: true,
-    height: 300,
-    width: 350,
+    height: 250,
+    width: 375,
     modal: true,
     closeOnEscape: false,
     open:function() {

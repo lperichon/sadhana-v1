@@ -51,7 +51,16 @@ class User < ActiveRecord::Base
   end
 
   def all_practices
-    (self.practices + self.shared_practices).sort {|a,b| a.id <=> b.id }
+    (self.practices + self.unscoped_shared_practices).sort {|a,b| a.id <=> b.id }
+  end
+
+  def unscoped_practices
+    Practice.unscoped.find(:all, :conditions => {:user_id => self.id})
+  end
+
+  def unscoped_shared_practices
+    Practice.unscoped.find(:all, :joins => 'JOIN practices_users ON practices_users.practice_id = practices.id',
+                           :conditions => ['practices_users.user_id = ?', self.id])
   end
 
   private
