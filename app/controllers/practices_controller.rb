@@ -141,7 +141,7 @@ class PracticesController < UserApplicationController
     begin
       @practice = current_user.practices.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-      @practice = current_user.shared_practices.find(params[:id])
+      @practice = current_user.unscoped_shared_practices.find {|p| p.id == params[:id].to_i}
     end
 
     require_subscription_check(@practice)
