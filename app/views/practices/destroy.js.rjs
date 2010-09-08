@@ -1,0 +1,4 @@
+page << "$('#notifications').replaceWith('#{escape_javascript render :partial => 'shared/notifications'}');"
+if @destroy
+  page << "$('#practice_#{@practice.id}').remove();"
+end

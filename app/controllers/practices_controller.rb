@@ -66,10 +66,18 @@ class PracticesController < UserApplicationController
   # PUT /practices/1
   # PUT /practices/1.xml
   def update
-    @practice = current_user.practices.find(params[:id])
+    if(params[:restore])
+      @practice = current_user.practices.unscoped.find(params[:id])
+      @result = @practice.restore
+      flash.now[:notice] = t('practices.update.restore_notice')
+      @restore = true
+    else
+      @practice = current_user.practices.find(params[:id])
+      @result = @practice.update_attributes(params[:practice])
+    end
 
     respond_to do |format|
-      if @practice.update_attributes(params[:practice])
+      if @result
         format.xml  { head :ok }
         format.js {}
         format.json { render :json => {:result => @practice.send(params['wants'])} }
@@ -91,13 +99,41 @@ class PracticesController < UserApplicationController
       current_user.shared_practices.delete @practice
     elsif @practice.archived?
       @practice.destroy
+      @destroy = true
     else
+      flash.now[:notice] = t('practices.destroy.undo_notice',
+        :undo_link => self.class.helpers.link_to_function(t('actions.undo'),"$.ajax({
+          type:'put',
+          data: { 'restore': true },
+          dataType: 'script',
+          url: '#{practice_path(@practice)}'
+        });"),
+        :destroy_link => self.class.helpers.link_to_function(t('actions.destroy_completely'),"$('#confirm_dialog').dialog({
+          resizable: false,
+          height:140,
+          modal: true,
+          buttons: {
+          '#{t('actions.delete')}': function() {
+              $.ajax({
+                type:'post',
+                data: { '_method': 'delete' },
+                dataType: 'script',
+                url: '#{practice_path(@practice)}'
+              });
+              $(this).dialog('close');
+            },
+           '#{t('actions.cancel')}': function() {
+              $(this).dialog('close');
+            }
+          }
+        });")).html_safe
       @practice.archive
     end
 
     respond_to do |format|
       format.xml  { head :ok }
       format.json { render :json => :ok }
+      format.js {}
     end
   end
 

@@ -335,6 +335,10 @@ es:
     not_owner_notice: "Las prácticas solo pueden ser editadas por su dueño."
     practice:
       owner: "por %{owner}"
+    destroy:
+      undo_notice: "Su práctica fue eliminada, puede %{undo_link} esta acción o %{destroy_link} su práctica."
+    update:
+      restore_notice: "Su práctica fue recuperada."
   practice_events:
     index:
       new_practice_event: "Nuevo evento"
@@ -416,6 +420,8 @@ es:
     help:
       part: "Elija un anga."
   actions:
+    undo: 'deshacer'
+    destroy_completely: 'eliminar por completo'
     remove: "eliminar"
     cancel: "Cancelar"
     delete: "Eliminar"

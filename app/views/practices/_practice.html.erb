@@ -53,11 +53,10 @@
                 $.ajax({
                     type:'post',
                     data: { '_method': 'delete' },
-                    dataType: 'json',
+                    dataType: 'script',
                     url: '/practices/#{practice.id}',
                     success: function(data) {
                       $('#practice_#{practice.id}').fadeOut('slow', function() {
-                          $('#practice_#{practice.id}').remove();
                       });
                     }
                 });

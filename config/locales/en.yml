@@ -127,6 +127,10 @@ en:
     not_owner_notice: "Only the owner can edit a practice."
     practice:
       owner: "by %{owner}"
+    destroy:
+      undo_notice: "The practice has been deleted, you can %{undo_link} or %{destroy_link}."
+    update:
+      restore_notice: "Your practice has been restored."
   shared:
     confirm_dialog:
       title: "Confirm delete"
@@ -225,6 +229,8 @@ en:
     remove: "remove"
     play_preferences: "Play preferences"
     upgrade_now: "Upgrade Now!"
+    destroy_completely: "destroy completely"
+    undo: "undo"
   practice_event:
     help:
       practice: "Choose the practice."
