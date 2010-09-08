@@ -9,6 +9,9 @@
     <% end %>
   </h3>
   <p class="time">(<%= t('practice.time_format', :minutes =>practice.total_time / 60, :seconds => practice.total_time % 60 ) %>)</p>
+  <% if practice.state == 'archived' %>
+      <p class="warning"><%= t('practices.practice.shared_practice_deleted') %></p>
+  <% end %>
   <p>
     <% if current_user == practice.user %>
       <%= jeditable_field(:practice, :description, :object => practice) %>
