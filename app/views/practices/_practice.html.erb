@@ -20,7 +20,7 @@
     <% end %>
   </p>
   <ul class='actions'>
-    <% unless practice.state == 'archived' %>
+    <% unless current_user == practice.user && practice.state == 'archived' %>
     <li><%= link_to t('actions.play'), play_practice_path(practice), :class => 'small orange awesome' %></li>
     <li><%= link_to t('actions.edit'), practice, :class => 'small orange awesome' %></li>
     <li><%= link_to t('actions.add_to_calendar'), new_practice_event_path, :class => 'small orange awesome', :id => "#{dom_id practice}_add_to_calendar_link" %>

@@ -21,6 +21,7 @@ class PracticesController < UserApplicationController
     rescue ActiveRecord::RecordNotFound
       flash[:notice] = t('practices.not_owner_notice')
       redirect_to :back
+      return false;
     end
 
     respond_to do |format|
