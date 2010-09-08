@@ -58,6 +58,10 @@ class User < ActiveRecord::Base
     Practice.unscoped.find(:all, :conditions => {:user_id => self.id})
   end
 
+  def archived_practices
+    Practice.unscoped.find(:all, :conditions => {:user_id => self.id, :state => 'archived'})
+  end
+
   def unscoped_shared_practices
     Practice.unscoped.find(:all, :joins => 'JOIN practices_users ON practices_users.practice_id = practices.id',
                            :conditions => ['practices_users.user_id = ?', self.id])

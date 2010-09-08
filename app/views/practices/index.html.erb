@@ -1,4 +1,4 @@
-<% if @practices.empty? %>
+<% if @practices.empty? && !params[:deleted] %>
   <div class="notice ui-state-highlight ui-corner-all">
     <p>
       <span class="ui-icon ui-icon-lightbulb" style="float: left; margin-right: .3em;"></span>
@@ -25,15 +25,22 @@
     <%= link_to_function t('practices.index.new_invitation'), "$('#new_invitation_dialog').dialog('open')", :class => 'blue medium awesome' %>
   </li>
 </ul>
+<div id="practices_container">
+    <div id='practices_menu'>
+        <ul>
+          <li><%= link_to_if params[:deleted], content_tag(:span, t('practices.index.my_practices'), :class => ('ui-state-hover ui-widget ui-state-default ui-corner-all ui-button-text-only' unless params[:deleted])), practices_path %></li>
+          <li><%= link_to_unless params[:deleted], content_tag(:span, t('practices.index.deleted_practices'), :class => ('ui-state-hover ui-widget ui-state-default ui-corner-all ui-button-text-only' if params[:deleted])), practices_path(:deleted => true) %></li>
+        </ul>
+    </div>
 
-
-<h2><%= t('practices.index.my_practices') %></h2>
-
-<ul id='practices'>
-  <% @practices.each do |practice| %>
-    <%= render :partial => 'practice', :locals => {:practice => practice} %>
-  <% end %>
-</ul>
+    <div id="practices_list">
+        <ul id='practices'>
+          <% @practices.each do |practice| %>
+            <%= render :partial => 'practice', :locals => {:practice => practice} %>
+          <% end %>
+        </ul>
+    </div>
+</div>
 
 <%= will_paginate @practices, :previous_label => t('actions.previous'), :next_label => t('actions.next') %>
 
@@ -42,3 +49,8 @@
 <%= render :partial => 'shared/new_practice_dialog' %>
 <%= render :partial => 'shared/new_event_dialog' %>
 <%= render :partial => 'shared/practice_share_dialog' %>
+
+<%= javascript_tag do %>
+  $('#practices_menu a').button();
+
+<% end %>

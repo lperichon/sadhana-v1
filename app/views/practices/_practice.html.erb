@@ -1,25 +1,26 @@
 <% practice.reload %>
 <li id='practice_<%= practice.id %>' class="practice">
   <h3>
-    <% if current_user == practice.user %>
+    <% if current_user == practice.user && practice.state != 'archived' %>
       <%= jeditable_field(:practice, :name, :object => practice) %>
-    <% else %>
+    <% else%>
       <%= practice.name %>
-      <%= t('practices.practice.owner', :owner => practice.user.email) %>
+      <%= t('practices.practice.owner', :owner => practice.user.email) unless current_user == practice.user %>
     <% end %>
   </h3>
   <p class="time">(<%= t('practice.time_format', :minutes =>practice.total_time / 60, :seconds => practice.total_time % 60 ) %>)</p>
-  <% if practice.state == 'archived' %>
+  <% if practice.state == 'archived' && practice.user != current_user %>
       <p class="warning"><%= t('practices.practice.shared_practice_deleted') %></p>
   <% end %>
   <p>
-    <% if current_user == practice.user %>
+    <% if current_user == practice.user && practice.state != 'archived' %>
       <%= jeditable_field(:practice, :description, :object => practice) %>
     <% else %>
       <%= practice.description %>
     <% end %>
   </p>
   <ul class='actions'>
+    <% unless practice.state == 'archived' %>
     <li><%= link_to t('actions.play'), play_practice_path(practice), :class => 'small orange awesome' %></li>
     <li><%= link_to t('actions.edit'), practice, :class => 'small orange awesome' %></li>
     <li><%= link_to t('actions.add_to_calendar'), new_practice_event_path, :class => 'small orange awesome', :id => "#{dom_id practice}_add_to_calendar_link" %>
@@ -47,6 +48,19 @@
       });
     <% end %>
     </li>
+    <% else %>
+    <li><%= link_to_function t('actions.undo'), "$.ajax({
+          type:'put',
+          data: { 'restore': true },
+          dataType: 'script',
+          url: '#{practice_path(practice)}',
+          success: function(data) {
+                      $('#practice_#{practice.id}').fadeOut('slow', function() {
+                      });
+                    }
+        });", :class => 'small orange awesome'%>
+    </li>
+    <% end %>
     <li><%= link_to_function t('actions.destroy'), "$('#confirm_dialog').dialog({
             resizable: false,
             height:140,
@@ -71,5 +85,6 @@
             }
           });", :class => 'small orange awesome'%>
     </li>
+
   </ul>
 </li>

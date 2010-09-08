@@ -106,6 +106,7 @@ en:
       my_practices: "My practices"
       new_invitation: "Invite a friend"
       create_practice_tip: "Create a new practice by clicking on the 'New practice' button."
+      deleted_practices: "Deleted practices"
     show:
       loading: "Loading..."
       practice_parts:
