@@ -2,7 +2,10 @@
   <h3><%= contact.email %></h3>
   <ul class='actions'>
     <% if contact.invited? %>
-        <li><%= button_to 'Resend Invitation', {:controller => 'users/invitations', :action => 'create', :user => { :email => contact.email}}, :class => 'awesome small orange'%></li>
+        <li><%= button_to 'Resend Invitation', {:controller => 'users/invitations',
+                                                :action => 'create',
+                                                :user => { :email => contact.email}}, :class => 'awesome small blue'%>
+        </li>
     <% end %>
     <li><%= link_to_function t('actions.destroy'), "$('#confirm_dialog').dialog({
             resizable: false,
@@ -27,7 +30,7 @@
                 $(this).dialog('close');
               }
             }
-          });", :class => 'small orange awesome'%>
+          });", :class => 'small blue awesome'%>
     </li>
   </ul>
 </li>

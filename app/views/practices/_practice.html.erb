@@ -18,11 +18,11 @@
       <%= practice.description %>
     <% end %>
   </p>
-  <ul class='actions'>
+  <ul class='element actions'>
     <% unless current_user == practice.user && practice.state == 'archived' %>
-    <li><%= link_to t('actions.play'), play_practice_path(practice), :class => 'small orange awesome' %></li>
-    <li><%= link_to t('actions.edit'), practice, :class => 'small orange awesome' %></li>
-    <li><%= link_to t('actions.add_to_calendar'), new_practice_event_path, :class => 'small orange awesome', :id => "#{dom_id practice}_add_to_calendar_link" %>
+    <li><%= link_to t('actions.play'), play_practice_path(practice), :class => 'small blue awesome' %></li>
+    <li><%= link_to t('actions.edit'), practice, :class => 'small blue awesome' %></li>
+    <li><%= link_to t('actions.add_to_calendar'), new_practice_event_path, :class => 'small blue awesome', :id => "#{dom_id practice}_add_to_calendar_link" %>
     <%= javascript_tag do %>
       $('#<%= dom_id practice %>_add_to_calendar_link').click(function() {
         $.ajax({
@@ -35,7 +35,7 @@
       });
     <% end %>
     </li>
-    <li><%= link_to t('actions.share'), new_practice_practice_share_path(practice), :class => 'small orange awesome', :id => "#{dom_id practice}_share_link" %>
+    <li><%= link_to t('actions.share'), new_practice_practice_share_path(practice), :class => 'small blue awesome', :id => "#{dom_id practice}_share_link" %>
     <%= javascript_tag do %>
       $('#<%= dom_id practice %>_share_link').click(function() {
         $.ajax({
@@ -57,7 +57,7 @@
                       $('#practice_#{practice.id}').fadeOut('slow', function() {
                       });
                     }
-        });", :class => 'small orange awesome'%>
+        });", :class => 'small blue awesome'%>
     </li>
     <% end %>
     <li><%= link_to_function t('actions.destroy'), "$('#confirm_dialog').dialog({
@@ -82,7 +82,7 @@
                 $(this).dialog('close');
               }
             }
-          });", :class => 'small orange awesome'%>
+          });", :class => 'small blue awesome'%>
     </li>
 
   </ul>

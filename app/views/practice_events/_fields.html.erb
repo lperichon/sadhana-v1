@@ -13,8 +13,8 @@
     <%= f.collection_select :practice_id, @practices, :id, :name %>
     <% unless @practice_event.new_record? || (@practice_event.practice.user == current_user && @practice_event.practice.state == 'archived')%>
       <div id="event_practice_actions">
-        <%= link_to_function t('actions.show'), "window.location.href = '/practices/' + $('#practice_event_practice_id').val();", :class => 'small orange awesome' if @practice_event.practice.user == current_user %>
-        <%= link_to_function t('actions.play'), "window.location.href = '/practices/' + $('#practice_event_practice_id').val() + '/play';", :class => 'small orange awesome' %>
+        <%= link_to_function t('actions.show'), "window.location.href = '/practices/' + $('#practice_event_practice_id').val();", :class => 'small blue awesome' if @practice_event.practice.user == current_user %>
+        <%= link_to_function t('actions.play'), "window.location.href = '/practices/' + $('#practice_event_practice_id').val() + '/play';", :class => 'small blue awesome' %>
       </div>
     <% end %>
   </div>

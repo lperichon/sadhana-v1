@@ -78,6 +78,14 @@ ul.actions {
   padding: 0;
 }
 
+ul.element.actions {
+  /* text-align: right; */
+}
+
+#event_practice_actions a {
+  color: white;
+}
+
 ul.actions li{
   display: inline;
 }
