@@ -461,7 +461,7 @@ es:
       observations: "¿Algúna observación?"
       technique: "Elija una técnica."
   menu:
-    my_practices: "Mis prácticas"
+    my_practices: "Prácticas"
     calendar: "Calendario"
     sign_out: "Salir"
     sign_up: "Registrarse"

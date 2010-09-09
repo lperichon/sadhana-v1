@@ -246,7 +246,7 @@ en:
       observations: "Any observations?"
       technique: "Choose a technique."
   menu:
-    my_practices: "My Practices"
+    my_practices: "Practices"
     contacts: "Contacts"
     calendar: "Calendar"
     sign_out: "Sign out"
