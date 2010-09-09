@@ -1,6 +1,6 @@
-<li id="<%= dom_id contact %>"class="contact">
+<li id="<%= dom_id contact %>"class="element contact">
   <h3><%= contact.email %></h3>
-  <ul class='actions'>
+  <ul class='element-actions actions'>
     <% if contact.invited? %>
         <li><%= button_to 'Resend Invitation', {:controller => 'users/invitations',
                                                 :action => 'create',

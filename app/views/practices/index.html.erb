@@ -34,7 +34,7 @@
     </div>
 
     <div id="practices_list">
-        <ul id='practices'>
+        <ul id='practices' class="element-list">
           <% @practices.each do |practice| %>
             <%= render :partial => 'practice', :locals => {:practice => practice} %>
           <% end %>

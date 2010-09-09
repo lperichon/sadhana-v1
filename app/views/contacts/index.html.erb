@@ -16,7 +16,7 @@
 
 <h2><%= t('contacts.index.my_contacts') %></h2>
 
-<ul id='contacts'>
+<ul id='contacts' class="element-list">
   <% @contacts.each do |contact| %>
     <%= render :partial => 'contact', :locals => {:contact => contact} %>
   <% end %>

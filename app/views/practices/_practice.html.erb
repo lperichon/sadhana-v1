@@ -1,4 +1,4 @@
-<li id='practice_<%= practice.id %>' class="practice">
+<li id='practice_<%= practice.id %>' class="element practice">
   <h3>
     <% if current_user == practice.user && practice.state != 'archived' %>
       <%= jeditable_field(:practice, :name, :object => practice) %>
@@ -18,7 +18,7 @@
       <%= practice.description %>
     <% end %>
   </p>
-  <ul class='element actions'>
+  <ul class='element-actions actions'>
     <% unless current_user == practice.user && practice.state == 'archived' %>
     <li><%= link_to t('actions.play'), play_practice_path(practice), :class => 'small blue awesome' %></li>
     <li><%= link_to t('actions.edit'), practice, :class => 'small blue awesome' %></li>

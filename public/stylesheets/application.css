@@ -74,12 +74,34 @@ body {
   margin-top: 3px;
 }
 
+.element-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.element {
+	-moz-box-shadow: 8px 5px 5px #999;
+    -webkit-box-shadow: 8px 5px 5px #999;
+    padding: 15px;
+    margin: 10px;
+    background: #fff;
+    border: solid 1px #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.element h3 {
+  margin-top: 0;
+  display: inline;
+}
+
 ul.actions {
   padding: 0;
 }
 
-ul.element.actions {
+ul.element-actions {
   /* text-align: right; */
+  margin-top: 10px;
 }
 
 #event_practice_actions a {
