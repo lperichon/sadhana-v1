@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100908233333) do
+ActiveRecord::Schema.define(:version => 20100913175525) do
 
   create_table "admins", :force => true do |t|
     t.string    "email",                               :default => "", :null => false
@@ -223,6 +223,8 @@ ActiveRecord::Schema.define(:version => 20100908233333) do
     t.string    "locale"
     t.string    "invitation_token",     :limit => 20
     t.timestamp "invitation_sent_at"
+    t.string    "google_consumer"
+    t.string    "yahoo_consumer"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
