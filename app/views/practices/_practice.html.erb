@@ -47,6 +47,7 @@
       });
     <% end %>
     </li>
+    <li><%= button_to t('actions.duplicate'), practices_path(:practice_id => practice.id), :class => 'small blue awesome' %></li>
     <% else %>
     <li><%= link_to_function t('actions.undo'), "$.ajax({
           type:'put',

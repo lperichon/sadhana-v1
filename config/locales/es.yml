@@ -339,8 +339,12 @@ es:
       shared_practice_deleted: "Atención! Esta práctica fue eliminada por su dueño."
     destroy:
       undo_notice: "Su práctica fue eliminada, puede %{undo_link} esta acción o %{destroy_link} su práctica."
+      destroy_completely: 'eliminar por completo'
+      undo: "deshacer"
     update:
       restore_notice: "Su práctica fue recuperada."
+    create:
+      duplicate_notice: "Puede empezar a editar su práctica duplicada."
   practice_events:
     index:
       new_practice_event: "Nuevo evento"
@@ -422,9 +426,9 @@ es:
     help:
       part: "Elija un anga."
   actions:
-    undo: 'deshacer'
-    destroy_completely: 'eliminar por completo'
-    remove: "eliminar"
+    duplicate: 'Duplicar'
+    undo: 'Deshacer'
+    remove: "Eliminar"
     cancel: "Cancelar"
     delete: "Eliminar"
     play: "Reproducir"

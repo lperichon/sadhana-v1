@@ -46,4 +46,18 @@ class Practice < ActiveRecord::Base
     self.viewers << user
     self.save
   end
+
+  def duplicate
+    clone = self.clone
+    clone.state = 'created'
+    clone.position = nil
+    self.practice_parts.each do |pp|
+      pp_clone = pp.clone
+      pp.practice_techniques.each do |pt|
+        pp_clone.practice_techniques << pt.clone
+      end
+      clone.practice_parts << pp_clone
+    end
+    clone
+  end
 end

@@ -53,19 +53,27 @@ class PracticesController < UserApplicationController
   # POST /practices
   # POST /practices.xml
   def create
-    asana = Part.find_by_symbol('asana')
-    @practice = current_user.practices.new(params[:practice])
-    respond_to do |format|
-      if @practice.save
-        @practice.practice_parts.create(:part => asana)
-        format.html { redirect_to practice_path(@practice)}
-        format.xml  { render :xml => @practice, :status => :created, :location => @practice }
-        format.js {}
-      else
-        format.xml  { render :xml => @practice.errors, :status => :unprocessable_entity }
-        format.js {}
-      end
+    if params[:practice_id]
+      original = Practice.unscoped.find(params[:practice_id])
+      @practice = original.duplicate
+      @practice.user = current_user
+      flash[:notice] = t('practices.create.duplicate_notice')
+    else
+      asana = Part.find_by_symbol('asana')
+      @practice = current_user.practices.new(params[:practice])
     end
+
+    respond_to do |format|
+        if @practice.save
+          @practice.practice_parts.create(:part => asana) unless params[:practice_id]
+          format.html { redirect_to practice_path(@practice)}
+          format.xml  { render :xml => @practice, :status => :created, :location => @practice }
+          format.js {}
+        else
+          format.xml  { render :xml => @practice.errors, :status => :unprocessable_entity }
+          format.js {}
+        end
+      end
   end
 
   # PUT /practices/1
@@ -107,13 +115,13 @@ class PracticesController < UserApplicationController
       @destroy = true
     else
       flash.now[:notice] = t('practices.destroy.undo_notice',
-        :undo_link => self.class.helpers.link_to_function(t('actions.undo'),"$.ajax({
+        :undo_link => self.class.helpers.link_to_function(t('practices.destroy.undo'),"$.ajax({
           type:'put',
           data: { 'restore': true },
           dataType: 'script',
           url: '#{practice_path(@practice)}'
         });"),
-        :destroy_link => self.class.helpers.link_to_function(t('actions.destroy_completely'),"$('#confirm_dialog').dialog({
+        :destroy_link => self.class.helpers.link_to_function(t('practices.destroy.destroy_completely'),"$('#confirm_dialog').dialog({
           resizable: false,
           height:140,
           modal: true,
