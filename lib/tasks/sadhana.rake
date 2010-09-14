@@ -1,5 +1,15 @@
 require 'open-uri'
 
+namespace :sadhana do
+  desc "Permanently delete 1w old soft deleted practices."
+  task :clear_deleted_practices => :environment do
+    practices = Practice.unscoped.where(:state => 'archived').where('updated_at <= ?', 1.week.ago)
+    practices.each do |p|
+      p.destroy!
+    end
+  end
+end
+
 namespace :asana do
   #rake techniques:download
   desc "downloads ALL techniques from uni-yoga.org"

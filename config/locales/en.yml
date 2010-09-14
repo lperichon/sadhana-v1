@@ -128,7 +128,7 @@ en:
     not_owner_notice: "Only the owner can edit a practice."
     practice:
       owner: "by %{owner}"
-      shared_practice_deleted: "Attention! This practices has been deleted by the owner."
+      shared_practice_deleted: "Attention! This practices has been deleted by the owner and can be permanently deleted at any time. If you want to preserve it you can duplicate it."
     destroy:
       undo_notice: "The practice has been deleted, you can %{undo_link} or %{destroy_link}."
       destroy_completely: "destroy completely"

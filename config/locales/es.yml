@@ -336,7 +336,7 @@ es:
     not_owner_notice: "Las prácticas solo pueden ser editadas por su dueño."
     practice:
       owner: "por %{owner}"
-      shared_practice_deleted: "Atención! Esta práctica fue eliminada por su dueño."
+      shared_practice_deleted: "Atención! Esta práctica fue eliminada por su dueño y puede ser eliminada permanentemente en cualquier momento, Ud. puede conservarla duplicandola."
     destroy:
       undo_notice: "Su práctica fue eliminada, puede %{undo_link} esta acción o %{destroy_link} su práctica."
       destroy_completely: 'eliminar por completo'
