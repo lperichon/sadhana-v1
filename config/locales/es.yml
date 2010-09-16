@@ -534,3 +534,8 @@ es:
       link: "Reproducir práctica compartida"
       invitation: "Si todavia no aceptaste la invitación, haz click en el siguiente link para configurar tu contraseña:"
       subject: "He compartido una práctica contigo"
+  external_contacts:
+    access_revoked_notice: "El permiso de acceso fue revocado."
+    index:
+      revoke_access: "Ud. puede %{link} el permiso de acceso."
+    revoke: "revocar"

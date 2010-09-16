@@ -1,3 +1,6 @@
+<p>
+  <%= t('external_contacts.index.revoke_access', :link => link_to(t('external_contacts.revoke'), external_contact_path(1, :provider => @provider), {:method => :delete})).html_safe %>
+</p>
 <ul id="invite_contacts" class="element-list">
 <% @contacts.each do |contact| %>
   <li class="element contact">

@@ -327,3 +327,8 @@ en:
       link: "Play shared practice"
       invitation: "If you still didn't accept the invitation, click on the link below to setup your password:"
       subject: "I have shared a practice with you"
+  external_contacts:
+    access_revoked_notice: "The access permission has been revoked."
+    index:
+      revoke_access: "You can %{link} access to these contacts."
+    revoke: "revoke"
