@@ -20,7 +20,7 @@ gem 'fastercsv', '1.5.3'
 gem 'puret', '1.0.3'
 gem 'will_paginate', '3.0.pre'
 gem 'aws-s3', '0.6.2'
-gem 'lperichon-contacts', '1.0.6', :require => 'contacts'
+gem 'lperichon-contacts', '1.0.7', :require => 'contacts'
 gem 'oauth', '0.4.1'
 gem 'json', '1.4.3'
 
