@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100913175525) do
+ActiveRecord::Schema.define(:version => 20100916182316) do
 
   create_table "admins", :force => true do |t|
     t.string    "email",                               :default => "", :null => false
@@ -204,27 +204,27 @@ ActiveRecord::Schema.define(:version => 20100913175525) do
   end
 
   create_table "users", :force => true do |t|
-    t.string    "email",                              :default => "", :null => false
-    t.string    "encrypted_password",                 :default => ""
-    t.string    "password_salt",                      :default => ""
-    t.string    "confirmation_token"
-    t.timestamp "confirmed_at"
-    t.timestamp "confirmation_sent_at"
-    t.string    "reset_password_token"
-    t.string    "remember_token"
-    t.timestamp "remember_created_at"
-    t.integer   "sign_in_count",                      :default => 0
-    t.timestamp "current_sign_in_at"
-    t.timestamp "last_sign_in_at"
-    t.string    "current_sign_in_ip"
-    t.string    "last_sign_in_ip"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "locale"
-    t.string    "invitation_token",     :limit => 20
-    t.timestamp "invitation_sent_at"
-    t.string    "google_consumer"
-    t.string    "yahoo_consumer"
+    t.string   "email",                               :default => "", :null => false
+    t.string   "encrypted_password",                  :default => ""
+    t.string   "password_salt",                       :default => ""
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "reset_password_token"
+    t.string   "remember_token"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                       :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "locale"
+    t.string   "invitation_token",     :limit => 20
+    t.datetime "invitation_sent_at"
+    t.text     "google_consumer",      :limit => 255
+    t.text     "yahoo_consumer",       :limit => 255
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
