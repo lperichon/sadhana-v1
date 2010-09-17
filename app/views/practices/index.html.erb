@@ -8,6 +8,29 @@
 <% end %>
 
 <ul class='actions'>
+  <% if params[:deleted] %>
+  <li>
+    <%= link_to_function t('actions.destroy_all'), "$('#confirm_dialog').dialog({
+            resizable: false,
+            height:140,
+            modal: true,
+            buttons: {
+              '#{t('actions.delete')}': function() {
+                $.ajax({
+                    type:'post',
+                    data: { 'destroy_all': true, '_method': 'delete' },
+                    dataType: 'script',
+                    url: '/practices/1',
+                });
+                $(this).dialog('close');
+              },
+              '#{t('actions.cancel')}': function() {
+                $(this).dialog('close');
+              }
+            }
+          });", :class => 'medium blue awesome'%>
+  </li>
+  <% else %>
   <li>
     <%= link_to t('practices.index.new_practice'), new_practice_path, :class => 'blue medium awesome', :id => 'new_practice_link'%>
     <%= javascript_tag do %>
@@ -21,6 +44,7 @@
       });
     <% end %>
   </li>
+  <% end %>
   <li>
     <%= link_to_function t('practices.index.new_invitation'), "$('#new_invitation_dialog').dialog('open')", :class => 'blue medium awesome' %>
   </li>

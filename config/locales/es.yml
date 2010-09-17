@@ -341,6 +341,7 @@ es:
       undo_notice: "Su práctica fue eliminada, puede %{undo_link} esta acción o %{destroy_link} su práctica."
       destroy_completely: 'eliminar por completo'
       undo: "deshacer"
+      destroy_all_notice: "Todas las prácticas eliminadas fueron eliminadas por completo."
     update:
       restore_notice: "Su práctica fue recuperada."
     create:
@@ -453,6 +454,7 @@ es:
     invite: Invitar
     upgrade_now: "Mejore su suscripción ahora!"
     share: "Compartir"
+    destroy_all: "Eliminar todas"
   practice_event:
     help:
       practice: "Elija la práctica."

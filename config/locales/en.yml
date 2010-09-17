@@ -133,6 +133,7 @@ en:
       undo_notice: "The practice has been deleted, you can %{undo_link} or %{destroy_link}."
       destroy_completely: "destroy completely"
       undo: "undo"
+      destroy_all_notice: "All deleted practices where permanently deleted"
     update:
       restore_notice: "Your practice has been restored."
     create:
@@ -235,9 +236,10 @@ en:
     remove: "Remove"
     play_preferences: "Play preferences"
     upgrade_now: "Upgrade Now!"
-    undo: "undo"
-    restore: "restore"
-    duplicate: "duplicate"
+    undo: "Undo"
+    restore: "Restore"
+    duplicate: "Duplicate"
+    destroy_all: "Destroy all"
   practice_event:
     help:
       practice: "Choose the practice."

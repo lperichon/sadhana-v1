@@ -105,42 +105,50 @@ class PracticesController < UserApplicationController
   # DELETE /practices/1
   # DELETE /practices/1.xml
   def destroy
-    @practice = Practice.unscoped.find(:first, :conditions => {:id => params[:id], :user_id => current_user.id})
-
-    if @practice.nil?
-      @practice = current_user.shared_practices.find(params[:id])
-      current_user.shared_practices.delete @practice
-    elsif @practice.archived?
-      @practice.destroy
-      @destroy = true
+    if params[:destroy_all].present?
+      flash[:notice] = t('practices.destroy.destroy_all_notice')
+      practices = Practice.unscoped.find(:all, :conditions => {:state => 'archived', :user_id => current_user.id})
+      practices.each do |p|
+        p.destroy
+      end
     else
-      flash.now[:notice] = t('practices.destroy.undo_notice',
-        :undo_link => self.class.helpers.link_to_function(t('practices.destroy.undo'),"$.ajax({
-          type:'put',
-          data: { 'restore': true },
-          dataType: 'script',
-          url: '#{practice_path(@practice)}'
-        });"),
-        :destroy_link => self.class.helpers.link_to_function(t('practices.destroy.destroy_completely'),"$('#confirm_dialog').dialog({
-          resizable: false,
-          height:140,
-          modal: true,
-          buttons: {
-          '#{t('actions.delete')}': function() {
-              $.ajax({
-                type:'post',
-                data: { '_method': 'delete' },
-                dataType: 'script',
-                url: '#{practice_path(@practice)}'
-              });
-              $(this).dialog('close');
-            },
-           '#{t('actions.cancel')}': function() {
-              $(this).dialog('close');
+      @practice = Practice.unscoped.find(:first, :conditions => {:id => params[:id], :user_id => current_user.id})
+
+      if @practice.nil?
+        @practice = current_user.unscoped_shared_practices.find(params[:id]).first
+        current_user.shared_practices.delete @practice
+      elsif @practice.archived?
+        @practice.destroy
+        @destroy = true
+      else
+        flash.now[:notice] = t('practices.destroy.undo_notice',
+          :undo_link => self.class.helpers.link_to_function(t('practices.destroy.undo'),"$.ajax({
+            type:'put',
+            data: { 'restore': true },
+            dataType: 'script',
+            url: '#{practice_path(@practice)}'
+          });"),
+          :destroy_link => self.class.helpers.link_to_function(t('practices.destroy.destroy_completely'),"$('#confirm_dialog').dialog({
+            resizable: false,
+            height:140,
+            modal: true,
+            buttons: {
+            '#{t('actions.delete')}': function() {
+                $.ajax({
+                  type:'post',
+                  data: { '_method': 'delete' },
+                  dataType: 'script',
+                  url: '#{practice_path(@practice)}'
+                });
+                $(this).dialog('close');
+              },
+             '#{t('actions.cancel')}': function() {
+                $(this).dialog('close');
+              }
             }
-          }
-        });")).html_safe
-      @practice.archive
+          });")).html_safe
+        @practice.archive
+      end
     end
 
     respond_to do |format|
