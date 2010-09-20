@@ -334,3 +334,7 @@ en:
     index:
       revoke_access: "You can %{link} access to these contacts."
     revoke: "revoke"
+  techniques:
+    techniques_list:
+      by_family: "By family"
+      by_category: "By category"
