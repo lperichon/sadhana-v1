@@ -1,543 +1,498 @@
-es:
-  switch_language: "Cambiar idioma"
-  this_file_language: "Español"
+es-AR:
+  actions:
+    add: Agregar
+    add_to_calendar: "Agregar al calendario"
+    cancel: Cancelar
+    config: Configurar
+    create: Crear
+    delete: Eliminar
+    destroy: Eliminar
+    destroy_all: "Eliminar todas"
+    duplicate: Duplicar
+    edit: Editar
+    invite: Invitar
+    next: Siguiente
+    pause: Pausa
+    play: Reproducir
+    play_preferences: "Preferencias de ejecución"
+    preferences: Preferencias
+    previous: Anterior
+    remove: Eliminar
+    resend: Reenviar
+    restore: Restaurar
+    resume: Continuar
+    save: Guardar
+    share: Compartir
+    show: Ver
+    sign_in: Entrar
+    sign_up: Registrarse
+    undo: Deshacer
+    update: Actualizar
+    upgrade_now: "Mejore su suscripción ahora!"
+  activerecord:
+    attributes:
+      credit_card:
+        expiration_date: "Fecha de vencimiento"
+        number: Número
+        type: Tipo
+        verification_value: "Codigo de verificación (CVV)"
+      practice:
+        continuous: Continuo
+        delay: Delay
+        description: Descripción
+        name: Nombre
+        sound_filename: Sonido
+        total_time: "Tiempo Total"
+      practice_event:
+        date: Fecha
+        practice: Práctica
+      practice_technique:
+        associated_techniques: "Técnicas asociadas"
+        compensate: Compensación
+        minutes: Minutos
+        observations: Observaciones
+        seconds: Segundos
+        technique: Técnica
+      subscription:
+        credit_card: "Tarjeta de crédito"
+        current_password: "Contraseña actual"
+        plan: Plan
+      technique:
+        description: Description
+      user:
+        current_password: "Contraseña actual"
+        email: Email
+        locale: Idioma
+        password: Contraseña
+        password_confirmation: "Confirmación de contraseña"
+        remember_me: Recordarme
+  application:
+    account_due: "Su cuenta vence en %{days} días."
+    account_past_due: "Su cuenta esta por vencer. Tiene %{days} días restantes para realizar el pago."
+    pay_now_url: "https://www.paypal.com/es_XC/i/btn/btn_paynowCC_LG.gif"
+    paypal_item_name: "Suscripción mensual a Sádhana"
+  application_helper:
+    jeditable_tooltip: "Haga click para editar..."
+  contacts:
+    index:
+      create_contact_tip: "Cree un nuevo contacto! Haga click en el boton 'Nuevo contacto'."
+      my_contacts: "Mis contactos"
+      new_contact: "Nuevo contacto"
+      new_invitation_dialog:
+        title: "Nuevo contacto"
+  credit_card:
+    expiration_month: mes
+    expiration_year: año
+  date:
+    abbr_day_names:
+      - Dom
+      - Lun
+      - Mar
+      - Mie
+      - Jue
+      - Vie
+      - Sab
+    abbr_month_names:
+      - ~
+      - Ene
+      - Feb
+      - Mar
+      - Abr
+      - May
+      - Jun
+      - Jul
+      - Ago
+      - Sep
+      - Oct
+      - Nov
+      - Dic
+    day_names:
+      - Domingo
+      - Lunes
+      - Martes
+      - Miércoles
+      - Jueves
+      - Viernes
+      - Sábado
+    formats:
+      default: "%e/%m/%Y"
+      long: "%e de %B de %Y"
+      short: "%e de %b"
+    month_names:
+      - ~
+      - Enero
+      - Febrero
+      - Marzo
+      - Abril
+      - Mayo
+      - Junio
+      - Julio
+      - Agosto
+      - Septiembre
+      - Octubre
+      - Noviembre
+      - Diciembre
+    order:
+      - :day
+      - :month
+      - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: "alrededor de 1 hora"
+        other: "alrededor de %{count} horas"
+      about_x_months:
+        one: "alrededor de 1 mes"
+        other: "alrededor de %{count} meses"
+      about_x_years:
+        one: "alrededor de 1 año"
+        other: "alrededor de %{count} años"
+      almost_x_years:
+        one: "casi 1 año"
+        other: "casi %{count} años"
+      half_a_minute: "medio minuto"
+      less_than_x_minutes:
+        one: "menos de 1 minuto"
+        other: "menos de %{count} minutos"
+      less_than_x_seconds:
+        one: "menos de 1 segundo"
+        other: "menos de %{count} segundos"
+      over_x_years:
+        one: "más de 1 año"
+        other: "más de %{count} años"
+      x_days:
+        one: "1 día"
+        other: "%{count} días"
+      x_minutes:
+        one: "1 minuto"
+        other: "%{count} minutos"
+      x_months:
+        one: "1 mes"
+        other: "%{count} meses"
+      x_seconds:
+        one: "1 segundo"
+        other: "%{count} segundos"
+    prompts:
+      day: Día
+      hour: Hora
+      minute: Minutos
+      month: Mes
+      second: Segundos
+      year: Año
+  devise:
+    confirmations:
+      confirmed: "Su cuenta ha sido confirmada exitosamente."
+      new:
+        submit: Reenviar
+        title: "Reenviar instrucciones de confirmación"
+      send_instructions: "Recibirá un email con instrucciones para confirmar su cuenta en pocos minutos."
+    failure:
+      inactive: "Tu cuenta no ha sido activada."
+      invalid: "Contraseña o Email incorrecto."
+      invalid_token: "Token de autenticación incorrecto."
+      locked: "Tu cuenta esta bloqueada."
+      timeout: "Tu sesión ha expirado, por favor accede de nuevo para continuar."
+      unauthenticated: "Necesitas acceder a tu cuenta o registrarte antes de continuar."
+      unconfirmed: "Necesitas confirmar tu cuenta antes de continuar."
+    invitations:
+      edit:
+        setup_password: "Complete la invitación configurando su contraseña."
+        submit: "Configurar contraseña"
+        title: "Configurar contraseña"
+      send_instructions: "Se envió un email con la invitación y se agregó el usuario a sus contactos."
+      updated: "Su contraseña fue configurada exitosamente."
+      user_exists: "Se agregó el usuario a sus contactos."
+    mailer:
+      confirmation_instructions:
+        subject: "Instrucciones de confirmación"
+      invitation:
+        subject: "Invitación a Sádhana"
+      reset_password_instructions:
+        subject: "Instrucciones para cambiar tu contraseña"
+      unlock_instructions:
+        subject: "Instrucciones para desbloquear tu cuenta"
+    mailer_views:
+      confirmation_instructions:
+        link: "Confirmar mi cuenta"
+        text: "Puede confirmar su cuenta ingresando en el siguiente link:"
+        welcome: "¡Bienvenido %{email}!"
+      invitation:
+        link: "Aceptar invitación"
+        text_bottom1: "Si no desea aceptar la invitación, puede ignorar este email."
+        text_bottom2: "Su cuenta no será creada hasta que ingrese y configure su contraseña."
+        text_top: "Ha sido invitado a %{root_url}, puedes aceptar tu invitación ingresando al siguiente link:"
+        welcome: "Hola %{email}!"
+      reset_password_instructions:
+        link: "Cambiar mi contraseña"
+        text_bottom1: "Si usted no realizo este pedido por favor ignore este email."
+        text_bottom2: "Su contraseña no será modificado hasta que ingrese y lo modifique."
+        text_top: "Alguien ha requerido un cambio de contraseña en su cuenta, puede hacerlo ingresando al siguiente link:"
+        welcome: "Hola %{email}!"
+    passwords:
+      edit:
+        submit: "Cambiar mi contraseña"
+        title: "Cambiar mi contraseña"
+      new:
+        submit: "Enviarme instrucciones"
+        title: "¿Olvidó su contraseña?"
+      send_instructions: "Recibirá un email con instrucciones para cambiar su contraseña en pocos minutos."
+      updated: "Su contraseña ha sido modificada exitosamente."
+    registrations:
+      destroyed: "Su cuenta ha sido cancelada."
+      new:
+        submit: Registrarse
+        title: Registrarse
+      signed_up: "Se ha registrado exitosamente. Recibirá un email de confirmación en pocos minutos."
+      updated: "Ha actualizado su cuenta exitosamente."
+    sessions:
+      new:
+        submit: Entrar
+        title: Entrar
+      signed_in: "Ha ingresado exitosamente."
+      signed_out: "Ha salido exitosamente."
+    unlocks:
+      send_instructions: "Recibirá un email con instrucciones para desbloquear su cuenta en pocos minutos."
+      unlocked: "Su cuenta ha sido desbloqueada exitosamente."
+  errors:
+    messages:
+      already_confirmed: "ya ha sido confirmada"
+      not_found: "no encontrado"
+      not_locked: "no esta bloqueada"
+  external_contacts:
+    access_revoked_notice: "El permiso de acceso fue revocado."
+    index:
+      revoke_access: "Ud. puede %{link} el permiso de acceso."
+    revoke: revocar
+  home:
+    find_us_on_fb_html: "O encuentrenos en %{facebook}"
+    follow_us_on_twitter_html: "Síganos en %{twitter}"
+    functionalities:
+      calendar: "¡Agende sus prácticas!"
+      list_title: "Con Sádhana usted puede..."
+      manage: "¡Administre sus prácticas!"
+      practice: "¡Practique en su casa!"
+    get_started:
+      button: "¡Comience ahora!"
+      text: "¡Si usted practica Yôga, o enseña profesionalmente, registrese ahora y comience a organizar sus prácticas!"
+      title: "¡Comience ahora!"
+  menu:
+    calendar: Calendario
+    contacts: Contactos
+    credits: Créditos
+    my_practices: Prácticas
+    profile: Perfil
+    sign_in: Entrar
+    sign_out: Salir
+    sign_up: Registrarse
+    signed_in_as: "Conectado como %{email}."
+    signup_or_siginin: "%{signup} o %{signin}"
   number:
-    # Used in number_with_delimiter()
-    # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
-    format:
-      # Sets the separator between the units, for more precision (e.g. 1.0 / 2.0 == 0.5)
-      separator: ","
-      # Delimets thousands (e.g. 1,000,000 is a million) (always in groups of three)
-      delimiter: "."
-      # Number of decimals, behind the separator (1 with a precision of 2 gives: 1.00)
-      precision: 3
-
-    # Used in number_to_currency()
     currency:
       format:
-        # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
-        format: "%n %u"
-        unit: "€"
-        # These three are to override number.format and are optional
-        separator: ","
         delimiter: "."
-        precision: 2
-
-    # Used in number_to_percentage()
-    percentage:
-      format:
-        # These three are to override number.format and are optional
-        # separator:
-        delimiter: ""
-        # precision:
-
-    # Used in number_to_precision()
-    precision:
-      format:
-        # These three are to override number.format and are optional
-        # separator:
-        delimiter: ""
-        # precision:
-
-    # Used in number_to_human_size()
+        format: "%n %u"
+        precision: "2"
+        separator: ","
+        unit: €
+    format:
+      delimiter: "."
+      precision: "3"
+      separator: ","
     human:
       format:
-        # These three are to override number.format and are optional
-        # separator:
-        delimiter: ""
-        precision: 1
-      # Rails <= v2.2.2
-      # storage_units: [Bytes, KB, MB, GB, TB]
-      # Rails >= v2.3
+        delimiter: ~
+        precision: "1"
       storage_units:
         format: "%n %u"
         units:
           byte:
-            one:   "Byte"
-            other: "Bytes"
-          kb: "KB"
-          mb: "MB"
-          gb: "GB"
-          tb: "TB"
-
-  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
-  datetime:
-    distance_in_words:
-      half_a_minute: "medio minuto"
-      less_than_x_seconds:
-        one:  "menos de 1 segundo"
-        other: "menos de %{count} segundos"
-      x_seconds:
-        one:  "1 segundo"
-        other: "%{count} segundos"
-      less_than_x_minutes:
-        one:  "menos de 1 minuto"
-        other: "menos de %{count} minutos"
-      x_minutes:
-        one:  "1 minuto"
-        other: "%{count} minutos"
-      about_x_hours:
-        one:  "alrededor de 1 hora"
-        other: "alrededor de %{count} horas"
-      x_days:
-        one:  "1 día"
-        other: "%{count} días"
-      about_x_months:
-        one:  "alrededor de 1 mes"
-        other: "alrededor de %{count} meses"
-      x_months:
-        one:  "1 mes"
-        other: "%{count} meses"
-      about_x_years:
-        one:  "alrededor de 1 año"
-        other: "alrededor de %{count} años"
-      over_x_years:
-        one:  "más de 1 año"
-        other: "más de %{count} años"
-      almost_x_years:
-        one: "casi 1 año"
-        other: "casi %{count} años"
-    prompts:
-      year:   "Año"
-      month:  "Mes"
-      day:    "Día"
-      hour:   "Hora"
-      minute: "Minutos"
-      second: "Segundos"
-
-  activerecord:
-    errors:
-      template:
-        header:
-          one:   "No se pudo guardar este/a %{model} porque se encontró 1 error"
-          other:  "No se pudo guardar este/a %{model} porque se encontraron %{count} errores"
-        # The variable :count is also available
-        body: "Se encontraron problemas con los siguientes campos:"
-
-      # The values :model, :attribute and :value are always available for interpolation
-      # The value :count is available when applicable. Can be used for pluralization.
-      messages:
-        inclusion: "no está incluido en la lista"
-        exclusion: "está reservado"
-        invalid: "no es válido"
-        confirmation: "no coincide con la confirmación"
-        accepted: "debe ser aceptado"
-        empty: "no puede estar vacío"
-        blank: "no puede estar en blanco"
-        too_long: "es demasiado largo (%{count} caracteres máximo)"
-        too_short: "es demasiado corto (%{count} caracteres mínimo)"
-        wrong_length: "no tiene la longitud correcta (%{count} caracteres exactos)"
-        taken: "ya está en uso"
-        not_a_number: "no es un número"
-        greater_than: "debe ser mayor que %{count}"
-        greater_than_or_equal_to: "debe ser mayor que o igual a %{count}"
-        equal_to: "debe ser igual a %{count}"
-        less_than: "debe ser menor que %{count}"
-        less_than_or_equal_to: "debe ser menor que o igual a %{count}"
-        odd: "debe ser impar"
-        even: "debe ser par"
-        record_invalid: "La validación falló: %{errors}"
-        # Append your own errors here or at the model/attributes scope.
-
-      full_messages:
-        format: "%{attribute} %{message}"
-
-      models:
-        # Overrides default messages
-
-      attributes:
-        # Overrides model and default messages.
-
-  date:
-    formats:
-      # Use the strftime parameters for formats.
-      # When no format has been given, it uses default.
-      # You can provide other formats here if you like!
-      default: "%e/%m/%Y"
-      short: "%e de %b"
-      long: "%e de %B de %Y"
-
-    day_names: [Domingo, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado]
-    abbr_day_names: [Dom, Lun, Mar, Mie, Jue, Vie, Sab]
-
-    # Don't forget the nil at the beginning; there's no such thing as a 0th month
-    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
-    abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
-    # Used in date_select and datime_select.
-    order: [ :day, :month, :year ]
-
-  time:
-    formats:
-      default: "%A, %e de %B de %Y %H:%M:%S %z"
-      short: "%e de %b %H:%M"
-      long: "%e de %B de %Y %H:%M"
-    am: "am"
-    pm: "pm"
-
-# Used in array.to_sentence.
-  support:
-    select:
-      # default value for :prompt => true in FormOptionsHelper
-      prompt: "Por favor seleccione"
-    array:
-      # Rails <= v.2.2.2
-      # sentence_connector: "y"
-      # Rails >= v.2.3
-      words_connector: ", "
-      two_words_connector: " y "
-      last_word_connector: " y "
-  # Devise translations
-  errors:
-    messages:
-      not_found: "no encontrado"
-      already_confirmed: "ya ha sido confirmada"
-      not_locked: "no esta bloqueada"
-
-  devise:
-    failure:
-      unauthenticated: 'Necesitas acceder a tu cuenta o registrarte antes de continuar.'
-      unconfirmed: 'Necesitas confirmar tu cuenta antes de continuar.'
-      locked: 'Tu cuenta esta bloqueada.'
-      invalid: 'Contraseña o Email incorrecto.'
-      invalid_token: 'Token de autenticación incorrecto.'
-      timeout: 'Tu sesión ha expirado, por favor accede de nuevo para continuar.'
-      inactive: 'Tu cuenta no ha sido activada.'
-    invitations:
-      send_instructions: 'Se envió un email con la invitación y se agregó el usuario a sus contactos.'
-      user_exists: 'Se agregó el usuario a sus contactos.'
-      updated: 'Su contraseña fue configurada exitosamente.'
-      edit:
-        title: 'Configurar contraseña'
-        submit: 'Configurar contraseña'
-        setup_password: "Complete la invitación configurando su contraseña."
-    sessions:
-      new:
-        title: "Entrar"
-        submit: "Entrar"
-      signed_in: 'Ha ingresado exitosamente.'
-      signed_out: 'Ha salido exitosamente.'
-    passwords:
-      edit:
-        title: "Cambiar mi contraseña"
-        submit: "Cambiar mi contraseña"
-      new:
-        title: "¿Olvidó su contraseña?"
-        submit: "Enviarme instrucciones"
-      send_instructions: 'Recibirá un email con instrucciones para cambiar su contraseña en pocos minutos.'
-      updated: 'Su contraseña ha sido modificada exitosamente.'
-    confirmations:
-      new:
-        submit: "Reenviar"
-        title: "Reenviar instrucciones de confirmación"
-      send_instructions: 'Recibirá un email con instrucciones para confirmar su cuenta en pocos minutos.'
-      confirmed: 'Su cuenta ha sido confirmada exitosamente.'
-    registrations:
-      new:
-        title: "Registrarse"
-        submit: "Registrarse"
-      signed_up: 'Se ha registrado exitosamente. Recibirá un email de confirmación en pocos minutos.'
-      updated: 'Ha actualizado su cuenta exitosamente.'
-      destroyed: 'Su cuenta ha sido cancelada.'
-    unlocks:
-      send_instructions: 'Recibirá un email con instrucciones para desbloquear su cuenta en pocos minutos.'
-      unlocked: 'Su cuenta ha sido desbloqueada exitosamente.'
-    mailer:
-      confirmation_instructions:
-        subject: 'Instrucciones de confirmación'
-      reset_password_instructions:
-        subject: 'Instrucciones para cambiar tu contraseña'
-      unlock_instructions:
-        subject: 'Instrucciones para desbloquear tu cuenta'
-      invitation:
-        subject: 'Invitación a Sádhana'
-    mailer_views:
-      confirmation_instructions:
-        welcome: "¡Bienvenido %{email}!"
-        text: "Puede confirmar su cuenta ingresando en el siguiente link:"
-        link: "Confirmar mi cuenta"
-      reset_password_instructions:
-        welcome: "Hola %{email}!"
-        text_top: "Alguien ha requerido un cambio de contraseña en su cuenta, puede hacerlo ingresando al siguiente link:"
-        text_bottom1: "Si usted no realizo este pedido por favor ignore este email."
-        text_bottom2: "Su contraseña no será modificado hasta que ingrese y lo modifique."
-        link: "Cambiar mi contraseña"
-      invitation:
-        welcome: "Hola %{email}!"
-        text_top: "Ha sido invitado a %{root_url}, puedes aceptar tu invitación ingresando al siguiente link:"
-        link: "Aceptar invitación"
-        text_bottom1: "Si no desea aceptar la invitación, puede ignorar este email."
-        text_bottom2: "Su cuenta no será creada hasta que ingrese y configure su contraseña."
-# Application translations
-  activerecord:
-    attributes:
-      technique:
-        description: "Description"
-      practice:
-        name: Nombre
-        description: Descripción
-        continuous: Continuo
-        delay: Delay
-        total_time: "Tiempo Total"
-        sound_filename: "Sonido"
-      user:
-        email: Email
-        password: Contraseña
-        password_confirmation: "Confirmación de contraseña"
-        current_password: "Contraseña actual"
-        locale: Idioma
-        remember_me: Recordarme
-      subscription:
-        plan: Plan
-        credit_card: "Tarjeta de crédito"
-        current_password: "Contraseña actual"
-      practice_technique:
-        minutes: Minutos
-        seconds: Segundos
-        compensate: Compensación
-        observations: Observaciones
-        associated_techniques: "Técnicas asociadas"
-        technique: Técnica
-      credit_card:
-        type: Tipo
-        number: Número
-        verification_value: "Codigo de verificación (CVV)"
-        expiration_date: "Fecha de vencimiento"
-      practice_event:
-        practice: Práctica
-        date: Fecha
-  practices:
-    index:
-      new_practice: "Nueva práctica"
-      my_practices: "Mis prácticas"
-      new_invitation: "Invitar a un amigo"
-      create_practice_tip: "Cree una nueva práctica haciendo click en el boton 'Nueva práctica'."
-      deleted_practices: "Prácticas eliminadas"
-    paid_account_notice:
-      one: "Su suscripción solo permite trabajar con %{count} práctica. %{upgrade_link}"
-      other: "Su suscripción solo permite trabajar con %{count} prácticas. %{upgrade_link}"
-    show:
-      loading: "Cargando..."
-      practice_parts:
-        add: "Agregar anga"
-      add_techniques_tip: "Arrastre y ordene los ásanas que desee."
-      add_associated_techniques_tip: "¿Sabía que puede asociar técnicas? Arrastre un mudrá a un ásana."
-      add_angas_tip: "Separe su práctica en partes. Cree nuevos angas haciendo click en la pestaña 'Agregar anga'."
-      sort_angas_tip: "¿Sabía que puede ordenar los angas de la práctica? Arrastre y ordene las pestañas."
-    play_practice_technique:
-      no_description: "No hay descripción"
-      no_observations: "No hay observaciones"
-      no_associated_techniques: "No hay técnicas asociadas"
-    play:
-      play_preferences_dialog:
-        title: "Preferencias de ejecución"
-    edit_practice_dialog:
-      info_tab_title: "Editar datos"
-      play_preferences_tab_title: "Preferencias de ejecución"
-    not_owner_notice: "Las prácticas solo pueden ser editadas por su dueño."
-    practice:
-      owner: "por %{owner}"
-      shared_practice_deleted: "Atención! Esta práctica fue eliminada por su dueño y puede ser eliminada permanentemente en cualquier momento, Ud. puede conservarla duplicandola."
-    destroy:
-      undo_notice: "Su práctica fue eliminada, puede %{undo_link} esta acción o %{destroy_link} su práctica."
-      destroy_completely: 'eliminar por completo'
-      undo: "deshacer"
-      destroy_all_notice: "Todas las prácticas eliminadas fueron eliminadas por completo."
-    update:
-      restore_notice: "Su práctica fue recuperada."
-    create:
-      duplicate_notice: "Puede empezar a editar su práctica duplicada."
-  practice_events:
-    index:
-      new_practice_event: "Nuevo evento"
-      create_practice_tip: "Cree un nuevo evento en el calendario haciendo click en el boton 'Nuevo evento'."
-    paid_account_notice: "Necesita una suscripción paga para acceder al calendario. %{upgrade_link}"
-  shared:
-    credits_dialog:
-      title: Créditos
-      text1: "Querémos agradecer a las siguientes personas, que nos ayudaron y nos ayudan todos los dias a hacer que Sádhana sea cada vez mejor"
-      all_belgrano: "y toda la Sede Belgrano"
-    confirm_dialog:
-      title: "Confirmar eliminación"
-      content: "¿Está seguro?"
-    new_practice_dialog:
-      title: "Nueva práctica"
-    new_event_dialog:
-      title: "Nuevo evento"
-    edit_practice_technique_dialog:
-      title: "Editar técnica de la práctica"
-    edit_event_dialog:
-      title: "Editar evento"
-    new_confirmation_dialog:
-      title: "Reenviar instrucciones de confirmación"
-    new_invitation_dialog:
-      title: "Invitar a un amigo"
-      invite_from: "Seleccionar un contacto de"
-      share_on_facebook: "Estoy usando esta herramienta para armar mis prácticas. Se puede crear una práctica gratis!"
-      share_from: "O compartir en"
-    practice_share_dialog:
-      title: "Compartir práctica"
-    links:
-      sign_in: "Entrar"
-      sign_up: "Registrarse"
-      forgot_password: "¿Olvidó su contraseña?"
-      confirmation_instructions: "¿No recibió el email de confirmación?"
-      unlock_instructions: "Didn't receive unlock instructions?"
-    sign_up_dialog:
-      title: "Registrarse"
-    forgot_password_dialog:
-      title: "¿Olvidó su contraseña?"
-    sign_in_dialog:
-      title: "Entrar"
-    edit_profile_dialog:
-      title: "Editar perfil"
-      current_password_help: "Necesitamos su contraseña actual para confirmar los cambios."
-      password_help: "Dejar en blanco si no desea modificar su contraseña."
-      info_tab_title: "Usuario"
-      subscription_tab_title: "Suscripción"
-    subscription_tab:
-      no_credit_card: "(no hay tarjeta)"
-      card_expiration_date: "Vencimiento: %{date}"
-      transaction_history: "Historia"
-      transaction_failed: "FRACASO"
-      card: "tarjeta"
-      compare_plans: "Comparar planes"
-    new_practice_part_dialog:
-      title: "Agregar un nuevo anga"
-    plans_dialog:
-      title: "¡Elija el plan adecuado para usted!"
-      private_practice:
-        one: "<span class='limited'>%{count}</span> práctica privada"
-        other: "<span class='limited'>%{count}</span> prácticas privadas"
-      unlimited_private_practices: "Prácticas privadas <span class='unlimited'>ilimitadas</span>"
-      unlimited_shared_practices: "Prácticas compartidas <span class='unlimited'>ilimitadas</span> "
-      calendar: "Calendario de prácticas"
-      share: "Comparta sus prácticas"
-      free: "¡Gratis!"
-      unavailable: "No disponible"
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ~
+    precision:
+      format:
+        delimiter: ~
   practice:
-    time_format: "%{minutes} minutos %{seconds} segundos"
     help:
-      name: "El nombre que desea darle a su práctica."
-      description: "Una descripción de su práctica."
-      delay: "Segundos a esperar entre técnicas."
       continuous: "No esperar entre técnicas."
-      total_time: "Tiempo total de la práctica, considerando la espera entre técnicas."
+      delay: "Segundos a esperar entre técnicas."
+      description: "Una descripción de su práctica."
+      name: "El nombre que desea darle a su práctica."
       sound_filename: "Elija un sonido para indicar el cambio de técnicas."
-  practice_part:
-    help:
-      part: "Elija un anga."
-  actions:
-    duplicate: 'Duplicar'
-    undo: 'Deshacer'
-    remove: "Eliminar"
-    cancel: "Cancelar"
-    delete: "Eliminar"
-    play: "Reproducir"
-    show: "Ver"
-    add_to_calendar: "Agregar al calendario"
-    destroy: "Eliminar"
-    edit: "Editar"
-    update: "Actualizar"
-    resend: "Reenviar"
-    sign_in: "Entrar"
-    save: "Guardar"
-    sign_up: "Registrarse"
-    add: "Agregar"
-    create: "Crear"
-    previous: "Anterior"
-    pause: "Pausa"
-    next: "Siguiente"
-    resume: "Continuar"
-    config: "Configurar"
-    preferences: "Preferencias"
-    play_preferences: "Preferencias de ejecución"
-    invite: Invitar
-    upgrade_now: "Mejore su suscripción ahora!"
-    share: "Compartir"
-    destroy_all: "Eliminar todas"
+      total_time: "Tiempo total de la práctica, considerando la espera entre técnicas."
+    time_format: "%{minutes} minutos %{seconds} segundos"
   practice_event:
     help:
       practice: "Elija la práctica."
       start: "Fecha y hora del evento."
+  practice_events:
+    index:
+      create_practice_tip: "Cree un nuevo evento en el calendario haciendo click en el boton 'Nuevo evento'."
+      new_practice_event: "Nuevo evento"
+    paid_account_notice: "Necesita una suscripción paga para acceder al calendario. %{upgrade_link}"
+  practice_part:
+    help:
+      part: "Elija un anga."
+  practice_shares:
+    dialog_form:
+      sadhana_contacts: "Contactos de Sádhana"
+    not_owner_notice: "Solo puede compartir sus propias prácticas."
+    paid_account_notice: "Su suscripción actual no permite compartir prácticas. %{upgrade_link}"
+    share_practice_dialog:
+      select_sadhana_contacts: "O de sus %{sadhana_contacts}."
+      viewers: "Compartido con"
   practice_technique:
     help:
-      minutes: "Minutos de permanencia en la técnica."
-      seconds: "Segundos de permanencia en la técnica."
       compensate: "¿Requiere compensación hacia el otro lado?"
+      minutes: "Minutos de permanencia en la técnica."
       observations: "¿Algúna observación?"
+      seconds: "Segundos de permanencia en la técnica."
       technique: "Elija una técnica."
-  menu:
-    my_practices: "Prácticas"
-    calendar: "Calendario"
-    sign_out: "Salir"
-    sign_up: "Registrarse"
-    sign_in: "Entrar"
-    signed_in_as: "Conectado como %{email}."
-    signup_or_siginin: "%{signup} o %{signin}"
-    credits: "Créditos"
-    profile: "Perfil"
-    contacts: "Contactos"
-  application:
-    account_past_due: "Su cuenta esta por vencer. Tiene %{days} días restantes para realizar el pago."
-    account_due: "Su cuenta vence en %{days} días."
-    pay_now_url: "https://www.paypal.com/es_XC/i/btn/btn_paynowCC_LG.gif"
-    paypal_item_name: "Suscripción mensual a Sádhana"
+  practices:
+    create:
+      duplicate_notice: "Puede empezar a editar su práctica duplicada."
+    destroy:
+      destroy_all_notice: "Todas las prácticas eliminadas fueron eliminadas por completo."
+      destroy_completely: "eliminar por completo"
+      undo: deshacer
+      undo_notice: "Su práctica fue eliminada, puede %{undo_link} esta acción o %{destroy_link} su práctica."
+    edit_practice_dialog:
+      info_tab_title: "Editar datos"
+      play_preferences_tab_title: "Preferencias de ejecución"
+    index:
+      create_practice_tip: "Cree una nueva práctica haciendo click en el boton 'Nueva práctica'."
+      deleted_practices: "Prácticas eliminadas"
+      my_practices: "Mis prácticas"
+      new_invitation: "Invitar a un amigo"
+      new_practice: "Nueva práctica"
+    not_owner_notice: "Las prácticas solo pueden ser editadas por su dueño."
+    paid_account_notice:
+      one: "Su suscripción solo permite trabajar con %{count} práctica. %{upgrade_link}"
+      other: "Su suscripción solo permite trabajar con %{count} prácticas. %{upgrade_link}"
+    play:
+      play_preferences_dialog:
+        title: "Preferencias de ejecución"
+    play_practice_technique:
+      no_associated_techniques: "No hay técnicas asociadas"
+      no_description: "No hay descripción"
+      no_observations: "No hay observaciones"
+    practice:
+      owner: "por %{owner}"
+      shared_practice_deleted: "Atención! Esta práctica fue eliminada por su dueño y puede ser eliminada permanentemente en cualquier momento, Ud. puede conservarla duplicandola."
+    show:
+      add_angas_tip: "Separe su práctica en partes. Cree nuevos angas haciendo click en la pestaña 'Agregar anga'."
+      add_associated_techniques_tip: "¿Sabía que puede asociar técnicas? Arrastre un mudrá a un ásana."
+      add_techniques_tip: "Arrastre y ordene los ásanas que desee."
+      loading: Cargando...
+      practice_parts:
+        add: "Agregar anga"
+      sort_angas_tip: "¿Sabía que puede ordenar los angas de la práctica? Arrastre y ordene las pestañas."
+    update:
+      restore_notice: "Su práctica fue recuperada."
+  share_mailer:
+    share_notification:
+      hello: "Hola %{email}!"
+      invitation: "Si todavia no aceptaste la invitación, haz click en el siguiente link para configurar tu contraseña:"
+      link: "Reproducir práctica compartida"
+      subject: "He compartido una práctica contigo"
+      text_top: "He compartido una práctica contigo usando %{root_url}. Puedes verla haciendo click en el link:"
+  shared:
+    confirm_dialog:
+      content: "¿Está seguro?"
+      title: "Confirmar eliminación"
+    credits_dialog:
+      all_belgrano: "y toda la Sede Belgrano"
+      text1: "Querémos agradecer a las siguientes personas, que nos ayudaron y nos ayudan todos los dias a hacer que Sádhana sea cada vez mejor"
+      title: Créditos
+    edit_event_dialog:
+      title: "Editar evento"
+    edit_practice_technique_dialog:
+      title: "Editar técnica de la práctica"
+    edit_profile_dialog:
+      current_password_help: "Necesitamos su contraseña actual para confirmar los cambios."
+      info_tab_title: Usuario
+      password_help: "Dejar en blanco si no desea modificar su contraseña."
+      subscription_tab_title: Suscripción
+      title: "Editar perfil"
+    forgot_password_dialog:
+      title: "¿Olvidó su contraseña?"
+    links:
+      confirmation_instructions: "¿No recibió el email de confirmación?"
+      forgot_password: "¿Olvidó su contraseña?"
+      sign_in: Entrar
+      sign_up: Registrarse
+      unlock_instructions: "Didn't receive unlock instructions?"
+    new_confirmation_dialog:
+      title: "Reenviar instrucciones de confirmación"
+    new_event_dialog:
+      title: "Nuevo evento"
+    new_invitation_dialog:
+      invite_from: "Seleccionar un contacto de"
+      share_from: "O compartir en"
+      share_on_facebook: "Estoy usando esta herramienta para armar mis prácticas. Se puede crear una práctica gratis!"
+      title: "Invitar a un amigo"
+    new_practice_dialog:
+      title: "Nueva práctica"
+    new_practice_part_dialog:
+      title: "Agregar un nuevo anga"
+    plans_dialog:
+      calendar: "Calendario de prácticas"
+      free: ¡Gratis!
+      private_practice:
+        one: "<span class='limited'>%{count}</span> práctica privada"
+        other: "<span class='limited'>%{count}</span> prácticas privadas"
+      share: "Comparta sus prácticas"
+      title: "¡Elija el plan adecuado para usted!"
+      unavailable: "No disponible"
+      unlimited_private_practices: "Prácticas privadas <span class='unlimited'>ilimitadas</span>"
+      unlimited_shared_practices: "Prácticas compartidas <span class='unlimited'>ilimitadas</span> "
+    practice_share_dialog:
+      title: "Compartir práctica"
+    sign_in_dialog:
+      title: Entrar
+    sign_up_dialog:
+      title: Registrarse
+    subscription_tab:
+      card: tarjeta
+      card_expiration_date: "Vencimiento: %{date}"
+      compare_plans: "Comparar planes"
+      no_credit_card: "(no hay tarjeta)"
+      transaction_failed: FRACASO
+      transaction_history: Historia
   shared_subscription_tab:
-    current_plan_mark: "(actual)"
+    current_plan_mark: (actual)
+  subscription:
+    help:
+      plan: "Elija un nuevo plan."
   subscriptions:
     credit_card:
       add_title: "Agregar una tarjeta"
       update_title: "Actualizar tarjeta"
     transaction_history:
       title: "Historial de transacciones"
-  credit_card:
-    expiration_month: "mes"
-    expiration_year: "año"
-  home:
-    functionalities:
-      manage: "¡Administre sus prácticas!"
-      practice: "¡Practique en su casa!"
-      calendar: "¡Agende sus prácticas!"
-      list_title: "Con Sádhana usted puede..."
-    get_started:
-      title: "¡Comience ahora!"
-      text: "¡Si usted practica Yôga, o enseña profesionalmente, registrese ahora y comience a organizar sus prácticas!"
-      button: "¡Comience ahora!"
-    find_us_on_fb_html: "O encuentrenos en %{facebook}"
-    follow_us_on_twitter_html: "Síganos en %{twitter}"
-  application_helper:
-    jeditable_tooltip: "Haga click para editar..."
-  subscription:
-    help:
-      plan: "Elija un nuevo plan."
+  support:
+    array:
+      last_word_connector: " y "
+      two_words_connector: " y "
+      words_connector: ", "
+    select:
+      prompt: "Por favor seleccione"
+  switch_language: "Cambiar idioma"
+  this_file_language: Español
+  time:
+    am: am
+    formats:
+      default: "%A, %e de %B de %Y %H:%M:%S %z"
+      long: "%e de %B de %Y %H:%M"
+      short: "%e de %b %H:%M"
+    pm: pm
   users:
     invitations:
       invite_another: "%{new_invitation_link}."
       invite_another_link: "Invitar más amigos"
-  contacts:
-    index:
-      new_contact: "Nuevo contacto"
-      new_invitation_dialog:
-        title: "Nuevo contacto"
-      my_contacts: "Mis contactos"
-      create_contact_tip: "Cree un nuevo contacto! Haga click en el boton 'Nuevo contacto'."
-  practice_shares:
-    paid_account_notice: "Su suscripción actual no permite compartir prácticas. %{upgrade_link}"
-    share_practice_dialog:
-      viewers: 'Compartido con'
-      select_sadhana_contacts: "O de sus %{sadhana_contacts}."
-    not_owner_notice: "Solo puede compartir sus propias prácticas."
-    dialog_form:
-      sadhana_contacts: "Contactos de Sádhana"
-  share_mailer:
-    share_notification:
-      hello: "Hola %{email}!"
-      text_top: "He compartido una práctica contigo usando %{root_url}. Puedes verla haciendo click en el link:"
-      link: "Reproducir práctica compartida"
-      invitation: "Si todavia no aceptaste la invitación, haz click en el siguiente link para configurar tu contraseña:"
-      subject: "He compartido una práctica contigo"
-  external_contacts:
-    access_revoked_notice: "El permiso de acceso fue revocado."
-    index:
-      revoke_access: "Ud. puede %{link} el permiso de acceso."
-    revoke: "revocar"
