@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100916182316) do
+ActiveRecord::Schema.define(:version => 20100920174120) do
 
   create_table "admins", :force => true do |t|
     t.string    "email",                               :default => "", :null => false
@@ -158,6 +158,18 @@ ActiveRecord::Schema.define(:version => 20100916182316) do
   add_index "subscriptions", ["subscriber_id"], :name => "index_subscriptions_on_subscriber_id"
   add_index "subscriptions", ["subscriber_type"], :name => "index_subscriptions_on_subscriber_type"
 
+  create_table "technique_categories", :force => true do |t|
+    t.integer "code"
+  end
+
+  create_table "technique_category_translations", :force => true do |t|
+    t.integer  "technique_category_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "technique_translations", :force => true do |t|
     t.integer   "technique_id"
     t.string    "locale"
@@ -185,17 +197,18 @@ ActiveRecord::Schema.define(:version => 20100916182316) do
   end
 
   create_table "techniques", :force => true do |t|
-    t.string    "name"
-    t.text      "description"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "technique_type_id"
-    t.string    "code"
-    t.string    "photo_file_name"
-    t.string    "photo_content_type"
-    t.integer   "photo_file_size"
-    t.timestamp "photo_updated_at"
-    t.integer   "parent_id"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "technique_type_id"
+    t.string   "code"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "parent_id"
+    t.integer  "technique_category_id"
   end
 
   create_table "user_contacts", :id => false, :force => true do |t|

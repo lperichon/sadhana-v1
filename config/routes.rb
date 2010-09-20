@@ -51,6 +51,7 @@ Sadhana::Application.routes.draw do |map|
       end
     end
     resources :technique_types
+    resources :technique_categories
     resources :techniques do
       collection do
         get :csv_import

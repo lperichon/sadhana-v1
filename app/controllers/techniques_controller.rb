@@ -3,7 +3,12 @@ class TechniquesController < UserApplicationController
   # GET /techniques.xml
   def index
     @technique_type = TechniqueType.find_by_symbol(params[:symbol])
-    @techniques = @technique_type.techniques.where("parent_id IS NULL")
+    if params[:category_id].blank?
+      @techniques = @technique_type.techniques.where("parent_id IS NULL")
+    else
+      @technique_category = TechniqueCategory.find(params[:category_id])
+      @techniques = @technique_category.techniques
+    end
     @techniques_token = ENV['TECHNIQUES_TOKEN']
 
     respond_to do |format|

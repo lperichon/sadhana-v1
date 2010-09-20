@@ -441,3 +441,8 @@ div[aria-labelledby = 'ui-dialog-title-edit_practice_dialog'] .ui-dialog-content
   display: inline-block;
   float: right;
 }
+
+#asana_techniques_viewport select {
+    width: 153px;
+    margin-left: 10px;
+}

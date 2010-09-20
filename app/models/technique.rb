@@ -1,5 +1,6 @@
 class Technique < ActiveRecord::Base
   belongs_to :technique_type
+  belongs_to :technique_category
   belongs_to :parent, :class_name => "Technique", :foreign_key => "parent_id"
   has_many :children, :class_name => 'Technique', :foreign_key => 'parent_id'
   has_attached_file :photo,:storage => :s3,
