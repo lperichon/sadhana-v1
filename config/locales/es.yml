@@ -484,6 +484,10 @@ es:
     select:
       prompt: "Por favor seleccione"
   switch_language: "Cambiar idioma"
+  techniques:
+    techniques_list:
+      by_category: "Por categoría"
+      by_family: "Por familia"
   this_file_language: Español
   time:
     am: am
