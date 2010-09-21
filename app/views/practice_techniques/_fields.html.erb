@@ -29,7 +29,7 @@
   <%= f.hidden_field :technique_id %>
   <div id="technique_select_box">
       <% @practice_technique.technique.family_members.each do |technique| %>
-          <%= div_for(technique, :technique_id => technique.id, :class => "technique #{'selected' if technique == @practice_technique.technique}") do %>
+          <%= div_for(technique, :technique_id => technique.id, :class => "technique #{'selected' if technique.id == @practice_technique.technique.id}") do %>
               <h3 class='<%= 'long' if technique.name.size > 27 %>'><%= technique.name %></h3>
               <%= image_tag technique.photo.url(:thumb, false) %>
           <% end %>
