@@ -16,9 +16,9 @@
         dataType: 'html',
         url: '/techniques',
         success: function(data){
-          jQuery.jStore.set(technique_type_symbol, data);
+          jQuery.jStore.set('asana', data);
           cached_techniques = data;
-          $('#' + technique_type_symbol + '_techniques_viewport').html(cached_techniques);
+          $('#asana_techniques_viewport').html(cached_techniques);
           Practices.accordion_draggable($('.ui-tabs-selected a').attr('href'), $('.ui-tabs-selected').attr('primary_technique_type'), $('.ui-tabs-selected').attr('secondary_technique_types'));
           Practices.qs.cache();
         }
