@@ -318,18 +318,26 @@ span#jeditable_description input {
 }
 
 #play_controls {
-  display: inline-block;
+  text-align: center;
 }
 
 #play_controls a {
   vertical-align: middle;
 }
 
+#play_controls li {
+    vertical-align: middle;
+}
+
+#play_controls .ui-icon {
+  background-image: url(http://localhost:3000/stylesheets/ui-lightness/images/ui-icons_888888_256x240.png);
+}
+
 #countdown {
     display: inline-block;
     margin-left: 5px;
     margin-right: 5px;
-    font-size: 2em;
+    font-size: 4em;
     vertical-align: middle;
     line-height: 1.5em;
 }

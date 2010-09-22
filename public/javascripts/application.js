@@ -9,8 +9,10 @@ $.extend($.ui.tabs.prototype, {
 });
 
 $(document).ready(function(){
-    $('.help').live('mouseover', function() { $(this).addClass('ui-state-hover');});
-    $('.help').live('mouseout', function() { $(this).removeClass('ui-state-hover');});
+    $('.ui-state-default').hover(
+		function(){ $(this).addClass('ui-state-hover'); },
+		function(){ $(this).removeClass('ui-state-hover'); }
+	);
 });
 
 var newWin = null;

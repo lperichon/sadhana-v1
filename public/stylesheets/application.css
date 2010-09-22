@@ -109,7 +109,12 @@ ul.element-actions {
 }
 
 ul.actions li{
-  display: inline;
+  display: inline-block;
+}
+
+ul.actions li.icon{
+  margin: 2px;
+  padding: 4px 5px;
 }
 
 ul.actions li form {

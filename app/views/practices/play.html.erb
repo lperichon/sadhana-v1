@@ -1,19 +1,10 @@
 <% @practice.reload %>
-<div id='controls'>
-  <div id="main_controls">
-    <% if @practice.user == current_user %>
-      <%= link_to t('actions.edit'), practice_path(@practice), :class => 'medium blue awesome' %>
-      <%= link_to_function t('actions.preferences'), "$('#play_preferences_dialog').dialog('open');", :class => 'medium blue awesome' %>
-    <% end %>
-  </div>
-  <div id="play_controls">
-    <%= link_to content_tag(:span, t('actions.previous'), :id => 'prev'), "#", :class => "small orange awesome" %>
-    <%= link_to_function t('actions.pause'), "$('#countdown').countdown('pause');", :class => 'small orange awesome' %>
-    <div id="countdown"></div>
-    <%= link_to_function t('actions.play'), "$('#countdown').countdown('resume');", :class => 'small orange awesome' %>
-    <%= link_to content_tag(:span, t('actions.next'), :id => 'next'), "#" , :class => 'small orange awesome' %>
-  </div>
-</div>
+<ul class="actions">
+<% if @practice.user == current_user %>
+  <li><%= link_to t('actions.edit'), practice_path(@practice), :class => 'medium blue awesome' %></li>
+  <li><%= link_to_function t('actions.preferences'), "$('#play_preferences_dialog').dialog('open');", :class => 'medium blue awesome' %></li>
+<% end %>
+</ul>
 <div id='slideshow_practice_techniques' style='width: auto;'>
   <% @practice.practice_parts.each do |practice_part| %>
   <% practice_part.practice_techniques.each do |practice_technique| %>
@@ -28,6 +19,13 @@
 <div id='play_preferences_dialog' title='<%= t('practices.play.play_preferences_dialog.title') %>' style="display:none">
   <%= render :partial => 'practices/play_preferences_dialog_form' %>
 </div>
+<ul class='actions' id="play_controls">
+  <li class='ui-state-default ui-corner-all icon'><%= link_to content_tag(:span, t('actions.previous'), :id => 'prev', :class => "ui-icon ui-icon-seek-prev"), "#" %></li>
+  <li class='ui-state-default ui-corner-all icon'><%= link_to_function content_tag(:span, t('actions.pause'), :class => 'ui-icon ui-icon-pause'), "$('#countdown').countdown('pause');" %></li>
+  <div id="countdown"></div>
+  <li class='ui-state-default ui-corner-all icon'><%= link_to_function content_tag(:span, t('actions.play'), :class => 'ui-icon ui-icon-play'), "$('#countdown').countdown('resume');"%></li>
+  <li class='ui-state-default ui-corner-all icon'><%= link_to content_tag(:span, t('actions.next'), :id => 'next', :class => 'ui-icon ui-icon-seek-next'), "#"%></li>
+</ul>
 
 <%= javascript_tag do %>
   $(document).ready(function(){
