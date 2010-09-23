@@ -7,10 +7,12 @@
 </ul>
 <div id='slideshow_practice_techniques' style='width: auto;'>
   <% @practice.practice_parts.each do |practice_part| %>
-  <% practice_part.practice_techniques.each do |practice_technique| %>
-    <%= render :partial => 'play_practice_technique', :locals => {:practice_technique => practice_technique} %>
+  <% practice_techniques = practice_part.practice_techniques %>
+  <% practice_techniques.each_with_index do |practice_technique, index| %>
+    <% next_technique = practice_technique.compensate? ? practice_technique : practice_techniques[index+1]%>
+    <%= render :partial => 'play_practice_technique', :locals => {:practice_technique => practice_technique, :next_technique => next_technique} %>
     <% if practice_technique.compensate? %>
-      <%= render :partial => 'play_practice_technique', :locals => {:practice_technique => practice_technique, :compensation => true} %>
+      <%= render :partial => 'play_practice_technique', :locals => {:practice_technique => practice_technique, :compensation => true, :next_technique => next_technique} %>
     <% end %>
   <% end %>
   <% end %>
@@ -71,8 +73,6 @@
       seconds = parseInt($(nextSlideElement).attr('seconds')) || 1;
       Practices.resetCountdown(minutes, seconds);
     },
-    nowrap: true,
-    fit: 1,
-    width: '99.9%'
+    width: '100%'
   });
 <% end %>

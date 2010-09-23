@@ -5,6 +5,10 @@ require 'rails/all'
 # fix for active_merchant. Remove when new gem is released
 require 'active_support/all'
 
+ENV['S3_ACCESS_KEY_ID'] = 'AKIAIBC3UWY6XDAQVWAA'
+ENV['S3_SECRET_ACCESS_KEY'] = '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'
+ENV['S3_BUCKET'] = 'sadhana_production'
+
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)

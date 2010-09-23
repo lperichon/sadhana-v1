@@ -1,9 +1,12 @@
 <% compensation ||= false %>
 
 <div id='<%= dom_id practice_technique %>' class='slideshow_practice_technique' minutes=<%= practice_technique.minutes %> seconds=<%= practice_technique.seconds %>>
+  <div class="current_technique">
   <div id='main_panel'>
-    <%= image_tag practice_technique.technique.photo.url(:medium, false) %>
     <h2><%= practice_technique.technique.name %> <%= '(Comp)' if compensation%></h2>
+    <p>
+    <%= image_tag practice_technique.technique.photo.url(:medium, false) %>
+    </p>
   </div>
   <div id='info_panel'>
     <h3><%= Technique.human_attribute_name :description %></h3>
@@ -27,4 +30,14 @@
       <% end %>
     </ul>
   </div>
+  </div>
+  <% unless next_technique.nil? %>
+    <div class="next_technique">
+      <h3>Next technique...</h3>
+      <p>
+      <%= image_tag next_technique.technique.photo.url(:thumb, false) %>
+      </p>
+      <h4><%= next_technique.technique.name %></h4>
+    </div>
+  <% end %>
 </div>

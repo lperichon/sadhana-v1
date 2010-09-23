@@ -344,22 +344,31 @@ span#jeditable_description input {
 
 #slideshow_practice_techniques {
   display: block;
-  width: 98%;
+  margin: 0 auto auto;
 }
 
 .slideshow_practice_technique {
-  display: block;
-  border: 1px solid #CCC;
+
+}
+
+.current_technique {
+  display: inline-block;
+  float: left;
   margin: 0;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   background: #fff;
+  border: 1px solid #CCC;
+}
+
+#main_panel p {
+  line-height: 315px;
 }
 
 #main_panel {
   display: inline-block;
   float: left;
-  width: 29.9%;
+  width: 370px;
   text-align: center;
   border-right: 1px solid #CCC;
   height: 460px;
@@ -367,23 +376,20 @@ span#jeditable_description input {
 
 #main_panel h2 {
     background: none repeat scroll 0 0 white;
-    position: absolute;
-    top: 0;
-    width: 29.9%;
+    width: 370px;
 }
 
 #main_panel img {
-    bottom:0;
-    left: 0;
-    position:absolute;
+    margin-top: -5px;
+    vertical-align: middle;
 }
 
 #info_panel {
   display: inline-block;
   float: left;
-  width: 69%;
   height: 460px;
-  padding: 0 0.5%;
+  width: 360px;
+  padding-left: 10px;
 }
 
 #info_panel .associated_techniques {
@@ -397,6 +403,33 @@ span#jeditable_description input {
   display: inline-block;
   list-style: none;
   text-align: center;
+}
+
+.next_technique {
+  display: inline-block;
+  float: left;
+  margin: 0;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  background: #fff;
+  border: 1px solid #CCC;
+  height: 200px;
+  width: 200px;
+  margin-top: 125px;
+  margin-left: 50px;
+  text-align: center;
+}
+
+.next_technique p {
+  margin: 0;
+  line-height: 70px;
+}
+
+.next_technique h3 {
+}
+
+.next_technique img {
+  vertical-align: middle;
 }
 
 div[aria-labelledby = 'ui-dialog-title-edit_practice_dialog'] .ui-dialog-titlebar {
