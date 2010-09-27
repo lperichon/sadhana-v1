@@ -379,6 +379,7 @@ es:
       play_preferences_dialog:
         title: "Preferencias de ejecución"
     play_practice_technique:
+      next_technique: "Próxima técnica"
       no_associated_techniques: "No hay técnicas asociadas"
       no_description: "No hay descripción"
       no_observations: "No hay observaciones"

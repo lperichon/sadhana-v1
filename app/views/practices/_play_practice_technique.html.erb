@@ -33,7 +33,7 @@
   </div>
   <% unless next_technique.nil? %>
     <div class="next_technique">
-      <h3>Next technique...</h3>
+      <h3><%= t('practices.play_practice_technique.next_technique') %></h3>
       <p>
       <%= image_tag next_technique.technique.photo.url(:thumb, false) %>
       </p>

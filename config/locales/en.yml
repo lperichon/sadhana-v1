@@ -119,6 +119,7 @@ en:
       no_description: "No description"
       no_observations: "No observations"
       no_associated_techniques: "No associated techniques"
+      next_technique: "Next technique..."
     play:
       play_preferences_dialog:
         title: "Play Preferences"
