@@ -1,5 +1,4 @@
 class PracticeTechnique < ActiveRecord::Base
-  belongs_to :practice
   belongs_to :practice_part
   belongs_to :technique
   has_and_belongs_to_many :techniques
