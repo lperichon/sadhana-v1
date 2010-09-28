@@ -58,7 +58,7 @@ es:
         current_password: "Contraseña actual"
         plan: Plan
       technique:
-        description: Description
+        description: Descripción
       user:
         current_password: "Contraseña actual"
         email: Email
