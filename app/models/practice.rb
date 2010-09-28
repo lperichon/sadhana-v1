@@ -1,7 +1,6 @@
 class Practice < ActiveRecord::Base
   belongs_to :user
   has_many :practice_parts, :order => "position", :dependent => :destroy
-  has_many :practice_techniques, :order => "position", :dependent => :destroy
   has_many :practice_events, :dependent => :destroy
 
   has_and_belongs_to_many :viewers, :join_table => 'practices_users', :class_name => 'User'
