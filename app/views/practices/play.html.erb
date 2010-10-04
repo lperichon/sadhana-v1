@@ -5,7 +5,7 @@
   <li><%= link_to_function t('actions.preferences'), "$('#play_preferences_dialog').dialog('open');", :class => 'medium blue awesome' %></li>
 <% end %>
 </ul>
-<div id='slideshow_practice_techniques' style='width: auto;'>
+<div id='slideshow_practice_techniques'>
   <% @practice.practice_parts.each do |practice_part| %>
   <% practice_techniques = practice_part.practice_techniques %>
   <% practice_techniques.each_with_index do |practice_technique, index| %>
@@ -16,6 +16,17 @@
     <% end %>
   <% end %>
   <% end %>
+  <div class='slideshow_practice_technique' minutes='-1' seconds='-1'>
+    <h1><%= t('practices.play.thank_you') %></h1>
+    <ul>
+      <li><%= t('practices.play.add_to_calendar', :add_to_calendar_link => link_to_function(t('practices.play.add_to_calendar_link'), "$.ajax({ type:'get', data: 'practice_event[practice_id]=#{@practice.id}', dataType: 'script', url: '#{new_practice_event_path}'});")).html_safe %></li>
+      <li><%= t('practices.play.play_it_again', :play_again_link => link_to(t('practices.play.play_again_link'), play_practice_path(@practice))).html_safe %></li>
+      <li><%= t('practices.play.go_back', :practices_link => link_to(t('practices.play.practices_link'), practices_path)).html_safe %></li>
+    </ul>
+    <h2><%= t('practices.play.share') %></h2>
+    <a name="fb_share" type="button" share_url="http://sadhana.com.ar" href="http://www.facebook.com/sharer.php"><%= t('actions.share') %></a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sadhana.com.ar" data-text="<%= t('practices.play.share_on_facebook') %>" data-count="none" data-via="sadhana_app" data-related="lperichon">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+  </div>
 </div>
 
 <div id='play_preferences_dialog' title='<%= t('practices.play.play_preferences_dialog.title') %>' style="display:none">
@@ -28,6 +39,8 @@
   <li class='ui-state-default ui-corner-all icon'><%= link_to_function content_tag(:span, t('actions.play'), :class => 'ui-icon ui-icon-play'), "$('#countdown').countdown('resume');"%></li>
   <li class='ui-state-default ui-corner-all icon'><%= link_to content_tag(:span, t('actions.next'), :id => 'next', :class => 'ui-icon ui-icon-seek-next'), "#"%></li>
 </ul>
+
+<%= render :partial => 'shared/new_event_dialog' %>
 
 <%= javascript_tag do %>
   $(document).ready(function(){
@@ -64,15 +77,26 @@
       }
     }
   });
-  $('#slideshow_practice_techniques').cycle({
-    prev:    '#prev',
-    next:    '#next',
-    timeout: 0,
-    after: function(currSlideElement, nextSlideElement, options, forwardFlag) {
-      minutes = parseInt($(nextSlideElement).attr('minutes')) || 0;
-      seconds = parseInt($(nextSlideElement).attr('seconds')) || 1;
-      Practices.resetCountdown(minutes, seconds);
-    },
-    width: '100%'
-  });
+  if($('.slideshow_practice_technique').length > 1) {
+      $('#slideshow_practice_techniques').cycle({
+        prev:    '#prev',
+        next:    '#next',
+        timeout: 0,
+        after: function(currSlideElement, nextSlideElement, options, forwardFlag) {
+          minutes = parseInt($(nextSlideElement).attr('minutes')) || 0;
+          seconds = parseInt($(nextSlideElement).attr('seconds')) || 1;
+          if(minutes == -1 && seconds == -1) {
+            $('#play_controls').hide();
+          } else {
+            Practices.resetCountdown(minutes, seconds);
+          }
+        },
+        width: '100%'
+      });
+  } else if($('.slideshow_practice_technique').length > 0) {
+    slide = $('.slideshow_practice_technique').first()
+    minutes = parseInt(slide.attr('minutes')) || 0;
+    seconds = parseInt(slide.attr('seconds')) || 1;
+    Practices.resetCountdown(minutes, seconds);
+  }
 <% end %>

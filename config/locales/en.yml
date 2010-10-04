@@ -123,6 +123,15 @@ en:
     play:
       play_preferences_dialog:
         title: "Play Preferences"
+      thank_you: "Thank you for using Sádhana!"
+      add_to_calendar: "You can %{add_to_calendar_link}."
+      play_it_again: "Or %{play_again_link}"
+      go_back: "Or go %{practices_link}"
+      add_to_calendar_link: "add an event on your calendar"
+      play_again_link: "play it again"
+      practices_link: "back to your practices"
+      share: "Share with your friends!"
+      share_on_facebook: "I've just practiced using this tool. Check it out!"
     paid_account_notice:
       one: "Your subscription only supports working with %{count} practice. %{upgrade_link}"
       other: "Your subscription only supports working with %{count} practice. %{upgrade_link}"
