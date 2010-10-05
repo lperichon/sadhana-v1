@@ -5,7 +5,7 @@ pt:
     cancel: Cancelar
     config: Configurar
     create: Crear
-    delete: Apagar
+    delete: Eliminar
     destroy: "Eliminar\n"
     destroy_all: "Deletar todas"
     duplicate: Duplicar
@@ -22,7 +22,7 @@ pt:
     restore: Restaurar
     resume: Retomar
     save: Salvar
-    share: Compartir
+    share: Compartilhar
     show: Mostrar
     sign_in: Acesse
     sign_up: Cadastre-se
@@ -56,7 +56,7 @@ pt:
       subscription:
         credit_card: "Cartão de crédito"
         current_password: "Senha atual"
-        plan: Plan
+        plan: "Plano "
       technique:
         description: Descrição
       user:
@@ -181,7 +181,7 @@ pt:
       year: Ano
   devise:
     confirmations:
-      confirmed: "A sua conta foi confirmada com sucesso. Agora está conetado."
+      confirmed: "A sua conta foi confirmada com sucesso. Agora está conectado."
       new:
         submit: Reenviar
         title: "Envie novamente instruções da confirmação"
@@ -236,13 +236,13 @@ pt:
         submit: "Enviar instruções"
         title: "Esqueceu sua senha?"
       send_instructions: "Dentro de minutos, receberá uma mensagem electrónica com as instruções de reinicialização da palavra-passe."
-      updated: "A sua palavra-passe foi alterada com sucesso. Agora está conetado."
+      updated: "A sua palavra-passe foi alterada com sucesso. Agora está conectado."
     registrations:
       destroyed: "Adéus! A sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve."
       new:
         submit: Cadastre-se
         title: Cadastre-se
-      signed_up: "Fez login com sucesso. Se não autorizado, a confirmação foi enviada ao endereço do seu correio electrónico."
+      signed_up: "Tem sido registrado com sucesso. Você receberá um email de confirmação em alguns minutos."
       updated: "A sua conta foi atualizada com sucesso."
     sessions:
       new:
@@ -252,7 +252,7 @@ pt:
       signed_out: "Fez logout com sucesso."
     unlocks:
       send_instructions: "Dentro de minutos, receberá a mensagem electrónica com as instruções como desbloquear a sua conta."
-      unlocked: "A sua conta foi desbloqueada com sucesso. Agora está conetado."
+      unlocked: "A sua conta foi desbloqueada com sucesso. Agora está conectado."
   errors:
     messages:
       already_confirmed: "já foi confirmado"
@@ -282,9 +282,9 @@ pt:
     my_practices: Práticas
     profile: Perfil
     sign_in: Entrar
-    sign_out: sair
+    sign_out: Sair
     sign_up: Cadastre-se
-    signed_in_as: "Conetado como %{email}."
+    signed_in_as: "Conectado como %{email}."
     signup_or_siginin: "%{signup} ou %{signin}"
   number:
     currency:
@@ -335,7 +335,7 @@ pt:
     index:
       create_practice_tip: "Crie um novo evento no calendário fazendo click no botão 'Novo Evento'"
       new_practice_event: "Novo evento"
-    paid_account_notice: "Você precisa de uma assinatura paga para acessar a funcionalidade de calendário. %{upgrade_link}"
+    paid_account_notice: "Você precisa de um plano pago para acessar a funcionalidade de calendário. %{upgrade_link}"
   practice_part:
     help:
       part: "Escolha um anga."
@@ -343,7 +343,7 @@ pt:
     dialog_form:
       sadhana_contacts: "Contatos de Sádhana."
     not_owner_notice: "Solo pode compartilhar suas próprias práticas."
-    paid_account_notice: "Sua assinatura atual não permite compartilhar práticas. %{upgrade_link}"
+    paid_account_notice: "Seu plano atual não permite compartilhar práticas. %{upgrade_link}"
     share_practice_dialog:
       select_sadhana_contacts: "Ou de seus %{sadhana_contacts}."
       viewers: "Compartilhado com"
@@ -373,8 +373,8 @@ pt:
       new_practice: "Nova prática"
     not_owner_notice: "As práticas só podem ser editadas por seu dono."
     paid_account_notice:
-      one: "Sua inscrição só suporta trabalhar com %(count) prática. %{upgrade_link}"
-      other: "Sua inscrição só suporta trabalhar com %(count) práticas. %{upgrade_link}"
+      one: "Seu plano só suporta trabalhar com %(count) prática. %{upgrade_link}"
+      other: "Seu plano só suporta trabalhar com %(count) práticas. %{upgrade_link}"
     play:
       add_to_calendar: "Você pode %{add_to_calendar_link}."
       add_to_calendar_link: "adicionar um evento no seu calendário"
@@ -415,7 +415,7 @@ pt:
   shared:
     confirm_dialog:
       content: "Tem certeza?"
-      title: "Confirme apagar"
+      title: "Confirme eliminação"
     credits_dialog:
       all_belgrano: "e toda a escola de Belgrano"
       text1: "Queremos agradecer as seguintes pessoas, que nos ajudaram a construir Sádhana e trabalham para torná-lo cada dia melhor"
@@ -428,7 +428,7 @@ pt:
       current_password_help: "precisamos de sua senha atual para confirmar as alterações."
       info_tab_title: "Informação do usuário"
       password_help: "deixar em branco se você não quer mudá-lo."
-      subscription_tab_title: Subscrição
+      subscription_tab_title: Plano
       title: "Editar perfil"
     forgot_password_dialog:
       title: "Esqueceu sua senha?"
@@ -509,4 +509,4 @@ pt:
   users:
     invitations:
       invite_another: "%{new_invitation_link}."
-      invite_another_link: "Convidar mais amigos"
+      invite_another_link: "Convidar a mais amigos"
