@@ -17,10 +17,10 @@
     <%= javascript_include_tag 'jquery-1.4.2.min' %>
     <%= javascript_include_tag 'jquery.rails' %>
     <%= javascript_include_tag 'jquery-ui-1.8rc3.custom.min' %>
-    <% if false %>
-      <%= javascript_include_tag 'jquery.ui.datepicker-es' %>
+    <% if user_signed_in? %>
+      <%= javascript_include_tag "jquery.ui.datepicker-#{current_user.locale}" %>
       <%= javascript_tag do %>
-        $.datepicker.regional['es']
+        $.datepicker.regional['<%= current_user.locale %>']
       <% end %>
     <% end %>
     <%= javascript_include_tag 'ui.selectmenu' %>
