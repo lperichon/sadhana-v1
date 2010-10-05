@@ -300,7 +300,7 @@ es:
       separator: ","
     human:
       format:
-        delimiter: ~
+        delimiter: "."
         precision: "1"
       storage_units:
         format: "%n %u"
@@ -314,10 +314,10 @@ es:
           tb: TB
     percentage:
       format:
-        delimiter: ~
+        delimiter: "."
     precision:
       format:
-        delimiter: ~
+        delimiter: "."
   practice:
     help:
       continuous: "No esperar entre técnicas."
@@ -376,8 +376,17 @@ es:
       one: "Su suscripción solo permite trabajar con %{count} práctica. %{upgrade_link}"
       other: "Su suscripción solo permite trabajar con %{count} prácticas. %{upgrade_link}"
     play:
+      add_to_calendar: "Podés %{add_to_calendar_link}."
+      add_to_calendar_link: "agregar un evento a tu calendario"
+      go_back: "O %{practices_link}"
+      play_again_link: "reproducir otra vez"
+      play_it_again: "O %{play_again_link}"
       play_preferences_dialog:
         title: "Preferencias de ejecución"
+      practices_link: "volvé a tus prácticas"
+      share: "Compartí con tus amigos!"
+      share_on_facebook: "Recién practiqué usando esta herramienta. Probala!!"
+      thank_you: "Gracias por practicar con Sádhana!"
     play_practice_technique:
       next_technique: "Próxima técnica"
       no_associated_techniques: "No hay técnicas asociadas"

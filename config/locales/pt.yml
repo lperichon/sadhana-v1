@@ -376,8 +376,17 @@ pt:
       one: "Sua inscrição só suporta trabalhar com %(count) prática. %{upgrade_link}"
       other: "Sua inscrição só suporta trabalhar com %(count) práticas. %{upgrade_link}"
     play:
+      add_to_calendar: "Você pode %{add_to_calendar_link}."
+      add_to_calendar_link: "adicionar um evento no seu calendário"
+      go_back: "Ou voltar para as %{practices_link}"
+      play_again_link: "reproduzi-lo novamente"
+      play_it_again: "Ou %{play_again_link}"
       play_preferences_dialog:
         title: "Preferências de execução"
+      practices_link: "suas práticas"
+      share: "Compartilhe com seus amigos!"
+      share_on_facebook: "Eu pratiquei utilizando esta ferramenta. Confira!"
+      thank_you: "Obrigado por usar o Sádhana!"
     play_practice_technique:
       next_technique: "Próxima técnica"
       no_associated_techniques: "Não há técnicas associadas"
