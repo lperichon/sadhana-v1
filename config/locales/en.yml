@@ -348,3 +348,10 @@ en:
     techniques_list:
       by_family: "By family"
       by_category: "By category"
+  saas:
+    subscription_expired:
+      subject: "Your subscription has expired"
+  subscription_mailer:
+    subscription_expired:
+      hello: "Hello %{email}!"
+      body: "Your subscription to %{root_url} has expired. Log in to reenable your account."

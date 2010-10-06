@@ -1,5 +1,2 @@
-<%#= render :partial => "/shared/email_header", :locals => {:user => @user} %>
-
-Your subscription has expired. 
-
-<%#= render :partial => "/shared/email_footer" %>
+<%= t('subscription_mailer.subscription_expired.hello', :email => @user.email) %>
+<%= t('subscription_mailer.subscription_expired.body', :root_url => root_url) %>

@@ -221,13 +221,13 @@ es:
         text_bottom1: "Si no deseás aceptar la invitación, podés ignorar este email."
         text_bottom2: "Tu cuenta no será creada hasta que ingreses y configures tu contraseña."
         text_top: "Fuiste invitado a %{root_url}, podés aceptar tu invitación ingresando al siguiente link:"
-        welcome: "Hola %{email}!"
+        welcome: "¡Hola %{email}!"
       reset_password_instructions:
         link: "Cambiar mi contraseña"
         text_bottom1: "Si no realizaste este pedido por favor ignorá este email."
         text_bottom2: "Tu contraseña no será modificada hasta que ingreses y la modifiques."
         text_top: "Alguien ha requerido un cambio de contraseña en tu cuenta, podés hacerlo ingresando al siguiente link:"
-        welcome: "Hola %{email}!"
+        welcome: "¡Hola %{email}!"
     passwords:
       edit:
         submit: "Cambiar mi contraseña"
@@ -405,9 +405,12 @@ es:
       sort_angas_tip: "¿Sabías que podés ordenar los angas de la práctica? Arrastrá y ordená las pestañas."
     update:
       restore_notice: "Tu práctica fué recuperada."
+  saas:
+    subscription_expired:
+      subject: "Tu suscripción expiró."
   share_mailer:
     share_notification:
-      hello: "Hola %{email}!"
+      hello: "¡Hola %{email}!"
       invitation: "Si todavia no aceptaste la invitación, hacé click en el siguiente link para configurar tu contraseña:"
       link: "Reproducir práctica compartida"
       subject: "Te compartí una práctica"
@@ -480,6 +483,10 @@ es:
   subscription:
     help:
       plan: "Elegí un nuevo plan."
+  subscription_mailer:
+    subscription_expired:
+      body: "Tu suscripción a %{root_url} expiró. Entrá nuevamente para reactivarla."
+      hello: "¡Hola %{email}!"
   subscriptions:
     credit_card:
       add_title: "Agregar una tarjeta"

@@ -405,6 +405,9 @@ pt:
       sort_angas_tip: "Sabia que você pode reordenar os angas em sua prática? Arraste os separadores  e classificá-los."
     update:
       restore_notice: "Sua prática foi restaurada."
+  saas:
+    subscription_expired:
+      subject: "Seu plano expirou"
   share_mailer:
     share_notification:
       hello: "Oi %{email}!"
@@ -480,6 +483,10 @@ pt:
   subscription:
     help:
       plan: "Escolha um novo plano."
+  subscription_mailer:
+    subscription_expired:
+      body: "Seu plano de %{root_url} expirou. Você precisa se logar para reativar sua conta."
+      hello: "Oi %{email}!"
   subscriptions:
     credit_card:
       add_title: "Adicionar um cartão"
