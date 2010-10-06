@@ -28,7 +28,7 @@ es:
     sign_up: Registrarse
     undo: Deshacer
     update: Actualizar
-    upgrade_now: "Mejore su suscripción ahora!"
+    upgrade_now: "Mejorá tu suscripción ahora!"
   activerecord:
     attributes:
       credit_card:
@@ -67,15 +67,15 @@ es:
         password_confirmation: "Confirmación de contraseña"
         remember_me: Recordarme
   application:
-    account_due: "Su cuenta vence en %{days} días."
-    account_past_due: "Su cuenta esta por vencer. Tiene %{days} días restantes para realizar el pago."
+    account_due: "Tu cuenta vence en %{days} días."
+    account_past_due: "Tu cuenta esta por vencer. Tenés %{days} días para realizar el pago."
     pay_now_url: "https://www.paypal.com/es_XC/i/btn/btn_paynowCC_LG.gif"
     paypal_item_name: "Suscripción mensual a Sádhana"
   application_helper:
-    jeditable_tooltip: "Haga click para editar..."
+    jeditable_tooltip: "Hacé click para editar..."
   contacts:
     index:
-      create_contact_tip: "Cree un nuevo contacto! Haga click en el boton 'Nuevo contacto'."
+      create_contact_tip: "Creá un nuevo contacto! Hacé click en el boton 'Nuevo contacto'."
       my_contacts: "Mis contactos"
       new_contact: "Nuevo contacto"
       new_invitation_dialog:
@@ -181,27 +181,27 @@ es:
       year: Año
   devise:
     confirmations:
-      confirmed: "Su cuenta ha sido confirmada exitosamente."
+      confirmed: "Tu cuenta fué confirmada exitosamente."
       new:
         submit: Reenviar
         title: "Reenviar instrucciones de confirmación"
-      send_instructions: "Recibirá un email con instrucciones para confirmar su cuenta en pocos minutos."
+      send_instructions: "Vas a recibir un email con instrucciones para confirmar tu cuenta en pocos minutos."
     failure:
       inactive: "Tu cuenta no ha sido activada."
       invalid: "Contraseña o Email incorrecto."
       invalid_token: "Token de autenticación incorrecto."
       locked: "Tu cuenta esta bloqueada."
       timeout: "Tu sesión ha expirado, por favor accede de nuevo para continuar."
-      unauthenticated: "Necesitas acceder a tu cuenta o registrarte antes de continuar."
-      unconfirmed: "Necesitas confirmar tu cuenta antes de continuar."
+      unauthenticated: "Necesitás acceder a tu cuenta o registrarte antes de continuar."
+      unconfirmed: "Necesitás confirmar tu cuenta antes de continuar."
     invitations:
       edit:
-        setup_password: "Complete la invitación configurando su contraseña."
+        setup_password: "Completá la invitación configurando tu contraseña."
         submit: "Configurar contraseña"
         title: "Configurar contraseña"
-      send_instructions: "Se envió un email con la invitación y se agregó el usuario a sus contactos."
-      updated: "Su contraseña fue configurada exitosamente."
-      user_exists: "Se agregó el usuario a sus contactos."
+      send_instructions: "Se envió un email con la invitación y se agregó el usuario a tus contactos."
+      updated: "Tu contraseña fué configurada exitosamente."
+      user_exists: "Se agregó el usuario a tus contactos."
     mailer:
       confirmation_instructions:
         subject: "Instrucciones de confirmación"
@@ -214,19 +214,19 @@ es:
     mailer_views:
       confirmation_instructions:
         link: "Confirmar mi cuenta"
-        text: "Puede confirmar su cuenta ingresando en el siguiente link:"
+        text: "Podés confirmar tu cuenta ingresando en el siguiente link:"
         welcome: "¡Bienvenido %{email}!"
       invitation:
         link: "Aceptar invitación"
-        text_bottom1: "Si no desea aceptar la invitación, puede ignorar este email."
-        text_bottom2: "Su cuenta no será creada hasta que ingrese y configure su contraseña."
-        text_top: "Ha sido invitado a %{root_url}, puedes aceptar tu invitación ingresando al siguiente link:"
+        text_bottom1: "Si no deseás aceptar la invitación, podés ignorar este email."
+        text_bottom2: "Tu cuenta no será creada hasta que ingreses y configures tu contraseña."
+        text_top: "Fuiste invitado a %{root_url}, podés aceptar tu invitación ingresando al siguiente link:"
         welcome: "Hola %{email}!"
       reset_password_instructions:
         link: "Cambiar mi contraseña"
-        text_bottom1: "Si usted no realizo este pedido por favor ignore este email."
-        text_bottom2: "Su contraseña no será modificado hasta que ingrese y lo modifique."
-        text_top: "Alguien ha requerido un cambio de contraseña en su cuenta, puede hacerlo ingresando al siguiente link:"
+        text_bottom1: "Si no realizaste este pedido por favor ignorá este email."
+        text_bottom2: "Tu contraseña no será modificada hasta que ingreses y la modifiques."
+        text_top: "Alguien ha requerido un cambio de contraseña en tu cuenta, podés hacerlo ingresando al siguiente link:"
         welcome: "Hola %{email}!"
     passwords:
       edit:
@@ -234,47 +234,47 @@ es:
         title: "Cambiar mi contraseña"
       new:
         submit: "Enviarme instrucciones"
-        title: "¿Olvidó su contraseña?"
-      send_instructions: "Recibirá un email con instrucciones para cambiar su contraseña en pocos minutos."
-      updated: "Su contraseña ha sido modificada exitosamente."
+        title: "¿Olvidaste tu contraseña?"
+      send_instructions: "Vas a recibir un email con instrucciones para cambiar tu contraseña en pocos minutos."
+      updated: "Tu contraseña fué modificada exitosamente."
     registrations:
-      destroyed: "Su cuenta ha sido cancelada."
+      destroyed: "Tu cuenta fué cancelada."
       new:
         submit: Registrarse
         title: Registrarse
-      signed_up: "Se ha registrado exitosamente. Recibirá un email de confirmación en pocos minutos."
-      updated: "Ha actualizado su cuenta exitosamente."
+      signed_up: "Te registraste exitosamente. Vas a recibir un email de confirmación en pocos minutos."
+      updated: "Actualizaste tu cuenta exitosamente."
     sessions:
       new:
         submit: Entrar
         title: Entrar
-      signed_in: "Ha ingresado exitosamente."
-      signed_out: "Ha salido exitosamente."
+      signed_in: "Ingresaste exitosamente."
+      signed_out: "Saliste exitosamente."
     unlocks:
-      send_instructions: "Recibirá un email con instrucciones para desbloquear su cuenta en pocos minutos."
-      unlocked: "Su cuenta ha sido desbloqueada exitosamente."
+      send_instructions: "Vas a recibir un email con instrucciones para desbloquear tu cuenta en pocos minutos."
+      unlocked: "Tu cuenta fué desbloqueada exitosamente."
   errors:
     messages:
-      already_confirmed: "ya ha sido confirmada"
+      already_confirmed: "ya fué confirmada"
       not_found: "no encontrado"
       not_locked: "no esta bloqueada"
   external_contacts:
-    access_revoked_notice: "El permiso de acceso fue revocado."
+    access_revoked_notice: "El permiso de acceso fué revocado."
     index:
-      revoke_access: "Ud. puede %{link} el permiso de acceso."
+      revoke_access: "Podés %{link} el permiso de acceso."
     revoke: revocar
   home:
-    find_us_on_fb_html: "O encuentrenos en %{facebook}"
-    follow_us_on_twitter_html: "Síganos en %{twitter}"
+    find_us_on_fb_html: "O encontranos en %{facebook}"
+    follow_us_on_twitter_html: "Seguinos en %{twitter}"
     functionalities:
-      calendar: "¡Agende sus prácticas!"
-      list_title: "Con Sádhana usted puede..."
-      manage: "¡Administre sus prácticas!"
-      practice: "¡Practique en su casa!"
+      calendar: "¡Agendá tus prácticas!"
+      list_title: "Con Sádhana podés..."
+      manage: "¡Administrá tus prácticas!"
+      practice: "¡Practicá en tu casa!"
     get_started:
-      button: "¡Comience ahora!"
-      text: "¡Si usted practica Yôga, o enseña profesionalmente, registrese ahora y comience a organizar sus prácticas!"
-      title: "¡Comience ahora!"
+      button: "¡Comenzá ahora!"
+      text: "¡Si practicás Método DeRose, o lo enseñás profesionalmente, registrate ahora y comenzá a organizar tus prácticas!"
+      title: "¡Comenzá ahora!"
   menu:
     calendar: Calendario
     contacts: Contactos
@@ -322,30 +322,30 @@ es:
     help:
       continuous: "No esperar entre técnicas."
       delay: "Segundos a esperar entre técnicas."
-      description: "Una descripción de su práctica."
-      name: "El nombre que desea darle a su práctica."
-      sound_filename: "Elija un sonido para indicar el cambio de técnicas."
+      description: "Una descripción de tu práctica."
+      name: "El nombre que deseás darle a tu práctica."
+      sound_filename: "Elegí un sonido para indicar el cambio de técnicas."
       total_time: "Tiempo total de la práctica, considerando la espera entre técnicas."
     time_format: "%{minutes} minutos %{seconds} segundos"
   practice_event:
     help:
-      practice: "Elija la práctica."
+      practice: "Elegí la práctica."
       start: "Fecha y hora del evento."
   practice_events:
     index:
-      create_practice_tip: "Cree un nuevo evento en el calendario haciendo click en el boton 'Nuevo evento'."
+      create_practice_tip: "Creá un nuevo evento en el calendario haciendo click en el boton 'Nuevo evento'."
       new_practice_event: "Nuevo evento"
-    paid_account_notice: "Necesita una suscripción paga para acceder al calendario. %{upgrade_link}"
+    paid_account_notice: "Necesitás una suscripción paga para acceder al calendario. %{upgrade_link}"
   practice_part:
     help:
-      part: "Elija un anga."
+      part: "Elegí un anga."
   practice_shares:
     dialog_form:
       sadhana_contacts: "Contactos de Sádhana"
-    not_owner_notice: "Solo puede compartir sus propias prácticas."
-    paid_account_notice: "Su suscripción actual no permite compartir prácticas. %{upgrade_link}"
+    not_owner_notice: "Solo podés compartir tus propias prácticas."
+    paid_account_notice: "Tu suscripción actual no permite compartir prácticas. %{upgrade_link}"
     share_practice_dialog:
-      select_sadhana_contacts: "O de sus %{sadhana_contacts}."
+      select_sadhana_contacts: "O de tus %{sadhana_contacts}."
       viewers: "Compartido con"
   practice_technique:
     help:
@@ -353,28 +353,28 @@ es:
       minutes: "Minutos de permanencia en la técnica."
       observations: "¿Algúna observación?"
       seconds: "Segundos de permanencia en la técnica."
-      technique: "Elija una técnica."
+      technique: "Elegí una técnica."
   practices:
     create:
-      duplicate_notice: "Puede empezar a editar su práctica duplicada."
+      duplicate_notice: "Podés empezar a editar tu práctica duplicada."
     destroy:
       destroy_all_notice: "Todas las prácticas eliminadas fueron eliminadas por completo."
       destroy_completely: "eliminar por completo"
       undo: deshacer
-      undo_notice: "Su práctica fue eliminada, puede %{undo_link} esta acción o %{destroy_link} su práctica."
+      undo_notice: "Tu práctica fué eliminada, podés %{undo_link} esta acción o %{destroy_link} tu práctica."
     edit_practice_dialog:
       info_tab_title: "Editar datos"
       play_preferences_tab_title: "Preferencias de ejecución"
     index:
-      create_practice_tip: "Cree una nueva práctica haciendo click en el boton 'Nueva práctica'."
+      create_practice_tip: "Creá una nueva práctica haciendo click en el boton 'Nueva práctica'."
       deleted_practices: "Prácticas eliminadas"
       my_practices: "Mis prácticas"
       new_invitation: "Invitar a un amigo"
       new_practice: "Nueva práctica"
     not_owner_notice: "Las prácticas solo pueden ser editadas por su dueño."
     paid_account_notice:
-      one: "Su suscripción solo permite trabajar con %{count} práctica. %{upgrade_link}"
-      other: "Su suscripción solo permite trabajar con %{count} prácticas. %{upgrade_link}"
+      one: "Tu suscripción solo permite trabajar con %{count} práctica. %{upgrade_link}"
+      other: "Tu suscripción solo permite trabajar con %{count} prácticas. %{upgrade_link}"
     play:
       add_to_calendar: "Podés %{add_to_calendar_link}."
       add_to_calendar_link: "agregar un evento a tu calendario"
@@ -394,27 +394,27 @@ es:
       no_observations: "No hay observaciones"
     practice:
       owner: "por %{owner}"
-      shared_practice_deleted: "Atención! Esta práctica fue eliminada por su dueño y puede ser eliminada permanentemente en cualquier momento, Ud. puede conservarla duplicandola."
+      shared_practice_deleted: "Atención! Esta práctica fué eliminada por su dueño y puede ser eliminada permanentemente en cualquier momento, podés conservarla duplicandola."
     show:
-      add_angas_tip: "Separe su práctica en partes. Cree nuevos angas haciendo click en la pestaña 'Agregar anga'."
-      add_associated_techniques_tip: "¿Sabía que puede asociar técnicas? Arrastre un mudrá a un ásana."
-      add_techniques_tip: "Arrastre y ordene los ásanas que desee."
+      add_angas_tip: "Separá tu práctica en partes. Creá nuevos angas haciendo click en la pestaña 'Agregar anga'."
+      add_associated_techniques_tip: "¿Sabías que podés asociar técnicas? Arrastrá un mudrá a un ásana."
+      add_techniques_tip: "Arrastrá y ordená los ásanas que desees."
       loading: Cargando...
       practice_parts:
         add: "Agregar anga"
-      sort_angas_tip: "¿Sabía que puede ordenar los angas de la práctica? Arrastre y ordene las pestañas."
+      sort_angas_tip: "¿Sabías que podés ordenar los angas de la práctica? Arrastrá y ordená las pestañas."
     update:
-      restore_notice: "Su práctica fue recuperada."
+      restore_notice: "Tu práctica fué recuperada."
   share_mailer:
     share_notification:
       hello: "Hola %{email}!"
-      invitation: "Si todavia no aceptaste la invitación, haz click en el siguiente link para configurar tu contraseña:"
+      invitation: "Si todavia no aceptaste la invitación, hacé click en el siguiente link para configurar tu contraseña:"
       link: "Reproducir práctica compartida"
-      subject: "He compartido una práctica contigo"
-      text_top: "He compartido una práctica contigo usando %{root_url}. Puedes verla haciendo click en el link:"
+      subject: "Te compartí una práctica"
+      text_top: "Te compartí una práctica usando %{root_url}. Podés verla haciendo click en el link:"
   shared:
     confirm_dialog:
-      content: "¿Está seguro?"
+      content: "¿Estás seguro?"
       title: "Confirmar eliminación"
     credits_dialog:
       all_belgrano: "y toda la Sede Belgrano"
@@ -425,19 +425,19 @@ es:
     edit_practice_technique_dialog:
       title: "Editar técnica de la práctica"
     edit_profile_dialog:
-      current_password_help: "Necesitamos su contraseña actual para confirmar los cambios."
+      current_password_help: "Necesitamos tu contraseña actual para confirmar los cambios."
       info_tab_title: Usuario
-      password_help: "Dejar en blanco si no desea modificar su contraseña."
+      password_help: "Dejar en blanco si no querés modificar tu contraseña."
       subscription_tab_title: Suscripción
       title: "Editar perfil"
     forgot_password_dialog:
-      title: "¿Olvidó su contraseña?"
+      title: "¿Olvidaste tu contraseña?"
     links:
-      confirmation_instructions: "¿No recibió el email de confirmación?"
-      forgot_password: "¿Olvidó su contraseña?"
+      confirmation_instructions: "¿No recibiste el email de confirmación?"
+      forgot_password: "¿Olvidaste tu contraseña?"
       sign_in: Entrar
       sign_up: Registrarse
-      unlock_instructions: "Didn't receive unlock instructions?"
+      unlock_instructions: "¿No recibiste instrucciones de desbloqueo?"
     new_confirmation_dialog:
       title: "Reenviar instrucciones de confirmación"
     new_event_dialog:
@@ -457,8 +457,8 @@ es:
       private_practice:
         one: "<span class='limited'>%{count}</span> práctica privada"
         other: "<span class='limited'>%{count}</span> prácticas privadas"
-      share: "Comparta sus prácticas"
-      title: "¡Elija el plan adecuado para usted!"
+      share: "Compartí tus prácticas"
+      title: "¡Elegí el plan adecuado para vos!"
       unavailable: "No disponible"
       unlimited_private_practices: "Prácticas privadas <span class='unlimited'>ilimitadas</span>"
       unlimited_shared_practices: "Prácticas compartidas <span class='unlimited'>ilimitadas</span> "
@@ -479,7 +479,7 @@ es:
     current_plan_mark: (actual)
   subscription:
     help:
-      plan: "Elija un nuevo plan."
+      plan: "Elegí un nuevo plan."
   subscriptions:
     credit_card:
       add_title: "Agregar una tarjeta"
@@ -492,7 +492,7 @@ es:
       two_words_connector: " y "
       words_connector: ", "
     select:
-      prompt: "Por favor seleccione"
+      prompt: "Por favor seleccioná"
   switch_language: "Cambiar idioma"
   techniques:
     techniques_list:

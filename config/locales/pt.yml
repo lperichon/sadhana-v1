@@ -455,13 +455,13 @@ pt:
       calendar: "Calendário de práticas"
       free: Grátis!
       private_practice:
-        one: "<span class='limited'>%{count}</span> prática particular\n"
-        other: "<span class='limited'>%{count}</span> práticas particulares"
+        one: "<span class='limited'>%{count}</span> prática privada"
+        other: "<span class='limited'>%{count}</span> práticas privadas"
       share: "Compartilhe suas práticas"
       title: "Escolha o plano adequado para você!"
       unavailable: "Não disponível"
       unlimited_private_practices: "Práticas privadas <span class='unlimited'>ilimitadas</span>"
-      unlimited_shared_practices: "<span class='unlimited'>Unlimited</span> práticas compartilhadas"
+      unlimited_shared_practices: "Práticas compartilhadas <span class='unlimited'>ilimitadas</span>"
     practice_share_dialog:
       title: "Compartilhar prática"
     sign_in_dialog:
