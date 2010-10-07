@@ -60,4 +60,18 @@ page << %(
     });
 )
 page << "$('#tips').html('#{ escape_javascript render :partial => 'practices/practice_tips'}');"
-page << "Practices.adjustEditorSize();"
+
+
+if(@practice.practice_parts.count == 1)
+  page << %(
+          $.ajax({
+            type:'get',
+            data: {'symbol': '#{@practice_part.part.symbol}'},
+            dataType: 'script',
+            url: '/parts/1'
+          });)
+  page << "Practices.accordion_draggable('##{@practice_part.part.symbol}' , '#{@practice_part.part.primary_technique_type}', '#{@practice_part.part.secondary_technique_types}');"
+  page << "$('##{@practice_part.part.symbol}').sortable('refresh');"
+else
+  page << "Practices.adjustEditorSize();"
+end

@@ -1,3 +1,7 @@
 page << "$('#practice_time').html('#{practice_time(@practice)}')"
 page << "$('#tips').html('#{ escape_javascript render :partial => 'practices/practice_tips'}');"
 page << "Practices.adjustEditorSize();"
+if @practice.practice_parts.empty?
+    page << "$('#techniques_accordion').html('');"
+    page << "$('.part-techniques').remove();"
+end

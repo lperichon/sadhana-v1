@@ -40,7 +40,9 @@
       </form>
     </div>
     <div id="accordion_container">
-      <%= render :partial => 'techniques_accordion', :locals => {:part => @practice.practice_parts.first.part} %>
+      <% unless @practice.practice_parts.empty? %>
+        <%= render :partial => 'techniques_accordion', :locals => {:part => @practice.practice_parts.first.part} %>
+      <% end %>
     </div>
   </div>
   <div id="practice_parts">
@@ -140,7 +142,7 @@
 
     jQuery.jStore.ready(function(engine){
     engine.ready(function() {
-    technique_type_symbol = '<%=  @practice.practice_parts.first.part.symbol %>'
+    technique_type_symbol = '<%=  @practice.practice_parts.first.part.symbol unless @practice.practice_parts.empty? %>'
     actual_techniques_token = '<%= ENV['TECHNIQUES_TOKEN'] %>';
     Practices.load_accordion_techniques(technique_type_symbol, actual_techniques_token);
     })});

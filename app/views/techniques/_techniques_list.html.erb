@@ -1,3 +1,4 @@
+<% if technique_type %>
 <% if technique_type.symbol == 'asana' %>
   <%
    grouped_options = [
@@ -5,7 +6,6 @@
       [t('techniques.techniques_list.by_category'), TechniqueCategory.all.collect {|t| [t.name, t.id]}]
     ]
    selected = @technique_category.present? ? @technique_category.id : nil
-   Rails.logger.debug selected
   %>
   <%= select_tag "asana_search", grouped_options_for_select(grouped_options, selected) %>
   <%= javascript_tag do %>
@@ -37,4 +37,5 @@
     autoOpen: false,
     modal: true
   });
+<% end %>
 <% end %>
