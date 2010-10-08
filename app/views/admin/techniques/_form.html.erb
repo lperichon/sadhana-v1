@@ -7,7 +7,7 @@
   </div>
   <div class="field">
     <%= f.label :parent %><br />
-    <%= f.collection_select :parent_id, Technique.where('parent_id is NULL').all, :id, :name %>
+    <%= f.collection_select :parent_id, Technique.where('parent_id is NULL').all, :id, :name, :include_blank => true %>
   </div>
   <div class="field" id="name_field">
     <%= f.fields_for :translations do |ft| %>
