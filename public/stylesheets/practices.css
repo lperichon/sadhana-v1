@@ -132,16 +132,35 @@
 
 #practice_parts {
   width: 100%;
-  margin-top:1px;
   margin-left: 5px;
   float: left;
   position: relative;
   vertical-align: top;
-  border: 1px solid #ccc;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
   overflow: auto;
+  background: none;
+}
+
+#practice_parts.ui-tabs {
+  padding: 0;
+}
+
+#practice_parts.ui-widget-content {
+  border: none;
+}
+
+#practice_parts .ui-state-active {
+  border: #ccc solid 1px;
+}
+
+#practice_parts .ui-tabs-panel {
+  border: #ccc solid 1px;
   background: #fff;
+}
+
+#practice_parts .ui-widget-header {
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 .part-techniques {
