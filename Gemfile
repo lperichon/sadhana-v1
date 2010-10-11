@@ -14,7 +14,7 @@ gem 'nokogiri', '1.4.1'
 gem 'high_voltage', '0.9.0', :branch => "rails3"
 gem 'active_merchant', '1.5.2', :require => 'active_merchant'
 gem 'money', '3.0.0'
-gem 'state_machine', '0.9.1'
+gem 'state_machine', '0.9.4'
 #gem 'lockfile', '1.4.3'
 gem 'fastercsv', '1.5.3'
 gem 'puret', '1.0.3'
