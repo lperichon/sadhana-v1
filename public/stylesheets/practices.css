@@ -157,6 +157,10 @@
   background: #fff;
 }
 
+.gecko #practice_parts .ui-tabs-panel {
+  margin-top: 1px;
+}
+
 #practice_parts .ui-widget-header {
   background: none;
   border: none;
