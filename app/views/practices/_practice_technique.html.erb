@@ -70,6 +70,7 @@
 <%= javascript_tag do %>
   $('#<%= dom_id practice_technique %>').droppable({
     accept: '<%= practice_part.part.secondary_technique_types %>',
+    activeClass: 'ui-state-highlight',
     drop: function(event, ui) {
       if(ui.draggable.hasClass('ui-draggable')) {
         // associate new practice technique via ajax
