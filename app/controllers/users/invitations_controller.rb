@@ -9,7 +9,7 @@ class Users::InvitationsController < Devise::InvitationsController
       redirect_to :back
     elsif resource.errors[:email].present? && resource.id.present?
       set_flash_message :notice, :user_exists
-      current_user.add_to_contacts(resource)
+      add_to_contacts(resource)
       redirect_to :back
     else
       render_with_scope :new
@@ -17,7 +17,7 @@ class Users::InvitationsController < Devise::InvitationsController
   end
 
   def add_to_contacts(user, corresponded = false)
-    add_to_contacts(user, corresponded)
+    current_user.add_to_contacts(user, corresponded)
     flash.now[:notice] << ' ' + t('users.invitations.invite_another', :new_invitation_link => self.class.helpers.link_to_function(t('users.invitations.invite_another_link'),"$('#new_invitation_dialog').dialog('open')"))
   end
 end
