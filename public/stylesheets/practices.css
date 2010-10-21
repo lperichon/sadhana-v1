@@ -520,3 +520,7 @@ div[aria-labelledby = 'ui-dialog-title-edit_practice_dialog'] .ui-dialog-content
     height: 100px;
     overflow-y: auto;
 }
+
+#info_panel h3 {
+    margin-bottom: 5px;
+}
