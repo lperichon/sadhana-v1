@@ -3,7 +3,7 @@
   <%
    grouped_options = [
       [t('techniques.techniques_list.by_family'), [[t('techniques.techniques_list.by_family'), ""]]],
-      [t('techniques.techniques_list.by_category'), TechniqueCategory.all.collect {|t| [t.name, t.id]}]
+      [t('techniques.techniques_list.by_category'), TechniqueCategory.find(:all, :order => 'code ASC').collect {|t| [t.name, t.id]}]
     ]
    selected = @technique_category.present? ? @technique_category.id : nil
   %>
