@@ -52,8 +52,8 @@
 <div id="practices_container">
     <div id='practices_menu'>
         <ul>
-          <li><%= link_to_if params[:deleted], content_tag(:span, t('practices.index.my_practices'), :class => ('ui-state-hover ui-widget ui-state-default ui-corner-all ui-button-text-only' unless params[:deleted])), practices_path %></li>
-          <li><%= link_to_unless params[:deleted], content_tag(:span, t('practices.index.deleted_practices'), :class => ('ui-state-hover ui-widget ui-state-default ui-corner-all ui-button-text-only' if params[:deleted])), practices_path(:deleted => true) %></li>
+          <li><%= link_to_if params[:deleted], content_tag(:span, t('practices.index.my_practices'), :class => ('ui-state-hover ui-widget ui-corner-all ui-button-text-only' unless params[:deleted])), practices_path %></li>
+          <li><%= link_to_unless params[:deleted], content_tag(:span, t('practices.index.deleted_practices'), :class => ('ui-state-hover ui-widget ui-corner-all ui-button-text-only' if params[:deleted])), practices_path(:deleted => true) %></li>
         </ul>
     </div>
 
