@@ -4,6 +4,6 @@
   <div class="part field">
       <%= f.label :part, t('practice_part.help.part') %>
       <br/>
-      <%= f.collection_select :part_id, Part.all, :id, :name %>
+      <%= f.collection_select :part_id, Part.find(:all, :order => 'id ASC'), :id, :name %>
 </div>
 <% end %>
