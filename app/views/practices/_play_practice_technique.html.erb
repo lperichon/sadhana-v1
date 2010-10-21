@@ -11,11 +11,11 @@
   <div id='info_panel'>
     <h3><%= Technique.human_attribute_name :description %></h3>
 
-    <p><%= simple_format practice_technique.technique.description.blank? ? t('practices.play_practice_technique.no_description') : practice_technique.technique.description %></p>
+    <div class='description'><%= simple_format practice_technique.technique.description.blank? ? t('practices.play_practice_technique.no_description') : practice_technique.technique.description %></div>
 
     <h3><%= PracticeTechnique.human_attribute_name :observations %></h3>
 
-    <p><%= simple_format practice_technique.observations.blank? ? t('practices.play_practice_technique.no_observations') : practice_technique.observations %></p>
+    <div class='observations'><%= simple_format practice_technique.observations.blank? ? t('practices.play_practice_technique.no_observations') : practice_technique.observations %></div>
 
     <h3><%= PracticeTechnique.human_attribute_name :associated_techniques %></h3>
     <% if practice_technique.techniques.empty? %>
