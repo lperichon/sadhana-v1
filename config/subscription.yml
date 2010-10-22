@@ -1,9 +1,9 @@
 defaults: &defaults
   # default plan (name) when user has no subscription. Defaults to the first plan with rate==0. Must be a plan with rate==0 since no billing occurs. 
-  default_plan: free
+  default_plan: Free
   
   # what plan (name) to assign to subscriptions that have expired (may be nil) (defaults to default_plan). Must be a plan with rate==0 since no billing occurs. 
-  expired_plan: free
+  expired_plan: Free
 
   # trial period length (days) before first billing (can be 0 for no trial) (default = 30)
   trial_period: 0
