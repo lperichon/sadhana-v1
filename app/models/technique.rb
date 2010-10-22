@@ -8,7 +8,7 @@ class Technique < ActiveRecord::Base
                       :access_key_id => ENV['S3_ACCESS_KEY_ID'].to_s,
                       :secret_access_key => ENV['S3_SECRET_ACCESS_KEY'].to_s},
                     :bucket => ENV['S3_BUCKET'].to_s,
-                    :styles => { :thumb => "100x100>", :medium => "370x450>"},
+                    :styles => { :thumb => "100x100>", :medium => "370x410>"},
                     :default_url => "/images/missing_:style.png", :path => ":attachment/:id/:style/:filename"
   puret :name, :description
   accepts_nested_attributes_for :translations, :allow_destroy => true
