@@ -6,13 +6,15 @@
 <% end %>
 </ul>
 <div id='slideshow_practice_techniques'>
-  <% @practice.practice_parts.each do |practice_part| %>
+  <% practice_parts = @practice.practice_parts %>
+  <% practice_parts.each_with_index do |practice_part, part_index| %>
   <% practice_techniques = practice_part.practice_techniques %>
-  <% practice_techniques.each_with_index do |practice_technique, index| %>
-    <% next_technique = practice_technique.compensate? ? practice_technique : practice_techniques[index+1]%>
-    <%= render :partial => 'play_practice_technique', :locals => {:practice_technique => practice_technique, :next_technique => next_technique} %>
+  <% practice_techniques.each_with_index do |practice_technique, technique_index| %>
+    <% next_technique = practice_technique.compensate? ? practice_technique : practice_techniques[technique_index+1]%>
+    <% first_technique_of_next_part =  practice_parts[part_index+1].practice_techniques.first if practice_parts[part_index+1] %>
+    <%= render :partial => 'play_practice_technique', :locals => {:practice_technique => practice_technique, :next_technique => next_technique || first_technique_of_next_part} %>
     <% if practice_technique.compensate? %>
-      <%= render :partial => 'play_practice_technique', :locals => {:practice_technique => practice_technique, :compensation => true, :next_technique => next_technique} %>
+      <%= render :partial => 'play_practice_technique', :locals => {:practice_technique => practice_technique, :compensation => true, :next_technique => practice_techniques[technique_index+1] || first_technique_of_next_part} %>
     <% end %>
   <% end %>
   <% end %>
