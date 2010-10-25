@@ -20,7 +20,7 @@ var Practices = {
     if(secondary_technique_types && secondary_technique_types.length > 0) {
     secondary_technique_types_array = secondary_technique_types.split(',');
     selector = jQuery.map(secondary_technique_types_array, function(type, i){
-      return ('#techniques_accordion ' + type.trim());
+      return '#techniques_accordion ' + $.trim(type.toString());
     }).join(',');
     $(selector).draggable({
       scroll: false,
