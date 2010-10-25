@@ -1,4 +1,3 @@
-<% @practice.reload %>
 <ul class="actions">
 <% if @practice.user == current_user %>
   <li><%= link_to t('actions.edit'), practice_path(@practice), :class => 'medium blue awesome' %></li>
