@@ -71,7 +71,7 @@
   $('#<%= dom_id practice_technique %>').droppable({
     accept: '<%= practice_part.part.secondary_technique_types %>',
     hoverClass: 'ui-state-highlight',
-    tolerance: 'pointer ',
+    tolerance: 'pointer',
     drop: function(event, ui) {
       if(ui.draggable.hasClass('ui-draggable')) {
         // associate new practice technique via ajax
