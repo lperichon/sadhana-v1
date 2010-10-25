@@ -346,3 +346,27 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 #share_button {
   float: right;
 }
+
+.pt .ui-selectmenu-item-icon {
+  background: url(/images/br_flag.png) 0 1px no-repeat;
+  height: 16px;
+}
+
+.en .ui-selectmenu-item-icon {
+  background: url(/images/us_flag.png) 0 1px no-repeat;
+  height: 16px;
+}
+
+.es .ui-selectmenu-item-icon {
+  background: url(/images/ar_flag.png) 0 1px no-repeat;
+  height: 16px;
+}
+
+.ui-selectmenu-status .ui-selectmenu-item-icon {
+  background-position: 0 -1px;
+  height: 16px;
+}
+
+.gecko .ui-selectmenu-status .ui-selectmenu-item-icon, .ie .ui-selectmenu-status .ui-selectmenu-item-icon {
+  background-position: 0 1px;
+}
