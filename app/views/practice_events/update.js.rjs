@@ -1,1 +1,6 @@
-page << "$('#calendar').fullCalendar('renderEvent', #{js_event(@practice_event)})"
+if @practice_event.errors.empty?
+  page << "$('#edit_event_dialog').dialog('close');"
+  page << "$('#calendar').fullCalendar('renderEvent', #{js_event(@practice_event)})"
+else
+  page << "$('#edit_event_dialog').html('#{escape_javascript render :partial => 'dialog_form'}');"
+end

@@ -1,5 +1,3 @@
 <%= form_for(@practice_event) do |f| %>
-  <%= f.error_messages %>
-
   <%= render :partial => 'fields', :locals => {:f => f} %>
 <% end %>

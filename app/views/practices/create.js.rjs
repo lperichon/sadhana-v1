@@ -1,1 +1,6 @@
-page << "$('#practices').append('#{escape_javascript render :partial => 'practice', :locals => {:practice => @practice}}')"
+if @practice.errors.empty?
+  #page << "$('#practices').append('#{escape_javascript render :partial => 'practice', :locals => {:practice => @practice}}')"
+  page.redirect_to practice_path(@practice)
+else
+  page << "$('#new_practice_dialog').html('#{escape_javascript render :partial => 'dialog_form'}');"
+end

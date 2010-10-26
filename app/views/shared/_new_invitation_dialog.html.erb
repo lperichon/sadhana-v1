@@ -10,7 +10,12 @@
 <%= javascript_tag do %>
   $('#new_invitation_dialog').dialog({autoOpen: false, modal: true, width: 400, buttons: {
     '<%= t('actions.invite') %>': function() {
-        $('#new_invitation_dialog form').submit();
+        $.ajax({
+            type:'post',
+            dataType: 'script',
+            data: $('#new_invitation_dialog form').serialize(),
+            url: $('#new_invitation_dialog form').attr('action')
+        });
       },
     '<%= t('actions.cancel') %>': function() {
         $(this).dialog('close');

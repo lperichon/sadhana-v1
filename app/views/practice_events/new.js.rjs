@@ -14,10 +14,7 @@ else
                 type:'post',
                 dataType: 'script',
                 data: $('#new_event_dialog form').serialize(),
-                url: $('#new_event_dialog form').attr('action'),
-                success: function() {
-                  $('#new_event_dialog').dialog('close');
-                }
+                url: $('#new_event_dialog form').attr('action')
             });
           },
           '#{t('actions.cancel')}': function() {

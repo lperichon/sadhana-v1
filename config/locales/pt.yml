@@ -46,6 +46,7 @@ pt:
       practice_event:
         date: Data
         practice: Prática
+        start: Data
       practice_technique:
         associated_techniques: "Técnicas associadas"
         compensate: Compensação

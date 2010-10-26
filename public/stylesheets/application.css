@@ -370,3 +370,11 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 .gecko .ui-selectmenu-status .ui-selectmenu-item-icon, .ie .ui-selectmenu-status .ui-selectmenu-item-icon {
   background-position: 0 1px;
 }
+
+.field_with_errors {
+  display: inline-block;
+}
+
+.field_with_errors label {
+    color: red;
+}

@@ -10,7 +10,12 @@ else
         modal: true,
         buttons: {
           '#{t('actions.save')}': function() {
-             $('#new_practice_dialog form').submit();
+             $.ajax({
+                type:'post',
+                dataType: 'script',
+                data: $('#new_practice_dialog form').serialize(),
+                url: $('#new_practice_dialog form').attr('action')
+            });
           },
           '#{t('actions.cancel')}': function() {
             $('#new_practice_dialog').dialog('close');

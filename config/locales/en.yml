@@ -100,6 +100,8 @@ en:
         expiration_date: "Expiration date"
       practice:
         sound_filename: Sound
+      practice_event:
+        start: 'Date'
   practices:
     index:
       new_practice: "New Practice"

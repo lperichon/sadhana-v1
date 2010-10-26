@@ -16,10 +16,7 @@ page << %(
             type:'put',
             dataType: 'script',
             data: $('#edit_event_dialog form').serialize(),
-            url: $('#edit_event_dialog form').attr('action'),
-            success: function() {
-              $('#edit_event_dialog').dialog('close');
-            }
+            url: $('#edit_event_dialog form').attr('action')
         });
       },
       '#{t('actions.delete')}': function() {

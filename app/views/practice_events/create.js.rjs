@@ -1,2 +1,7 @@
-page << "$('#notifications').replaceWith('#{escape_javascript render :partial => 'shared/notifications'}');"
-page << "$('#calendar').fullCalendar('renderEvent', #{js_event(@practice_event)})"
+if @practice_event.errors.empty?
+  page << "$('#new_event_dialog').dialog('close');"
+  page << "$('#notifications').replaceWith('#{escape_javascript render :partial => 'shared/notifications'}');"
+  page << "$('#calendar').fullCalendar('renderEvent', #{js_event(@practice_event)})"
+else
+  page << "$('#new_event_dialog').html('#{escape_javascript render :partial => 'dialog_form'}');"
+end

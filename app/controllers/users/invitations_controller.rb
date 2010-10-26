@@ -4,15 +4,12 @@ class Users::InvitationsController < Devise::InvitationsController
     self.resource = resource_class.send_invitation(params[resource_name])
 
     if resource.errors.empty?
-      set_flash_message :notice, :send_instructions
+      flash.now[:notice] = I18n.t(:"#{:user}.#{:send_instructions}", :resource_name => :user, :scope => [:devise, :invitations], :default => :send_instructions)
       add_to_contacts(resource,true)
-      redirect_to :back
     elsif resource.errors[:email].present? && resource.id.present?
-      set_flash_message :notice, :user_exists
+      resource.errors.clear
+      flash.now[:notice] = I18n.t(:"#{:user}.#{:user_exists}", :resource_name => :user, :scope => [:devise, :invitations], :default => :user_exists)
       add_to_contacts(resource)
-      redirect_to :back
-    else
-      render_with_scope :new
     end
   end
 

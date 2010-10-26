@@ -70,6 +70,7 @@ class PracticesController < UserApplicationController
           format.xml  { render :xml => @practice, :status => :created, :location => @practice }
           format.js {}
         else
+          format.html {}
           format.xml  { render :xml => @practice.errors, :status => :unprocessable_entity }
           format.js {}
         end

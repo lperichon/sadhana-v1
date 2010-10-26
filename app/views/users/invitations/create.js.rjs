@@ -1,0 +1,6 @@
+if @user.errors.empty?
+  page << "$('#new_invitation_dialog').dialog('close');"
+  page << "$('#notifications').replaceWith('#{escape_javascript render :partial => 'shared/notifications'}');"
+else
+  page << "$('#new_invitation_dialog form').replaceWith('#{escape_javascript render :partial => 'devise/invitations/dialog_form'}');"
+end
