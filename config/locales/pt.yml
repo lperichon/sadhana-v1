@@ -60,7 +60,7 @@ pt:
       technique:
         description: Descrição
       user:
-        current_password: Descrição
+        current_password: "Senha atual"
         email: Email
         locale: Linguagem
         password: Senha
