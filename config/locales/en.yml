@@ -305,6 +305,7 @@ en:
       new_practice_event: "New event"
       create_practice_tip: "Create a new event on the calendar by clicking on the 'New event' button."
     paid_account_notice: "You require a paid subscription to access the calendar functionality. %{upgrade_link}"
+    create_notice: "The event was created successfully."
   practice_part:
     help:
       part: "Choose an anga."

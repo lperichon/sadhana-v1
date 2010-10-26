@@ -46,7 +46,7 @@ class PracticeEventsController < UserApplicationController
     respond_to do |format|
       if @practice_event.save
         format.xml  { render :xml => @practice_event, :status => :created, :location => @practice_event }
-        format.js {}
+        format.js { flash.now[:notice] = t('practice_events.create_notice') }
       else
         format.xml  { render :xml => @practice_event.errors, :status => :unprocessable_entity }
         format.js {}

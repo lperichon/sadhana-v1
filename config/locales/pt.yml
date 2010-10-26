@@ -332,6 +332,7 @@ pt:
       practice: "Escolha a prática."
       start: "Data e hora do evento."
   practice_events:
+    create_notice: "O evento foi criado com sucesso."
     index:
       create_practice_tip: "Crie um novo evento no calendário fazendo click no botão 'Novo Evento'"
       new_practice_event: "Novo evento"
