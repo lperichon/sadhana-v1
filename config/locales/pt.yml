@@ -428,6 +428,8 @@ pt:
     edit_event_dialog:
       title: "Editar evento"
     edit_practice_technique_dialog:
+      associated_techniques_tab_title: "Técnicas associadas"
+      data_tab_title: "Dados da Técnica"
       title: "Editar técnica da prática"
     edit_profile_dialog:
       current_password_help: "precisamos de sua senha atual para confirmar as alterações."

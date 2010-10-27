@@ -1,0 +1,6 @@
+<% @practice_technique.techniques.each do |technique| %>
+  <%= div_for(technique, :technique_id => technique.id, :class => "technique") do %>
+    <h3 class='<%= 'long' if technique.name.size > 27 %>'><%= technique.name %></h3>
+    <%= image_tag technique.photo.url(:thumb, false) %>
+  <% end %>
+<% end %>

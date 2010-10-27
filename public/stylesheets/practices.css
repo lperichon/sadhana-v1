@@ -201,7 +201,7 @@
     margin-top: -7px;
 }
 
-.part-techniques .practice_technique {
+.part-techniques .practice_technique, #associated_techniques .technique {
   width: 150px;
   height: 150px;
   margin-top: 5px;
@@ -212,16 +212,13 @@
   overflow: hidden;
 }
 
-.practice_technique h3, #technique_select_box h3 {
+.practice_technique h3, .technique h3 {
+  font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
   font-size: 15px;
   margin: 5px;
 }
 
-.part-techniques .practice_technique h3, #technique_select_box h3 {
-  font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
-}
-
-.part-techniques .practice_technique h3.long, #technique_select_box h3.long {
+.practice_technique h3.long, .technique h3.long {
   font-size: 90%;
 }
 
@@ -523,4 +520,20 @@ div[aria-labelledby = 'ui-dialog-title-edit_practice_dialog'] .ui-dialog-content
 
 #info_panel h3 {
     margin-bottom: 5px;
+}
+
+div[aria-labelledby = 'ui-dialog-title-edit_practice_technique_dialog'] .ui-dialog-titlebar {
+  display: none;
+}
+
+div[aria-labelledby = 'ui-dialog-title-edit_practice_technique_dialog'] .ui-dialog-content, div[aria-labelledby = 'ui-dialog-title-edit_practice_technique_dialog'] .ui-tabs {
+  padding:0;
+}
+
+#edit_practice_technique_dialog .ui-tabs-nav .ui-state-active {
+  background: #EEE url(/stylesheets/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png) repeat-x 20% 10%;
+}
+
+#associated_techniques .technique {
+    cursor: default;
 }

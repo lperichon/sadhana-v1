@@ -1,8 +1,19 @@
-<div id='edit_practice_technique_dialog' style='display:none' title='<%= t('shared.edit_practice_technique_dialog.title') %>'></div>
+<div id='edit_practice_technique_dialog' style='display:none' title='<%= t('shared.edit_practice_technique_dialog.title') %>'>
+  <ul>
+    <li><a href="#technique_data"><%= t('shared.edit_practice_technique_dialog.data_tab_title') %></a></li>
+    <li><a href="#associated_techniques"><%= t('shared.edit_practice_technique_dialog.associated_techniques_tab_title') %></a></li>
+    <li id="ui-tab-dialog-close"></li>
+  </ul>
+  <div id="technique_data">
+  </div>
+  <div id='associated_techniques'>
+  </div>
+</div>
 <%= javascript_tag do %>
+  $('#edit_practice_technique_dialog').tabs();
   $('#edit_practice_technique_dialog').dialog({
     autoOpen: false,
-    height: 520,
+    height: 550,
     width: 400,
     modal: true,
     buttons: {
@@ -22,4 +33,5 @@
       }
     }
   });
+  $('#ui-tab-dialog-close').append($('#edit_practice_technique_dialog').siblings('.ui-dialog-titlebar').children('.ui-dialog-titlebar-close'));
 <% end %>

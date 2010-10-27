@@ -160,6 +160,8 @@ en:
       title: "New event"
     edit_practice_technique_dialog:
       title: "Edit practice technique"
+      data_tab_title: "Technique data"
+      associated_techniques_tab_title: "Associated techniques"
     edit_event_dialog:
       title: "Edit event"
     new_confirmation_dialog:
