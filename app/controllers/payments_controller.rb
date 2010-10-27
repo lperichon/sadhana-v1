@@ -1,6 +1,8 @@
 class PaymentsController < ApplicationController
   include ActiveMerchant::Billing::Integrations
 
+  skip_before_filter :verify_authenticity_token
+
   def paypal_ipn
     notify = Paypal::Notification.new(request.raw_post)
 
