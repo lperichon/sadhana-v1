@@ -1,42 +1,7 @@
-#practices_container {
-  padding-left: 200px;
-}
-#practices_menu {
-  float: left;
-  margin-right: -100%;
-  right: 200px;
-  width: 200px;
-  position: relative;
-}
 
-#practices_menu ul {
-  list-style: none;
-  padding: 10px 0 0 0;
-  margin: 0;
-}
 
-#practices_menu ul li {
 
-  margin-bottom: 5px;
-  margin-left: 10px;
-}
 
-#practices_menu ul li a {
-  width: 180px;
-}
-
-#practices_menu ul li > span {
-  width: 180px;
-  line-height: 2em;
-  display: inline-block;
-  text-align: center;
-}
-
-#practices_list {
-  float: left;
-  position: relative;
-  width: 100%;
-}
 
 #practices {
 
@@ -364,7 +329,7 @@ span#jeditable_description input {
 
 #slideshow_practice_techniques {
   display: block;
-  margin: 0 auto auto;
+  margin: 10px auto auto;
 }
 
 .slideshow_practice_technique {

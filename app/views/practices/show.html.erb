@@ -2,32 +2,20 @@
   <%= render :partial => 'practice_tips' %>
 </div>
 
-<ul id='practice_actions' class='actions'>
-  <li>
-    <%= link_to t('actions.play'), play_practice_path, :class => 'blue medium awesome' %>
-  </li>
-  <li><%= link_to_function t('actions.edit'), "$('#edit_practice_dialog').dialog('open');", :class => 'medium blue awesome' %></li>
-  <li><%= link_to t('actions.add_to_calendar'), new_practice_event_path, :class => 'blue medium awesome', :id => "#{dom_id @practice}_add_to_calendar_link" %>
-    <% unless current_user.calendar_subscription_check(current_user.subscription.plan) %>
-      <% javascript_tag do %>
-        $('#<%= dom_id @practice %>_add_to_calendar_link').click(function() {
-          $.ajax({
-            type:'get',
-            data: 'practice_event[practice_id]=<%= @practice.id %>',
-            dataType: 'script',
-            url: '/practice_events/new'
-          });
-          return false;
-        });
-      <% end %>
-    <% end %>
-  </li>
-</ul>
-
 <div id='practice_data'>
   <p>
+    <b><%= Practice.human_attribute_name :name %>:</b><%= field_help t('practice.help.name') %>
+    <%= jeditable_field(:practice, :name) %>
+  </p>
+
+  <p>
+    <b><%= Practice.human_attribute_name :description %>:</b><%= field_help t('practice.help.description') %>
+    <%= jeditable_field(:practice, :description) %>
+  </p>
+
+  <p>
     <b><%= Practice.human_attribute_name :total_time %>:</b><%= field_help t('practice.help.total_time') %>
-    <span id='practice_time'><%= practice_time(@practice) %></span>
+    <span id='practice_time'><%= practice_time(@practice) %></span> <%= link_to_function t('actions.edit'), "$('#play_preferences_dialog').dialog('open');", :class => 'small blue awesome' %> <%= link_to t('actions.play'), play_practice_path, :class => 'blue small awesome' %>
   </p>
 </div>
 <div id='practice_editor'>
@@ -60,19 +48,8 @@
   <div id='created_practice_technique'></div>
 </div>
 
-<div id='edit_practice_dialog' style="display:none">
-  <ul>
-    <li><a href="#practice_info"><%= t('practices.edit_practice_dialog.info_tab_title') %></a></li>
-    <li><a href="#play_preferences"><%= t('practices.edit_practice_dialog.play_preferences_tab_title') %></a></li>
-    <li id="practice-ui-tab-dialog-close"></li>
-  </ul>
-  <div id="practice_info">
-    <%= render :partial => 'practices/practice_info_dialog_form' %>
-  </div>
-  <div id='play_preferences'>
-    <%= render :partial => 'practices/play_preferences_dialog_form' %>
-  </div>
-
+<div id='play_preferences_dialog' title='<%= t('practices.play.play_preferences_dialog.title') %>' style="display:none">
+  <%= render :partial => 'practices/play_preferences_dialog_form' %>
 </div>
 
 <%= render :partial => 'shared/edit_practice_technique_dialog' %>
@@ -102,38 +79,23 @@
     Practices.adjustEditorSize();
 
     // Initialize play preferences dialog
-
-      $('#edit_practice_dialog').tabs();
-      $('#edit_practice_dialog').dialog({autoOpen: false, modal: true, width: 500, buttons: {
+      $('#play_preferences_dialog').dialog({autoOpen: false, modal: true, width: 500, buttons: {
         '<%= t('actions.update') %>': function() {
-            if($('#edit_practice_dialog').tabs('option', 'selected') == 0) {
-              $.ajax({
-                type:'post',
-                dataType: 'script',
-                url: $('#edit_practice_dialog #practice_info form').attr('action'),
-                data: $('#edit_practice_dialog #practice_info form').serialize(),
-                success: function(data, textStatus, XMLHttpRequest) {
-                    $('#edit_practice_dialog').dialog('close');
-                }
-              });
-            } else {
-              $.ajax({
-                type:'post',
-                dataType: 'script',
-                url: $('#edit_practice_dialog #play_preferences form').attr('action'),
-                data: $('#edit_practice_dialog #play_preferences form').serialize(),
-                success: function(data, textStatus, XMLHttpRequest) {
-                    $('#edit_practice_dialog').dialog('close');
-                }
-              });
+          $.ajax({
+            type:'post',
+            dataType: 'script',
+            url: $('#play_preferences_dialog form').attr('action'),
+            data: $('#play_preferences_dialog form').serialize(),
+            success: function(data, textStatus, XMLHttpRequest) {
+                $('#play_preferences_dialog').dialog('close');
             }
-          },
+          });
+        },
         '<%= t('actions.cancel') %>': function() {
             $(this).dialog('close');
           }
         }
       });
-      $('#practice-ui-tab-dialog-close').append($('#edit_practice_dialog').siblings('.ui-dialog-titlebar').children('.ui-dialog-titlebar-close'));
 
     // Initialize quick search
     Practices.init_quicksearch();

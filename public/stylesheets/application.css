@@ -25,6 +25,10 @@ body {
   margin-right: 10px;
 }
 
+#content {
+  overflow: auto;
+}
+
 #header {
   overflow: hidden;
   height: 62px;
@@ -377,4 +381,44 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 
 .field_with_errors label {
     color: red;
+}
+
+.container {
+  padding-left: 200px;
+}
+
+.sidebar {
+  float: left;
+  margin-right: -100%;
+  right: 200px;
+  width: 200px;
+  position: relative;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 10px 0 0 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.sidebar ul li a {
+  width: 180px;
+}
+
+.sidebar ul li > span {
+  width: 180px;
+  line-height: 2em;
+  display: inline-block;
+  text-align: center;
+}
+
+.content {
+  float: left;
+  position: relative;
+  width: 100%;
 }

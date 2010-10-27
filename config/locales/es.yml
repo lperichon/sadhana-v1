@@ -336,6 +336,7 @@ es:
     create_notice: "El evento se ha creado correctamente."
     index:
       create_practice_tip: "Creá un nuevo evento en el calendario haciendo click en el boton 'Nuevo evento'."
+      my_calendar: "Mi calendario"
       new_practice_event: "Nuevo evento"
     paid_account_notice: "Necesitás una suscripción paga para acceder al calendario. %{upgrade_link}"
   practice_part:

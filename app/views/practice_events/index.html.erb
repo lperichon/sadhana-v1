@@ -7,62 +7,68 @@
   </div>
 <% end %>
 
-<ul class='actions'>
-  <li>
-    <%= link_to t('practice_events.index.new_practice_event'), new_practice_event_path, :class => 'blue medium awesome', :id => 'new_practice_event_link'%>
+<div id='events_container' class='container'>
+  <div id='events_menu' class='sidebar'>
+    <ul><li><span class='ui-state-hover ui-widget ui-corner-all ui-button-text-only'><%= t('practice_events.index.my_calendar') %></span></li></ul>
+    <ul class='actions'>
+      <li>
+        <%= link_to content_tag(:span, t('practice_events.index.new_practice_event')), new_practice_event_path, :id => 'new_practice_event_link'%>
+        <%= javascript_tag do %>
+          $('#new_practice_event_link').click(function() {
+            $.ajax({
+              type:'get',
+              dataType: 'script',
+              url: '/practice_events/new'
+            });
+            return false;
+          });
+        <% end %>
+      </li>
+      <li>
+        <%= link_to_function content_tag(:span, t('practices.index.new_invitation')), "$('#new_invitation_dialog').dialog('open')" %>
+      </li>
+    </ul>
+  </div>
+  <div id='calendar' class='content'></div>
     <%= javascript_tag do %>
-      $('#new_practice_event_link').click(function() {
+    $('#events_menu a').button();
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev',
+        center: 'title',
+        right: 'next'
+      },
+      theme: 'ui-lightning',
+      editable: false,
+      events: [
+        <% events_array = [] %>
+        <% @practice_events.each do |event| %>
+          <% events_array << js_event(event) %>
+        <% end %>
+        <%= events_array.join(',') %>
+      ],
+      eventClick: function( event, jsEvent, view ) {
+        $('#calendar').fullCalendar( 'removeEvents', event.id );
+        $.ajax({
+          type:'get',
+          dataType: 'script',
+          url: '/practice_events/' + event.id + '/edit'
+        });
+      },
+      dayClick: function( date, allDay, jsEvent, view ) {
         $.ajax({
           type:'get',
           dataType: 'script',
           url: '/practice_events/new'
         });
-        return false;
-      });
-    <% end %>
-  </li>
-  <li>
-    <%= link_to_function t('practices.index.new_invitation'), "$('#new_invitation_dialog').dialog('open')", :class => 'blue medium awesome' %>
-  </li>
-</ul>
-<div id='calendar'></div>
-<%= javascript_tag do %>
-$('#calendar').fullCalendar({
-  header: {
-    left: 'prev',
-    center: 'title',
-    right: 'next'
-  },
-  theme: 'ui-lightning',
-  editable: false,
-  events: [
-    <% events_array = [] %>
-    <% @practice_events.each do |event| %>
-      <% events_array << js_event(event) %>
-    <% end %>
-    <%= events_array.join(',') %>
-  ],
-  eventClick: function( event, jsEvent, view ) {
-    $('#calendar').fullCalendar( 'removeEvents', event.id );
-    $.ajax({
-      type:'get',
-      dataType: 'script',
-      url: '/practice_events/' + event.id + '/edit'
+      },
+      monthNames: [<%= I18n.t("date.month_names").reject {|month| month == nil}.collect {|month|"'#{month}'"}.join(',') %>],
+      monthNamesShort: [<%= I18n.t("date.abbr_month_names").reject {|month| month == nil}.collect {|month|"'#{month}'"}.join(',') %>],
+      dayNames: [<%= I18n.t("date.day_names").reject {|month| month == nil}.collect {|month|"'#{month}'"}.join(',') %>],
+      dayNamesShort: [<%= I18n.t("date.abbr_day_names").reject {|month| month == nil}.collect {|month|"'#{month}'"}.join(',') %>]
     });
-  },
-  dayClick: function( date, allDay, jsEvent, view ) {
-    $.ajax({
-      type:'get',
-      dataType: 'script',
-      url: '/practice_events/new'
-    });
-  },
-  monthNames: [<%= I18n.t("date.month_names").reject {|month| month == nil}.collect {|month|"'#{month}'"}.join(',') %>],
-  monthNamesShort: [<%= I18n.t("date.abbr_month_names").reject {|month| month == nil}.collect {|month|"'#{month}'"}.join(',') %>],
-  dayNames: [<%= I18n.t("date.day_names").reject {|month| month == nil}.collect {|month|"'#{month}'"}.join(',') %>],
-  dayNamesShort: [<%= I18n.t("date.abbr_day_names").reject {|month| month == nil}.collect {|month|"'#{month}'"}.join(',') %>]
-});
-<% end %>
+    <% end %>
+</div>
 <%= render :partial => 'shared/new_invitation_dialog' %>
 <%= render :partial => 'shared/confirm_dialog' %>
 <%= render :partial => 'shared/new_event_dialog' %>

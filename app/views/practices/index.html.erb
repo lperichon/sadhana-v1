@@ -7,57 +7,58 @@
   </div>
 <% end %>
 
-<ul class='actions'>
-  <% if params[:deleted] %>
-  <li>
-    <%= link_to_function t('actions.destroy_all'), "$('#confirm_dialog').dialog({
-            resizable: false,
-            height:140,
-            modal: true,
-            buttons: {
-              '#{t('actions.delete')}': function() {
-                $.ajax({
-                    type:'post',
-                    data: { 'destroy_all': true, '_method': 'delete' },
-                    dataType: 'script',
-                    url: '/practices/1',
-                });
-                $(this).dialog('close');
-              },
-              '#{t('actions.cancel')}': function() {
-                $(this).dialog('close');
-              }
-            }
-          });", :class => 'medium blue awesome'%>
-  </li>
-  <% else %>
-  <li>
-    <%= link_to t('practices.index.new_practice'), new_practice_path, :class => 'blue medium awesome', :id => 'new_practice_link'%>
-    <%= javascript_tag do %>
-      $('#new_practice_link').click(function() {
-        $.ajax({
-          type:'get',
-          dataType: 'script',
-          url: '/practices/new'
-        });
-        return false;
-      });
-    <% end %>
-  </li>
-  <% end %>
-  <li>
-    <%= link_to_function t('practices.index.new_invitation'), "$('#new_invitation_dialog').dialog('open')", :class => 'blue medium awesome' %>
-  </li>
-</ul>
-<div id="practices_container">
-    <div id='practices_menu'>
+
+<div id="practices_container" class='container'>
+    <div id='practices_menu' class='sidebar'>
         <ul>
           <li><%= link_to_if params[:deleted], content_tag(:span, t('practices.index.my_practices'), :class => ('ui-state-hover ui-widget ui-corner-all ui-button-text-only' unless params[:deleted])), practices_path %></li>
           <li><%= link_to_unless params[:deleted], content_tag(:span, t('practices.index.deleted_practices'), :class => ('ui-state-hover ui-widget ui-corner-all ui-button-text-only' if params[:deleted])), practices_path(:deleted => true) %></li>
         </ul>
+        <ul>
+          <% if params[:deleted] %>
+          <li>
+            <%= link_to_function content_tag(:span,t('actions.destroy_all')), "$('#confirm_dialog').dialog({
+                    resizable: false,
+                    height:140,
+                    modal: true,
+                    buttons: {
+                      '#{t('actions.delete')}': function() {
+                        $.ajax({
+                            type:'post',
+                            data: { 'destroy_all': true, '_method': 'delete' },
+                            dataType: 'script',
+                            url: '/practices/1',
+                        });
+                        $(this).dialog('close');
+                      },
+                      '#{t('actions.cancel')}': function() {
+                        $(this).dialog('close');
+                      }
+                    }
+                  });"%>
+          </li>
+          <% else %>
+          <li>
+            <%= link_to content_tag(:span, t('practices.index.new_practice')), new_practice_path, :id => 'new_practice_link'%>
+            <%= javascript_tag do %>
+              $('#new_practice_link').click(function() {
+                $.ajax({
+                  type:'get',
+                  dataType: 'script',
+                  url: '/practices/new'
+                });
+                return false;
+              });
+            <% end %>
+          </li>
+          <% end %>
+          <li>
+            <%= link_to_function content_tag(:span,t('practices.index.new_invitation')), "$('#new_invitation_dialog').dialog('open')" %>
+          </li>
+        </ul>
     </div>
 
-    <div id="practices_list">
+    <div id="practices_list" class='content'>
         <ul id='practices' class="element-list">
           <% @practices.each do |practice| %>
             <%= render :partial => 'practice', :locals => {:practice => practice} %>

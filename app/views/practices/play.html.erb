@@ -1,9 +1,3 @@
-<ul class="actions">
-<% if @practice.user == current_user %>
-  <li><%= link_to t('actions.edit'), practice_path(@practice), :class => 'medium blue awesome' %></li>
-  <li><%= link_to_function t('actions.preferences'), "$('#play_preferences_dialog').dialog('open');", :class => 'medium blue awesome' %></li>
-<% end %>
-</ul>
 <div id='slideshow_practice_techniques'>
   <% practice_parts = @practice.practice_parts %>
   <% practice_parts.each_with_index do |practice_part, part_index| %>
@@ -33,12 +27,18 @@
 <div id='play_preferences_dialog' title='<%= t('practices.play.play_preferences_dialog.title') %>' style="display:none">
   <%= render :partial => 'practices/play_preferences_dialog_form' %>
 </div>
+
 <ul class='actions' id="play_controls">
+  <% if @practice.user.id == current_user.id %>
+  <li class='button'><%= link_to content_tag(:span, t('actions.edit')), practice_path(@practice) %></li>
+  <li class='button'><%= link_to_function content_tag(:span, t('actions.preferences')), "$('#play_preferences_dialog').dialog('open');" %></li>
+  <% end %>
   <li class='ui-state-default ui-corner-all icon'><%= link_to content_tag(:span, t('actions.previous'), :id => 'prev', :class => "ui-icon ui-icon-seek-prev"), "#" %></li>
   <li class='ui-state-default ui-corner-all icon'><%= link_to_function content_tag(:span, t('actions.pause'), :class => 'ui-icon ui-icon-pause'), "$('#countdown').countdown('pause');" %></li>
   <div id="countdown"></div>
   <li class='ui-state-default ui-corner-all icon'><%= link_to_function content_tag(:span, t('actions.play'), :class => 'ui-icon ui-icon-play'), "$('#countdown').countdown('resume');"%></li>
   <li class='ui-state-default ui-corner-all icon'><%= link_to content_tag(:span, t('actions.next'), :id => 'next', :class => 'ui-icon ui-icon-seek-next'), "#"%></li>
+  <li class='button'><%= link_to_function content_tag(:span, t('actions.add_to_calendar')), "$.ajax({ type:'get', data: 'practice_event[practice_id]=#{@practice.id}', dataType: 'script', url: '#{new_practice_event_path}'});" %></li>
 </ul>
 
 <%= render :partial => 'shared/new_event_dialog' %>
@@ -57,6 +57,8 @@
     swfPath: "/"
   });
   });
+
+  $('#play_controls li.button').button();
 
   $('#play_preferences_dialog').dialog({
     autoOpen: false,

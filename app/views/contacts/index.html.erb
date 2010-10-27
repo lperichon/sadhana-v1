@@ -7,21 +7,26 @@
   </div>
 <% end %>
 
-<ul class='actions'>
-  <li>
-    <%= link_to_function t('contacts.index.new_contact'), "$('#new_invitation_dialog').dialog('open')", :class => 'blue medium awesome' %>
-  </li>
-</ul>
+<div id="contacts_container" class='container'>
 
-
-<h2><%= t('contacts.index.my_contacts') %></h2>
-
-<ul id='contacts' class="element-list">
-  <% @contacts.each do |contact| %>
-    <%= render :partial => 'contact', :locals => {:contact => contact} %>
-  <% end %>
-</ul>
-
+  <div id='contacts_menu' class='sidebar'>
+    <ul>
+    <li ><span class='ui-state-hover ui-widget ui-corner-all ui-button-text-only'><%= t('contacts.index.my_contacts') %></span></li>
+    </ul>
+    <ul class='actions'>
+      <li>
+        <%= link_to_function content_tag(:span, t('contacts.index.new_contact')), "$('#new_invitation_dialog').dialog('open')" %>
+      </li>
+    </ul>
+  </div>
+  <div id='contacts_list' class='content'>
+    <ul id='contacts' class="element-list">
+      <% @contacts.each do |contact| %>
+        <%= render :partial => 'contact', :locals => {:contact => contact} %>
+      <% end %>
+    </ul>
+  </div>
+</div>
 <%= will_paginate @contacts, :previous_label => t('actions.previous'), :next_label => t('actions.next') %>
 
 <div id='new_invitation_dialog' style='display:none' title='<%= t('contacts.index.new_invitation_dialog.title') %>'>
@@ -38,5 +43,8 @@
       }
     }
   });
+
+  $('#contacts_menu a').button();
+
 <% end %>
 <%= render :partial => 'shared/confirm_dialog' %>
