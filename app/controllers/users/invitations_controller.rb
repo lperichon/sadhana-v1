@@ -11,6 +11,11 @@ class Users::InvitationsController < Devise::InvitationsController
       flash.now[:notice] = I18n.t(:"#{:user}.#{:user_exists}", :resource_name => :user, :scope => [:devise, :invitations], :default => :user_exists)
       add_to_contacts(resource)
     end
+
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.js {}
+    end
   end
 
   def add_to_contacts(user, corresponded = false)
