@@ -166,7 +166,7 @@
     margin-top: -7px;
 }
 
-.part-techniques .practice_technique, #associated_techniques .technique {
+.part-techniques .practice_technique, #associated_techniques .technique, .associated_techniques .technique {
   width: 150px;
   height: 150px;
   margin-top: 5px;
@@ -378,13 +378,12 @@ span#jeditable_description input {
 }
 
 #info_panel .associated_techniques {
-  list-style: none;
-  display: inline;
-  margin-left: 0;
-  padding-left: 0;
+  height: 167px;
+  overflow-y: auto;
+  padding-left: 10px;
 }
 
-#info_panel .associated_techniques .associated_technique {
+#info_panel .associated_techniques .technique {
   display: inline-block;
   list-style: none;
   text-align: center;
@@ -485,6 +484,7 @@ div[aria-labelledby = 'ui-dialog-title-edit_practice_dialog'] .ui-dialog-content
 
 #info_panel h3 {
     margin-bottom: 5px;
+    margin-top: 8px;
 }
 
 div[aria-labelledby = 'ui-dialog-title-edit_practice_technique_dialog'] .ui-dialog-titlebar {

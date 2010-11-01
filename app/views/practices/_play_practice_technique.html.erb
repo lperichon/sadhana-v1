@@ -21,14 +21,14 @@
     <% if practice_technique.techniques.empty? %>
       <p><%= t('practices.play_practice_technique.no_associated_techniques') %></p>
     <% end %>
-    <ul class='associated_techniques'>
+    <div class='associated_techniques'>
       <% practice_technique.techniques.each do |associated_technique| %>
-        <li class='associated_technique'>
-          <%= image_tag associated_technique.photo.url(:thumb, false) %>
-          <h4><%= associated_technique.name %></h4>
-        </li>
+        <%= div_for(associated_technique, :technique_id => associated_technique.id, :class => "technique") do %>
+            <h3 class='<%= 'long' if associated_technique.name.size > 27 %>'><%= associated_technique.name %></h3>
+            <%= image_tag associated_technique.photo.url(:thumb, false) %>
+        <% end %>
       <% end %>
-    </ul>
+    </div>
   </div>
   </div>
   <% unless next_technique.nil? %>
