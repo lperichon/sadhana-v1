@@ -163,7 +163,7 @@
         $.each( $("#techniques_accordion .ui-state-default"), function(i, l){
             if(i!=0){
                 $(l).addClass('ui-state-disabled');
-                $(l).children('a').click(function(event){ alert('hola!'); event.stopPropagation();});
+                $(l).children('a').click(function(event){ event.stopPropagation();});
             };
         });
     <% end %>
