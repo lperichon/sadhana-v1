@@ -1,6 +1,4 @@
 class Admin::TechniquesController < AdminApplicationController
-  after_filter :renew_techniques_token, :only => [:create, :update, :do_csv_import, :destroy]
-
   # GET /techniques
   # GET /techniques.xml
   def index
@@ -105,11 +103,5 @@ class Admin::TechniquesController < AdminApplicationController
     end
     csv.close
     redirect_to admin_techniques_url, :notice => "CSV Import Successful,  #{n} new records added to the database"
-  end
-
-  private
-
-  def renew_techniques_token
-    ENV['TECHNIQUES_TOKEN'] = Time.now.to_i.to_s
   end
 end

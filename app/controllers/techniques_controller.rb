@@ -12,7 +12,6 @@ class TechniquesController < UserApplicationController
     else
       @techniques = []
     end
-    @techniques_token = ENV['TECHNIQUES_TOKEN']
 
     respond_to do |format|
       format.html { render :partial => 'techniques_list', :locals => {:technique_type => @technique_type, :techniques => @techniques}, :layout => false}

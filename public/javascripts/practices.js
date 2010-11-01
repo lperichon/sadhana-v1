@@ -80,31 +80,19 @@ var Practices = {
       Practices.load_accordion_techniques(ui.newHeader.attr('symbol'));
     }});
   },
-  load_accordion_techniques: function(technique_type_symbol, actual_techniques_token) {
+  load_accordion_techniques: function(technique_type_symbol) {
     if($('#' + technique_type_symbol + '_techniques_list').length == 0) {
-      cached_techniques_token = jQuery.jStore.get('techniques_token');
-      cached_techniques = jQuery.jStore.get(technique_type_symbol);
-      if(actual_techniques_token && cached_techniques_token && actual_techniques_token == cached_techniques_token && cached_techniques) {
-        $('#' + technique_type_symbol + '_techniques_viewport').html(cached_techniques);
-        Practices.accordion_draggable($('.ui-tabs-selected a').attr('href'), $('.ui-tabs-selected').attr('primary_technique_type'), $('.ui-tabs-selected').attr('secondary_technique_types'));
-        Practices.qs.cache();
-      } else {
         $.ajax({
           type:'get',
           data: { 'symbol': technique_type_symbol },
           dataType: 'html',
           url: '/techniques',
           success: function(data){
-            jQuery.jStore.set(technique_type_symbol, data);
-            if(actual_techniques_token)
-              jQuery.jStore.set('techniques_token', actual_techniques_token);
-            cached_techniques = data;
-            $('#' + technique_type_symbol + '_techniques_viewport').html(cached_techniques);
+            $('#' + technique_type_symbol + '_techniques_viewport').html(data);
             Practices.accordion_draggable($('.ui-tabs-selected a').attr('href'), $('.ui-tabs-selected').attr('primary_technique_type'), $('.ui-tabs-selected').attr('secondary_technique_types'));
             Practices.qs.cache();
           }
         });
-      }
     }
   }
 };

@@ -28,6 +28,7 @@ es:
     sign_up: Registrarse
     undo: Deshacer
     update: Actualizar
+    upgrade: Mejorá
     upgrade_now: "Mejorá tu suscripción ahora!"
   activerecord:
     attributes:
@@ -406,6 +407,8 @@ es:
       practice_parts:
         add: "Agregar anga"
       sort_angas_tip: "¿Sabías que podés ordenar los angas de la práctica? Arrastrá y ordená las pestañas."
+      upgrade_for_add_angas_tip: "%{upgrade_link} tu suscripción para separar tu práctica en algunas partes!"
+      upgrade_for_more_associated_techniques_tip: "%{upgrade_link} tu suscripción para habilitar más tipos técnica!"
     update:
       restore_notice: "Tu práctica fué recuperada."
   saas:

@@ -3,10 +3,18 @@
   <% tips << t('practices.show.add_techniques_tip') %>
 <% end %>
 <% if @practice.practice_parts.collect { |pp| pp.practice_techniques.collect { |pt| pt.techniques } }.flatten.empty? %>
-    <% tips << t('practices.show.add_associated_techniques_tip') %>
+    <% associated_techniques_tip = t('practices.show.add_associated_techniques_tip') %>
+    <% if current_user.subscription_plan == SubscriptionPlan.default_plan %>
+        <% associated_techniques_tip << ' ' + t('practices.show.upgrade_for_more_associated_techniques_tip', :upgrade_link => link_to_function(t('actions.upgrade'),"$('#edit_profile_dialog').dialog('open').tabs('select', 1);")) %>
+    <% end %>
+    <% tips << associated_techniques_tip.html_safe %>
 <% end %>
 <% if @practice.practice_parts.size <= 1 %>
-    <% tips << t('practices.show.add_angas_tip') %>
+    <% if current_user.subscription_plan == SubscriptionPlan.default_plan %>
+        <% tips << t('practices.show.upgrade_for_add_angas_tip', :upgrade_link => link_to_function(t('actions.upgrade'),"$('#edit_profile_dialog').dialog('open').tabs('select', 1);")).html_safe %>
+    <% else %>
+        <% tips << t('practices.show.add_angas_tip') %>
+    <% end %>
 <% end %>
 <% if @practice.practice_parts.all.sort { |a,b| a.id <=> b.id } == @practice.practice_parts %>
     <% tips << t('practices.show.sort_angas_tip') %>

@@ -502,3 +502,7 @@ div[aria-labelledby = 'ui-dialog-title-edit_practice_technique_dialog'] .ui-dial
 #associated_techniques .technique {
     cursor: default;
 }
+
+#techniques_accordion .ui-state-disabled.ui-accordion-header, #techniques_accordion .ui-widget-content .ui-state-disabled.ui-accordion-content.ui-accordion-content-active {
+    opacity: 0.35;
+}

@@ -1,7 +1,6 @@
 page << "$('#techniques_accordion').replaceWith('#{ escape_javascript render :partial => 'practices/techniques_accordion', :locals => {:part => @part}}');"
 page << %(
     technique_type_symbol = '#{@part.technique_type.symbol}'
-    actual_techniques_token = '#{ENV['TECHNIQUES_TOKEN']}';
-    Practices.load_accordion_techniques(technique_type_symbol, actual_techniques_token);
+    Practices.load_accordion_techniques(technique_type_symbol);
 )
 page << "Practices.init_accordion();"

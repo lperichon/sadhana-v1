@@ -29,7 +29,7 @@
     </div>
     <div id="accordion_container">
       <% unless @practice.practice_parts.empty? %>
-        <%= render :partial => 'techniques_accordion', :locals => {:part => @practice.practice_parts.first.part} %>
+        <%= render :partial => 'techniques_accordion', :locals => {:part => first_part(@practice)} %>
       <% end %>
     </div>
   </div>
@@ -60,21 +60,6 @@
 
 <%= javascript_tag do %>
   $(document).ready(function(){
-    // First, we must tell jStore where to find the HTML file which embeds our flash script.
-    // If you move the jStore.swf or jStore.Flash.html files out of their default directories (document root),
-    // use this variable to define where to access the .html file. Within the .html file, you can set up the
-    // path to the .swf file.
-    // Then, set up the default engine we wish to use.
-    jQuery.extend(jQuery.jStore.defaults, {
-        flash: 'jStore.Flash.html'
-    })
-
-    // Finally, we trigger jStore's load function. This is a new step in the
-    // activation procedure of jStore, since Version 1.1
-    $(function(){
-        jQuery.jStore.load();
-    });
-
     // Resize window to fit
     Practices.adjustEditorSize();
 
@@ -102,17 +87,19 @@
 
     // Start loading first technique type
 
-    jQuery.jStore.ready(function(engine){
-    engine.ready(function() {
-    technique_type_symbol = '<%=  @practice.practice_parts.first.part.symbol unless @practice.practice_parts.empty? %>'
-    actual_techniques_token = '<%= ENV['TECHNIQUES_TOKEN'] %>';
-    Practices.load_accordion_techniques(technique_type_symbol, actual_techniques_token);
-    })});
-
-    $('#add_tab').click(function() {$('#new_practice_part_dialog').dialog('open');});
+    technique_type_symbol = '<%= first_part(@practice).symbol %>'
+    asana_index = <%= first_part_index(@practice) %>
+    Practices.load_accordion_techniques(technique_type_symbol);
     $('#add_tab').button({icons: {secondary: 'ui-icon-circle-plus'}});
+    <% if current_user.subscription_plan == SubscriptionPlan.default_plan %>
+        $('#add_tab').button({ disabled: true });
+    <% else %>
+        $('#add_tab').click(function() {$('#new_practice_part_dialog').dialog('open');});
+    <% end %>
     $('#add_tab').removeClass('ui-corner-all').addClass('ui-corner-top');
     $('#practice_parts').tabs({
+        selected: asana_index,
+        disabled: <%= disabled_parts(@practice) %>,
         tabTemplate: '<li id="new_practice_part"><a href="#{href}">#{label}</a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>',
         panelTemplate: '<div class="part-techniques"></div>',
         select: function(event, ui) {
@@ -172,5 +159,13 @@
 
     // Initilize techniques accordion
     Practices.init_accordion();
+    <% if current_user.subscription_plan == SubscriptionPlan.default_plan %>
+        $.each( $("#techniques_accordion .ui-state-default"), function(i, l){
+            if(i!=0){
+                $(l).addClass('ui-state-disabled');
+                $(l).children('a').click(function(event){ alert('hola!'); event.stopPropagation();});
+            };
+        });
+    <% end %>
   });
 <% end %>

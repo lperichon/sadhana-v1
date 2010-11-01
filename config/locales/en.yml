@@ -116,7 +116,9 @@ en:
       add_techniques_tip: "Drag and drop the ásanas and order them."
       add_associated_techniques_tip: "Did you know that you can associate techniques? Drag and drop a mudrá to an ásana."
       add_angas_tip: "Separate your practice in parts, create new angas by clicking on the 'Add anga' tab."
+      upgrade_for_add_angas_tip: "%{upgrade_link} your account to separate your practice in parts!"
       sort_angas_tip: "Did you know that you can order the angas in your practice? Drag the tabs and sort them."
+      upgrade_for_more_associated_techniques_tip: "%{upgrade_link} your account to enable more technique types!"
     play_practice_technique:
       no_description: "No description"
       no_observations: "No observations"
@@ -254,6 +256,7 @@ en:
     restore: "Restore"
     duplicate: "Duplicate"
     destroy_all: "Destroy all"
+    upgrade: "Upgrade"
   practice_event:
     help:
       practice: "Choose the practice."
