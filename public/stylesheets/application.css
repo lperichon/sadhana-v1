@@ -1,32 +1,10 @@
 html {
-  background-color: #fff; /* fallback color */
-  background-image: url(/images/linear_bg.png); /* fallback image */
-  background-repeat: repeat-x;
-  background-position: bottom;
-  background:
-    -webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(0.60, rgb(255,255,255)),
-        color-stop(1, rgb(246,167,40))
-    );
-  background:
-    -moz-linear-gradient(
-        center top,
-        rgb(255,255,255) 60%,
-        rgb(246,167,40) 100%
-    );
-  min-height: 100%;
+
 }
 
 body {
   margin-left: 10px;
   margin-right: 10px;
-}
-
-#content {
-  overflow: auto;
 }
 
 #header {
@@ -178,7 +156,8 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
   margin-top: 20px;
   float: left;
   display: block;
-  width: 650px;
+  min-width: 650px;
+  width: 40%;
   height: 375px;
   margin-left: 3%;
 
@@ -206,12 +185,12 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
   display: inline-block;
   margin-top: 20px;
   margin-left: 10px;
-  width: 35%;
+  width: 29%;
 }
 
 #get_started {
   display: inline-block;
-  width: 35%;
+  width: 29%;
   margin-top: 20px;
   margin-left: 10px;
 }

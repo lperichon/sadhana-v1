@@ -105,6 +105,10 @@
   background: none;
 }
 
+.gecko .ui-tabs .ui-tabs-nav li {
+    top: 2px;
+}
+
 #practice_parts.ui-tabs {
   padding: 0;
 }
@@ -304,6 +308,7 @@ span#jeditable_description input {
 
 #play_controls {
   text-align: center;
+  margin: 0;
 }
 
 #play_controls a {
@@ -324,16 +329,15 @@ span#jeditable_description input {
     margin-right: 5px;
     font-size: 4em;
     vertical-align: middle;
-    line-height: 1.5em;
+    line-height: 1.2em;
 }
 
 #slideshow_practice_techniques {
   display: block;
-  margin: 10px auto auto;
+  margin: 10px auto 0px;
 }
 
 .slideshow_practice_technique {
-
 }
 
 .current_technique {
@@ -391,8 +395,7 @@ span#jeditable_description input {
 
 .next_technique {
   display: inline-block;
-  float: left;
-  margin: 0;
+  float: right;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   background: #fff;
@@ -400,7 +403,7 @@ span#jeditable_description input {
   height: 200px;
   width: 200px;
   margin-top: 125px;
-  margin-left: 50px;
+  margin-left:15px;
   text-align: center;
 }
 
