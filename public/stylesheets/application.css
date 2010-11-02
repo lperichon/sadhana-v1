@@ -206,12 +206,12 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
   display: inline-block;
   margin-top: 20px;
   margin-left: 10px;
-  width: 40%;
+  width: 35%;
 }
 
 #get_started {
   display: inline-block;
-  width: 40%;
+  width: 35%;
   margin-top: 20px;
   margin-left: 10px;
 }
