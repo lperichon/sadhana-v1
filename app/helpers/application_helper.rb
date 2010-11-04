@@ -70,7 +70,7 @@ $('tasks').insert({ bottom: "#{ escape_javascript task }".replace(/new_\\d+/g, n
 
   def practice_time(practice)
     s = ""
-    s.concat t('practice.time_format', :minutes =>practice.total_time / 60, :seconds => practice.total_time % 60 )
+    s.concat t('practice.time_format', :hours => practice.total_time / 3600, :minutes =>practice.total_time / 60, :seconds => practice.total_time % 60 )
     s.concat " ("
     practice.practice_parts.each_with_index do |pp, i|
       s.concat ", " if i > 0

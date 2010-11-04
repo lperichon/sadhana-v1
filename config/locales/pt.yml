@@ -328,7 +328,7 @@ pt:
       name: "Nome da sua prática."
       sound_filename: "Escolha um som para indicar a mudanza entre técnicas."
       total_time: "Tempo total da prática,  considerando a espera entre técnicas."
-    time_format: "%{minutes} minutos %{seconds} segundos"
+    time_format: "%{hours}h %{minutes}m %{seconds}s"
   practice_event:
     help:
       practice: "Escolha a prática."

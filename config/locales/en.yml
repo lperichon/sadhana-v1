@@ -225,7 +225,7 @@ en:
       continuous: "Do not wait between each practice technique."
       total_time: "Total practice time, taking into consideration the delay between techniques."
       sound_filename: "Choose a sound to hear between techniques."
-    time_format: "%{minutes} minutes %{seconds} seconds"
+    time_format: "%{hours}h %{minutes}m %{seconds}s"
   actions:
     share: "Share"
     cancel: "Cancel"
