@@ -38,7 +38,7 @@
       <% @practice.practice_parts.each do |pp| %>
         <li part_symbol="<%= pp.part.symbol %>" part_id="<%= pp.id %>" primary_technique_type="<%= pp.part.primary_technique_type %>" secondary_technique_types="<%= pp.part.secondary_technique_types %>" id="practice_part_<%= pp.id %>"><a href="#part-techniques-<%= pp.id %>"><%= pp.part.name %></a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>
       <%end %>
-      <button id="add_tab"><%= t('practices.show.practice_parts.add') %></button>
+      <button id="add_tab" class="ui-button-icon"></button>
     </ul>
 
     <% @practice.practice_parts.each do |pp| %>
@@ -90,7 +90,7 @@
     technique_type_symbol = '<%= first_part(@practice).symbol %>'
     asana_index = <%= first_part_index(@practice) %>
     Practices.load_accordion_techniques(technique_type_symbol);
-    $('#add_tab').button({icons: {secondary: 'ui-icon-circle-plus'}});
+    $('#add_tab').button({icons: {primary: 'ui-icon-circle-plus'}, text: false});
     <% if current_user.subscription_plan == SubscriptionPlan.default_plan %>
         $('#add_tab').button({ disabled: true });
     <% else %>
