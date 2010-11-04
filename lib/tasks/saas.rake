@@ -9,6 +9,11 @@ namespace :saas do
         sub.increment!(:warning_level)
       end
 
+      # send warnings that trial ending in 3 days
+      Subscription.with_state(:active).due_in(3.days).each do |sub|
+        SubscriptionConfig.mailer.deliver_subscription_expiring(sub)
+      end
+
       # renew subscriptions that are due now
       Subscription.with_states(:trial, :active).due_now.each do |sub|
         sub.renew

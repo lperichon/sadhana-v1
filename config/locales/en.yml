@@ -364,3 +364,6 @@ en:
     subscription_expired:
       hello: "Hello %{email}!"
       body: "Your subscription to %{root_url} has expired. Log in to reenable your account."
+    subscription_expiring:
+      hello: "Hello %{email}!"
+      body: "Your subscription to %{root_url} is about to expire! Log in to renew it."

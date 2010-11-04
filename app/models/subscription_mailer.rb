@@ -5,6 +5,11 @@ class SubscriptionMailer < ActionMailer::Base
     setup_email(subscription)
     @subject += "Your trial is ending soon"
   end
+
+  def subscription_expiring(subscription)
+    setup_email(subscription)
+    @subject += t('saas.subscription_expiring.subject')
+  end
   
   def charge_success(subscription, transaction)
     setup_email(subscription, transaction)

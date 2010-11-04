@@ -495,6 +495,9 @@ es:
     subscription_expired:
       body: "Tu suscripción a %{root_url} expiró. Entrá nuevamente para reactivarla."
       hello: "¡Hola %{email}!"
+    subscription_expiring:
+      body: "Tu suscripción a %{root_url} está a punto de expirar! Entrá para renovarla."
+      hello: "¡Hola %{email}!"
   subscriptions:
     credit_card:
       add_title: "Agregar una tarjeta"
