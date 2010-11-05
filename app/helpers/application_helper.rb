@@ -68,19 +68,21 @@ $('tasks').insert({ bottom: "#{ escape_javascript task }".replace(/new_\\d+/g, n
     end
   end
 
-  def practice_time(practice)
+  def practice_time(practice, details = true)
     s = ""
     hours = practice.total_time / 3600
     minutes = practice.total_time % 3600 / 60
     seconds = practice.total_time % 60
     s.concat t('practice.time_format', :hours => hours, :minutes => minutes, :seconds => seconds )
-    s.concat " ("
-    practice.practice_parts.each_with_index do |pp, i|
-      s.concat ", " if i > 0
-      s.concat "#{pp.part.name}: "
-      s.concat "%02d:%02d" % [pp.total_time / 60, pp.total_time % 60]
+    if details
+      s.concat " ("
+      practice.practice_parts.each_with_index do |pp, i|
+        s.concat ", " if i > 0
+        s.concat "#{pp.part.name}: "
+        s.concat "%02d:%02d" % [pp.total_time / 60, pp.total_time % 60]
+      end
+      s.concat ")"
     end
-    s.concat ")"
     s
   end
 end
