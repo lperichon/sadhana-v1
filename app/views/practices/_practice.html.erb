@@ -7,7 +7,7 @@
       <%= t('practices.practice.owner', :owner => practice.user.email) unless current_user == practice.user %>
     <% end %>
   </h3>
-  <p class="time">(<%= practice_time(@practice, false) %>)</p>
+  <p class="time">(<%= practice_time(practice, false) %>)</p>
   <% if practice.state == 'archived' && practice.user != current_user %>
       <p class="warning"><%= t('practices.practice.shared_practice_deleted') %></p>
   <% end %>
