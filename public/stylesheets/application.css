@@ -1,4 +1,4 @@
-html {
+    html {
 
 }
 
@@ -185,12 +185,12 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
   display: inline-block;
   margin-top: 20px;
   margin-left: 10px;
-  width: 29%;
+  width: 28%;
 }
 
 #get_started {
   display: inline-block;
-  width: 29%;
+  width: 28%;
   margin-top: 20px;
   margin-left: 10px;
 }

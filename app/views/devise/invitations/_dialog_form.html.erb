@@ -1,4 +1,4 @@
 <%= form_for :user, :url => invitation_path(:user) do |f| %>
   <%= f.label :email %><br/>
-  <%= f.text_field :email, :autocomplete => 'off' %>
+  <%= f.text_field :email, :autocomplete => 'off', :type => 'email' %>
 <% end %>

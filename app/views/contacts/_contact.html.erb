@@ -4,7 +4,7 @@
     <% if contact.invited? %>
         <li><%= button_to 'Resend Invitation', {:controller => 'users/invitations',
                                                 :action => 'create',
-                                                :user => { :email => contact.email}}, :class => 'awesome small blue'%>
+                                                :user => { :email => contact.email}}, :class => 'awesome small blue', :style => '-webkit-appearance:none;'%>
         </li>
     <% end %>
     <li><%= link_to_function t('actions.destroy'), "$('#confirm_dialog').dialog({

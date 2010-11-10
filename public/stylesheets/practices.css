@@ -1,8 +1,3 @@
-
-
-
-
-
 #practices {
 
 }
@@ -113,6 +108,10 @@
   padding: 0;
 }
 
+#practice_parts.ui-tabs .ui-tabs-nav li a {
+  padding: 0.3em 0.3em 0.3em 0.5em;
+}
+
 #practice_parts.ui-widget-content {
   border: none;
 }
@@ -150,7 +149,10 @@
 
 #practice_parts li .ui-icon-close {
     float: left;
-    margin: 0.4em 0 0 0;
+    margin-top: 0.4em;
+    margin-right: 0.3em;
+    margin-left: 0;
+    margin-bottom: 0;
     cursor: pointer;
 }
 
@@ -381,7 +383,7 @@ span#jeditable_description input {
   display: inline-block;
   float: left;
   height: 460px;
-  width: 360px;
+  width: 340px;
   padding-left: 10px;
 }
 

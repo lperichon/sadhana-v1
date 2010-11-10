@@ -6,7 +6,7 @@
         <span id='errorExplanation'>- <%= @user.errors[:email].first %></span>
       <% end %>
       <br/>
-      <%= f.text_field :email %>
+      <%= f.text_field :email, :type => 'email' %>
     </div>
   <% end %>
 
