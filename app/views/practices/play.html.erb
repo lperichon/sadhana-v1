@@ -30,15 +30,15 @@
 
 <ul class='actions' id="play_controls">
   <% if @practice.user.id == current_user.id %>
-  <li class='button'><%= link_to content_tag(:span, t('actions.edit')), practice_path(@practice) %></li>
-  <li class='button'><%= link_to_function content_tag(:span, t('actions.preferences')), "$('#play_preferences_dialog').dialog('open');" %></li>
+  <li><%= link_to t('actions.edit'), practice_path(@practice), :class=>'button' %></li>
+  <li><%= link_to_function content_tag(:span, t('actions.preferences')), "$('#play_preferences_dialog').dialog('open')", :class=>'button' %></li>
   <% end %>
-  <li class='ui-state-default ui-corner-all icon'><%= link_to content_tag(:span, t('actions.previous'), :id => 'prev', :class => "ui-icon ui-icon-seek-prev"), "#" %></li>
-  <li class='ui-state-default ui-corner-all icon'><%= link_to_function content_tag(:span, t('actions.pause'), :class => 'ui-icon ui-icon-pause'), "$('#countdown').countdown('pause');" %></li>
+  <li><%= link_to t('actions.previous'), "#", :id => 'prev'%></li>
+  <li><%= link_to_function t('actions.pause'), "$('#countdown').countdown('pause')", :id=>'pause'%></li>
   <div id="countdown"></div>
-  <li class='ui-state-default ui-corner-all icon'><%= link_to_function content_tag(:span, t('actions.play'), :class => 'ui-icon ui-icon-play'), "$('#countdown').countdown('resume');"%></li>
-  <li class='ui-state-default ui-corner-all icon'><%= link_to content_tag(:span, t('actions.next'), :id => 'next', :class => 'ui-icon ui-icon-seek-next'), "#"%></li>
-  <li class='button'><%= link_to_function content_tag(:span, t('actions.add_to_calendar')), "$.ajax({ type:'get', data: 'practice_event[practice_id]=#{@practice.id}', dataType: 'script', url: '#{new_practice_event_path}'});" %></li>
+  <li><%= link_to_function t('actions.play'), "$('#countdown').countdown('resume')", :id=>'play'%></li>
+  <li><%= link_to t('actions.next'), "#", :id => 'next'%></li>
+  <li><%= link_to_function t('actions.add_to_calendar'), "$.ajax({ type:'get', data: 'practice_event[practice_id]=#{@practice.id}', dataType: 'script', url: '#{new_practice_event_path}'})", :class=>'button' %></li>
 </ul>
 
 <%= render :partial => 'shared/new_event_dialog' %>
@@ -58,7 +58,36 @@
   });
   });
 
-  $('#play_controls li.button').button();
+  $('#play_controls li .button').button();
+
+  $('#play_controls #prev').button({
+    icons: {
+        primary: 'ui-icon-seek-prev'
+    },
+    text: false
+  });
+
+  $('#play_controls #pause').button({
+    icons: {
+        primary: 'ui-icon-seek-pause'
+    },
+    text: false
+  });
+
+  $('#play_controls #play').button({
+    icons: {
+        primary: 'ui-icon-play'
+    },
+    text: false
+  });
+
+  $('#play_controls #next').button({
+    icons: {
+        primary: 'ui-icon-seek-next'
+    },
+    text: false
+  });
+
 
   $('#play_preferences_dialog').dialog({
     autoOpen: false,
