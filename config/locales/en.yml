@@ -360,6 +360,8 @@ en:
   saas:
     subscription_expired:
       subject: "Your subscription has expired"
+    subscription_expiring:
+      subject: "Your subscription is about to expire"
   subscription_mailer:
     subscription_expired:
       hello: "Hello %{email}!"

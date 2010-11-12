@@ -4,36 +4,64 @@ class SubscriptionMailer < ActionMailer::Base
   def trial_expiring(subscription)
     setup_email(subscription)
     @subject += "Your trial is ending soon"
+
+    mail(:from => @from,
+         :to => @recipients,
+         :subject => @subject)
   end
 
   def subscription_expiring(subscription)
     setup_email(subscription)
     @subject += t('saas.subscription_expiring.subject')
+
+    mail(:from => @from,
+         :to => @recipients,
+         :subject => @subject)
   end
   
   def charge_success(subscription, transaction)
     setup_email(subscription, transaction)
     @subject += "Service invoice"
+
+    mail(:from => @from,
+         :to => @recipients,
+         :subject => @subject)
   end
   
   def charge_failure(subscription, transaction)
     setup_email(subscription, transaction)
-    @subject += "Billing error" 
+    @subject += "Billing error"
+
+    mail(:from => @from,
+         :to => @recipients,
+         :subject => @subject)
   end      
   
   def second_charge_failure(subscription, transaction)
     setup_email(subscription, transaction)
     @subject += "Second notice: Your subscription is set to expire"
+
+    mail(:from => @from,
+         :to => @recipients,
+         :subject => @subject)
   end
   
   def credit_success(subscription, transaction)
     setup_email(subscription, transaction)
     @subject += "Credit"
+
+    mail(:from => @from,
+         :to => @recipients,
+         :subject => @subject)
   end
   
   def subscription_expired(subscription)
     setup_email(subscription)
     @subject += t('saas.subscription_expired.subject')
+
+    mail(:from => @from,
+         :to => @recipients,
+         :subject => @subject)
   end
   
   # def admin_report(admin, activity_log)

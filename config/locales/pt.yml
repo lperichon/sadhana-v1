@@ -38,36 +38,9 @@ pt:
         type: "Tipo de cartão"
         verification_value: "Card Verification Value (CVV)"
       practice:
-        continuous: Continuo
-        delay: Delay
-        description: Descrição
-        name: Nome
         sound_filename: Som
-        total_time: "Tempo Total"
       practice_event:
-        date: Data
-        practice: Prática
         start: Data
-      practice_technique:
-        associated_techniques: "Técnicas associadas"
-        compensate: Compensação
-        minutes: Minutos
-        observations: Comentários
-        seconds: Segundos
-        technique: Técnica
-      subscription:
-        credit_card: "Cartão de crédito"
-        current_password: "Senha atual"
-        plan: "Plano "
-      technique:
-        description: Descrição
-      user:
-        current_password: "Senha atual"
-        email: Email
-        locale: Linguagem
-        password: Senha
-        password_confirmation: "Confirmação da senha"
-        remember_me: Lembre-me
   application:
     account_due: "Sua conta vence em %{days} dias."
     account_past_due: "Sua conta esta por vencer. Ainda há %{days} dias para realizar o pagamento."
@@ -85,109 +58,11 @@ pt:
   credit_card:
     expiration_month: mês
     expiration_year: ano
-  date:
-    abbr_day_names:
-      - Dom
-      - Seg
-      - Ter
-      - Qua
-      - Qui
-      - Sex
-      - Sáb
-    abbr_month_names:
-      - ~
-      - Jan
-      - Fev
-      - Mar
-      - Abr
-      - Mai
-      - Jun
-      - Jul
-      - Ago
-      - Set
-      - Out
-      - Nov
-      - Dez
-    day_names:
-      - Domingo
-      - Segunda
-      - Terça
-      - Quarta
-      - Quinta
-      - Sexta
-      - Sábado
-    formats:
-      default: "%d/%m/%Y"
-      long: "%d de %B de %Y"
-      short: "%d de %B"
-    month_names:
-      - ~
-      - Janeiro
-      - Fevereiro
-      - Março
-      - Abril
-      - Maio
-      - Junho
-      - Julho
-      - Agosto
-      - Setembro
-      - Outubro
-      - Novembro
-      - Dezembro
-    order:
-      - :day
-      - :month
-      - :year
-  datetime:
-    distance_in_words:
-      about_x_hours:
-        one: "aproximadamente 1 hora"
-        other: "aproximadamente %{count} horas"
-      about_x_months:
-        one: "aproximadamente 1 mês"
-        other: "aproximadamente %{count} meses"
-      about_x_years:
-        one: "aproximadamente 1 ano"
-        other: "aproximadamente %{count} anos"
-      almost_x_years:
-        one: "quase 1 ano"
-        other: "quase %{count} anos"
-      half_a_minute: "meio minuto"
-      less_than_x_minutes:
-        one: "menos de um minuto"
-        other: "menos de %{count} minutos"
-      less_than_x_seconds:
-        one: "menos de 1 segundo"
-        other: "menos de %{count} segundos"
-      over_x_years:
-        one: "mais de 1 ano"
-        other: "mais de %{count} anos"
-      x_days:
-        one: "1 dia"
-        other: "%{count} dias"
-      x_minutes:
-        one: "1 minuto"
-        other: "%{count} minutos"
-      x_months:
-        one: "1 mês"
-        other: "%{count} meses"
-      x_seconds:
-        one: "1 segundo"
-        other: "%{count} segundos"
-    prompts:
-      day: Dia
-      hour: Hora
-      minute: Minuto
-      month: Mês
-      second: Segundos
-      year: Ano
   devise:
     confirmations:
-      confirmed: "A sua conta foi confirmada com sucesso. Agora está conectado."
       new:
         submit: Reenviar
         title: "Envie novamente instruções da confirmação"
-      send_instructions: "Dentro de minutos, receberá uma mensagem electrónica com as instruções de confirmação da sua conta."
     failure:
       inactive: "A sua conta ainda não foi ativada."
       invalid: "O endereço de correio electrónico ou a palavra-passe inválido."
@@ -237,21 +112,14 @@ pt:
       new:
         submit: "Enviar instruções"
         title: "Esqueceu sua senha?"
-      send_instructions: "Dentro de minutos, receberá uma mensagem electrónica com as instruções de reinicialização da palavra-passe."
-      updated: "A sua palavra-passe foi alterada com sucesso. Agora está conectado."
     registrations:
-      destroyed: "Adéus! A sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve."
       new:
         submit: Cadastre-se
         title: Cadastre-se
-      signed_up: "Tem sido registrado com sucesso. Você receberá um email de confirmação em alguns minutos."
-      updated: "A sua conta foi atualizada com sucesso."
     sessions:
       new:
         submit: Entrar
         title: Entrar
-      signed_in: "Fez login com sucesso."
-      signed_out: "Fez logout com sucesso."
     unlocks:
       send_instructions: "Dentro de minutos, receberá a mensagem electrónica com as instruções como desbloquear a sua conta."
       unlocked: "A sua conta foi desbloqueada com sucesso. Agora está conectado."
@@ -288,38 +156,6 @@ pt:
     sign_up: Cadastre-se
     signed_in_as: "Conectado como %{email}."
     signup_or_siginin: "%{signup} ou %{signin}"
-  number:
-    currency:
-      format:
-        delimiter: "."
-        format: "%u %n"
-        precision: "2"
-        separator: ","
-        unit: R$
-    format:
-      delimiter: "."
-      precision: "3"
-      separator: ","
-    human:
-      format:
-        delimiter: "."
-        precision: "2"
-      storage_units:
-        format: "%n %u"
-        units:
-          byte:
-            one: Byte
-            other: Bytes
-          gb: GB
-          kb: KB
-          mb: MB
-          tb: TB
-    percentage:
-      format:
-        delimiter: "."
-    precision:
-      format:
-        delimiter: "."
   practice:
     help:
       continuous: "Não esperar entre técnicas."
@@ -366,9 +202,6 @@ pt:
       destroy_completely: "Eliminar completamente"
       undo: desfazer
       undo_notice: "A prática tem sido apagada, você pode %{undo_link} ou %{destroy_link}."
-    edit_practice_dialog:
-      info_tab_title: "Editar dados"
-      play_preferences_tab_title: "Preferências de execução"
     index:
       create_practice_tip: "Crie uma nova prática fazendo clique no botão 'Nova prática'."
       deleted_practices: "Práticas eliminadas"
@@ -414,6 +247,8 @@ pt:
   saas:
     subscription_expired:
       subject: "Seu plano expirou"
+    subscription_expiring:
+      subject: "Sua assinatura está perto a expirar"
   share_mailer:
     share_notification:
       hello: "Oi %{email}!"
@@ -504,26 +339,12 @@ pt:
       update_title: "Atualizar cartão"
     transaction_history:
       title: "Histórico de transacções"
-  support:
-    array:
-      last_word_connector: " e "
-      two_words_connector: " e "
-      words_connector: ", "
-    select:
-      prompt: "Por favor selecione"
   switch_language: "Alterar idioma"
   techniques:
     techniques_list:
       by_category: "Por categoria"
       by_family: "Por família"
   this_file_language: Português
-  time:
-    am: am
-    formats:
-      default: "%A, %d de %B de %Y, %H:%M h"
-      long: "%A, %d de %B de %Y, %H:%M h"
-      short: "%d/%m, %H:%M h"
-    pm: pm
   users:
     invitations:
       invite_another: "%{new_invitation_link}."
