@@ -4,7 +4,7 @@
   <%= render :partial => 'shared/external_contact_links' %>
   <p><%= t('practice_shares.share_practice_dialog.select_sadhana_contacts', :sadhana_contacts => "<a href='/contacts/select' onclick=\"popUp(this.href,\'console\',400,400); return false;\" target='_blank'>#{t('practice_shares.dialog_form.sadhana_contacts')}</a>").html_safe %></p>
   <div class='buttons'>
-    <%= f.submit 'Share', :class => 'awesome medium blue', :id => 'share_button', :style => '-webkit-appearance:none;' %>
+    <%= f.submit t('actions.share'), :class => 'awesome medium blue', :id => 'share_button', :style => '-webkit-appearance:none;' %>
   </div>
 <% end %>
 
