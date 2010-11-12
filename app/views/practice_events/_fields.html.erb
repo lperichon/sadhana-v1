@@ -30,8 +30,12 @@ $('#practice_event_start_string').datepicker({
   dateFormat: 'yy-mm-dd',
   time24h: true,
   showTime: true,
+  showOn:"button",
+  buttonImage: "/icons/calendar.gif",
+  buttonImageOnly: true,
   beforeShow: function(){
     $("#ui-timepicker-div, #ui-datepicker-div").css({display: 'inline-block', zIndex: parseInt($(".ui-dialog").css('z-index')) + 3});
   }
 });
+$('#practice_event_start_string').attr("disabled", true);
 <% end %>

@@ -10,6 +10,7 @@ else
         modal: true,
         buttons: {
           '#{t('actions.save')}': function() {
+            $('#practice_event_start_string').attr("disabled", false);
             $.ajax({
                 type:'post',
                 dataType: 'script',

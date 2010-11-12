@@ -12,6 +12,7 @@ page << %(
     } ,
     buttons: {
       '#{t('actions.update')}': function() {
+        $('#practice_event_start_string').attr("disabled", false);
         $.ajax({
             type:'put',
             dataType: 'script',
