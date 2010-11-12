@@ -6,7 +6,7 @@ class PaymentsController < ApplicationController
   def paypal_ipn
     notify = Paypal::Notification.new(request.raw_post)
 
-    subscription = Subscription.find(notify.item_id)
+    subscription = Subscription.find(params['custom'])
 
     if notify.acknowledge
       begin
