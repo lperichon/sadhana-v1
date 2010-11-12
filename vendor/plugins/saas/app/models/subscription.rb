@@ -24,7 +24,7 @@ class Subscription < ActiveRecord::Base
     before_transition any => :active,   :do => :setup_active
     
     # always reset warning level when entering a different state
-    before_transition any => [any - same] do |sub| sub.warning_level = nil; puts 'hola' end
+    before_transition any => [any - same] do |sub| sub.warning_level = nil; end
     
     # for simpicity, event names are the same as the state
     event :free do
