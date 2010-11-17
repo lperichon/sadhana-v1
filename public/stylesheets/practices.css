@@ -397,6 +397,8 @@ span#jeditable_description input {
   display: inline-block;
   list-style: none;
   text-align: center;
+  border-color: #CCC;
+  cursor: default;
 }
 
 .next_technique {
