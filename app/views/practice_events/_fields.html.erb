@@ -22,17 +22,20 @@
 <div class="field">
   <%= f.label :start %><%= field_help t('practice_event.help.start') %>
   <br />
-  <span class="ui-icon ui-icon-calendar"></span><%= f.text_field :start_string %>
+  <%= f.text_field :start_string %><%= link_to_function 'calendar', "$('#practice_event_start_string').datepicker('show');", :id => 'calendar_button' %>
 </div>
 
 <%= javascript_tag do %>
+$('#calendar_button').button({
+            icons: {
+                primary: "ui-icon-calendar"
+            },
+            text: false
+        });
 $('#practice_event_start_string').datepicker({
   dateFormat: 'yy-mm-dd',
   time24h: true,
   showTime: true,
-  showOn:"button",
-  buttonImage: "/icons/calendar.gif",
-  buttonImageOnly: true,
   beforeShow: function(){
     $("#ui-timepicker-div, #ui-datepicker-div").css({display: 'inline-block', zIndex: parseInt($(".ui-dialog").css('z-index')) + 3});
   }

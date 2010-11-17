@@ -83,7 +83,7 @@ ul.actions {
 
 ul.element-actions {
   /* text-align: right; */
-  margin-top: 10px;goo
+  margin-top: 10px;
 }
 
 #event_practice_actions a {
@@ -238,14 +238,10 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
   text-align: center;
 }
 
-.ui-widget-content .ui-icon.ui-icon-calendar {
-  position: absolute;
-  margin: 5px;
-  background-image: url(/stylesheets/ui-lightness/images/ui-icons_ef8c08_256x240.png);
-}
-
-#practice_event_start_string {
-  padding-left: 15px;
+#calendar_button {
+    vertical-align: text-bottom;
+    width: 18px;
+    height: 18px;
 }
 
 #plans .plan {
