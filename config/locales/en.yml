@@ -109,6 +109,7 @@ en:
       new_invitation: "Invite a friend"
       create_practice_tip: "Create a new practice by clicking on the 'New practice' button."
       deleted_practices: "Deleted practices"
+      auto_delete_alert: "Warning! Deleted practices will be permanently removed after 1 week."
     show:
       loading: "Loading..."
       practice_parts:

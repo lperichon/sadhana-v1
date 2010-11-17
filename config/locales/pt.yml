@@ -370,6 +370,7 @@ pt:
       info_tab_title: "Editar dados"
       play_preferences_tab_title: "Preferências de execução"
     index:
+      auto_delete_alert: "Atenção! As práticas eliminadas serão permanentemente removidas após uma semana."
       create_practice_tip: "Crie uma nova prática fazendo clique no botão 'Nova prática'."
       deleted_practices: "Práticas eliminadas"
       my_practices: "Minhas práticas"
