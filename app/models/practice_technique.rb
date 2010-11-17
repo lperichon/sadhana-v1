@@ -6,6 +6,8 @@ class PracticeTechnique < ActiveRecord::Base
 
   after_initialize :initialize_practice_technique
 
+  before_validation :normalize_time
+
   validates :practice_part, :presence => true
   validates :technique, :presence => true
   validates :minutes, :presence => true, :numericality => true
@@ -25,5 +27,10 @@ class PracticeTechnique < ActiveRecord::Base
   def initialize_practice_technique
     self.minutes ||= 0
     self.seconds ||= 1
+  end
+
+  def normalize_time
+    self.minutes = 0 if self.minutes.nil?
+    self.seconds = 0 if self.seconds.nil?
   end
 end
