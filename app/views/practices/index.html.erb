@@ -59,12 +59,14 @@
     </div>
 
     <div id="practices_list" class='content'>
+        <% if params[:deleted] %>
         <div class="notice ui-state-highlight ui-corner-all" id="auto_delete_alert">
             <p>
               <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
               <%= t('practices.index.auto_delete_alert') %>
             </p>
           </div>
+        <% end %>
         <ul id='practices' class="element-list">
           <% @practices.each do |practice| %>
             <%= render :partial => 'practice', :locals => {:practice => practice} %>
