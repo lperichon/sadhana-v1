@@ -30,7 +30,10 @@ class PracticeTechnique < ActiveRecord::Base
   end
 
   def normalize_time
-    self.minutes = 0 if self.minutes.nil?
-    self.seconds = 0 if self.seconds.nil?
+    self.minutes ||= 0
+    self.seconds ||= 0
+
+    self.minutes = self.minutes + self.seconds / 60
+    self.seconds = self.seconds % 60
   end
 end
