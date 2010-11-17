@@ -397,3 +397,7 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
   position: relative;
   width: 100%;
 }
+
+#practice_event_practice_id {
+    max-width: 315px;
+}
