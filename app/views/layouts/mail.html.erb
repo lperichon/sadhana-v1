@@ -1,9 +1,20 @@
-<html style="background-color: #fff;">
+<html>
   <body style="font-size: 13px; line-height: 18px; font-family: verdana, arial, sans-serif; color: #333; margin-left: 10px; margin-right: 10px;">
-    <div class="ui-widget-header ui-corner-all" id="header" style="-webkit-border-radius: 4px; overflow: hidden; font-weight: bold; color: #ffffff; border: 1px solid #e78f08; height: 62px; -moz-border-radius: 4px; border-radius: 4px; background: #f6a828;">
-      <a href="http://sadhana.com.ar/" style="color: #ffffff;"><img src='http://sadhana.com.ar/images/logo_62.png' style='border: 0;' alt='S&aacute;dhana' /></a>
-    </div>
-
+    <table id="header" style="width: 100%; height: 68px; border: 0; empty-cells: show; border-collapse: collapse; table-layout: fixed;" cellspacing="0" cellpadding="0">
+      <tr>
+	<td style="width: 8px;">
+	  <img src="http://sadhana.com.ar/images/header_left.jpg">
+	</td>
+	<td style="width: 139px;">
+	  <a href="http://sadhana.com.ar/"><img src="http://sadhana.com.ar/images/header_logo.jpg" style="border: 0;"></a>
+	</td>
+	<td background="http://sadhana.com.ar/images/header_center.jpg">
+	</td>
+	<td style="width: 10px;">
+	  <img src="http://sadhana.com.ar/images/header_right.jpg">
+	</td>
+      </tr>
+    </table>
     <div id="content">
       <%= yield %>
     </div>
