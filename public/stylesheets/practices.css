@@ -125,7 +125,11 @@
   background: #fff;
 }
 
-.gecko #practice_parts .ui-tabs-panel, .ie #practice_parts .ui-tabs-panel {
+.gecko #practice_parts .ui-tabs-panel {
+  margin-top: 2px;
+}
+
+.ie #practice_parts .ui-tabs-panel {
   margin-top: 1px;
 }
 
