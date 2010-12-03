@@ -56,3 +56,5 @@ namespace :deploy do
     run "cp -pf #{deploy_to}/to_copy/.htaccess* #{current_path}/public/"
   end
 end
+        require 'config/boot'
+        require 'hoptoad_notifier/capistrano'

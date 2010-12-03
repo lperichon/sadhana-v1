@@ -23,6 +23,7 @@ gem 'aws-s3', '0.6.2'
 gem 'lperichon-contacts', '1.0.8', :require => 'contacts'
 gem 'oauth', '0.4.1'
 gem 'json', '1.4.3'
+gem 'hoptoad_notifier', '2.3.12'
 
 # Use unicorn as the web server
 # gem 'unicorn'
