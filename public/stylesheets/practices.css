@@ -129,6 +129,16 @@
   margin-top: 2px;
 }
 
+.gecko #add_tab {
+    height: 28px;
+    margin-top: 2px;
+}
+
+.gecko #add_tab .ui-icon {
+    margin-top:0;
+    top: auto;
+}
+
 .ie #practice_parts .ui-tabs-panel {
   margin-top: 1px;
 }
