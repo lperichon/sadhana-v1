@@ -298,13 +298,19 @@ en:
     expiration_year: "year"
   home:
     functionalities:
+      manage_your_practices: "Manage your practices"
+      angas: "Create complete practices"
+      techniques: "Select from over 2000 techniques"
+      anywhere: "Practice anywhere!"
+      share: "Share customized practices to your students"
+      practices_calendar: "Keep a calendar of your practices!"
       manage: "Manage your practices!"
       practice: "Practice @ home!"
       calendar: "Keep track of your practices!"
       list_title: "With Sádhana you can..."
     get_started:
       title: "Get Started Now!"
-      text: "If you practice Yôga, or teach it professionally, sign up now and start organizing your practices!"
+      text: "If you practice DeRose Method, or teach it professionally, sign up now and start organizing your practices!"
       button: "Get Started Now!"
     find_us_on_fb_html: "Or find us on %{facebook}"
     follow_us_on_twitter_html: "Follow us on %{twitter}"

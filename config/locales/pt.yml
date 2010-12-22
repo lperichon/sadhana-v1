@@ -269,13 +269,19 @@ pt:
     find_us_on_fb_html: "Ou encontrar-nos no %{facebook}"
     follow_us_on_twitter_html: "Siga-nos no %{twitter}"
     functionalities:
+      angas: "Cria práticas completas"
+      anywhere: "Pratique em qualquer lugar!"
       calendar: "Agende suas práticas!"
       list_title: "Com Sádhana você pode..."
       manage: "Administre suas práticas!"
+      manage_your_practices: "Administre suas práticas!"
       practice: "Pratique em sua casa!"
+      practices_calendar: "Mantenha um calendário de suas práticas!"
+      share: "Compartilhe práticas personalizadas para seus alunos"
+      techniques: "Selecione de entre mais de 2.000 técnicas"
     get_started:
       button: "Inicie agora!"
-      text: "Se você pratica Yôga, ou ensiná-lo profissionalmente, cadastre-se agora e começe a organizar as suas práticas!"
+      text: "Se você pratica Método DeRose, ou ensiná-lo profissionalmente, cadastre-se agora e começe a organizar as suas práticas!"
       title: "Inicie agora!"
   menu:
     calendar: Calendário

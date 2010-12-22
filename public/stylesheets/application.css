@@ -1,5 +1,33 @@
-    html {
+@font-face {
+	font-family: 'LeagueGothicRegular';
+	src: url(../fonts/League_Gothic-webfont.eot);
+	src: local('☺'), url(../fonts/League_Gothic-webfont.woff) format('woff'), url(../fonts/League_Gothic-webfont.ttf) format('truetype'), url(../fonts/League_Gothic-webfont.svg#webfonth8J5BRG2) format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 
+@font-face {
+	font-family: 'ProximaNovaCondensedRegular';
+	src: url(../fonts/proximanovacond-regular-webfont.eot);
+	src: local('☺'), url(../fonts/proximanovacond-regular-webfont.woff) format('woff'), url(../fonts/proximanovacond-regular-webfont.ttf) format('truetype'), url(../fonts/proximanovacond-regular-webfont.svg#webfontOBwLjF7B) format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'ProximaNovaRegular';
+	src: url(../fonts/proximanova-regular-webfont.eot);
+	src: local('☺'), url(../fonts/proximanova-regular-webfont.woff) format('woff'), url(../fonts/proximanova-regular-webfont.ttf) format('truetype'), url(../fonts/proximanova-regular-webfont.svg#webfontpbuFaM5l) format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html {
+  font-family: ProximaNovaRegular, helvetica;
+}
+
+.ui-widget {
+  font-family: ProximaNovaRegular;
 }
 
 body {
@@ -107,9 +135,6 @@ input[type='submit'].awesome {
     border-top-width: 0;
     border-right-width: 0;
     border-left-width: 0;
-    font-size: 11px;
-    font-weight: bold;
-    font-family: Verdana;
 }
 
 .gecko input[type='submit'].awesome {
@@ -151,28 +176,31 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
   float:none; padding:0;
 }
 
+#functionalities {
+    margin: 20px auto;
+    width: 900px;
+    overflow: auto;
+}
 
 #functionalities_slideshow {
-  margin-top: 20px;
+  margin: 0 auto;
   float: left;
-  display: block;
-  min-width: 650px;
-  width: 40%;
-  height: 375px;
-  margin-left: 3%;
-
+  display: inline-block;
+  width: 510px;
+  height: 285px;
   background: #fff;
   border: 1px solid #ccc;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
 
-#functionalities_slideshow div {
+#functionalities_slideshow img {
   display: inline-block;
-  padding-left: 10px;
+  padding-left: 5px;
+  padding-top: 5px;
 }
 
-#functionalities_slideshow div img {
+#functionalities_slideshow img {
   display: inline-block;
 }
 
@@ -183,16 +211,28 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 
 #functionalities_list {
   display: inline-block;
-  margin-top: 20px;
-  margin-left: 10px;
-  width: 28%;
+  margin-left: 20px;
+  width: 350px;
+  font-family: ProximaNovaRegular;
+  line-height: 20px;
+}
+
+#functionalities_list h2 {
+    font-family: LeagueGothicRegular;
+    font-size: 30px;
+    font-weight:normal;
 }
 
 #get_started {
-  display: inline-block;
-  width: 28%;
-  margin-top: 20px;
-  margin-left: 10px;
+  width: 500px;
+  margin: 40px auto;
+}
+
+#get_started h2 {
+  font-family: LeagueGothicRegular;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 10px;
 }
 
 #sign_up_button {
@@ -200,14 +240,14 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 }
 
 #social {
-  display: inline-block;
-  width: 100%;
+  margin: 50px auto;
+  width: 920px;
 }
 
 .facebook {
   display: inline-block;
   margin-left: 10px;
-  margin-top: 55px;
+  margin-top: 10px;
   vertical-align: top;
 }
 
@@ -216,10 +256,11 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 }
 .twitter-link span{
   background: url("/images/twitter_logo.png") no-repeat;
-  height: 20px;
-  width: 50px;
+  height: 25px;
+  width: 88px;
   text-indent: -9999px;
   display: inline-block;
+  vertical-align: middle;
 }
 
 .facebook-link {

@@ -269,10 +269,16 @@ es:
     find_us_on_fb_html: "O encontranos en %{facebook}"
     follow_us_on_twitter_html: "Seguinos en %{twitter}"
     functionalities:
+      angas: "Creá prácticas completas"
+      anywhere: "Practicá en cualquier lado"
       calendar: "¡Agendá tus prácticas!"
       list_title: "Con Sádhana podés..."
       manage: "¡Administrá tus prácticas!"
+      manage_your_practices: "Manejá tus prácticas"
       practice: "¡Practicá en tu casa!"
+      practices_calendar: "Llevá un calendario de prácticas"
+      share: "Compartí practicas personalizadas a tus alumnos"
+      techniques: "Seleccioná entre más de 2000 técnicas"
     get_started:
       button: "¡Comenzá ahora!"
       text: "¡Si practicás Método DeRose, o lo enseñás profesionalmente, registrate ahora y comenzá a organizar tus prácticas!"

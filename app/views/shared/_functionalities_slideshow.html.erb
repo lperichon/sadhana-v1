@@ -1,20 +1,11 @@
 <div id='functionalities_slideshow'>
-  <div>
-    <h2><%= t('home.functionalities.manage') %></h2>
-    <%= image_tag 'screenshot_editor.png' %>
-  </div>
-  <div>
-    <h2><%= t('home.functionalities.practice') %></h2>
-    <%= image_tag 'screenshot_play.png' %>
-  </div>
-  <div>
-    <h2><%= t('home.functionalities.calendar') %></h2>
-    <%= image_tag 'screenshot_calendar.png' %>
-  </div>
+  <%= image_tag 'manage.png' %>
+  <%= image_tag 'angas.png' %>
+  <%= image_tag 'techniques.png' %>
+  <%= image_tag 'play.png' %>
+  <%= image_tag 'share.png' %>
+  <%= image_tag 'calendar.png' %>
 </div>
 <%= javascript_tag do %>
-  $('#functionalities_slideshow').cycle({
-    fx: 'all',
-    fit: 1
-  });
+  $('#functionalities_slideshow').cycle();
 <% end %>

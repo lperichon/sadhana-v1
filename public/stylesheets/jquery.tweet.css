@@ -1,11 +1,10 @@
 .tweet, .query {
-  font-family: Georgia, serif;
   font-size: 120%;
   color: #085258;
   display: inline-block;
   margin-left: 35px;
   clear: both;
-  width: 60%;}
+  width: 450px;}
   .tweet .tweet_list, .query .tweet_list {
     -webkit-border-radius: .5em;
     -moz-border-radius: .5em;

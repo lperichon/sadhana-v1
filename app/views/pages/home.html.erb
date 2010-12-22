@@ -1,13 +1,19 @@
+<div id="functionalities">
 <%= render :partial => 'shared/functionalities_slideshow' %>
 
 <div id="functionalities_list">
   <h2><%= t('home.functionalities.list_title') %></h2>
   <ul>
-    <li><%= t('home.functionalities.manage') %></li>
-    <li><%= t('home.functionalities.practice') %></li>
-    <li><%= t('home.functionalities.calendar') %></li>
+    <li><%= t('home.functionalities.manage_your_practices') %></li>
+    <li><%= t('home.functionalities.angas') %></li>
+    <li><%= t('home.functionalities.techniques') %></li>
+    <li><%= t('home.functionalities.anywhere') %></li>
+    <li><%= t('home.functionalities.share') %></li>
+    <li><%= t('home.functionalities.practices_calendar') %></li>
   </ul>
 </div>
+</div>
+
 <div id="get_started">
     <h2><%= t('home.get_started.title') %></h2>
     <p><%= t('home.get_started.text') %></p>
@@ -20,7 +26,8 @@
 <div class="tweet"></div>
 
 <div class="facebook">
-  <%= t('home.find_us_on_fb_html', :facebook => link_to(content_tag(:span, "facebook"), "http://www.facebook.com/pages/Sadhana/134874333191329", :class=>'facebook-link')) %>
+  <%= t('home.find_us_on_fb_html', :facebook => link_to(content_tag(:span, "facebook"), "http://www.facebook.com/pages/Sadhana/134874333191329", :class=>'facebook-link')) %></br>
+  <iframe style='margin-top: 15px;' src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FSadhana%2F134874333191329&amp;layout=standard&amp;show_faces=true&amp;width=400&amp;action=like&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:100px;" allowTransparency="true"></iframe>
 </div>
 </div>
 <%= javascript_tag do %>
