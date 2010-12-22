@@ -34,8 +34,11 @@ class SubscriptionsController < UserApplicationController
 #      return redirect_to practices_path
     end
     
-    # failed above for some reason
-#    redirect_to practices_path
+
+    respond_to do |format|
+      format.html { redirect_to practices_path }  # failed above for some reason
+      format.js {}
+    end
   end
 
   def cancel
