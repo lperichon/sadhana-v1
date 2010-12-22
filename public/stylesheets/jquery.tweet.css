@@ -2,9 +2,8 @@
   font-size: 120%;
   color: #085258;
   display: inline-block;
-  margin-left: 35px;
   clear: both;
-  width: 450px;}
+  width: 440px;}
   .tweet .tweet_list, .query .tweet_list {
     -webkit-border-radius: .5em;
     -moz-border-radius: .5em;

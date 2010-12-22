@@ -246,9 +246,10 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 
 .facebook {
   display: inline-block;
-  margin-left: 10px;
+  margin-left: 30px;
   margin-top: 10px;
   vertical-align: top;
+  width: 440px;
 }
 
 .twitter-link {
