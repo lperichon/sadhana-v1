@@ -96,8 +96,10 @@ class PracticeTechniquesController < UserApplicationController
   def sort
     @practice = current_user.practices.find(params[:practice_id])
     @practice_part = @practice.practice_parts.find(params[:practice_part_id])
-    params[:practice_technique].each_with_index do |id, index|
-      @practice_part.practice_techniques.update_all(['position=?', index+1], ['id=?', id])
+    unless params[:practice_technique].blank?
+      params[:practice_technique].each_with_index do |id, index|
+        @practice_part.practice_techniques.update_all(['position=?', index+1], ['id=?', id])
+      end
     end
     render :nothing => true
   end
