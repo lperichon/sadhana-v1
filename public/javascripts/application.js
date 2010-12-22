@@ -1,6 +1,5 @@
 $.extend($.ui.tabs.prototype, {
     refreshPositions: function() {
-        console.log('refresh positions');
         this.list = this.element.find('ol,ul').eq(0);
         this.lis = $('li:has(a[href])', this.list);
         this.anchors = this.lis.map(function() { return $('a', this)[0]; });
