@@ -1,6 +1,9 @@
 Sadhana::Application.routes.draw do |map|
+  match '/auth/:provider/callback' => 'authentications#create'
   devise_for :admins
   devise_for :users, :controllers => { :registrations => "users/registrations", :invitations => "users/invitations" }
+
+  resources :authentications
 
   resources :parts
 

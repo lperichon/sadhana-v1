@@ -2,6 +2,7 @@
   <%= f.label :email %><br/>
   <%= f.text_field :email, :type => 'email' %>
 </div>
+<% if @user.password_required? %>
 <div class='field'>
   <%= f.label :password %><br/>
   <%= f.password_field :password %>
@@ -10,3 +11,4 @@
   <%= f.label :password_confirmation %><br/>
   <%= f.password_field :password_confirmation %>
 </div>
+<% end %>

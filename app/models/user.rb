@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :authentications
   # Include default devise modules. Others available are:
   # :token_authenticatable, :lockable, :timeoutable and :activatable
   devise :database_authenticatable, :registerable, :confirmable,
@@ -65,6 +66,14 @@ class User < ActiveRecord::Base
   def unscoped_shared_practices
     Practice.unscoped.find(:all, :joins => 'JOIN practices_users ON practices_users.practice_id = practices.id',
                            :conditions => ['practices_users.user_id = ?', self.id])
+  end
+
+  def apply_omniauth(omniauth)
+    authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+  end
+
+  def password_required?
+    (authentications.empty? || !password.blank?) && super
   end
 
   private

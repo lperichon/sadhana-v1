@@ -10,7 +10,7 @@ gem 'ryanb-acts-as-list', '0.1.2', :require => 'acts_as_list'
 gem 'devise', '1.1.rc2'
 gem 'lperichon-devise_invitable','0.3.0', :require => 'devise_invitable'
 gem 'paperclip', '2.3.3'
-gem 'nokogiri', '1.4.1'
+gem 'nokogiri', '1.4.2'
 gem 'high_voltage', '0.9.0', :branch => "rails3"
 gem 'active_merchant', '1.5.2', :require => 'active_merchant'
 gem 'money', '3.0.0'
@@ -24,6 +24,8 @@ gem 'lperichon-contacts', '1.0.8', :require => 'contacts'
 gem 'oauth', '0.4.1'
 gem 'json', '1.4.3'
 gem 'hoptoad_notifier', '2.3.12'
+
+gem 'omniauth', '0.1.6'
 
 # Use unicorn as the web server
 # gem 'unicorn'
