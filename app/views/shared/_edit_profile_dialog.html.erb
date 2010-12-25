@@ -2,6 +2,7 @@
   <ul>
     <li><a href="#info"><%= t('shared.edit_profile_dialog.info_tab_title') %></a></li>
     <li><a href="#subscription"><%= t('shared.edit_profile_dialog.subscription_tab_title') %></a></li>
+    <li><a href="#authentications"><%= t('shared.edit_profile_dialog.authentications_tab_title') %></a></li>
     <li id="ui-tab-dialog-close"></li>
   </ul>
   <div id="info">
@@ -10,15 +11,18 @@
   <div id='subscription'>
     <%= render :partial => 'shared/subscription_tab' %>
   </div>
+  <div id='authentications'>
+    <%= render :partial => 'shared/authentications_tab' %>
+  </div>
 </div>
 
 <%= javascript_tag do %>
   $('#edit_profile_dialog').tabs();
-  $('#edit_profile_dialog').dialog({autoOpen: false, modal: true, buttons: {
+  $('#edit_profile_dialog').dialog({autoOpen: false, modal: true, width: 380, buttons: {
     '<%= t('actions.update') %>': function() {
         if($('#edit_profile_dialog').tabs('option', 'selected') == 0) {
           $.ajax({type:'post', dataType: 'script', url: $('#edit_profile_dialog #info form').attr('action'), data: $('#edit_profile_dialog #info form').serialize(), success: function(data, textStatus, XMLHttpRequest) { if(XMLHttpRequest.getResponseHeader('Content-Type') != "text/javascript; charset=utf-8") {$('#edit_profile_dialog').dialog('close'); }; }});
-        } else {
+        } else if($('#edit_profile_dialog').tabs('option', 'selected') == 1) {
           $.ajax({type:'post', dataType: 'script', url: $('#edit_profile_dialog #subscription form').attr('action'), data: $('#edit_profile_dialog #subscription form').serialize()});
         }
       },

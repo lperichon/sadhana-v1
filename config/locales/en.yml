@@ -194,6 +194,7 @@ en:
       password_help: "leave blank if you don't want to change it."
       info_tab_title: "User Info"
       subscription_tab_title: "Subscription"
+      authentications_tab_title: "Permissions"
     subscription_tab:
       no_credit_card: "(no credit card on file)"
       card_expiration_date: "Expires: %{date}"

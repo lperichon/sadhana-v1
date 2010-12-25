@@ -445,6 +445,7 @@ pt:
       data_tab_title: "Dados da Técnica"
       title: "Editar técnica da prática"
     edit_profile_dialog:
+      authentications_tab_title: Permissões
       current_password_help: "precisamos de sua senha atual para confirmar as alterações."
       info_tab_title: "Informação do usuário"
       password_help: "deixar em branco se você não quer mudá-lo."
@@ -471,6 +472,7 @@ pt:
       title: "Nova prática"
     new_practice_part_dialog:
       title: "Adicionar um novo anga"
+    or_services: "Ou usando um desses serviços:"
     plans_dialog:
       calendar: "Calendário de práticas"
       free: Grátis!
@@ -485,8 +487,10 @@ pt:
     practice_share_dialog:
       title: "Compartilhar prática"
     sign_in_dialog:
+      sign_in_manually: "Inscreva-se manualmente:"
       title: Entrar
     sign_up_dialog:
+      sign_up_manually: "Cadastre-se manualmente:"
       title: Cadastre-se
     subscription_tab:
       card: cartão
