@@ -182,10 +182,12 @@ en:
       unlock_instructions: "Didn't receive unlock instructions?"
     sign_up_dialog:
       title: "Sign up"
+      sign_up_manually: "Sign up manually:"
     forgot_password_dialog:
       title: "Forgot your password?"
     sign_in_dialog:
       title: "Sign in"
+      sign_in_manually: "Sign in manually:"
     edit_profile_dialog:
       title: "Edit Profile"
       current_password_help: "we need your current password to confirm your changes."
@@ -218,6 +220,7 @@ en:
       unavailable: "Unavailable"
     practice_share_dialog:
       title: "Share practice"
+    or_services: "Or using one of these services:"
   practice:
     help:
       name: "The name you want for your practice."

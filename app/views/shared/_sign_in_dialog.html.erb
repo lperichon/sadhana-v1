@@ -1,12 +1,15 @@
 <div id='sign_in_dialog' style='display:none' title='<%= t('shared.sign_in_dialog.title') %>'>
+  <h3><%= t('shared.sign_in_dialog.sign_in_manually') %></h3>
   <%= form_for(User.new, :url => session_path(:user)) do |f| %>
     <%= render :partial => 'shared/sign_in_fields', :locals => {:f => f} %>
   <% end %>
+  <h3><%= t('shared.or_services') %></h3>
+  <%= render :partial => 'shared/oauth_providers' %>
   <%= render :partial => "shared/registration_links", :locals => {:action => :sign_in} %>
 </div>
 
 <%= javascript_tag do %>
-  $('#sign_in_dialog').dialog({autoOpen: false, modal: true, buttons: {
+  $('#sign_in_dialog').dialog({autoOpen: false, modal: true, width: 370, buttons: {
     '<%= t('actions.sign_in') %>': function() {
         $('#sign_in_dialog form').submit();
       },
