@@ -222,6 +222,15 @@ en:
     practice_share_dialog:
       title: "Share practice"
     or_services: "Or using one of these services:"
+    oauth_providers:
+      google_apps_not_available: "Sorry, Google Apps is not available yet!"
+      padma_not_available: "Sorry, Padma is not available yet!"
+    authentications_tab:
+      authentications: "You can sign in to your account using:"
+      add_another: "Add another service to sign in with:"
+      sign_in_from: "Sign in through one of these services:"
+    authentications:
+      confirm_remove: "Are you sure you want to remove this authentication option?"
   practice:
     help:
       name: "The name you want for your practice."
@@ -380,3 +389,9 @@ en:
     subscription_expiring:
       hello: "Hello %{email}!"
       body: "Your subscription to %{root_url} is about to expire! Log in to renew it."
+  authentications:
+    destroy:
+      notice: "Successfully destroyed authentication."
+    create:
+      signin_successful: "Signed in successfully."
+      authentication_successful: "Authentication successful."

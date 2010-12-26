@@ -75,6 +75,12 @@ es:
     paypal_item_name: "Suscripción mensual a Sádhana"
   application_helper:
     jeditable_tooltip: "Hacé click para editar..."
+  authentications:
+    create:
+      authentication_successful: "Autenticación exitosa."
+      signin_successful: "Conectado con éxito."
+    destroy:
+      notice: "Destruyó con éxito la autenticación."
   contacts:
     index:
       create_contact_tip: "Creá un nuevo contacto! Hacé click en el boton 'Nuevo contacto'."
@@ -431,6 +437,12 @@ es:
       subject: "Te compartí una práctica"
       text_top: "Te compartí una práctica usando %{root_url}. Podés verla haciendo click en el link:"
   shared:
+    authentications:
+      confirm_remove: "¿Está seguro que desea eliminar esta opción de autenticación?"
+    authentications_tab:
+      add_another: "Agregar otro servicio para acceder:"
+      authentications: "Usted puede acceder a su cuenta a través de:"
+      sign_in_from: "Entrá a través de uno de estos servicios:"
     confirm_dialog:
       content: "¿Estás seguro?"
       title: "Confirmar eliminación"
@@ -472,6 +484,9 @@ es:
       title: "Nueva práctica"
     new_practice_part_dialog:
       title: "Agregar un nuevo anga"
+    oauth_providers:
+      google_apps_not_available: "Lo sentimos, Google Apps no está disponible todavía!"
+      padma_not_available: "Lo sentimos, Padma aún no está disponible!"
     or_services: "O usando uno de estos servicios:"
     plans_dialog:
       calendar: "Calendario de prácticas"
