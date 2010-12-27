@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101224215714) do
+ActiveRecord::Schema.define(:version => 20101227141903) do
 
   create_table "admins", :force => true do |t|
     t.string    "email",                               :default => "", :null => false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20101224215714) do
     t.integer "user_id"
     t.string  "provider"
     t.string  "uid"
+    t.string  "token"
   end
 
   create_table "part_translations", :force => true do |t|

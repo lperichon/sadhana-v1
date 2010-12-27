@@ -10,7 +10,7 @@ class AuthenticationsController < ApplicationController
       flash[:notice] = t('authentications.create.signin_successful')
       sign_in_and_redirect(:user, authentication.user)
     elsif current_user
-      current_user.authentications.create(:provider => omniauth['provider'], :uid => omniauth['uid'])
+      current_user.authentications.create(:provider => omniauth['provider'], :uid => omniauth['uid'], :token =>(omniauth['credentials']['token'] rescue nil))
       flash[:notice] = t('authentications.create.authentication_successful')
       redirect_to :back
     else
