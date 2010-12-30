@@ -1,4 +1,8 @@
 HoptoadNotifier.configure do |config|
-  config.api_key = '731dc5b7a47d5c8aadef5be9d1408c05'
-  config.js_notifier = true
+  if Rails.env == 'development'
+    config = YAML.load_file("#{Rails.root}/config/hoptoad.yml")
+  else
+    config.api_key = ENV['HOPTOAD_API_KEY']
+    config.js_notifier = true
+  end
 end
