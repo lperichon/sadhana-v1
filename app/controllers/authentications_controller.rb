@@ -12,7 +12,7 @@ class AuthenticationsController < ApplicationController
     elsif current_user
       current_user.authentications.create(:provider => omniauth['provider'], :uid => omniauth['uid'], :token =>(omniauth['credentials']['token'] rescue nil))
       flash[:notice] = t('authentications.create.authentication_successful')
-      redirect_to :back
+      redirect_to practices_path
     else
       user = User.new
       user.apply_omniauth(omniauth)
