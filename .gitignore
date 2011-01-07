@@ -1,5 +1,9 @@
 config/database.yml
 config/contacts.yml
+config/hoptoad.yml
+config/omniauth.yml
+config/s3.yml
+config/translation.yml
 db/*.sql*
 tmp/*
 log/*.log
