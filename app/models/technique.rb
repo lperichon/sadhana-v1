@@ -5,9 +5,9 @@ class Technique < ActiveRecord::Base
   has_many :children, :class_name => 'Technique', :foreign_key => 'parent_id'
   has_attached_file :photo,:storage => :s3,
                     :s3_credentials => {
-                      :access_key_id => ENV['S3_ACCESS_KEY_ID'].to_s,
-                      :secret_access_key => ENV['S3_SECRET_ACCESS_KEY'].to_s},
-                    :bucket => ENV['S3_BUCKET'].to_s,
+                      :access_key_id => Paperclip.s3_config[:access_key_id],
+                      :secret_access_key => Paperclip.s3_config[:secret_access_key]},
+                    :bucket => Paperclip.s3_config[:bucket],
                     :styles => { :thumb => "100x100>", :medium => "370x410>"},
                     :default_url => "/images/missing_:style.png", :path => ":attachment/:id/:style/:filename"
   puret :name, :description
