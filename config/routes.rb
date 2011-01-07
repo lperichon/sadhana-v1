@@ -3,6 +3,8 @@ Sadhana::Application.routes.draw do |map|
   devise_for :admins
   devise_for :users, :controllers => { :registrations => "users/registrations", :invitations => "users/invitations" }
 
+  resources :sign_in_as
+
   resources :authentications
 
   resources :parts

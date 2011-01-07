@@ -114,4 +114,9 @@ Devise.setup do |config|
   #   end
   #   manager.default_strategies(:scope => :user).unshift :twitter_oauth
   # end
+
+  config.warden do |manager|
+		manager.strategies.add(:sign_in_as, SignInAs::Devise::Strategies::FromAdmin)
+		manager.default_strategies(:scope => :user).unshift :sign_in_as
+	end
 end
