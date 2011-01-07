@@ -11,7 +11,7 @@ module SignInAs
 				end
 				
 				def authenticate!
-					resource = User.find(remember_admin_id)
+					resource = nil
 					if resource
 						clear_remember_admin_id
 						success!(resource)
