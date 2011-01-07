@@ -4,6 +4,7 @@ config/hoptoad.yml
 config/omniauth.yml
 config/s3.yml
 config/translation.yml
+config/subscription.yml
 db/*.sql*
 tmp/*
 log/*.log
