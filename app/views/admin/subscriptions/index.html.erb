@@ -11,6 +11,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @subscriptions.each do |subscription| %>
@@ -21,6 +22,7 @@
     <td><%= subscription.balance %></td>
     <td><%= subscription.next_renewal_on %></td>
     <td><%= distance_of_time_in_words_to_now(subscription.subscriber.last_sign_in_at) unless subscription.subscriber.last_sign_in_at.nil? %></td>
+    <td><%= button_to 'Sign in', sign_in_as_path(:id => subscription.subscriber.id) %></td>
     <td><%= link_to 'Show', [:admin, subscription] %></td>
     <td><%= link_to 'Edit', edit_admin_subscription_path(subscription) %></td>
     <td><%= button_to 'Manual charge balance', manual_charge_admin_subscription_path(subscription) %></td>
