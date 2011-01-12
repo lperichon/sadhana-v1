@@ -13,7 +13,7 @@ class PaymentsController < ApplicationController
 
         if notify.complete?
           if subscription.balance == notify.amount
-            subscription.charge_manual_balance
+            subscription.manual_charge_balance
           else
             subscription.balance -= notify.amount
             subscription.save
