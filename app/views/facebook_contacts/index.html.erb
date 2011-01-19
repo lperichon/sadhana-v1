@@ -1,0 +1,7 @@
+<div id="friends-selector"></div>
+
+<%= javascript_tag do %>
+$(document).bind('facebook.status', function() {
+  $("#friends-selector").jfmfs();
+});
+<% end %>

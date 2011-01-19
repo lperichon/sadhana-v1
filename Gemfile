@@ -24,7 +24,7 @@ gem 'lperichon-contacts', '1.0.8', :require => 'contacts'
 gem 'oauth', '0.4.1'
 gem 'json', '1.4.3'
 gem 'hoptoad_notifier', '2.3.12'
-
+gem 'facebooker2', '0.0.5'
 gem 'omniauth', '0.1.6'
 
 # Use unicorn as the web server

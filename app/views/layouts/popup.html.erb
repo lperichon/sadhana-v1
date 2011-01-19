@@ -30,9 +30,16 @@
       <%= javascript_include_tag 'external_contacts' %>
     <% end %>
 
+    <% if controller.controller_name == 'facebook_contacts' %>
+      <%= javascript_include_tag 'facebooker' %>
+      <%= javascript_include_tag 'jquery.facebook.multifriend.select' %>
+      <%= stylesheet_link_tag 'jquery.facebook.multifriend.select' %>
+    <% end %>
+
     <%= csrf_meta_tag %>
   </head>
   <body>
+    <%= raw fb_connect_async_js if controller.controller_name == "facebook_contacts" %>
     <div id='header' class='ui-widget-header ui-corner-all'>
       <a href="/"><h1 id='logo'>S&aacute;dhana</h1></a>
     </div>

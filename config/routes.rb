@@ -16,6 +16,8 @@ Sadhana::Application.routes.draw do |map|
       get :select
     end
   end
+
+  resources :facebook_contacts
   resources :external_contacts
 
   resources :practice_events
