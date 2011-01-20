@@ -395,3 +395,8 @@ en:
     create:
       signin_successful: "Signed in successfully."
       authentication_successful: "Authentication successful."
+  facebook_contacts:
+    request_form:
+      content: "Join me at Sádhana and start managing your practices now! Practice anywhere!"
+    create:
+      success: "Thank you! Your friends have been invited via facebook."

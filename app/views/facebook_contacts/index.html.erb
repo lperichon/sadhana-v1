@@ -1,7 +1,19 @@
-<div id="friends-selector"></div>
-
-<%= javascript_tag do %>
-$(document).bind('facebook.status', function() {
-  $("#friends-selector").jfmfs();
-});
-<% end %>
+<fb:serverFbml width= "750">
+  <script type="text/fbml">
+    <fb:fbml>
+      <fb:request-form
+        method="POST"
+        action="<%= facebook_contacts_url %>"
+        type="Sádhana"
+        invite=true
+        content="<%= t('facebook_contacts.request_form.content') %>
+                  <fb:req-choice url='http://sadhana.com.ar'>
+                    <fb:fbml-attribute name='label'>
+                      <fb:intl>Join me!</fb:intl>
+                    </fb:fbml-attribute>
+                  </fb:req-choice>">
+        <fb:multi-friend-selector import_external_friends=false email_invite=false actiontext="Invite your friends to use Sádhana.">
+      </fb:request-form>
+    </fb:fbml>
+  </script>
+</fb:serverFbml>
