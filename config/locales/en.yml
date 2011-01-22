@@ -398,5 +398,6 @@ en:
   facebook_contacts:
     request_form:
       content: "Join me at Sádhana and start managing your practices now! Practice anywhere!"
+      title: "Invite your friends to use Sádhana."
     create:
       success: "Thank you! Your friends have been invited via facebook."
