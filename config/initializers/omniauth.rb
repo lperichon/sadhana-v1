@@ -14,6 +14,9 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     }
   end
   config.symbolize_keys!
+  config[:twitter].symbolize_keys!
+  config[:facebook].symbolize_keys!
+  pp config
   provider :twitter, config[:twitter][:consumer_key], config[:twitter][:consumer_secret]
   provider :facebook, config[:facebook][:app_id], config[:facebook][:app_secret], :scope => 'offline_access, publish_stream, email'
   #provider :open_id, OpenID::Store::Memcache.new(Dalli::Client.new)
