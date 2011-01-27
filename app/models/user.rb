@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
          :invitable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :locale
+  attr_accessible :email, :password, :password_confirmation, :locale, :invited_by
 
   has_many :practices, :order => "position"
   has_many :practice_events
@@ -19,17 +19,44 @@ class User < ActiveRecord::Base
 
   before_create :set_locale
 
+  after_save :add_to_corresponded_contacts
+
+  attr_accessor :invited_by, :corresponded_contacts
+
   acts_as_subscriber
 
-  def add_to_contacts(user, corresponded = false)
+  def corresponded_contacts
+    unless @corresponded_contacts
+      @corresponded_contacts = []
+    end
+    @corresponded_contacts
+  end
+
+  def add_to_corresponded_contacts
+    corresponded_contacts.each do |user|
+      unless user.contacts.include?(self)
+        user.contacts << self
+        user.save
+      end
+    end
+  end
+
+  def add_to_contacts(user, corresponded = false, save = true)
+    if corresponded
+      corresponded_contacts << user
+    end
     unless self.contacts.include?(user)
       self.contacts << user
-      self.save
+      self.save if save
     end
-    if corresponded
-      user.contacts << self
-      user.save(:validate => false)
+  end
+
+  def invited_by= user_id
+    user = User.find(user_id)
+    if user
+      add_to_contacts(user, true, false)
     end
+    @invited_by = user_id
   end
 
   def subscription_plan_check(plan = self.subscription_plan)
@@ -81,7 +108,8 @@ class User < ActiveRecord::Base
 #  end
 
   def facebook
-    @fb_user ||= FbGraph::User.me(self.authentications.find_by_provider('facebook').token)
+    fb_auth = self.authentications.select {|a| a.provider == 'facebook'}.first
+    @fb_user ||= FbGraph::User.me(fb_auth.token).fetch unless fb_auth.nil?
   end
 
   def password_required?

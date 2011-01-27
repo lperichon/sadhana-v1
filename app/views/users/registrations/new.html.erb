@@ -1,9 +1,11 @@
-<%= render :partial => 'shared/functionalities_slideshow' %>
 <div class="page-content">
 <h2><%= t('devise.registrations.new.title') %></h2>
-
+<% if @user.facebook %>
+  <p><%= "Welcome #{@user.facebook.first_name} #{@user.facebook.last_name}!" %></p>
+<% end %>
 <%= form_for(resource_name, resource, :url => registration_path(resource_name)) do |f| %>
   <%= f.error_messages %>
+
   <%= render :partial => 'shared/sign_up_fields', :locals => {:f => f} %>
 
   <p><%= f.submit t('devise.registrations.new.submit'), :class => 'awesome medium blue' %></p>

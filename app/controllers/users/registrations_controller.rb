@@ -9,6 +9,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def new
+    build_resource(params)
+    render_with_scope :new
+  end
+
   def create
     super
     session[:omniauth] = nil unless @user.new_record?

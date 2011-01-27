@@ -14,14 +14,14 @@ class AuthenticationsController < ApplicationController
       flash[:notice] = t('authentications.create.authentication_successful')
       redirect_to practices_path
     else
-      user = User.new
+      user = User.new(:invited_by => session["invited-by"])
       user.apply_omniauth(omniauth)
       if user.save
         flash[:notice] = t('authentications.create.signin_successful')
         sign_in_and_redirect(:user, user)
       else
         session[:omniauth] = omniauth.except('extra')
-        redirect_to new_user_registration_url
+        redirect_to new_user_registration_url(:invited_by => user.invited_by)
       end
     end
   end

@@ -12,7 +12,6 @@ class ExternalContactsController < UserApplicationController
       consumer = Contacts.new(@provider)
     end
     if (params['oauth_verifier'].present? && consumer.authorize(params)) || (consumer.respond_to?(:access_token) && consumer.access_token.present? && consumer.contacts)
-      Rails.logger.debug 'consumer authorized, listing external_contacts'
       session[:consumer] = nil
       if current_user.respond_to?("#{@provider}_consumer")
         current_user.send("#{@provider}_consumer=", consumer.serialize)
@@ -20,7 +19,6 @@ class ExternalContactsController < UserApplicationController
       end
       @contacts = consumer.contacts
     else
-      Rails.logger.debug 'consumer not authorized, requesting authorization'
       if @provider == :yahoo && consumer.respond_to?(:access_token) && consumer.access_token.present?
          consumer = Contacts.new(@provider)
       end
