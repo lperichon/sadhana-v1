@@ -231,6 +231,8 @@ en:
       sign_in_from: "Sign in through one of these services:"
     authentications:
       confirm_remove: "Are you sure you want to remove this authentication option?"
+    signup_fields:
+      enter_email: "Enter your email or choose one below to complete the registration:"
   practice:
     help:
       name: "The name you want for your practice."
@@ -404,3 +406,6 @@ en:
     index:
       login_with_facebook: "Login with Facebook"
       login_with_facebook_intro: "Login with facebook and invite your friends to Sádhana"
+  registrations:
+    new:
+      welcome: "Welcome {{name}}!"

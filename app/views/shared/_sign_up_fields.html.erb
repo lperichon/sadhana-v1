@@ -1,6 +1,6 @@
 <% if @user.facebook %>
   <%= f.hidden_field :invited_by %>
-  <p><%= "Enter your email or choose one below to complete the registration:" %></p>
+  <p><%= t('shared.signup_fields.enter_email') %></p>
   <ul>
     <li><%= link_to @user.facebook.email, "#", :onclick => "$('#user_email').val(this.innerHTML)" %></li>
   </ul>
