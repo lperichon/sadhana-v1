@@ -271,6 +271,15 @@ pt:
     index:
       revoke_access: "Você pode %{link}  o acesso a esses contatos."
     revoke: revogar
+  facebook_contacts:
+    create:
+      success: "Obrigado! Seus amigos foram convidados via facebook."
+    index:
+      login_with_facebook: "Entrar com Facebook"
+      login_with_facebook_intro: "Entrar com Facebook e convidar seus amigos para Sádhana"
+    request_form:
+      content: "Junte-se a mim en Sádhana e começe a gerir as suas práticas agora! Pratica em qualquer lugar!"
+      title: "Convide seus amigos para usar Sádhana."
   home:
     find_us_on_fb_html: "Ou encontrar-nos no %{facebook}"
     follow_us_on_twitter_html: "Siga-nos no %{twitter}"
@@ -424,6 +433,9 @@ pt:
       upgrade_for_more_associated_techniques_tip: "%{upgrade_link} sua conta para permitir mais tipos de técnica!"
     update:
       restore_notice: "Sua prática foi restaurada."
+  registrations:
+    new:
+      welcome: "Bem-vindo {{name}}!"
   saas:
     subscription_expired:
       subject: "Seu plano expirou"
@@ -507,6 +519,8 @@ pt:
     sign_up_dialog:
       sign_up_manually: "Cadastre-se manualmente:"
       title: Cadastre-se
+    signup_fields:
+      enter_email: "Digite o seu e-mail ou escolha un para concluir o registro:"
     subscription_tab:
       card: cartão
       card_expiration_date: "Expira em: %{date}"
