@@ -1,3 +1,4 @@
+<% if current_facebook_user %>
 <fb:serverFbml width= "750">
   <script type="text/fbml">
     <fb:fbml>
@@ -17,3 +18,7 @@
     </fb:fbml>
   </script>
 </fb:serverFbml>
+<% else %>
+  <p><%= t('facebook_contacts.index.login_with_facebook_intro') %></p>
+  <fb:login-button class='fb-login-button' onlogin="window.location.href = '<%= facebook_contacts_url %>';"><%= t('facebook_contacts.index.login_with_facebook') %></fb:login-button>
+<% end %>

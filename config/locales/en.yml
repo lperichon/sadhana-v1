@@ -401,3 +401,6 @@ en:
       title: "Invite your friends to use Sádhana."
     create:
       success: "Thank you! Your friends have been invited via facebook."
+    index:
+      login_with_facebook: "Login with Facebook"
+      login_with_facebook_intro: "Login with facebook and invite your friends to Sádhana"
