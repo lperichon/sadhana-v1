@@ -4,13 +4,10 @@
   <p><%= "Welcome #{@user.facebook.first_name} #{@user.facebook.last_name}!" %></p>
 <% end %>
 <%= form_for(resource_name, resource, :url => registration_path(resource_name)) do |f| %>
-  <%= f.error_messages %>
 
   <%= render :partial => 'shared/sign_up_fields', :locals => {:f => f} %>
 
   <p><%= f.submit t('devise.registrations.new.submit'), :class => 'awesome medium blue' %></p>
 <% end %>
-<h2>If you are already a Sádhana user</h2>
-
 <%= render :partial => "devise/shared/links" %>
 </div>
