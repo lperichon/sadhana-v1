@@ -51,6 +51,7 @@
 
 .auth_provider img {
   display: block;
+  border: 0 none;
 }
 
 .auth_provider {
