@@ -1,0 +1,11 @@
+<p>
+  <b>Plan:</b>
+  <%= @user.subscription.plan.name %>
+</p>
+<p>
+  <b>Balance:</b>
+  <%= @user.subscription.balance %>
+</p>
+
+<%= link_to 'Edit', edit_admin_user_path(@subscription) %> |
+<%= link_to 'Back', admin_users_path %>

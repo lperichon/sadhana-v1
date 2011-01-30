@@ -1,0 +1,12 @@
+<%= form_for([:admin, @user]) do |f| %>
+  <%= f.error_messages %>
+  <%= f.fields_for :subscription do |subscription_form|%>
+  <div class="field">
+    <%= subscription_form.label :plan %><br />
+    <%= subscription_form.select :plan, SubscriptionPlan.all.collect {|p| [p.name, p.id ] } %>
+  </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

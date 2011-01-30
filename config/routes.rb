@@ -52,7 +52,7 @@ Sadhana::Application.routes.draw do |map|
   namespace :admin do
     resources :parts
     resources :subscription_plans
-    resources :subscriptions do
+    resources :users do
       member do
         post :manual_charge
       end

@@ -12,8 +12,10 @@ class User < ActiveRecord::Base
   has_many :practices, :order => "position"
   has_many :practice_events
 
-  has_many :user_contacts, :dependent => :destroy
+  has_many :user_contacts
   has_many :contacts, :through => :user_contacts, :uniq => true
+
+  before_destroy :destroy_user_contacts
 
   has_and_belongs_to_many :shared_practices, :join_table => 'practices_users', :class_name => 'Practice'
 
@@ -120,6 +122,11 @@ class User < ActiveRecord::Base
 
   def set_locale
     self.locale = I18n.locale.to_s
+  end
+
+  def destroy_user_contacts
+    UserContact.where("user_id=#{id}").delete_all
+    UserContact.where("contact_id=#{id}").delete_all
   end
 
   protected
