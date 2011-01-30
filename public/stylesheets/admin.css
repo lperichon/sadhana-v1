@@ -1,0 +1,12 @@
+th .current {
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+th .asc {
+  background: url(/images/upArrow.png) no-repeat -50% right;
+}
+
+th .desc {
+  background: url(/images/downArrow.png) no-repeat -40% right;
+}

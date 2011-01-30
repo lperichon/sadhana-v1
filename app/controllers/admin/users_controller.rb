@@ -1,4 +1,6 @@
 class Admin::UsersController < AdminApplicationController
+  helper_method :sort_column, :sort_direction
+
   def manual_charge
     @user = User.find(params[:id])
     @user.subscription.manual_charge_balance
@@ -8,7 +10,18 @@ class Admin::UsersController < AdminApplicationController
   # GET /users
   # GET /users.xml
   def index
-    @users = User.all
+    case params[:sort]
+      when 'plan_id'
+        @users = User.select("users.*").joins("left join subscriptions as subscriptions on subscriptions.subscriber_id = users.id").group("users.id").order("subscriptions.plan_id #{params[:direction]}")
+      when 'balance_cents'
+        @users = User.select("users.*").joins("left join subscriptions as subscriptions on subscriptions.subscriber_id = users.id").group("users.id").order("subscriptions.balance_cents #{params[:direction]}")
+      when 'next_renewal_on'
+        @users = User.select("users.*").joins("left join subscriptions as subscriptions on subscriptions.subscriber_id = users.id").group("users.id").order("subscriptions.next_renewal_on #{params[:direction]}")
+      when 'state'
+        @users = User.select("users.*").joins("left join subscriptions as subscriptions on subscriptions.subscriber_id = users.id").group("users.id").order("subscriptions.state #{params[:direction]}")
+      else
+        @users = User.order(sort_column + ' ' + sort_direction)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -77,7 +90,7 @@ class Admin::UsersController < AdminApplicationController
       # after change_plan, call renew
       case result = @user.subscription.renew
       when false
-        flash[:notice] << "An error occured trying to charge your credit card. Please update your card information."
+        flash[:notice] << "An error occured trying last_sign_in_at:to charge your credit card. Please update your card information."
       when Money
         flash[:notice] << "Thank you for your payment. Your credit card has been charged #{result.format(:symbol => true)}"
       end
@@ -97,6 +110,19 @@ class Admin::UsersController < AdminApplicationController
     respond_to do |format|
       format.html { redirect_to(admin_users_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  private
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+  end
+
+  def sort_column
+    if User.column_names.include?(params[:sort]) || Subscription.column_names.include?(params[:sort])
+      params[:sort]
+    else
+      "last_sign_in_at"
     end
   end
 end
