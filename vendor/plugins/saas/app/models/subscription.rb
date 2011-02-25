@@ -22,6 +22,7 @@ class Subscription < ActiveRecord::Base
     before_transition any => :free,     :do => :setup_free
     before_transition any => :trial,    :do => :setup_trial
     before_transition any => :active,   :do => :setup_active
+    after_transition any => :expired, :do => :setup_expired
     
     # always reset warning level when entering a different state
     before_transition any => [any - same] do |sub| sub.warning_level = nil; end
@@ -59,6 +60,10 @@ class Subscription < ActiveRecord::Base
     # next renewal is from when subscription ran out (to change this behavior, set next_renewal to nil before doing renew)
     start = next_renewal_on || Time.zone.today
     self.next_renewal_on = start + plan.interval.months
+  end
+
+  def setup_expired
+    change_plan SubscriptionPlan.expired_plan
   end
   
   # returns nil if not past due, false for failed, true for success, or amount charged for success when card was charged

@@ -28,4 +28,9 @@ class SubscriptionPlan < ActiveRecord::Base
     default_plan ||= SubscriptionPlan.first( :conditions => { :rate_cents => 0 })
     default_plan ||= SubscriptionPlan.create( :name => 'free' ) #bootstrapper and tests
   end
+
+  def self.expired_plan
+    expired_plan = SubscriptionPlan.find_by_name(SubscriptionConfig.expired_plan) if SubscriptionConfig.respond_to? :expired_plan
+    expired_plan ||= default_plan
+  end
 end
