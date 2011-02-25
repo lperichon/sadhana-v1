@@ -5,7 +5,7 @@ namespace :sadhana do
   task :clear_deleted_practices => :environment do
     practices = Practice.unscoped.where(:state => 'archived').where('updated_at <= ?', 1.week.ago)
     practices.each do |p|
-      p.destroy!
+      p.destroy
     end
   end
 end
