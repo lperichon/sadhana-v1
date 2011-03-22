@@ -16,14 +16,14 @@ namespace :saas do
       end
 
       # renew subscriptions that are due now
-#      Subscription.with_states(:trial, :active).due_now.each do |sub|
-#        sub.renew
-#      end
+      Subscription.with_states(:trial, :active).due_now.each do |sub|
+        sub.renew
+      end
 
       # try past due after a couple days
-#      Subscription.with_state(:past_due).with_warning_level(1).due_ago(3.days).each do |sub|
-#        sub.renew
-#      end
+      Subscription.with_state(:past_due).with_warning_level(1).due_ago(3.days).each do |sub|
+        sub.renew
+      end
 
       # end of grace period, try again or expire the subscription
       Subscription.with_state(:past_due).due_ago(SubscriptionConfig.grace_period.days).each  do |sub|
