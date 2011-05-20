@@ -35,7 +35,9 @@ Devise.setup do |config|
   # authentication tools as :clearance_sha1, :authlogic_sha512 (then you should set
   # stretches above to 20 for default behavior) and :restful_authentication_sha1
   # (then you should set stretches to 10, and copy REST_AUTH_SITE_KEY to pepper)
-  config.encryptor = :sha1
+
+  # From version 1.2, you need to explicitly add encryptable as dependency.
+  #config.encryptor = :sha1
 
   # ==> Configuration for :confirmable
   # The time you want give to your user to confirm his account. During this time

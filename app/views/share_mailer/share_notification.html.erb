@@ -5,5 +5,5 @@
 
 <% if @user.invited? %>
   <%= t('share_mailer.share_notification.invitation') %>
-  <%= link_to t('devise.mailer_views.invitation.link'), edit_user_invitation_url(:invitation_token => @user.invitation_token) %>
+  <%= link_to t('devise.mailer_views.invitation.link'), accept_user_invitation_url(:invitation_token => @user.invitation_token) %>
 <% end %>

@@ -1,7 +1,7 @@
 class Users::InvitationsController < Devise::InvitationsController
   # POST /resource/invitation
   def create
-    self.resource = resource_class.send_invitation(params[resource_name])
+    self.resource = resource_class.invite!(params[resource_name], current_user)
 
     if resource.errors.empty?
       flash.now[:notice] = I18n.t(:"#{:user}.#{:send_instructions}", :resource_name => :user, :scope => [:devise, :invitations], :default => :send_instructions)

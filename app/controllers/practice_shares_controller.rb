@@ -18,7 +18,7 @@ class PracticeSharesController < UserApplicationController
   # POST /practice_events.xml
   def create
     @practice = current_user.practices.find(params[:practice_id])
-    @user = User.send_invitation(params[:user])
+    @user = User.invite!(params[:user], current_user)
 
     if @user.errors.empty?
       current_user.add_to_contacts(@user, true)
