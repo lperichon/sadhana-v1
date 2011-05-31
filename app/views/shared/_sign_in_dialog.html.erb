@@ -1,6 +1,6 @@
 <div id='sign_in_dialog' style='display:none' title='<%= t('shared.sign_in_dialog.title') %>'>
   <h3><%= t('shared.sign_in_dialog.sign_in_manually') %></h3>
-  <%= form_for(User.new, :url => session_path(:user)) do |f| %>
+  <%= form_for(User.new, :url => session_path(:user), :html => { :id => 'new_user_session' }) do |f| %>
     <%= render :partial => 'shared/sign_in_fields', :locals => {:f => f} %>
   <% end %>
   <h3><%= t('shared.or_services') %></h3>

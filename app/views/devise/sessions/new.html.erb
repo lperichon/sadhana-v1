@@ -1,7 +1,7 @@
 <div class="page-content">
 <h2><%= t('devise.sessions.new.title') %></h2>
 
-<%= form_for(resource, :name => resource_name, :url => session_path(resource_name)) do |f| %>
+<%= form_for(resource, :name => resource_name, :url => session_path(resource_name), :html => { :id => 'new_user_session' }) do |f| %>
   <%= render :partial => 'shared/sign_in_fields', :locals => {:f => f} %>
 
   <p><%= f.submit t('devise.sessions.new.submit'), :class=> 'awesome medium blue' %></p>
