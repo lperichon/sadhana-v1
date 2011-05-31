@@ -5,7 +5,7 @@ gem 'rails', '3.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'activeadmin'
 gem 'ryanb-acts-as-list', '0.1.2', :require => 'acts_as_list'
 gem 'devise',           '~> 1.2.0'
 gem 'devise_invitable', '~> 0.4.0'
@@ -18,7 +18,7 @@ gem 'state_machine', '0.9.4'
 #gem 'lockfile', '1.4.3'
 gem 'fastercsv', '1.5.3'
 gem 'puret', '1.0.3'
-gem 'will_paginate', '3.0.pre'
+gem 'will_paginate', '3.0.pre2'
 gem 'aws-s3', '0.6.2'
 gem 'lperichon-contacts', '1.0.8', :require => 'contacts'
 gem 'oauth', '0.4.1'

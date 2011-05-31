@@ -1,7 +1,9 @@
 Sadhana::Application.routes.draw do |map|
   match '/auth/:provider/callback' => 'authentications#create'
-  devise_for :admins
+  devise_for :admins, :path_names => { :sign_out => "logout" }
   devise_for :users, :controllers => { :registrations => "users/registrations", :invitations => "users/invitations" }
+
+  ActiveAdmin.routes(self)
 
   resources :sign_in_as
 
@@ -46,24 +48,6 @@ Sadhana::Application.routes.draw do |map|
       post :store_credit_card
       post :unstore_credit_card
       get :cancel
-    end
-  end
-
-  namespace :admin do
-    resources :parts
-    resources :subscription_plans
-    resources :users do
-      member do
-        post :manual_charge
-      end
-    end
-    resources :technique_types
-    resources :technique_categories
-    resources :techniques do
-      collection do
-        get :csv_import
-        post :do_csv_import
-      end
     end
   end
 
