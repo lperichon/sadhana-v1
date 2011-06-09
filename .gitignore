@@ -1,6 +1,5 @@
 config/database.yml
 config/contacts.yml
-config/hoptoad.yml
 config/omniauth.yml
 config/facebooker.yml
 config/s3.yml
