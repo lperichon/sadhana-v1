@@ -13,7 +13,9 @@ ActiveAdmin.register User do
     end
     default_actions
     column do |user|
-      link_to icon(:arrow_right_alt1) + "Sign In", sign_in_as_path(:id => user.id), :class => "sign_in_link", :method => :post
+      links = link_to icon(:home) + "Sign In", sign_in_as_path(:id => user.id), :class => "sign_in_link", :method => :post, :target => "_blank"
+      links += link_to icon(:check) + "Manual Charge", manual_charge_admins_user_path(:id => user.id), :class => "manual_charge_link", :method => :post
+      links
     end
   end
 
@@ -31,5 +33,11 @@ ActiveAdmin.register User do
       row(:balance) { user.subscription.balance_cents }
       a 'View', :href => admins_subscription_path(user.subscription)
     end
+  end
+
+  member_action :manual_charge, :method => :post do
+    @user = User.find(params[:id])
+    @user.subscription.manual_charge_balance
+    redirect_to admins_user_path(@user)
   end
 end
