@@ -3,7 +3,13 @@ ActiveAdmin::Dashboards.build do
   # Define your dashboard sections here. Each block will be
   # rendered on the dashboard in the context of the view. So just
   # return the content which you would like to display.
-  
+
+  section "New Relic" do
+    div do
+      %{<iframe src="https://heroku.newrelic.com/public/charts/9N8X2knPDEJ" width="500" height="300" scrolling="no" frameborder="no"></iframe>}.html_safe
+    end
+  end
+
   # == Simple Dashboard Section
   # Here is an example of a simple dashboard section
   #
