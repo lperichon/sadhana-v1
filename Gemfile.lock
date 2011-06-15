@@ -41,6 +41,7 @@ GEM
       activesupport (= 3.0.0)
     activesupport (3.0.0)
     addressable (2.2.6)
+    analytical (2.9.0)
     arel (1.0.1)
       activesupport (~> 3.0.0)
     aws-s3 (0.6.2)
@@ -207,6 +208,7 @@ PLATFORMS
 DEPENDENCIES
   active_merchant (= 1.5.2)
   activeadmin
+  analytical (= 2.9.0)
   aws-s3 (= 0.6.2)
   devise (~> 1.2.0)
   devise_invitable (~> 0.4.0)

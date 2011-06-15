@@ -10,6 +10,11 @@ class SubscriptionsController < UserApplicationController
     end
 
     plan = SubscriptionPlan.find params[:subscription][:plan]
+
+    # consider case when plan doesnt change
+    is_upgrade = plan.rate > @subscription.plan.rate
+    is_downgrade = plan.rate < @subscription.plan.rate
+
     if plan.nil?
       flash[:notice] = "Plan not available"
       
@@ -25,13 +30,13 @@ class SubscriptionsController < UserApplicationController
       
       # after change_plan, call renew
       @subscription.renew
-      #case result =
-      #when false
-      #  flash[:notice] << "An error occured trying to charge your credit card. Please update your card information."
-      #when Money
-      #  flash[:notice] << "Thank you for your payment. Your credit card has been charged #{result.format(:symbol => true)}"
-      #end
-#      return redirect_to practices_path
+
+      # Track plan change
+      if is_upgrade?
+        analytical.upgraded plan.name
+      elsif is_downgrade?
+        analytical.downgraded plan.name
+      end
     end
     
 
