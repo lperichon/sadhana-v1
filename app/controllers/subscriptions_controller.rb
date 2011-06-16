@@ -33,9 +33,9 @@ class SubscriptionsController < UserApplicationController
 
       # Track plan change
       if is_upgrade?
-        analytical.upgraded plan.name
+        analytical.kiss_metrics.upgraded plan.name
       elsif is_downgrade?
-        analytical.downgraded plan.name
+        analytical.kiss_metrics.downgraded plan.name
       end
     end
     

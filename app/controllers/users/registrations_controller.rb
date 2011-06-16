@@ -18,7 +18,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
     session[:omniauth] = nil unless @user.new_record?
 
-    analytical.signed_up 'Free'
+    analytical.kiss_metrics.signed_up 'Free'
   end
 
   private

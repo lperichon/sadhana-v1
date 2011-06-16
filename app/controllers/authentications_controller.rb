@@ -14,6 +14,9 @@ class AuthenticationsController < ApplicationController
         user = User.find(session["invited-by"])
         authentication.user.add_to_contacts(user, true, true)
       end
+
+      analytical.event 'Signed In'
+
       # sign in automatically
       sign_in_and_redirect(:user, authentication.user)
     elsif current_user

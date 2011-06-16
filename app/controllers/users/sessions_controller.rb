@@ -1,4 +1,4 @@
-class Users::SessionsController < Devise::RegistrationsController
+class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     resource = warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#new")
