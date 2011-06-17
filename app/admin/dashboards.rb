@@ -7,6 +7,7 @@ ActiveAdmin::Dashboards.build do
   section "New Relic" do
     div do
       %{<iframe src="https://heroku.newrelic.com/public/charts/9N8X2knPDEJ" width="500" height="300" scrolling="no" frameborder="no"></iframe>}.html_safe
+      %{<iframe src="https://heroku.newrelic.com/public/charts/aUrufaXCRYg" width="500" height="300" scrolling="no" frameborder="no"></iframe>}.html_safe
     end
   end
 

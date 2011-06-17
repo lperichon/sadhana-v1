@@ -1,6 +1,6 @@
 module Analytical
   module Modules
-    class KissMetrics
+    KissMetrics.class_eval do
       def signed_up(plan_name, *args)
         data = args.first || {}
         "_kmq.push([\"signedUp\", \"#{plan_name}\", #{data.to_json}]);"
