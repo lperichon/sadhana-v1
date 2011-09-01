@@ -3,7 +3,8 @@ class Practice < ActiveRecord::Base
   has_many :practice_parts, :order => "position", :dependent => :destroy
   has_many :practice_events, :dependent => :destroy
 
-  has_and_belongs_to_many :viewers, :join_table => 'practices_users', :class_name => 'User'
+  has_many :shared_practices
+  has_many :viewers, :through => :shared_practices, :class_name => 'User', :source => :user
   
   acts_as_list :scope => :user
 

@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   before_destroy :destroy_user_contacts
 
-  has_and_belongs_to_many :shared_practices, :join_table => 'practices_users', :class_name => 'Practice'
+  has_many :shared_practices
 
   before_create :set_locale
 
@@ -93,8 +93,8 @@ class User < ActiveRecord::Base
   end
 
   def unscoped_shared_practices
-    Practice.unscoped.find(:all, :joins => 'JOIN practices_users ON practices_users.practice_id = practices.id',
-                           :conditions => ['practices_users.user_id = ?', self.id])
+    Practice.unscoped.find(:all, :joins => 'JOIN shared_practices ON shared_practices.practice_id = practices.id',
+                           :conditions => ['shared_practices.user_id = ?', self.id])
   end
 
   def apply_omniauth(omniauth)

@@ -10,7 +10,7 @@
   <div class="field">
     <%= f.label :sound_filename %><%= field_help t('practice.help.sound_filename') %>
     <br />
-    <%= f.select :sound_filename, {'Goblet', 'goblet', 'Chime', 'chime'}, {:selected => @practice.sound_filename}, {} %>
+    <%= f.select :sound_filename, {'Goblet' => 'goblet', 'Chime' => 'chime'}, {:selected => @practice.sound_filename}, {} %>
   </div>
 <% end %>
 
