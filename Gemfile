@@ -16,7 +16,6 @@ gem 'active_merchant', '1.5.2', :require => 'active_merchant'
 gem 'money', '3.0.0'
 gem 'state_machine', '0.9.4'
 #gem 'lockfile', '1.4.3'
-gem 'fastercsv', '1.5.3'
 gem 'puret', '1.0.3'
 gem 'will_paginate', '3.0.pre2'
 gem 'aws-s3', '0.6.2'
@@ -47,8 +46,8 @@ gem 'analytical', '2.9.0'
 # end
 
 group :development do
-  gem "ruby-debug"
-  gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
+  gem "ruby-debug19"
+  gem 'pg'
 end
 
 group :test do
