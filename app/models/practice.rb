@@ -13,6 +13,8 @@ class Practice < ActiveRecord::Base
   validates :delay, :presence => true
   validates :delay, :numericality => true
 
+  scope :public, where(:public => true)
+
   after_initialize :initialize_values
 
   state_machine :state, :initial => :created do
@@ -41,8 +43,8 @@ class Practice < ActiveRecord::Base
     filename
   end
 
-  def share_with(user)
-    ShareMailer.share_notification(self, user).deliver
+  def share_with(user, notify = false)
+    ShareMailer.share_notification(self, user).deliver if notify
     self.viewers << user
     self.save
   end

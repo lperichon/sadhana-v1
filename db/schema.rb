@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110901200303) do
+ActiveRecord::Schema.define(:version => 20110901204144) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(:version => 20110901200303) do
     t.boolean  "continuous"
     t.string   "sound_filename"
     t.string   "state",          :default => "created"
+    t.boolean  "public"
   end
 
   create_table "shared_practices", :id => false, :force => true do |t|
