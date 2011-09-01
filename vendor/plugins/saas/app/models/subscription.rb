@@ -78,11 +78,11 @@ class Subscription < ActiveRecord::Base
       # charge the amount due
       case charge = charge_balance
         # transaction failed: past due and return false
-        when false:
+        when false then
           Rails.logger.debug 'transaction failed: past due and return false'   
           past_due && false
         # not charged, subtracted from current balance: update renewal and return true
-        when nil:
+        when nil then
           Rails.logger.debug 'not charged, subtracted from current balance: update renewal and return true'
           active && true
         # card was charged: update renewal and return amount
@@ -250,9 +250,9 @@ class Subscription < ActiveRecord::Base
     return if SubscriptionConfig.trial_period.to_i==0
     case 
       # in trial, days remaining
-      when trial?     :    next_renewal_on 
+      when trial?     then    next_renewal_on
       # new record? would start from today
-      when plan.nil?  :    Time.zone.today + SubscriptionConfig.trial_period.days
+      when plan.nil?  then    Time.zone.today + SubscriptionConfig.trial_period.days
       # start or continue a trial? prorate since creation
       #when active?    :
     else

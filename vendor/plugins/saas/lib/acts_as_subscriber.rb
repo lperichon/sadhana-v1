@@ -34,8 +34,8 @@ module Saas           #:nodoc:
   		  def subscription_plan=(plan)
  		      # arg can be object or id or name
  		      @newplan = case
- 		        when plan.is_a?(SubscriptionPlan):  plan 
- 		        when plan.to_i > 0:                 SubscriptionPlan.find_by_id(plan)
+ 		        when plan.is_a?(SubscriptionPlan) then  plan
+ 		        when plan.to_i > 0 then              SubscriptionPlan.find_by_id(plan)
  		        else                                SubscriptionPlan.find_by_name(plan)
  		      end
  		      # not just change the attribute, really switch plans
