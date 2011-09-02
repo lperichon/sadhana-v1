@@ -366,6 +366,7 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 
 #share_button {
   float: right;
+  top: -3px;
 }
 
 .pt .ui-selectmenu-item-icon {

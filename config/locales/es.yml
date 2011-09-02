@@ -14,9 +14,11 @@ es:
     next: Siguiente
     pause: Pausa
     play: Reproducir
+    play_and_add: "Reproducir y agregar a Mis prácticas"
     play_preferences: "Preferencias de ejecución"
     preferences: Preferencias
     previous: Anterior
+    publish: Publicar
     remove: Eliminar
     resend: Reenviar
     restore: Restaurar
@@ -27,6 +29,7 @@ es:
     sign_in: Entrar
     sign_up: Registrarse
     undo: Deshacer
+    unpublish: Despublicar
     update: Actualizar
     upgrade: Mejorá
     upgrade_now: "Mejorá tu suscripción ahora!"
@@ -38,36 +41,9 @@ es:
         type: Tipo
         verification_value: "Codigo de verificación (CVV)"
       practice:
-        continuous: Continuo
-        delay: Delay
-        description: Descripción
-        name: Nombre
         sound_filename: Sonido
-        total_time: "Tiempo Total"
       practice_event:
-        date: Fecha
-        practice: Práctica
         start: Fecha
-      practice_technique:
-        associated_techniques: "Técnicas asociadas"
-        compensate: Compensación
-        minutes: Minutos
-        observations: Observaciones
-        seconds: Segundos
-        technique: Técnica
-      subscription:
-        credit_card: "Tarjeta de crédito"
-        current_password: "Contraseña actual"
-        plan: Plan
-      technique:
-        description: Descripción
-      user:
-        current_password: "Contraseña actual"
-        email: Email
-        locale: Idioma
-        password: Contraseña
-        password_confirmation: "Confirmación de contraseña"
-        remember_me: Recordarme
   application:
     account_due: "Tu cuenta vence en %{days} días."
     account_past_due: "Tu cuenta esta por vencer. Tenés %{days} días para realizar el pago."
@@ -91,109 +67,11 @@ es:
   credit_card:
     expiration_month: mes
     expiration_year: año
-  date:
-    abbr_day_names:
-      - Dom
-      - Lun
-      - Mar
-      - Mie
-      - Jue
-      - Vie
-      - Sab
-    abbr_month_names:
-      - ~
-      - Ene
-      - Feb
-      - Mar
-      - Abr
-      - May
-      - Jun
-      - Jul
-      - Ago
-      - Sep
-      - Oct
-      - Nov
-      - Dic
-    day_names:
-      - Domingo
-      - Lunes
-      - Martes
-      - Miércoles
-      - Jueves
-      - Viernes
-      - Sábado
-    formats:
-      default: "%e/%m/%Y"
-      long: "%e de %B de %Y"
-      short: "%e de %b"
-    month_names:
-      - ~
-      - Enero
-      - Febrero
-      - Marzo
-      - Abril
-      - Mayo
-      - Junio
-      - Julio
-      - Agosto
-      - Septiembre
-      - Octubre
-      - Noviembre
-      - Diciembre
-    order:
-      - :day
-      - :month
-      - :year
-  datetime:
-    distance_in_words:
-      about_x_hours:
-        one: "alrededor de 1 hora"
-        other: "alrededor de %{count} horas"
-      about_x_months:
-        one: "alrededor de 1 mes"
-        other: "alrededor de %{count} meses"
-      about_x_years:
-        one: "alrededor de 1 año"
-        other: "alrededor de %{count} años"
-      almost_x_years:
-        one: "casi 1 año"
-        other: "casi %{count} años"
-      half_a_minute: "medio minuto"
-      less_than_x_minutes:
-        one: "menos de 1 minuto"
-        other: "menos de %{count} minutos"
-      less_than_x_seconds:
-        one: "menos de 1 segundo"
-        other: "menos de %{count} segundos"
-      over_x_years:
-        one: "más de 1 año"
-        other: "más de %{count} años"
-      x_days:
-        one: "1 día"
-        other: "%{count} días"
-      x_minutes:
-        one: "1 minuto"
-        other: "%{count} minutos"
-      x_months:
-        one: "1 mes"
-        other: "%{count} meses"
-      x_seconds:
-        one: "1 segundo"
-        other: "%{count} segundos"
-    prompts:
-      day: Día
-      hour: Hora
-      minute: Minutos
-      month: Mes
-      second: Segundos
-      year: Año
   devise:
     confirmations:
-      confirmed: "Tu cuenta fué confirmada exitosamente."
       new:
         submit: Reenviar
         title: "Reenviar instrucciones de confirmación"
-      send_instructions: "Vas a recibir un email con instrucciones para confirmar tu cuenta en pocos minutos."
     failure:
       inactive: "Tu cuenta no ha sido activada."
       invalid: "Contraseña o Email incorrecto."
@@ -243,21 +121,14 @@ es:
       new:
         submit: "Enviarme instrucciones"
         title: "¿Olvidaste tu contraseña?"
-      send_instructions: "Vas a recibir un email con instrucciones para cambiar tu contraseña en pocos minutos."
-      updated: "Tu contraseña fué modificada exitosamente."
     registrations:
-      destroyed: "Tu cuenta fué cancelada."
       new:
         submit: Registrarse
         title: Registrarse
-      signed_up: "Te registraste exitosamente. Vas a recibir un email de confirmación en pocos minutos."
-      updated: "Actualizaste tu cuenta exitosamente."
     sessions:
       new:
         submit: Entrar
         title: Entrar
-      signed_in: "Ingresaste exitosamente."
-      signed_out: "Saliste exitosamente."
     unlocks:
       send_instructions: "Vas a recibir un email con instrucciones para desbloquear tu cuenta en pocos minutos."
       unlocked: "Tu cuenta fué desbloqueada exitosamente."
@@ -309,38 +180,6 @@ es:
     sign_up: Registrarse
     signed_in_as: "Conectado como %{email}."
     signup_or_siginin: "%{signup} o %{signin}"
-  number:
-    currency:
-      format:
-        delimiter: "."
-        format: "%n %u"
-        precision: "2"
-        separator: ","
-        unit: €
-    format:
-      delimiter: "."
-      precision: "3"
-      separator: ","
-    human:
-      format:
-        delimiter: "."
-        precision: "1"
-      storage_units:
-        format: "%n %u"
-        units:
-          byte:
-            one: Byte
-            other: Bytes
-          gb: GB
-          kb: KB
-          mb: MB
-          tb: TB
-    percentage:
-      format:
-        delimiter: "."
-    precision:
-      format:
-        delimiter: "."
   practice:
     help:
       continuous: "No esperar entre técnicas."
@@ -387,9 +226,6 @@ es:
       destroy_completely: "eliminar por completo"
       undo: deshacer
       undo_notice: "Tu práctica fué eliminada, podés %{undo_link} esta acción o %{destroy_link} tu práctica."
-    edit_practice_dialog:
-      info_tab_title: "Editar datos"
-      play_preferences_tab_title: "Preferencias de ejecución"
     index:
       auto_delete_alert: "¡Atención! Las prácticas eliminadas seran removidas definitivamente después de 1 semana."
       create_practice_tip: "Creá una nueva práctica haciendo click en el boton 'Nueva práctica'."
@@ -397,6 +233,7 @@ es:
       my_practices: "Mis prácticas"
       new_invitation: "Invitar a un amigo"
       new_practice: "Nueva práctica"
+      public_practices: "Prácticas públicas"
     not_owner_notice: "Las prácticas solo pueden ser editadas por su dueño."
     paid_account_notice:
       one: "Tu suscripción solo permite trabajar con %{count} práctica. %{upgrade_link}"
@@ -546,26 +383,12 @@ es:
       update_title: "Actualizar tarjeta"
     transaction_history:
       title: "Historial de transacciones"
-  support:
-    array:
-      last_word_connector: " y "
-      two_words_connector: " y "
-      words_connector: ", "
-    select:
-      prompt: "Por favor seleccioná"
   switch_language: "Cambiar idioma"
   techniques:
     techniques_list:
       by_category: "Por categoría"
       by_family: "Por familia"
   this_file_language: Español
-  time:
-    am: am
-    formats:
-      default: "%A, %e de %B de %Y %H:%M:%S %z"
-      long: "%e de %B de %Y %H:%M"
-      short: "%e de %b %H:%M"
-    pm: pm
   users:
     invitations:
       invite_another: "%{new_invitation_link}."

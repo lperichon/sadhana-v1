@@ -109,6 +109,7 @@ en:
       new_invitation: "Invite a friend"
       create_practice_tip: "Create a new practice by clicking on the 'New practice' button."
       deleted_practices: "Deleted practices"
+      public_practices: "Public practices"
       auto_delete_alert: "Warning! Deleted practices will be permanently removed after 1 week."
     show:
       loading: "Loading..."
@@ -247,6 +248,7 @@ en:
     cancel: "Cancel"
     delete: "Delete"
     play: "Play"
+    play_and_add: "Play and add to My practices"
     show: "Show"
     add_to_calendar: "Add to calendar"
     destroy: "Destroy"
@@ -273,6 +275,8 @@ en:
     duplicate: "Duplicate"
     destroy_all: "Destroy all"
     upgrade: "Upgrade"
+    publish: "Publish"
+    unpublish: "Unpublish"
   practice_event:
     help:
       practice: "Choose the practice."

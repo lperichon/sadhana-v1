@@ -20,7 +20,11 @@
   </p>
   <ul class='element-actions actions'>
     <% unless current_user == practice.user && practice.state == 'archived' %>
+    <% if practice.user == current_user || practice.viewers.include?(current_user) %>
     <li><%= link_to t('actions.play'), play_practice_path(practice), :class => 'small blue awesome' %></li>
+    <% else %>
+    <li><%= link_to t('actions.play_and_add'), play_practice_path(practice), :class => 'small blue awesome' %></li>
+    <% end %>
     <li><%= link_to t('actions.edit'), practice, :class => 'small blue awesome' %></li>
     <li><%= link_to t('actions.add_to_calendar'), new_practice_event_path, :class => 'small blue awesome', :id => "#{dom_id practice}_add_to_calendar_link" %>
     <%= javascript_tag do %>
@@ -48,6 +52,7 @@
     <% end %>
     </li>
     <li><%= button_to t('actions.duplicate'), practices_path(:practice_id => practice.id), :class => 'small blue awesome', :style => '-webkit-appearance:none;' %></li>
+    <%= render :partial => 'practice_publications/publish_buttons', :locals => {:practice => practice} %>
     <% else %>
     <li><%= link_to_function t('actions.undo'), "$.ajax({
           type:'put',

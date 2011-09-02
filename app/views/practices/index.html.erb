@@ -11,8 +11,11 @@
 <div id="practices_container" class='container'>
     <div id='practices_menu' class='sidebar'>
         <ul>
-          <li><%= link_to_if params[:deleted], content_tag(:span, t('practices.index.my_practices'), :class => ('ui-state-hover ui-widget ui-corner-all ui-button-text-only' unless params[:deleted])), practices_path %></li>
+          <li><%= link_to_if (params[:deleted]|| params[:public]), content_tag(:span, t('practices.index.my_practices'), :class => ('ui-state-hover ui-widget ui-corner-all ui-button-text-only' unless (params[:deleted] || params[:public]))), practices_path %></li>
           <li><%= link_to_unless params[:deleted], content_tag(:span, t('practices.index.deleted_practices'), :class => ('ui-state-hover ui-widget ui-corner-all ui-button-text-only' if params[:deleted])), practices_path(:deleted => true) %></li>
+        </ul>
+        <ul>
+          <li><%= link_to_unless params[:public], content_tag(:span, t('practices.index.public_practices'), :class => ('ui-state-hover ui-widget ui-corner-all ui-button-text-only' if params[:public])), practices_path(:public => true) %></li>
         </ul>
         <ul>
           <% if params[:deleted] %>

@@ -4,6 +4,8 @@ class PracticesController < UserApplicationController
   def index
     if params[:deleted]
       @practices = current_user.archived_practices.paginate :page => params[:page], :per_page => 5
+    elsif params[:public]
+      @practices = Practice.public.paginate :page => params[:page], :per_page => 5
     else
       @practices = current_user.all_practices.paginate :page => params[:page], :per_page => 5
     end
@@ -117,7 +119,13 @@ class PracticesController < UserApplicationController
 
       if @practice.nil?
         @practice = current_user.unscoped_shared_practices.find(params[:id]).first
-        current_user.shared_practices.delete @practice
+        if @practice
+          @practice.viewers.delete current_user
+        else
+          flash[:notice] = t('practices.not_owner_notice')
+          redirect_to :back
+          return false;
+        end
       elsif @practice.archived?
         @practice.destroy
         @destroy = true

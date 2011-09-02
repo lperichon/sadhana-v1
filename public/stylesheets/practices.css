@@ -535,3 +535,7 @@ div[aria-labelledby = 'ui-dialog-title-edit_practice_technique_dialog'] .ui-dial
 #auto_delete_alert {
     margin-top: 10px;
 }
+
+#practice_share_dialog #user_email {
+    width: 230px;
+}

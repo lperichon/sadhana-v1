@@ -1,0 +1,19 @@
+<span id="<%= dom_id practice %>_publish_buttons">
+<% if practice.public? %>
+    <li><%= link_to_function t('actions.unpublish'), "$.ajax({
+                    type:'post',
+                    data: { '_method': 'delete' },
+                    dataType: 'script',
+                    url: '#{ practice_practice_publications_path(practice) }'
+                });", :class => 'small blue awesome' %>
+    </li>
+<% else %>
+    <li>
+      <%= link_to_function t('actions.publish'), "$.ajax({
+                    type:'post',
+                    dataType: 'script',
+                    url: '#{ practice_practice_publications_path(practice) }'
+                });", :class => 'small blue awesome' %>
+    </li>
+<% end %>
+</span>

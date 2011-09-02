@@ -1,0 +1,1 @@
+page << "$('##{dom_id @practice}_publish_buttons').html('#{escape_javascript render :partial => 'publish_buttons', :locals => {:practice => @practice}}');"
