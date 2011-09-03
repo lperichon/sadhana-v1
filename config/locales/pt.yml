@@ -367,6 +367,9 @@ pt:
   practice_part:
     help:
       part: "Escolha um anga."
+  practice_publications:
+    not_owner_notice: "Você só pode publicar e despublicar as práticas que você possui."
+    paid_account_notice: "Seu plano atual não permite publicar práticas. %{upgrade_link}"
   practice_shares:
     dialog_form:
       sadhana_contacts: "Contatos de Sádhana."
