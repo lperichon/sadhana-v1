@@ -413,3 +413,6 @@ en:
   registrations:
     new:
       welcome: "Welcome {{name}}!"
+  practice_publications:
+    not_owner_notice: "You can only publish and unpublish the practices you own."
+    paid_account_notice: "You require a paid subscription to publish practices. %{upgrade_link}"

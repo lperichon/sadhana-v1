@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
          :invitable, :encryptable, :encryptor => :sha1
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :locale, :invited_by
+  attr_accessible :email, :password, :password_confirmation, :locale, :invited_by, :remember_me
 
   has_many :practices, :order => "position"
   has_many :practice_events
