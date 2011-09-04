@@ -357,7 +357,11 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 }
 
 .twitter-share-button {
-  vertical-align: top;
+  vertical-align: -7px;
+}
+
+.facebook-share-button {
+  vertical-align: -1px;
 }
 
 .buttons {

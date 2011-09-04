@@ -91,5 +91,10 @@
           });", :class => 'small blue awesome'%>
     </li>
 
+    <% if practice.public? %>
+      <a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-url="<%= play_practice_url(practice) %>" data-text="<%= t('practices.publish_message', :practice_name => practice.name) %>" data-via="sadhana_app" data-related="lperichon">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+      <a class="facebook-share-button" name="fb_share" type="button" share_url="<%= play_practice_url(practice) %>" href="http://www.facebook.com/sharer.php"><%= t('actions.share') %></a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+    <% end %>
+
   </ul>
 </li>

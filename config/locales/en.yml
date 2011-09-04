@@ -154,6 +154,7 @@ en:
       restore_notice: "Your practice has been restored."
     create:
       duplicate_notice: "You can now start editing the duplicated practice."
+    publish_message: "Check out this practice: {{practice_name}}"
   shared:
     confirm_dialog:
       title: "Confirm delete"

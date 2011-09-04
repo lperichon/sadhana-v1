@@ -428,6 +428,7 @@ pt:
     practice:
       owner: "por %{owner}"
       shared_practice_deleted: "Atenção! Esta prática tem sido deletada pelo dono e pode ser definitivamente eliminada a qualquer momento. Se você quer preservá-la você pode duplicar."
+    publish_message: "Confira esta prática: {{practice_name}}"
     show:
       add_angas_tip: "Separe a sua prática em partes, você pode criar angas clicando em '+'."
       add_associated_techniques_tip: "Sabia que você pode associar técnicas? Arraste e solte um mudrá a um ásana."
