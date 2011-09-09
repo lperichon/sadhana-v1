@@ -116,5 +116,28 @@
     <% end %>
     <div id="jpId"></div>
     <%= raw analytical.body_append_javascript %>
+    <% if user_signed_in? %>
+    <script>
+      var intercomSettings = {
+        app_id: '9w5shc9b',
+        email: '<%= current_user.email %>',
+        created_at: <%= current_user.created_at.to_i %>
+      };
+      (function() {
+        function async_load() {
+          var s = document.createElement('script');
+          s.type = 'text/javascript'; s.async = true;
+          s.src = 'https://api.intercom.io/api/js/library.js';
+          var x = document.getElementsByTagName('script')[0];
+          x.parentNode.insertBefore(s, x);
+        }
+        if (window.attachEvent) {
+          window.attachEvent('onload', async_load);
+        } else {
+          window.addEventListener('load', async_load, false);
+        };
+      })();
+    </script>
+    <% end %>
   </body>
 </html>
