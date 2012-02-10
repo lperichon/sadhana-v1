@@ -30,13 +30,6 @@ class SubscriptionsController < UserApplicationController
       
       # after change_plan, call renew
       @subscription.renew
-
-      # Track plan change
-      if is_upgrade?
-        analytical.kiss_metrics.upgraded plan.name
-      elsif is_downgrade?
-        analytical.kiss_metrics.downgraded plan.name
-      end
     end
     
 

@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :set_locale
 
-  analytical :modules=>[:console, :google, :kiss_metrics], :use_session_store=>true
+  analytical :modules=>[:console, :google], :use_session_store=>true
 
   private
 
