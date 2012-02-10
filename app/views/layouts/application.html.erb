@@ -121,7 +121,8 @@
       var intercomSettings = {
         app_id: '9w5shc9b',
         email: '<%= current_user.email %>',
-        created_at: <%= current_user.created_at.to_i %>
+        created_at: <%= current_user.created_at.to_i %>,
+        user_hash: '<%= Digest::SHA1.hexdigest('4uqj3lu3' + current_user.email) %>'
       };
       (function() {
         function async_load() {
