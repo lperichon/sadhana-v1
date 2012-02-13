@@ -10,6 +10,7 @@ log/*.log
 .idea
 .bundle
 .rvmrc
+.sass-cache
 *~
 public/system/**/*
 .ruby-gemset
