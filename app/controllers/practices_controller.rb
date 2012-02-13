@@ -3,11 +3,11 @@ class PracticesController < UserApplicationController
   # GET /practices.xml
   def index
     if params[:deleted]
-      @practices = current_user.archived_practices.paginate :page => params[:page], :per_page => 5
+      @practices = current_user.archived_practices.page(params[:page]).per(5)
     elsif params[:public]
-      @practices = Practice.public.paginate :page => params[:page], :per_page => 5
+      @practices = Practice.public.page(params[:page]).per(5)
     else
-      @practices = current_user.all_practices.paginate :page => params[:page], :per_page => 5
+      @practices = current_user.all_practices.page(params[:page]).per(5)
     end
 
     respond_to do |format|
