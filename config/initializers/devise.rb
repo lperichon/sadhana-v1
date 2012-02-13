@@ -117,6 +117,8 @@ Devise.setup do |config|
   #   manager.default_strategies(:scope => :user).unshift :twitter_oauth
   # end
 
+  config.case_insensitive_keys = [:email]
+
   config.warden do |manager|
 		manager.strategies.add(:sign_in_as, SignInAs::Devise::Strategies::FromAdmin)
 		manager.default_strategies(:scope => :user).unshift :sign_in_as
