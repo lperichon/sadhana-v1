@@ -78,7 +78,7 @@
     </div>
 </div>
 
-<%= will_paginate @practices, :previous_label => t('actions.previous'), :next_label => t('actions.next') %>
+<%= paginate @practices %>
 
 <%= render :partial=> 'shared/new_invitation_dialog' %>
 <%= render :partial => 'shared/confirm_dialog' %>

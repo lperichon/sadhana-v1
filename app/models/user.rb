@@ -85,20 +85,19 @@ class User < ActiveRecord::Base
   end  
 
   def all_practices
-    (self.practices + self.unscoped_shared_practices).sort {|a,b| a.id <=> b.id }
+    Practice.unscoped.joins('LEFT JOIN shared_practices ON shared_practices.practice_id = practices.id').where('shared_practices.user_id = ? OR practices.user_id = ?',self.id, self.id).group(:id)
   end
 
   def unscoped_practices
-    Practice.unscoped.find(:all, :conditions => {:user_id => self.id})
+    Practice.unscoped.where(:user_id => self.id)
   end
 
   def archived_practices
-    Practice.unscoped.find(:all, :conditions => {:user_id => self.id, :state => 'archived'})
+    Practice.unscoped.where(:user_id => self.id, :state => 'archived')
   end
 
   def unscoped_shared_practices
-    Practice.unscoped.find(:all, :joins => 'JOIN shared_practices ON shared_practices.practice_id = practices.id',
-                           :conditions => ['shared_practices.user_id = ?', self.id])
+    Practice.unscoped.joins('LEFT JOIN shared_practices ON shared_practices.practice_id = practices.id').where('shared_practices.user_id = ?',self.id)
   end
 
   def apply_omniauth(omniauth)

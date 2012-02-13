@@ -27,7 +27,7 @@
     </ul>
   </div>
 </div>
-<%= will_paginate @contacts, :previous_label => t('actions.previous'), :next_label => t('actions.next') %>
+<%= paginate @contacts %>
 
 <div id='new_invitation_dialog' style='display:none' title='<%= t('contacts.index.new_invitation_dialog.title') %>'>
   <%= render :partial => 'shared/invitation_fields' %>

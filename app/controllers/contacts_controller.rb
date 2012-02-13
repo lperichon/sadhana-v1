@@ -10,7 +10,7 @@ class ContactsController < UserApplicationController
   end
 
   def index
-    @contacts = current_user.contacts.paginate :page => params[:page], :per_page => 5
+    @contacts = current_user.contacts.page(params[:page]).per(5)
     respond_to do |format|
       format.html { } # index.html.erb
       format.xml  { render :xml => @contacts }
