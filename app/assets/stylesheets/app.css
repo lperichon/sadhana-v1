@@ -42,7 +42,7 @@ body {
 
 #logo {
   position: absolute;
-  background: transparent url("/images/logo_62.png") no-repeat;
+  background: transparent url("logo_62.png") no-repeat;
   text-indent: -9999px;
   height: 62px;
   width: 255px;
@@ -164,7 +164,7 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 }
 
 #edit_profile_dialog .ui-tabs-nav .ui-state-active {
-  background: #EEE url(/stylesheets/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png) repeat-x 20% 10%;
+  background: #EEE url(ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png) repeat-x 20% 10%;
 
 }
 
@@ -256,7 +256,7 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
   text-decoration: none;
 }
 .twitter-link span{
-  background: url("/images/twitter_logo.png") no-repeat;
+  background: url("twitter_logo.png") no-repeat;
   height: 25px;
   width: 88px;
   text-indent: -9999px;
@@ -268,7 +268,7 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
   text-decoration: none;
 }
 .facebook-link span{
-  background: url("/images/facebook_logo.jpg") no-repeat;
+  background: url("facebook_logo.jpg") no-repeat;
   height: 25px;
   width: 66px;
   text-indent: -9999px;
@@ -374,17 +374,17 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 }
 
 .pt .ui-selectmenu-item-icon {
-  background: url(/images/br_flag.png) 0 1px no-repeat;
+  background: url(br_flag.png) 0 1px no-repeat;
   height: 16px;
 }
 
 .en .ui-selectmenu-item-icon {
-  background: url(/images/us_flag.png) 0 1px no-repeat;
+  background: url(us_flag.png) 0 1px no-repeat;
   height: 16px;
 }
 
 .es .ui-selectmenu-item-icon {
-  background: url(/images/ar_flag.png) 0 1px no-repeat;
+  background: url(ar_flag.png) 0 1px no-repeat;
   height: 16px;
 }
 

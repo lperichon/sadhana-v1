@@ -1,3 +1,4 @@
+
 $.extend($.ui.tabs.prototype, {
     refreshPositions: function() {
         this.list = this.element.find('ol,ul').eq(0);

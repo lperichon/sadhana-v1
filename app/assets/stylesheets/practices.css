@@ -340,7 +340,7 @@ span#jeditable_description input {
 }
 
 #play_controls .ui-icon {
-  background-image: url(/stylesheets/ui-lightness/images/ui-icons_888888_256x240.png);
+  background-image: url(/app/assets/stylesheets/ui-lightness/images/ui-icons_888888_256x240.png);
 }
 
 #countdown {
@@ -450,7 +450,7 @@ div[aria-labelledby = 'ui-dialog-title-edit_practice_dialog'] .ui-dialog-content
 }
 
 #edit_practice_dialog .ui-tabs-nav .ui-state-active {
-  background: #EEE url(/stylesheets/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png) repeat-x 20% 10%;
+  background: #EEE url(ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png) repeat-x 20% 10%;
 }
 
 #practice-ui-tab-dialog-close {
@@ -521,7 +521,7 @@ div[aria-labelledby = 'ui-dialog-title-edit_practice_technique_dialog'] .ui-dial
 }
 
 #edit_practice_technique_dialog .ui-tabs-nav .ui-state-active {
-  background: #EEE url(/stylesheets/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png) repeat-x 20% 10%;
+  background: #EEE url(/app/assets/stylesheets/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png) repeat-x 20% 10%;
 }
 
 #associated_techniques .technique {
