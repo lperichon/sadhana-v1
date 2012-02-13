@@ -9,17 +9,11 @@
     <%= stylesheet_link_tag 'ui.selectmenu' %>
     <%= stylesheet_link_tag 'awesome' %>
     <%= stylesheet_link_tag 'application' %>
-    <%= stylesheet_link_tag 'scaffold' %>
-    <%= stylesheet_link_tag 'fullcalendar' %>
-    <%= stylesheet_link_tag 'omniauth' %>
-    <% if File.exist? File.join(Rails.public_path, "stylesheets/#{controller.controller_name}.css") %>
+    <% if File.exist? File.join(Rails.root, "/assets/stylesheets/#{controller.controller_name}.css") %>
       <%= stylesheet_link_tag controller.controller_name %>
     <% end %>
-    <%= stylesheet_link_tag 'jquery.tweet' %>
 
-    <%= javascript_include_tag 'jquery-1.4.2.min' %>
-    <%= javascript_include_tag 'jquery.rails' %>
-    <%= javascript_include_tag 'jquery-ui-1.8rc3.custom.min' %>
+    <%= javascript_include_tag 'application' %>
     <% if user_signed_in? %>
       <%= javascript_include_tag "jquery.ui.datepicker-#{current_user.locale}" %>
       <%= javascript_tag do %>
@@ -40,7 +34,7 @@
     <%= javascript_include_tag 'jquery.jstore-all-min' %>
     <%= javascript_include_tag 'css_browser_selector' %>
 
-    <% if File.exist? File.join(Rails.public_path, "javascripts/#{controller.controller_name}.js") %>
+    <% if File.exist? File.join(Rails.root, "/assets/javascripts/#{controller.controller_name}.js") %>
       <%= javascript_include_tag controller.controller_name %>
     <% end %>
 
