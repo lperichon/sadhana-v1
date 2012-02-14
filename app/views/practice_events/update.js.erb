@@ -1,0 +1,6 @@
+<% if @practice_event.errors.empty? %>
+  $('#edit_event_dialog').dialog('close');
+  $('#calendar').fullCalendar('renderEvent', <%= js_event(@practice_event) %>);
+<% else %>
+  $('#edit_event_dialog').html('<%= escape_javascript render :partial => 'dialog_form'%>');
+<% end %>

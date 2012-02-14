@@ -1,0 +1,7 @@
+<% if @practice_event.errors.empty? %>
+  $('#new_event_dialog').dialog('close');
+  $('#notifications').replaceWith('<%= escape_javascript render :partial => 'shared/notifications' %>');
+  $('#calendar').fullCalendar('renderEvent', <%=js_event(@practice_event)%>);
+<% else %>
+  $('#new_event_dialog').html('<%= escape_javascript render :partial => 'dialog_form' %>');
+<% end %>
