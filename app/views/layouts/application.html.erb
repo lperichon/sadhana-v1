@@ -6,7 +6,7 @@
     <title>S&aacute;dhana</title>
 
     <%= stylesheet_link_tag 'application' %>
-    <% if File.exist? File.join(Rails.root, "/assets/stylesheets/#{controller.controller_name}.css") %>
+    <% if File.exist? File.join(Rails.root, "/app/assets/stylesheets/#{controller.controller_name}.css") %>
       <%= stylesheet_link_tag controller.controller_name %>
     <% end %>
 
@@ -18,7 +18,7 @@
       <% end %>
     <% end %>
 
-    <% if File.exist? File.join(Rails.root, "/assets/javascripts/#{controller.controller_name}.js") %>
+    <% if File.exist? File.join(Rails.root, "/app/assets/javascripts/#{controller.controller_name}.js") %>
       <%= javascript_include_tag controller.controller_name %>
     <% end %>
 
