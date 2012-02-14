@@ -1,7 +1,6 @@
-page << "$('#edit_event_dialog').html('#{escape_javascript render :partial => 'dialog_form'}');"
+$('#edit_event_dialog').html('<%= escape_javascript render :partial => 'dialog_form' %>');
 
-page << %(
-  $('#edit_event_dialog').dialog({
+$('#edit_event_dialog').dialog({
     autoOpen: true,
     height: 250,
     width: 375,
@@ -9,9 +8,9 @@ page << %(
     closeOnEscape: false,
     open:function() {
       $(this).parents(".ui-dialog:first").find(".ui-dialog-titlebar-close").remove(); 
-    } ,
+    },
     buttons: {
-      '#{t('actions.update')}': function() {
+      '<%=t('actions.update')%>': function() {
         $('#practice_event_start_string').attr("disabled", false);
         $.ajax({
             type:'put',
@@ -20,34 +19,33 @@ page << %(
             url: $('#edit_event_dialog form').attr('action')
         });
       },
-      '#{t('actions.delete')}': function() {
+      '<%=t('actions.delete')%>': function() {
         $('#confirm_dialog').dialog({
           resizable: false,
           height:140,
           modal: true,
           buttons: {
-            '#{t('actions.delete')}': function() {
+            '<%=t('actions.delete')%>': function() {
               $.ajax({
                   type:'post',
                   data: { '_method': 'delete' },
                   dataType: 'json',
-                  url: '#{practice_event_path(@practice_event)}',
+                  url: '<%=practice_event_path(@practice_event)%>',
                   success: function() {
                     $('#edit_event_dialog').dialog('close');
                   }
               });
               $(this).dialog('close');
             },
-            '#{t('actions.cancel')}': function() {
+            '<%= t('actions.cancel')%>': function() {
               $(this).dialog('close');
             }
           }
         });
       },
-      '#{t('actions.cancel')}': function() {
-        $('#calendar').fullCalendar('renderEvent', #{js_event(@practice_event)});
+      '<%=t('actions.cancel')%>': function() {
+        $('#calendar').fullCalendar('renderEvent', <%=js_event(@practice_event)%>);
         $('#edit_event_dialog').dialog('close');
       }
     }
   });
-)
