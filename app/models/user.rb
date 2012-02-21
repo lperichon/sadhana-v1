@@ -81,7 +81,7 @@ class User < ActiveRecord::Base
   end
 
   def all_practices
-    Practice.unscoped.joins('LEFT JOIN shared_practices ON shared_practices.practice_id = practices.id').where('shared_practices.user_id = ? OR practices.user_id = ?',self.id, self.id).group(:id)
+    Practice.unscoped.joins('LEFT JOIN shared_practices ON shared_practices.practice_id = practices.id').where("shared_practices.user_id = ? OR (practices.user_id = ? AND practices.state = 'created')",self.id, self.id).group(:id)
   end
 
   def unscoped_practices
