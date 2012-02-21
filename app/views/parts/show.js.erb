@@ -1,0 +1,4 @@
+$('#techniques_accordion').replaceWith('<%=escape_javascript render :partial => 'practices/techniques_accordion', :locals => {:part => @part}%>');
+technique_type_symbol = '<%=@part.technique_type.symbol%>'
+Practices.load_accordion_techniques(technique_type_symbol);
+Practices.init_accordion();

@@ -1,0 +1,6 @@
+$('#notifications').replaceWith('<%=escape_javascript render :partial => 'shared/notifications'%>');
+<% if @restore %>
+    $('#practice_<%=@practice.id%>').show();
+<% else %>
+    $('#practice_time').html('<%=practice_time(@practice)%>');
+<% end %>

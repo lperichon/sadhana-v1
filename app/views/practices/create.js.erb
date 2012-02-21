@@ -1,0 +1,5 @@
+<% if @practice.errors.empty? %>
+  window.location.replace(<%=practice_path(@practice)%>)
+<% else %>
+  $('#new_practice_dialog').html('<%=escape_javascript render :partial => 'dialog_form'%>');
+<% end %>

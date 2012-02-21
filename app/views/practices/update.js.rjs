@@ -1,6 +1,0 @@
-page << "$('#notifications').replaceWith('#{escape_javascript render :partial => 'shared/notifications'}');"
-if @restore
-    page << "$('#practice_#{@practice.id}').show();"
-else
-    page << "$('#practice_time').html('#{practice_time(@practice)}')"
-end

@@ -1,0 +1,5 @@
+<% if @practice.nil? || current_user.share_subscription_check(current_user.subscription.plan) %>
+    $('#notifications').replaceWith('<%=escape_javascript render :partial => 'shared/notifications'%>');
+<% else %>
+    $('#<%=dom_id @practice%>_publish_buttons').html('<%=escape_javascript render :partial => 'publish_buttons', :locals => {:practice => @practice}%>');
+<% end %>

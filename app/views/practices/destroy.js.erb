@@ -1,0 +1,6 @@
+$('#notifications').replaceWith('<%= escape_javascript render :partial => 'shared/notifications' %>');
+<% if params[:destroy_all] %>
+  location.reload();
+<% elsif @destroy %>
+  $('#practice_<%=@practice.id%>').remove();
+<% end %>

@@ -1,4 +1,0 @@
-page << "$('##{dom_id @practice_technique}').replaceWith('#{ escape_javascript render :partial => 'practices/practice_technique', :locals => {:practice => @practice, :practice_part => @practice_part, :practice_technique => @practice_technique}}');"
-page << "$('#practice_time').html('#{practice_time(@practice)}')"
-page << "$('#tips').html('#{ escape_javascript render :partial => 'practices/practice_tips'}');"
-page << "Practices.adjustEditorSize();"

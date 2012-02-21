@@ -1,0 +1,4 @@
+$('#edit_practice_technique_dialog #technique_data').html('<%=escape_javascript render :partial => 'dialog_form'%>');
+$('#edit_practice_technique_dialog #associated_techniques').html('<%=escape_javascript render :partial => 'associated_techniques_tab'%>');
+$('#edit_practice_technique_dialog').dialog('open');
+$('#technique_select_box').scrollLeft($('#technique_select_box .technique.selected').position().left -115);
