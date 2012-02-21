@@ -1,0 +1,74 @@
+$('#practice_time').html('#{practice_time(@practice)}');
+$('#practice_parts').tabs('add', '#part-techniques-#{@practice_part.id}', '#{@practice_part.part.name}');"
+$('#new_practice_part').attr('id', 'practice_part_#{@practice_part.id}').attr('part_id', '#{@practice_part.id}').attr('primary_technique_type', '#{@practice_part.part.primary_technique_type}').attr('secondary_technique_types', '#{@practice_part.part.secondary_technique_types}').attr('part_symbol', '#{@practice_part.part.symbol}');"
+$('#part-techniques-#{@practice_part.id}').height(Practices.calculateEditorHeight());
+    // Enable sorting practice techniques
+    $('#part-techniques-#{@practice_part.id}').sortable(
+    {
+      revert: 'invalid',
+      opacity: 0.4,
+      update: function(){
+        $.ajax({
+            type: 'post',
+            data: $('#part-techniques-<%=@practice_part.id%>').sortable('serialize') + '&practice_id=<%=@practice.id%>&practice_part_id=<%=@practice_part.id%>',
+            dataType: 'script',
+            url: '<%=sort_practice_practice_part_practice_techniques_path(@practice, @practice_part)%>'})
+        }
+      }
+    );
+
+    // Enable adding techniques to part
+    $("#part-techniques-<%=@practice_part.id%>").droppable({
+      accept: '<%=@practice_part.part.primary_technique_type%>',
+      drop: function(event, ui) {
+        if(ui.draggable.hasClass('ui-draggable')) {
+          ui.draggable.removeClass('ui-draggable').removeClass('technique').addClass('practice_technique');
+          // create new practice technique via synchronous ajax
+          $.ajax({
+              type: 'post',
+              async: false,
+              data: 'practice_id=<%=@practice.id%>&practice_part_id=<%=@practice_part.id%>&practice_technique[technique_id]=' + ui.draggable.attr('technique_id'),
+              dataType: 'script',
+              beforeSend: function() {
+                // inform the user we're working
+                ui.draggable.addClass('working');
+              },
+              complete: function(request){
+                ui.draggable.removeClass('working');
+                ui.draggable.attr('id',$('#created_practice_technique .practice_technique').attr('id'));
+                ui.draggable.attr('practice_technique_id', $('#created_practice_technique .practice_technique').attr('practice_technique_id'));
+                ui.draggable.html($('#created_practice_technique .practice_technique').html());
+                $('#created_practice_technique').children().remove();
+                $('#' + ui.draggable.attr('id')).droppable({
+                  accept: '<%=@practice_part.part.secondary_technique_types%>',
+                  drop: function(event, mudra_ui) {
+                    if(mudra_ui.draggable.hasClass('ui-draggable')) {
+                      // associate new practice technique via ajax
+                      $.ajax({
+                          type: 'put',
+                          data: 'practice_id=<%=@practice.id%>&practice_part_id=<%=@practice_part.id%>&id=' + ui.draggable.attr('practice_technique_id') + '&practice_technique[add_technique_id]=' + mudra_ui.draggable.attr('technique_id'),
+                          dataType: 'script',
+                          url: '/practices/<%=@practice.id%>/practice_parts/<%=@practice_part.id%>/practice_techniques/' + ui.draggable.attr('practice_technique_id')});
+                    }
+                  }
+                });
+              },
+              url: '<%=practice_practice_part_practice_techniques_path(@practice, @practice_part)%>'});
+        }
+      }
+    });
+$('#tips').html('<%=escape_javascript render :partial => 'practices/practice_tips'%>');
+
+
+<% if(@practice.practice_parts.count == 1) %>
+  $.ajax({
+    type:'get',
+    data: {'symbol': '<%=@practice_part.part.symbol%>'},
+    dataType: 'script',
+    url: '/parts/1'
+  });
+  Practices.accordion_draggable('#<%=@practice_part.part.symbol%>' , '<%=@practice_part.part.primary_technique_type%>', '<%=@practice_part.part.secondary_technique_types%>');
+  $('#<%=@practice_part.part.symbol%>').sortable('refresh');
+<% else %>
+  Practices.adjustEditorSize();
+<% end %>

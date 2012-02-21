@@ -1,3 +1,0 @@
-page << "$('#practice_time').html('#{practice_time(@practice)}')"
-page << "$('#tips').html('#{ escape_javascript render :partial => 'practices/practice_tips'}');"
-page << "Practices.adjustEditorSize();"

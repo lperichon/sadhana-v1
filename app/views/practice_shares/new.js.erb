@@ -1,0 +1,10 @@
+<% if @practice.nil? || current_user.share_subscription_check(current_user.subscription.plan) %>
+    $('#notifications').replaceWith('<%=escape_javascript render :partial => 'shared/notifications'%>');
+<% else %>
+    $('#practice_share_dialog').html('<%=escape_javascript render :partial => 'share_practice_dialog'%>');
+    $('#practice_share_dialog').dialog({
+        autoOpen: true,
+        modal: true,
+        width: 370
+      });
+<% end %>

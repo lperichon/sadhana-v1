@@ -1,0 +1,7 @@
+$('#practice_time').html('<%=practice_time(@practice)%>');
+$('#tips').html('<%=escape_javascript render :partial => 'practices/practice_tips'%>');
+Practices.adjustEditorSize();
+<%= if @practice.practice_parts.empty? %>
+    $('#techniques_accordion').html('');
+    $('.part-techniques').remove();
+<%= end %>
