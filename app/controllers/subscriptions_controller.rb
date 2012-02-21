@@ -49,7 +49,7 @@ class SubscriptionsController < UserApplicationController
   def credit_card
     @profile = @subscription.profile
     respond_to do |format|
-      format.js # credit_card.js.rjs
+      format.js # credit_card.js.erb
     end
   end
 
@@ -84,7 +84,7 @@ class SubscriptionsController < UserApplicationController
   def history
     @transactions = @subscription.transactions
     respond_to do |format|
-      format.js # history.js.rjs
+      format.js # history.js.erb
     end
   end
 

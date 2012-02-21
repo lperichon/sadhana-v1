@@ -1,3 +1,0 @@
-unless @techniques.empty?
-    page << "$('##{dom_id @techniques.first.parent}').after('#{escape_javascript render :partial => 'techniques_rows'}')"
-end

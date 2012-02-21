@@ -1,5 +1,0 @@
-if @subscription.errors.empty?
-  page.reload
-else
-  page << "$('#subscription').html('#{escape_javascript render :partial => 'shared/subscription_tab'}');"
-end

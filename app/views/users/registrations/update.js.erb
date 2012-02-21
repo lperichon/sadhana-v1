@@ -1,0 +1,5 @@
+<% if @user.errors.empty? %>
+  window.location.reload();
+<% else %>
+  $('#info').html('<%=escape_javascript render :partial => 'shared/registration_tab', :locals => {:resource => @user}%>');
+<% end %>

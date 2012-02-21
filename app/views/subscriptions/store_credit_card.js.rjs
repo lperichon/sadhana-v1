@@ -1,1 +1,0 @@
-page << "$('#subscription').html('#{escape_javascript render :partial => 'shared/subscription_tab'}');"
