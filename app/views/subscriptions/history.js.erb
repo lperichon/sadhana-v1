@@ -1,0 +1,6 @@
+$('#transaction_history').html('<%=escape_javascript render :partial => 'history'%>');
+$('#transaction_history').dialog({
+    width: '415px',
+    autoOpen: true,
+    modal: true
+  });

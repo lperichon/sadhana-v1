@@ -1,0 +1,3 @@
+$('#technique_dialog').html('<%=escape_javascript render :partial => 'technique_dialog', :locals => {:technique => @technique}%>');
+$('#technique_dialog').dialog('option', 'title', '<%=@technique.name%>');
+$('#technique_dialog').dialog('open');
