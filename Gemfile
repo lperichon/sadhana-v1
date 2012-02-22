@@ -42,6 +42,8 @@ gem 'analytical', '2.9.0'
 gem 'geocoder'
 gem 'i18n_data'
 
+gem 'dynamic_form'
+
 group :development do
   gem "ruby-debug19"
   gem 'pg'
