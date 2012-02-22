@@ -43,6 +43,8 @@ gem 'omniauth-facebook'
 gem 'fb_graph', '1.3.6'
 gem 'analytical'
 
+gem 'dynamic_form'
+
 group :development do
   gem "ruby-debug19"
   gem 'pg'
