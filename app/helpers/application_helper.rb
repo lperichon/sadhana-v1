@@ -14,7 +14,7 @@ module ApplicationHelper
                 url: '#{url_for(object)}' ,
                 async: false,
                 data: {
-                  authenticity_token: #{form_authenticity_token.to_json },
+                  authenticity_token: '#{form_authenticity_token }',
                   wants: '#{field_name}',
                   '#{object_name}[#{field_name}]' : value
                 },
