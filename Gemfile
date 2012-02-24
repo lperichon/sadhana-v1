@@ -44,6 +44,8 @@ gem 'i18n_data'
 
 gem 'dynamic_form'
 
+gem 'saas'
+
 group :development do
   gem "ruby-debug19"
   gem 'pg'

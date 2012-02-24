@@ -233,6 +233,7 @@ GEM
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     ryanb-acts-as-list (0.1.2)
+    saas (0.1.1)
     sass (3.2.10)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -296,6 +297,7 @@ DEPENDENCIES
   rails_legacy_mapper
   ruby-debug19
   ryanb-acts-as-list (= 0.1.2)
+  saas
   sass-rails
   sqlite3-ruby (= 1.2.5)
   state_machine (= 0.9.4)
