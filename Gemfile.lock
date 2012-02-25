@@ -297,7 +297,7 @@ DEPENDENCIES
   rails_legacy_mapper
   ruby-debug19
   ryanb-acts-as-list (= 0.1.2)
-  saas
+  saas (= 0.1.1)
   sass-rails
   sqlite3-ruby (= 1.2.5)
   state_machine (= 0.9.4)
