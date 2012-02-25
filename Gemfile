@@ -45,7 +45,7 @@ gem 'analytical'
 
 gem 'dynamic_form'
 
-gem 'saas', :path => "/home/luis/Workspace/saas"
+gem 'saas', '0.1.1'
 
 group :development do
   gem "ruby-debug19"
