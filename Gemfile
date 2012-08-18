@@ -11,7 +11,7 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'rails_legacy_mapper', :git => "https://github.com/tomwaddington/rails_legacy_mapper.git"
+#gem 'rails_legacy_mapper', :git => "https://github.com/tomwaddington/rails_legacy_mapper.git"
 
 gem 'jquery-rails'
 
@@ -22,6 +22,7 @@ gem 'ryanb-acts-as-list', '0.1.2', :require => 'acts_as_list'
 
 gem 'devise'
 gem 'devise_invitable'
+gem 'devise-encryptable'
 
 gem 'paperclip'
 gem 'nokogiri'
