@@ -1,4 +1,4 @@
-Sadhana::Application.routes.draw do |map|
+Sadhana::Application.routes do
   match '/auth/:provider/callback' => 'authentications#create'
   devise_for :admins, :path_names => { :sign_out => "logout" }
   devise_for :users, :controllers => { :registrations => "users/registrations", :invitations => "users/invitations", :confirmations => "users/confirmations", :sessions => "users/sessions" }

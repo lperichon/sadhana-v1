@@ -9,8 +9,6 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'rails_legacy_mapper'
-
 gem 'jquery-rails'
 
 gem 'activeadmin'
@@ -19,6 +17,7 @@ gem 'meta_search'
 gem 'ryanb-acts-as-list', '0.1.2', :require => 'acts_as_list'
 gem 'devise'
 gem 'devise_invitable'
+gem 'devise-encryptable'
 
 gem 'paperclip'
 gem 'nokogiri'

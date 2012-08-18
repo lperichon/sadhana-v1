@@ -88,6 +88,8 @@ GEM
       orm_adapter (~> 0.1)
       railties (~> 3.1)
       warden (~> 1.2.1)
+    devise-encryptable (0.1.2)
+      devise (>= 2.1.0)
     devise_invitable (1.1.8)
       actionmailer (~> 3.0)
       devise (>= 2.1.2)
@@ -205,8 +207,6 @@ GEM
       activesupport (= 3.2.1)
       bundler (~> 1.0)
       railties (= 3.2.1)
-    rails_legacy_mapper (1.1.0)
-      actionpack (~> 3.1)
     railties (3.2.1)
       actionpack (= 3.2.1)
       activesupport (= 3.2.1)
@@ -270,6 +270,7 @@ DEPENDENCIES
   aws-sdk
   coffee-rails
   devise
+  devise-encryptable
   devise_invitable
   dynamic_form
   facebooker2 (= 0.0.5)
@@ -294,7 +295,6 @@ DEPENDENCIES
   pg
   puret (= 1.0.3)
   rails (= 3.2.1)
-  rails_legacy_mapper
   ruby-debug19
   ryanb-acts-as-list (= 0.1.2)
   saas (= 0.1.1)
