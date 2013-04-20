@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110901204144) do
+ActiveRecord::Schema.define(:version => 20130419230142) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(:version => 20110901204144) do
     t.string   "sound_filename"
     t.string   "state",          :default => "created"
     t.boolean  "public"
+    t.boolean  "one_sec_a_day",  :default => false
   end
 
   create_table "shared_practices", :id => false, :force => true do |t|
@@ -241,16 +242,16 @@ ActiveRecord::Schema.define(:version => 20110901204144) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                              :default => "", :null => false
-    t.string   "encrypted_password",                 :default => ""
-    t.string   "password_salt",                      :default => ""
+    t.string   "email",                                :default => "", :null => false
+    t.string   "encrypted_password",                   :default => ""
+    t.string   "password_salt",                        :default => ""
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      :default => 0
+    t.integer  "sign_in_count",                        :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -258,10 +259,12 @@ ActiveRecord::Schema.define(:version => 20110901204144) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "locale"
-    t.string   "invitation_token",     :limit => 20
+    t.string   "invitation_token",       :limit => 20
     t.datetime "invitation_sent_at"
     t.text     "google_consumer"
     t.text     "yahoo_consumer"
+    t.datetime "reset_password_sent_at"
+    t.integer  "invited_by_id"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

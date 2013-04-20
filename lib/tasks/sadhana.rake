@@ -8,6 +8,18 @@ namespace :sadhana do
       p.destroy
     end
   end
+
+  desc "Increment 1s. to practices that have the 1s per day training mode"
+  task :one_sec_a_day => :environment do
+    practices = Practice.unscoped.where(:one_sec_a_day => true)
+    practices.each do |p|
+      p.practice_parts.first.practice_techniques.each do |pt|
+        new_minutes = pt.seconds == 59 ? pt.minutes+1 : pt.minutes  
+        new_seconds = pt.seconds == 59 ? 0 : pt.seconds+1
+        pt.update_attributes(:seconds => new_seconds, :minutes => new_minutes)
+      end 
+    end
+  end
 end
 
 namespace :asana do
