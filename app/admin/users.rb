@@ -35,6 +35,10 @@ ActiveAdmin.register User do
     end
   end
 
+  sidebar :practices, :only => :show do
+      link_to("Practices", admins_user_practices_path(user))
+  end
+
   member_action :manual_charge, :method => :post do
     @user = User.find(params[:id])
     @user.subscription.manual_charge_balance
