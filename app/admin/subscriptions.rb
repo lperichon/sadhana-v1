@@ -5,6 +5,7 @@ ActiveAdmin.register Subscription do
     f.inputs "Subscription Details" do
       f.input :plan, :input_html => {:name => 'plan'}
       f.input :balance_cents, :input_html => {:name => 'cents'}
+      f.input :next_renewal_on
     end
     f.buttons
   end
