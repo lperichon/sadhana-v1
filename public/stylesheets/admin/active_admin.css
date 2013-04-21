@@ -1394,7 +1394,7 @@ table.dashboard {
     background: #d45f53; }
 
 .scopes {
-  float: left;
+  /*float: left;*/
   margin-bottom: 10px;
   font-size: 1.0em; }
   .scopes .scope {
