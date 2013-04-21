@@ -161,6 +161,10 @@
     height: 28px;
 }
 
+.webkit #practice_parts ul {
+    height: 29px;
+}
+
 #practice_parts li .ui-icon-close {
     float: left;
     margin-top: 0.4em;
