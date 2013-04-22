@@ -13,7 +13,7 @@ class Subscription < ActiveRecord::Base
 
   attr_accessor :current_password
 
-  attr_accessible # none
+  attr_accessible :next_renewal_on, :state, :balance_cents
   
   # ------------
   # states: :pending, :free, :trial, :active, :past_due, :expired
