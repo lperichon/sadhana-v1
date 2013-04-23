@@ -47,6 +47,7 @@ es:
         name: Nombre
         sound_filename: Sonido
         total_time: "Tiempo Total"
+        one_sec_a_day: "Un segundo por día"
       practice_event:
         date: Fecha
         practice: Práctica
@@ -352,6 +353,7 @@ es:
       name: "El nombre que deseás darle a tu práctica."
       sound_filename: "Elegí un sonido para indicar el cambio de técnicas."
       total_time: "Tiempo total de la práctica, considerando la espera entre técnicas."
+      one_sec_a_day: 'Seleccionado si esta práctica es un entrenamiento con la modalidad "Un segundo por día".'
     time_format: "%{hours}h %{minutes}m %{seconds}s"
   practice_event:
     help:

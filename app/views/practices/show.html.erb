@@ -36,24 +36,7 @@
 </div>
 
 <div id='edit_practice_dialog' title='<%= t('practices.show.edit_practice_dialog.title') %>'>
-  <p>
-    <b><%= Practice.human_attribute_name :name %>:</b><%= field_help t('practice.help.name') %>
-    <%= jeditable_field(:practice, :name) %>
-  </p>
-
-  <p>
-    <b><%= Practice.human_attribute_name :description %>:</b><%= field_help t('practice.help.description') %>
-    <%= jeditable_field(:practice, :description) %>
-  </p>
-
-  <p>
-    <b><%= Practice.human_attribute_name :total_time %>:</b><%= field_help t('practice.help.total_time') %>
-    <span id='practice_time'><%= practice_time(@practice) %></span> <%= link_to_function t('actions.edit'), "$('#play_preferences_dialog').dialog('open');", :class => 'small blue awesome' %> <%= link_to t('actions.play'), play_practice_path, :class => 'blue small awesome' %>
-  </p>
-</div>
-
-<div id='play_preferences_dialog' title='<%= t('practices.play.play_preferences_dialog.title') %>' style="display:none">
-  <%= render :partial => 'practices/play_preferences_dialog_form' %>
+  <%= render :partial => 'practices/practice_info_dialog_form' %>
 </div>
 
 <%= render :partial => 'shared/edit_practice_technique_dialog' %>
@@ -67,27 +50,19 @@
     // Resize window to fit
     Practices.adjustEditorSize();
 
-    // Initialize play preferences dialog
-      $('#play_preferences_dialog').dialog({autoOpen: false, modal: true, width: 500, buttons: {
+    // Initialize edit practice dialog
+      $('#edit_practice_dialog').dialog({autoOpen: false, modal: true, width: 500, buttons: {
         '<%= t('actions.update') %>': function() {
           $.ajax({
             type:'post',
             dataType: 'script',
-            url: $('#play_preferences_dialog form').attr('action'),
-            data: $('#play_preferences_dialog form').serialize(),
+            url: $('#edit_practice_dialog form').attr('action'),
+            data: $('#edit_practice_dialog form').serialize(),
             success: function(data, textStatus, XMLHttpRequest) {
-                $('#play_preferences_dialog').dialog('close');
+                $('#edit_practice_dialog').dialog('close');
             }
           });
         },
-        '<%= t('actions.cancel') %>': function() {
-            $(this).dialog('close');
-          }
-        }
-      });
-
-    // Initialize edit practice dialog
-      $('#edit_practice_dialog').dialog({autoOpen: false, modal: true, width: 500, buttons: {
         '<%= t('actions.cancel') %>': function() {
             $(this).dialog('close');
           }
