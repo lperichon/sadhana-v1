@@ -3,20 +3,7 @@
 </div>
 
 <div id='practice_data'>
-  <p>
-    <b><%= Practice.human_attribute_name :name %>:</b><%= field_help t('practice.help.name') %>
-    <%= jeditable_field(:practice, :name) %>
-  </p>
-
-  <p>
-    <b><%= Practice.human_attribute_name :description %>:</b><%= field_help t('practice.help.description') %>
-    <%= jeditable_field(:practice, :description) %>
-  </p>
-
-  <p>
-    <b><%= Practice.human_attribute_name :total_time %>:</b><%= field_help t('practice.help.total_time') %>
-    <span id='practice_time'><%= practice_time(@practice) %></span> <%= link_to_function t('actions.edit'), "$('#play_preferences_dialog').dialog('open');", :class => 'small blue awesome' %> <%= link_to t('actions.play'), play_practice_path, :class => 'blue small awesome' %>
-  </p>
+  
 </div>
 <div id='practice_editor'>
   <div id='sidebar'>
@@ -35,17 +22,34 @@
   </div>
   <div id="practice_parts">
     <ul>
+      <button id="edit_practice_button" class="ui-button-icon"></button>
       <% @practice.practice_parts.each do |pp| %>
         <li part_symbol="<%= pp.part.symbol %>" part_id="<%= pp.id %>" primary_technique_type="<%= pp.part.primary_technique_type %>" secondary_technique_types="<%= pp.part.secondary_technique_types %>" id="practice_part_<%= pp.id %>"><a href="#part-techniques-<%= pp.id %>"><%= pp.part.name %></a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>
       <%end %>
       <button id="add_tab" class="ui-button-icon"></button>
     </ul>
-
     <% @practice.practice_parts.each do |pp| %>
         <%= render :partial => 'practice_part', :locals => {:practice => @practice, :practice_part => pp} %>
     <% end %>
   </div>
   <div id='created_practice_technique'></div>
+</div>
+
+<div id='edit_practice_dialog' title='<%= t('practices.show.edit_practice_dialog.title') %>'>
+  <p>
+    <b><%= Practice.human_attribute_name :name %>:</b><%= field_help t('practice.help.name') %>
+    <%= jeditable_field(:practice, :name) %>
+  </p>
+
+  <p>
+    <b><%= Practice.human_attribute_name :description %>:</b><%= field_help t('practice.help.description') %>
+    <%= jeditable_field(:practice, :description) %>
+  </p>
+
+  <p>
+    <b><%= Practice.human_attribute_name :total_time %>:</b><%= field_help t('practice.help.total_time') %>
+    <span id='practice_time'><%= practice_time(@practice) %></span> <%= link_to_function t('actions.edit'), "$('#play_preferences_dialog').dialog('open');", :class => 'small blue awesome' %> <%= link_to t('actions.play'), play_practice_path, :class => 'blue small awesome' %>
+  </p>
 </div>
 
 <div id='play_preferences_dialog' title='<%= t('practices.play.play_preferences_dialog.title') %>' style="display:none">
@@ -82,6 +86,15 @@
         }
       });
 
+    // Initialize edit practice dialog
+      $('#edit_practice_dialog').dialog({autoOpen: false, modal: true, width: 500, buttons: {
+        '<%= t('actions.cancel') %>': function() {
+            $(this).dialog('close');
+          }
+        }
+      });
+
+
     // Initialize quick search
     Practices.init_quicksearch();
 
@@ -91,12 +104,13 @@
     asana_index = <%= first_part_index(@practice) %>
     Practices.load_accordion_techniques(technique_type_symbol);
     $('#add_tab').button({icons: {primary: 'ui-icon-circle-plus'}, text: false});
+    $('#edit_practice_button').button({icons: {primary: 'ui-icon-gear'}, text: false}).click(function() {$('#edit_practice_dialog').dialog('open');});
     <% if current_user.subscription_plan == SubscriptionPlan.default_plan %>
         $('#add_tab').button({ disabled: true });
     <% else %>
         $('#add_tab').click(function() {$('#new_practice_part_dialog').dialog('open');});
     <% end %>
-    $('#add_tab').removeClass('ui-corner-all').addClass('ui-corner-top');
+    $('#add_tab, #edit_practice_button').removeClass('ui-corner-all').addClass('ui-corner-top');
     $('#practice_parts').tabs({
         selected: asana_index,
         disabled: <%= disabled_parts(@practice) %>,

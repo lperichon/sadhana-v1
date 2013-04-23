@@ -66,11 +66,11 @@ var Practices = {
   },
   calculateAccordeonHeight: function() {
     ff_diff = $.browser.mozilla ? 2 : 0;
-    return $(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - $('#tips').height() - 110 + ff_diff;
+    return $(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - $('#tips').height() - 70 + ff_diff;
   },
   calculateEditorHeight: function() {
     ff_diff = $.browser.mozilla ? 2 : 0;
-    return $(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - $('#tips').height() - 131 + ff_diff;
+    return $(window).height() - $('#practice_data').height() - $('#header').height() - $('#practice_actions').height() - $('#notifications').height() - $('#tips').height() - 93 + ff_diff;
   },
   init_quicksearch: function() {
     Practices.qs = $('#q').quicksearch('.techniques-list .technique', {selector: 'h3'});

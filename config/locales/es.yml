@@ -439,6 +439,8 @@ es:
       sort_angas_tip: "¿Sabías que podés ordenar los angas de la práctica? Arrastrá y ordená las pestañas."
       upgrade_for_add_angas_tip: "%{upgrade_link} tu suscripción para separar tu práctica en algunas partes!"
       upgrade_for_more_associated_techniques_tip: "%{upgrade_link} tu suscripción para habilitar más tipos técnica!"
+      edit_practice_dialog:
+        title: "Editar práctica"
     update:
       restore_notice: "Tu práctica fué recuperada."
   registrations:

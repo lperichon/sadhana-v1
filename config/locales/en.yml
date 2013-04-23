@@ -112,6 +112,8 @@ en:
       public_practices: "Public practices"
       auto_delete_alert: "Warning! Deleted practices will be permanently removed after 1 week."
     show:
+      edit_practice_dialog:
+        title: "Edit Practice"
       loading: "Loading..."
       practice_parts:
         add: "Add anga"

@@ -439,6 +439,8 @@ pt:
       sort_angas_tip: "Sabia que você pode reordenar os angas em sua prática? Arraste os separadores  e classificá-los."
       upgrade_for_add_angas_tip: "%{upgrade_link} sua conta para separar a sua prática em partes!"
       upgrade_for_more_associated_techniques_tip: "%{upgrade_link} sua conta para permitir mais tipos de técnica!"
+      edit_practice_dialog:
+        title: "Editar prática"
     update:
       restore_notice: "Sua prática foi restaurada."
   registrations:
