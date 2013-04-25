@@ -12,7 +12,7 @@ gem 'devise_invitable', '~> 0.4.0'
 gem 'paperclip', '2.3.3'
 gem 'nokogiri', '1.4.2'
 gem 'high_voltage', '0.9.0', :branch => "rails3"
-gem 'active_merchant', '1.5.2', :require => 'active_merchant'
+gem 'activemerchant'
 gem 'money', '3.0.0'
 gem 'state_machine', '0.9.4'
 #gem 'lockfile', '1.4.3'
