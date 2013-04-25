@@ -22,10 +22,10 @@
   </div>
   <div id="practice_parts">
     <ul>
-      <button id="edit_practice_button" class="ui-button-icon"></button>
       <% @practice.practice_parts.each do |pp| %>
         <li part_symbol="<%= pp.part.symbol %>" part_id="<%= pp.id %>" primary_technique_type="<%= pp.part.primary_technique_type %>" secondary_technique_types="<%= pp.part.secondary_technique_types %>" id="practice_part_<%= pp.id %>"><a href="#part-techniques-<%= pp.id %>"><%= pp.part.name %></a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>
       <%end %>
+      <button id="edit_practice_button" class="ui-button-icon"></button>
       <button id="add_tab" class="ui-button-icon"></button>
     </ul>
     <% @practice.practice_parts.each do |pp| %>
