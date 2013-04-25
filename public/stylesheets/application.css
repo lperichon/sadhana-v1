@@ -42,7 +42,7 @@ body {
 
 #logo {
   position: absolute;
-  background: transparent url("/images/logo_62.png") no-repeat;
+  background: transparent url("/images/logo.png") no-repeat;
   text-indent: -9999px;
   height: 62px;
   width: 255px;
@@ -429,7 +429,7 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 }
 
 .sidebar ul li a {
-  width: 180px;
+  width: 155px;
 }
 
 .sidebar ul li > span {

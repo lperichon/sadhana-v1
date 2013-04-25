@@ -102,7 +102,12 @@
 }
 
 .gecko .ui-tabs .ui-tabs-nav li {
+    height: 26px;
     top: 2px;
+}
+
+.webkit .ui-tabs .ui-tabs-nav li {
+  top: 1px;
 }
 
 #practice_parts.ui-tabs {
