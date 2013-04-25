@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :set_locale
 
+  before_filter :check_locale
+
   analytical :modules=>[:console, :google], :use_session_store=>true
 
   private
@@ -17,5 +19,9 @@ class ApplicationController < ActionController::Base
 
     locale = I18n.backend.available_locales.include?(locale.to_sym) ? locale : I18n.default_locale
     session[:locale] = I18n.locale = locale
+  end
+
+  def check_locale
+    Rails.logger.debug "====================>" + I18nData.country_code(request.location.country)
   end
 end

@@ -26,6 +26,8 @@ gem 'facebooker2', '0.0.5'
 gem 'omniauth', '0.1.6'
 gem 'fb_graph', '1.3.6'
 gem 'analytical', '2.9.0'
+gem 'geocoder'
+gem 'i18n_data'
 
 # Use unicorn as the web server
 # gem 'unicorn'

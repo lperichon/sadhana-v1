@@ -63,9 +63,9 @@
 
       <div id="locale">
         <% unless user_signed_in? %>
-          <%= select :user, :locale, I18n.backend.available_locales.collect {|l| [I18n.t('this_file_language', :locale => l), l.to_s, {:class => l.to_s}]}, {:selected => I18n.locale.to_s} %>
+          <%= select :user, :locale, I18n.backend.available_locales.collect {|l| ['', l.to_s, {:class => l.to_s}]}, {:selected => I18n.locale.to_s} %>
           <%= javascript_tag do %>
-            $('#user_locale').selectmenu({style:'dropdown', width: 120, icons: [
+            $('#user_locale').selectmenu({style:'dropdown', width: 45, icons: [
                 {find: '.pt'},
                 {find: '.es'},
                 {find: '.en'}
