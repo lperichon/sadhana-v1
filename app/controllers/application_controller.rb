@@ -22,6 +22,6 @@ class ApplicationController < ActionController::Base
   end
 
   def check_locale
-    Rails.logger.debug "====================>" + I18nData.country_code(request.location.country)
+    puts "====================>" + I18nData.country_code(request.location.country)
   end
 end
