@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130419230142) do
+ActiveRecord::Schema.define(:version => 20130424190536) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -130,14 +130,15 @@ ActiveRecord::Schema.define(:version => 20130419230142) do
   end
 
   create_table "subscription_plans", :force => true do |t|
-    t.string   "name",                               :null => false
-    t.integer  "rate_cents",      :default => 0
-    t.integer  "interval",        :default => 1
+    t.string   "name",                                      :null => false
+    t.integer  "rate_cents",             :default => 0
+    t.integer  "interval",               :default => 1
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "max_practices"
     t.boolean  "available"
-    t.boolean  "share_practices", :default => false
+    t.boolean  "share_practices",        :default => false
+    t.boolean  "one_sec_a_day_training", :default => false
   end
 
   create_table "subscription_profiles", :force => true do |t|

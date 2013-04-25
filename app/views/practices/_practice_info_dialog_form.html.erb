@@ -1,21 +1,5 @@
 <%= form_for(@practice) do |f| %>
-  <div class="field name">
-    <%= Practice.human_attribute_name :name %><%= field_help t('practice.help.name') %>
-    <br />
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field description">
-    <%= Practice.human_attribute_name :description %><%= field_help t('practice.help.description') %>
-    <br />
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="field description">
-    <%= Practice.human_attribute_name :one_sec_a_day %><%= field_help t('practice.help.one_sec_a_day') %>
-    <br />
-    <%= f.check_box :one_sec_a_day %>
-  </div>
+  <%= render :partial => 'practices/fields', :locals => {:f => f} %>
 
   <%= render :partial => 'practices/play_practice_fields', :locals => {:f => f} %>
 <% end %>

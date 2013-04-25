@@ -582,3 +582,5 @@ pt:
     invitations:
       invite_another: "%{new_invitation_link}."
       invite_another_link: "Convidar a mais amigos"
+  one_sec_a_day:
+    paid_account_notice: 'O modo de treino "Um segundo por dia" esta reservado para os planos pagos.'

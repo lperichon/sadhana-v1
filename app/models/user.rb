@@ -68,17 +68,21 @@ class User < ActiveRecord::Base
 #    exceeded unless exceeded.empty?
   end
 
-  def practices_subscription_check(plan)
+  def practices_subscription_check(plan = self.subscription_plan)
     plan.max_practices if plan.max_practices.to_i >= 0 &&  self.practices.count >= plan.max_practices.to_i
   end
 
-  def calendar_subscription_check(plan)
+  def calendar_subscription_check(plan = self.subscription_plan)
     plan == SubscriptionPlan.default_plan 
   end
 
-  def share_subscription_check(plan)
+  def share_subscription_check(plan = self.subscription_plan)
     !plan.share_practices
   end
+
+  def one_sec_a_day_subscription_check(plan = self.subscription_plan)
+    !plan.one_sec_a_day_training
+  end  
 
   def all_practices
     (self.practices + self.unscoped_shared_practices).sort {|a,b| a.id <=> b.id }
