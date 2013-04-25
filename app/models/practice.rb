@@ -15,6 +15,8 @@ class Practice < ActiveRecord::Base
 
   scope :public, where(:public => true)
 
+  validate :authorize_one_sec_a_day
+
   after_initialize :initialize_values
 
   state_machine :state, :initial => :created do
@@ -30,6 +32,7 @@ class Practice < ActiveRecord::Base
 
 
   def initialize_values
+
     self.delay ||= 1
   end
 
@@ -62,4 +65,15 @@ class Practice < ActiveRecord::Base
     end
     clone
   end
+
+  def authorize_one_sec_a_day
+    if self.one_sec_a_day
+      if !self.user.one_sec_a_day_subscription_check(self.user.subscription.plan)
+        return true
+      else
+        self.errors.add :base, "One second a day trainings are reserved for paid plans."
+        return false
+      end
+    end
+  end  
 end
