@@ -13,11 +13,11 @@ class ApplicationController < ActionController::Base
       # find the request's country and use that to set locale
       geolocalized_country_code = I18nData.country_code(request.location.country)
       case(geolocalized_country_code)
-        when "AR", "ES":
+        when "AR", "ES"
           geolocale = :es
-        when "BR", "PT":
+        when "BR", "PT"
           geolocale = :pt
-        when "US", "UK":
+        when "US", "UK"
           geolocale = :en
       end
       locale = params[:locale] || (session[:locale] unless(session[:locale].blank? || user_signed_in?)) || (current_user.locale.to_sym if user_signed_in? && current_user.locale.present?) || geolocale || I18n.default_locale
