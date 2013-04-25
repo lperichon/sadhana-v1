@@ -12,16 +12,22 @@ class ApplicationController < ActionController::Base
   def set_locale
     # I18n.default_locale returns the current default locale. Defaults to 'en-US'
     begin
-      locale = params[:locale] || (session[:locale] unless(session[:locale].blank? || user_signed_in?)) || (current_user.locale.to_sym if user_signed_in? && current_user.locale.present?) || I18n.default_locale
+      # find the request's country and use that to set locale
+      geolocalized_country_code = I18nData.country_code(request.location.country)
+      case(geolocalized_country_code)
+        when "AR", "ES":
+          geolocale = :es
+        when "BR", "PT":
+          geolocale = :pt
+        when "US", "UK":
+          geolocale = :en
+      end
+      locale = params[:locale] || (session[:locale] unless(session[:locale].blank? || user_signed_in?)) || (current_user.locale.to_sym if user_signed_in? && current_user.locale.present?) || geolocale || I18n.default_locale
     rescue
       locale = :en
     end
 
     locale = I18n.backend.available_locales.include?(locale.to_sym) ? locale : I18n.default_locale
     session[:locale] = I18n.locale = locale
-  end
-
-  def check_locale
-    puts "====================>" + I18nData.country_code(request.location.country)
   end
 end
