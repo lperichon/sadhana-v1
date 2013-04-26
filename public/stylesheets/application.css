@@ -163,13 +163,9 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
   padding:0;
 }
 
-#edit_profile_dialog .ui-tabs-nav .ui-state-active {
-  background: #EEE url(/stylesheets/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png) repeat-x 20% 10%;
-
-}
 
 #ui-tab-dialog-close {
-  position:absolute; right:0; top:20px;
+  position:absolute; right:10px; top:20px;
 }
 
 #ui-tab-dialog-close a {
@@ -237,6 +233,11 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 
 #sign_up_button {
   text-align: center;
+}
+
+#sign_in_dialog, #sign_up_dialog {
+  padding: 17px;
+  width: 336px;
 }
 
 #social {
