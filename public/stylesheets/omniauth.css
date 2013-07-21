@@ -1,4 +1,5 @@
 .oauth_providers {
+  display: inline-block;
 }
 
 .authentications {
