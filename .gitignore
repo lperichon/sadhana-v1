@@ -11,5 +11,6 @@ log/*.log
 .bundle
 .rvmrc
 *~
-public/system/**/*.ruby-gemset
+public/system/**/*
+.ruby-gemset
 .ruby-version
