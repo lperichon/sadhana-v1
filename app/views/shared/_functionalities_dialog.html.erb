@@ -1,0 +1,17 @@
+<div id="functionalities" style='display:none' title='<%= t('home.functionalities.list_title') %>'>
+<%= render :partial => 'shared/functionalities_slideshow' %>
+
+<div id="functionalities_list">
+  <ul>
+    <li><%= t('home.functionalities.manage_your_practices') %></li>
+    <li><%= t('home.functionalities.angas') %></li>
+    <li><%= t('home.functionalities.techniques') %></li>
+    <li><%= t('home.functionalities.anywhere') %></li>
+    <li><%= t('home.functionalities.share') %></li>
+    <li><%= t('home.functionalities.practices_calendar') %></li>
+  </ul>
+</div>
+</div>
+<%= javascript_tag do %>
+  $('#functionalities').dialog({autoOpen: false, modal: true, width: 600});
+<% end %>

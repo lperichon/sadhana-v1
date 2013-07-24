@@ -26,6 +26,14 @@ html {
   font-family: ProximaNovaRegular, helvetica;
 }
 
+html.home {
+  background: url(/images/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .ui-widget {
   font-family: ProximaNovaRegular;
 }
@@ -221,7 +229,15 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 
 #get_started {
   width: 500px;
-  margin: 40px auto;
+  margin: 250px auto 40px;
+  padding: 15px;
+  color: white;
+  /* RGBa with 0.6 opacity */
+  background-color: rgba(0, 0, 0, 0.6);
+  /* For IE 5.5 - 7*/
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+  /* For IE 8*/
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 }
 
 #get_started h2 {
@@ -241,16 +257,9 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
 }
 
 #social {
-  margin: 50px auto;
-  width: 920px;
-}
-
-.facebook {
-  display: inline-block;
-  margin-left: 30px;
-  margin-top: 10px;
-  vertical-align: top;
-  width: 440px;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
 }
 
 .twitter-link {

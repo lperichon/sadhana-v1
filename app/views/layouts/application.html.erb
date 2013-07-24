@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="<%= controller.controller_name == 'pages' && controller.action_name == 'show' ? params[:id] : nil %>">
   <head>
     <%= raw analytical.head_prepend_javascript %>
 
