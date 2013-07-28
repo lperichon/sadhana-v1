@@ -9,6 +9,9 @@ group :assets do
   gem 'uglifier'
 end
 
+gem 'execjs'
+gem 'therubyracer'
+
 gem 'jquery-rails'
 
 gem 'activeadmin'
