@@ -51,7 +51,6 @@ GEM
     activesupport (3.2.1)
       i18n (~> 0.6)
       multi_json (~> 1.0)
-    analytical (2.9.0)
     arbre (1.0.1)
       activesupport (>= 3.0.0)
     archive-tar-minitar (0.5.2)
@@ -270,7 +269,6 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   activemerchant
-  analytical (= 2.9.0)
   aws-s3
   aws-sdk
   coffee-rails

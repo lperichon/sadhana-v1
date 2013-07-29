@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html class="<%= controller.controller_name == 'pages' && controller.action_name == 'show' ? params[:id] : nil %>">
   <head>
-    <%= raw analytical.head_prepend_javascript %>
-
     <title>S&aacute;dhana</title>
 
     <%= stylesheet_link_tag 'delta/jquery-ui.css' %>
@@ -39,12 +37,8 @@
     <% end %>
 
     <%= csrf_meta_tag %>
-
-    <% analytical.identify(current_user.id, :email=>current_user.email) if current_user %>
-    <%= raw analytical.head_append_javascript %>
   </head>
   <body>
-    <%= raw analytical.body_prepend_javascript %>
     <div id='header' class='ui-widget-header ui-corner-all'>
       <a href="/"><h1 id='logo'>S&aacute;dhana</h1></a>
       <div id="welcome">
@@ -110,7 +104,6 @@
       <%= render :partial => 'shared/plans_dialog' %>
     <% end %>
     <div id="jpId"></div>
-    <%= raw analytical.body_append_javascript %>
     <% if user_signed_in? %>
     <script>
       var intercomSettings = {

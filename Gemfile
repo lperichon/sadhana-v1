@@ -40,7 +40,6 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'fb_graph', '1.3.6'
-gem 'analytical', '2.9.0'
 gem 'geocoder'
 gem 'i18n_data'
 
