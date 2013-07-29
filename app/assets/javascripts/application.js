@@ -19,3 +19,4 @@
 //= require jquery.tweet
 //= require jquery.jstore-all-min
 //= require css_browser_selector
+//= require jquery.ui.touch-punch.min

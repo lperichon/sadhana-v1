@@ -3,9 +3,6 @@
   <head>
     <title>S&aacute;dhana</title>
 
-    <%= stylesheet_link_tag 'delta/jquery-ui.css' %>
-    <%= stylesheet_link_tag 'ui.selectmenu' %>
-    <%= stylesheet_link_tag 'awesome' %>
     <%= stylesheet_link_tag 'application' %>
     <% if File.exist? File.join(Rails.root, "/app/assets/stylesheets/#{controller.controller_name}.css") %>
       <%= stylesheet_link_tag controller.controller_name %>
@@ -18,20 +15,7 @@
         $.datepicker.regional['<%= current_user.locale %>']
       <% end %>
     <% end %>
-    <%= javascript_include_tag 'jquery.ui.touch-punch.min' %>
-    <%= javascript_include_tag 'ui.selectmenu' %>
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag 'jquery.jeditable' %>
-    <%= javascript_include_tag 'jquery.cycle' %>
-    <%= javascript_include_tag 'jquery.countdown' %>
-    <%= javascript_include_tag 'jquery.jplayer.min' %>
-    <%= javascript_include_tag 'fullcalendar' %>
-    <%= javascript_include_tag 'timepicker' %>
-    <%= javascript_include_tag 'jquery.quicksearch' %>
-    <%= javascript_include_tag 'jquery.tweet' %>
-    <%= javascript_include_tag 'jquery.jstore-all-min' %>
-    <%= javascript_include_tag 'css_browser_selector' %>
-
+    
     <% if File.exist? File.join(Rails.root, "/app/assets/javascripts/#{controller.controller_name}.js") %>
       <%= javascript_include_tag controller.controller_name %>
     <% end %>

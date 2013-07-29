@@ -12,7 +12,7 @@ end
 gem 'execjs'
 gem 'therubyracer'
 
-gem 'jquery-rails'
+gem "jquery-rails", "2.3.0"
 
 gem 'activeadmin'
 gem 'meta_search'

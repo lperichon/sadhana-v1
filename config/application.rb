@@ -22,7 +22,7 @@ module Sadhana
     initializer :after_append_asset_paths,
               :group => :all,
               :after => :append_assets_path do
-       config.assets.paths.unshift Rails.root.join("app", "assets", "stylesheets", "ui-lightness").to_s
+       config.assets.paths.unshift Rails.root.join("app", "assets", "stylesheets", "delta").to_s
     end
 
     # Enable the asset pipeline
