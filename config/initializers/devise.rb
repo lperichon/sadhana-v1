@@ -119,8 +119,6 @@ Devise.setup do |config|
 
   config.case_insensitive_keys = [:email]
 
-  config.use_salt_as_remember_token = true
-
   config.reset_password_within = 24.hours
 
   config.warden do |manager|
