@@ -17,6 +17,7 @@
   -webkit-border-radius: 8px;
   position: relative;
   margin-left: 10px;
+  margin-top: 10px;
 }
 
 .authentication .remove {
