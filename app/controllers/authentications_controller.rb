@@ -31,7 +31,11 @@ class AuthenticationsController < ApplicationController
       redirect_to practices_path
     else
       # else create a new user with the authentication and the contact
-      user = User.new(:invited_by => session["invited-by"])
+      user = User.new()
+      if session["invited-by"]
+        user.invited_by = session["invited-by"]
+      end
+
       user.apply_omniauth(omniauth)
       if user.save
         flash[:notice] = t('authentications.create.signin_successful')
