@@ -32,6 +32,8 @@ gem 'analytical', '2.9.0'
 gem 'geocoder'
 gem 'i18n_data'
 
+gem 'stripe'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

@@ -196,6 +196,9 @@ GEM
     ryanb-acts-as-list (0.1.2)
     sqlite3-ruby (1.2.5)
     state_machine (0.9.4)
+    stripe (1.8.8)
+      multi_json (>= 1.0.4, < 2)
+      rest-client (~> 1.4)
     thor (0.14.6)
     treetop (1.4.14)
       polyglot
@@ -240,4 +243,5 @@ DEPENDENCIES
   ryanb-acts-as-list (= 0.1.2)
   sqlite3-ruby (= 1.2.5)
   state_machine (= 0.9.4)
+  stripe
   will_paginate (= 3.0.pre2)
