@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424190536) do
+ActiveRecord::Schema.define(:version => 20131023052238) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(:version => 20130424190536) do
     t.boolean  "available"
     t.boolean  "share_practices",        :default => false
     t.boolean  "one_sec_a_day_training", :default => false
+    t.string   "stripe_id"
   end
 
   create_table "subscription_profiles", :force => true do |t|
@@ -168,15 +169,16 @@ ActiveRecord::Schema.define(:version => 20130424190536) do
   end
 
   create_table "subscriptions", :force => true do |t|
-    t.integer  "subscriber_id",                  :null => false
-    t.string   "subscriber_type",                :null => false
+    t.integer  "subscriber_id",                        :null => false
+    t.string   "subscriber_type",                      :null => false
     t.integer  "plan_id"
     t.string   "state"
     t.date     "next_renewal_on"
     t.integer  "warning_level"
-    t.integer  "balance_cents",   :default => 0
+    t.integer  "balance_cents",         :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "stripe_customer_token"
   end
 
   add_index "subscriptions", ["next_renewal_on"], :name => "index_subscriptions_on_next_renewal_on"
@@ -266,6 +268,7 @@ ActiveRecord::Schema.define(:version => 20130424190536) do
     t.text     "yahoo_consumer"
     t.datetime "reset_password_sent_at"
     t.integer  "invited_by_id"
+    t.string   "unconfirmed_email"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

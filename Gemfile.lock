@@ -178,7 +178,7 @@ GEM
       activesupport (= 3.0.0)
       rake (>= 0.8.4)
       thor (~> 0.14.0)
-    rake (10.1.0)
+    rake (0.8.7)
     responders (0.6.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
@@ -239,6 +239,7 @@ DEPENDENCIES
   pg
   puret (= 1.0.3)
   rails (= 3.0.0)
+  rake (= 0.8.7)
   ruby-debug19
   ryanb-acts-as-list (= 0.1.2)
   sqlite3-ruby (= 1.2.5)

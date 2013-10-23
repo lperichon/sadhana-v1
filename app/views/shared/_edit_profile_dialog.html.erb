@@ -17,13 +17,52 @@
 </div>
 
 <%= javascript_tag do %>
+
+    var subscription = {
+        processCard: function() {
+            var card;
+            card = {
+                number: $('#card_number').val(),
+                cvc: $('#card_code').val(),
+                expMonth: $('#card_month').val(),
+                expYear: $('#card_year').val()
+            };
+            var token = Stripe.createToken(card, subscription.handleStripeResponse);
+            return token;
+        },
+        handleStripeResponse: function(status, response) {
+            if (status === 200) {
+
+                $('#subscription_stripe_card_token').val(response.id);
+
+                $.ajax({
+                    type:'post',
+                    dataType: 'script',
+                    url: $('#edit_profile_dialog #subscription form').attr('action'),
+                    data: $('#edit_profile_dialog #subscription form').serialize()
+                });
+            } else {
+                $('#stripe_error').text(response.error.message)
+                $('input[type=submit]').attr('disabled', false)
+            }
+        }
+    };
+
+
   $('#edit_profile_dialog').tabs();
-  $('#edit_profile_dialog').dialog({autoOpen: false, modal: true, width: 380, buttons: {
+  $('#edit_profile_dialog').dialog({autoOpen: false, modal: true, width: 820, buttons: {
     '<%= t('actions.update') %>': function() {
         if($('#edit_profile_dialog').tabs('option', 'selected') == 0) {
           $.ajax({type:'post', dataType: 'script', url: $('#edit_profile_dialog #info form').attr('action'), data: $('#edit_profile_dialog #info form').serialize(), success: function(data, textStatus, XMLHttpRequest) { if(XMLHttpRequest.getResponseHeader('Content-Type') != "text/javascript; charset=utf-8") {$('#edit_profile_dialog').dialog('close'); }; }});
-        } else if($('#edit_profile_dialog').tabs('option', 'selected') == 1) {
-          $.ajax({type:'post', dataType: 'script', url: $('#edit_profile_dialog #subscription form').attr('action'), data: $('#edit_profile_dialog #subscription form').serialize()});
+        } else if($('#edit_profile_dialog').tabs('option', 'selected') == 1 && $('#subscription_plan').val() != '1') {
+          subscription.processCard();
+        } else if($('#edit_profile_dialog').tabs('option', 'selected') == 1 && $('#subscription_plan').val() == '1'){
+          $.ajax({
+            type:'post',
+            dataType: 'script',
+            url: $('#edit_profile_dialog #subscription form').attr('action'),
+            data: $('#edit_profile_dialog #subscription form').serialize()
+          });
         }
       },
     '<%= t('actions.cancel') %>': function() {

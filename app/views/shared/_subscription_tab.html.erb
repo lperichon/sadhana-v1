@@ -1,44 +1,83 @@
 <%= form_for current_user.subscription do |f| %>
-  <div class='field'>
-    <%= f.label :plan %><%= field_help t('subscription.help.plan') %><br />
-    <%= f.select :plan, current_user.subscription.allowed_plans.collect {|p| ["#{p.name}#{' ' + t('shared_subscription_tab.current_plan_mark') if(p==current_user.subscription.plan)}" , p.id ] }, :selected => current_user.subscription.plan.id %>
-    <%= link_to_function t('shared.subscription_tab.compare_plans'), "$('#plans_dialog').dialog('open');" %>
-  </div>
-  <% if false %>
-  <div class='field'>
-    <%= f.label :credit_card %> (
+    <div id="plans" class='field'>
+      <%= f.label :plan %><%= field_help t('subscription.help.plan') %><br />
+      <%= f.hidden_field :plan, :value => f.object.plan_id %>
 
-<%= link_to_function ((current_user.subscription.profile && !current_user.subscription.profile.no_info?) ? t('actions.update') : t('actions.add')), "$.ajax({type: 'get', url:'#{credit_card_subscription_path(:current)}', dataType: 'script'});" -%>
-      <%- if current_user.subscription.profile && !current_user.subscription.profile.no_info? -%>
-, <%= link_to_function t('actions.remove'), "$.ajax({type: 'post', url:'#{unstore_credit_card_subscription_path(:current)}', dataType: 'script'});" -%>
-      <%- end -%>
-)<br />
-    <% if current_user.subscription.profile.nil? || current_user.subscription.profile.no_info? %>
-      <p><%= t('shared.subscription_tab.no_credit_card') %></p>
-    <% else %>
-      <p>
-        <%= "#{current_user.subscription.profile.card_type.titleize} #{current_user.subscription.profile.card_display_number}"%><br/>
-        <%= t('shared.subscription_tab.card_expiration_date', :date => current_user.subscription.profile.card_expires_on) %>
-      </p>
-    <% end %>
-    <div id='credit_card'></div>
-  </div>
-  <% end %>
-  <% if t = current_user.subscription.latest_transaction %>
-    <div class='field'>
-      <%= f.label :latest_transaction %> (<%= link_to_function t('shared.subscription_tab.transaction_history'), "$.ajax({type:'get', url:'#{history_subscription_path(:current)}', dataType:'script'});" %>)<br/>
-      <p>
-        <%# make this a helper %>
-        <%= t.created_at %><br/>
-        <%= t('shared.subscription_tab.transaction_failed') unless t.success? %>
-        <%= t.action.capitalize %><%= t('shared.subscription_tab.card') if t.token.present? %><%= " #{t.amount.format(:symbol => true)}" unless t.amount.nil? %>.
-        <%= t.message %>.
-      </p>
+      <div id='free' class="plan">
+        <h2>Free</h2>
+        <ul>
+          <li><%= t('shared.plans_dialog.private_practice', :count => 1).html_safe %></li>
+          <li><%= t('shared.plans_dialog.unlimited_shared_practices').html_safe %></li>
+          <li class='limited'><%= t('shared.plans_dialog.calendar').html_safe %></li>
+          <li class='limited'><%= t('shared.plans_dialog.share').html_safe %></li>
+          <li class="price"><%= t('shared.plans_dialog.free') %></li>
+          <li class="select_button"><%= submit_tag "Select", :plan_id => 1, :class => "#{'ui-state-selected' if f.object.plan_id == 1}" %></li>
+        </ul>
+
+      </div>
+      <div id='lite' class="plan recommended">
+        <h2>Lite</h2>
+        <ul>
+          <li><%= t('shared.plans_dialog.unlimited_private_practices').html_safe %></li>
+          <li><%= t('shared.plans_dialog.unlimited_shared_practices').html_safe %></li>
+          <li class='unlimited'><%= t('shared.plans_dialog.calendar').html_safe %></li>
+          <li class='limited'><%= t('shared.plans_dialog.share').html_safe %></li>
+          <li class="price">US$ <span class="limited">3</span>/<%= t('datetime.prompts.month') %></li>
+          <li class="select_button"><%= submit_tag "Select", :plan_id => 2, :class => "#{'ui-state-selected' if f.object.plan_id == 2}" %></li>
+        </ul>
+      </div>
+      <div id='pro' class="plan">
+        <h2>Pro</h2>
+        <ul>
+          <li><%= t('shared.plans_dialog.unlimited_private_practices').html_safe %></li>
+          <li><%= t('shared.plans_dialog.unlimited_shared_practices').html_safe %></li>
+          <li class='unlimited'><%= t('shared.plans_dialog.calendar').html_safe %></li>
+          <li class='unlimited'><%= t('shared.plans_dialog.share').html_safe %></li>
+          <li class="price">US$ <span class="limited">7</span>/<%= t('datetime.prompts.month') %></li>
+          <li class="select_button"><%= submit_tag "Select", :plan_id => 4, :class => "#{'ui-state-selected' if f.object.plan_id == 4}" %></li>
+        </ul>
+      </div>
     </div>
-    <div id='transaction_history' title='<%= t('subscriptions.transaction_history.title') %>'></div>
-  <% end %>
+
+    <%= f.hidden_field :stripe_card_token %>
+
+    <% unless f.object.stripe_customer_token.present? %>
+    <div class="field">
+      <%= label_tag :card_number, "Credit Card Number " %>
+      <%= text_field_tag :card_number, nil, name: nil %>
+    </div>
+    <div class="field">
+      <%= label_tag :card_code, "Security Code on Card (CVV)" %>
+      <%= text_field_tag :card_code, nil, name: nil %>
+    </div>
+    <div class="field">
+      <%= label_tag :card_month, "Card Expiration" %>
+      <%= select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}%>
+      <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}%>
+    </div>
+    <% end %>
+    <div id="stripe_error">
+      <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+    </div>
+
   <div class="field">
     <%= f.label :current_password %><%= field_help t('shared.edit_profile_dialog.current_password_help') %><br/>
     <%= f.password_field :current_password, :autocomplete => 'off' %>
   </div>
+<% end %>
+
+<%= javascript_tag do %>
+  $(document).ready(function() {
+    $(".select_button input[type=submit]" )
+        .button()
+    .click(function( event ) {
+        event.preventDefault();
+        $('.select_button input').removeClass('ui-state-selected');
+        $(this).addClass('ui-state-selected');
+        $('#subscription_plan').val($(this).attr('plan_id'));
+    });
+
+    Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
+
+  });
 <% end %>

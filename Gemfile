@@ -31,7 +31,7 @@ gem 'fb_graph', '1.4'
 gem 'analytical', '2.9.0'
 gem 'geocoder'
 gem 'i18n_data'
-
+gem 'rake', '0.8.7'
 gem 'stripe'
 
 # Use unicorn as the web server

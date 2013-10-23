@@ -11,10 +11,11 @@ class Subscription < ActiveRecord::Base
   # if you destroy a subscription all transaction history is lost so you may not really want to do that
   before_destroy    :cancel
 
-  attr_accessor :current_password
+  attr_accessor :current_password, :stripe_card_token
 
-  attr_accessible :next_renewal_on, :state, :balance_cents
-  
+  attr_accessible :next_renewal_on, :state, :balance_cents, :stripe_card_token, :stripe_customer_token
+
+
   # ------------
   # states: :pending, :free, :trial, :active, :past_due, :expired
   state_machine :state, :initial => :pending do 
@@ -172,6 +173,13 @@ class Subscription < ActiveRecord::Base
     #debugger
     # nothing to charge? (0 or a credit)
     return if balance_cents <= 0
+
+    if stripe_customer_token.nil? && stripe_card_token.present?
+      customer = Stripe::Customer.create(email: subscriber.email, plan: plan.stripe_id, card: stripe_card_token)
+      self.update_attributes(:stripe_customer_token => customer.id, :balance_cents => 0)
+      return plan.rate_cents
+    end
+
     # no cc on fle
     return false if profile.no_info? || profile.profile_key.nil?
 

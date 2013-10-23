@@ -44,6 +44,10 @@
       <%= javascript_include_tag controller.controller_name %>
     <% end %>
 
+    <%= javascript_include_tag "https://js.stripe.com/v1/" %>
+
+    <%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
+
     <%= csrf_meta_tag %>
 
     <% analytical.identify(current_user.id, :email=>current_user.email) if current_user %>

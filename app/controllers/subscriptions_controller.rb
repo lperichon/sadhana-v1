@@ -27,7 +27,9 @@ class SubscriptionsController < UserApplicationController
     # note, use #change_plan, dont just assign it
     elsif @subscription.change_plan(plan)  
       flash[:notice] = "Successfully changed plans. "
-      
+
+      @subscription.stripe_card_token = params[:subscription][:stripe_card_token]
+
       # after change_plan, call renew
       @subscription.renew
     end

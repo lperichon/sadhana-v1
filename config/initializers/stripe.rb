@@ -8,5 +8,7 @@ else
   }
 end
 
+config.symbolize_keys!
+
 Stripe.api_key = config[:stripe_api_key]
 STRIPE_PUBLIC_KEY = config[:stripe_public_key]
