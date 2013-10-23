@@ -11,6 +11,8 @@ class SubscriptionsController < UserApplicationController
 
     plan = SubscriptionPlan.find params[:subscription][:plan]
 
+    @subscription.stripe_card_token = params[:subscription][:stripe_card_token] unless params[:subscription][:stripe_card_token].blank?
+
     # consider case when plan doesnt change
     is_upgrade = plan.rate > @subscription.plan.rate
     is_downgrade = plan.rate < @subscription.plan.rate
@@ -27,8 +29,6 @@ class SubscriptionsController < UserApplicationController
     # note, use #change_plan, dont just assign it
     elsif @subscription.change_plan(plan)  
       flash[:notice] = "Successfully changed plans. "
-
-      @subscription.stripe_card_token = params[:subscription][:stripe_card_token]
 
       # after change_plan, call renew
       @subscription.renew

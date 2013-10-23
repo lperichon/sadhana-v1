@@ -69,8 +69,8 @@ class Subscription < ActiveRecord::Base
   
   # returns nil if not past due, false for failed, true for success, or amount charged for success when card was charged
   def renew
-    # make sure it's time
-    return nil unless due?
+    # make sure it's time && it is not being handled by stripe
+    return nil unless due? && stripe_customer_token.blank?
     transaction do # makes this atomic
       #debugger
       # adjust current balance (except for re-tries)
@@ -120,8 +120,16 @@ class Subscription < ActiveRecord::Base
   
   def change_plan( new_plan )
     # not change?
+
+    #TODO: Allow updating credit card
+
     return if plan == new_plan
-    
+
+    stripe_customer = Stripe::Customer.retrieve(stripe_customer_token)
+    stripe_customer.update_subscription(card: stripe_card_token, plan: new_plan.stripe_id)
+
+    #TODO: Move local plan change to stripe webhook
+
     # return unused prepaid value on current plan
     self.balance -= plan.prorated_value( days_remaining ) if SubscriptionConfig.return_unused_balance && active?
     # or they owe the used (although unpaid) value on current plan [comment out if you want to be more forgiving]
@@ -129,7 +137,8 @@ class Subscription < ActiveRecord::Base
     
     # update the plan
     self.plan = new_plan
-    
+    self.state = "active"
+
     # update the state and initialize the renewal date
     if plan.free?
       self.free
@@ -141,7 +150,7 @@ class Subscription < ActiveRecord::Base
     else #active or past due
       # note, past due grace period resets like active ones due today, ok?
       self.active
-      self.next_renewal_on = Time.zone.today
+      #self.next_renewal_on = Time.zone.today
       self.warning_level = nil
     end
     # past_due and expired fall through till next renew
