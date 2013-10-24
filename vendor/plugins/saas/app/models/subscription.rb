@@ -119,14 +119,12 @@ class Subscription < ActiveRecord::Base
   # returns nil if no change, false if failed, or true on success
   
   def change_plan( new_plan )
-    # not change?
-
-    #TODO: Allow updating credit card
-
-    return if plan == new_plan
 
     stripe_customer = Stripe::Customer.retrieve(stripe_customer_token)
     stripe_customer.update_subscription(card: stripe_card_token, plan: new_plan.stripe_id)
+
+    # not change?
+    return if plan == new_plan
 
     #TODO: Move local plan change to stripe webhook
 

@@ -42,10 +42,10 @@
     <%= f.hidden_field :stripe_card_token %>
 
     <% if f.object.stripe_customer_token.present? %>
-      <div class = "field cc">
-        Credit card already set
+      <div class = "field cc set">
+        Credit card already set <%= link_to 'change', '#', :id => 'show_cc_fields_link' %>
       </div>
-    <% else %>
+    <% end %>
     <div class="field cc">
       <%= label_tag :card_number, "Credit Card Number " %>
       <%= text_field_tag :card_number, nil, name: nil %>
@@ -59,7 +59,7 @@
       <%= select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}%>
       <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}%>
     </div>
-    <% end %>
+
     <div id="stripe_error">
       <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
     </div>
@@ -80,12 +80,22 @@
         $(this).addClass('ui-state-selected');
         var plan_id = $(this).attr('plan_id');
         $('#subscription_plan').val(plan_id);
-        if(plan_id != 1) {
+        if(plan_id != 1 && !$('.field.cc.set').length) {
             $('.field.cc').show();
-        } else {
+        } else if(!$('.field.cc.set').length) {
             $('.field.cc').hide();
         }
     });
+
+    $("#show_cc_fields_link").click(function(event) {
+        event.preventDefault();
+        $('.field.cc').show();
+        $('.field.cc.set').hide();
+    });
+
+    if($(this).attr('plan_id') != 1 && !$('.field.cc.set').length) {
+        $('.field.cc').show();
+    }
 
     Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
 

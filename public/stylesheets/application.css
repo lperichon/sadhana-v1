@@ -383,6 +383,14 @@ div[aria-labelledby = 'ui-dialog-title-edit_profile_dialog'] .ui-dialog-content,
   font-weight: bold;
 }
 
+.field.cc {
+    display:none;
+}
+
+.field.cc.set {
+    display: inherit;
+}
+
 .twitter-share-button {
   vertical-align: -7px;
 }
