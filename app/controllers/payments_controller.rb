@@ -30,4 +30,20 @@ class PaymentsController < ApplicationController
 
     render :nothing
   end
+
+  def stripe_webhook
+    data_json = JSON.parse request.body.read
+
+    event = Stripe::Event.retrieve(data_json['id'])
+
+    subscription = Subscription.find_by_stripe_customer_token(event.data.object.customer)
+
+    if event.type == "charge.succeeded"
+      subscription.active
+    end
+
+    if event.type == "charge.failed"
+      subscription.past_due
+    end
+  end
 end
