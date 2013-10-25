@@ -38,11 +38,11 @@ class PaymentsController < ApplicationController
 
     subscription = Subscription.find_by_stripe_customer_token(event.data.object.customer)
 
-    if event.type == "charge.succeeded"
+    if event.type == "invoice.payment_succeeded"
       subscription.active
     end
 
-    if event.type == "charge.failed"
+    if event.type == "invoice.payment_failed"
       subscription.past_due
     end
   end
