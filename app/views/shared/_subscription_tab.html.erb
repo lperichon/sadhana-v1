@@ -90,7 +90,7 @@
     $("#show_cc_fields_link").click(function(event) {
         event.preventDefault();
         $('.field.cc').show();
-        $('.field.cc.set').hide();
+        $('.field.cc.set').remove();
     });
 
     if($(this).attr('plan_id') != 1 && !$('.field.cc.set').length) {
