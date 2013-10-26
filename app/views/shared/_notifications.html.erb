@@ -15,54 +15,25 @@
         </p>
       </div>
   <% end %>
-  <% if user_signed_in? && !current_user.subscription.free? && current_user.subscription.days_remaining > 0 && current_user.subscription.days_remaining < 4 %>
-      <div class="notice ui-state-error ui-corner-all">
-        <p>
-          <span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-          <%= t('application.account_due', :days => current_user.subscription.days_remaining) %>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-          <input type="hidden" name="cmd" value="_xclick">
-          <input type="hidden" name="business" value="NKGQKTZL5F9EG">
-          <input type="hidden" name="lc" value="<%= current_user.locale %>">
-          <input type="hidden" name="item_name" value="<%= t('application.paypal_item_name') %>">
-          <input type="hidden" name="custom" value="<%= current_user.subscription.id %>">
-          <input type="hidden" name="amount" value="<%= current_user.subscription.balance.format(:symbol => nil) %>">
-          <input type="hidden" name="currency_code" value="USD">
-          <input type="hidden" name="bn" value="Sadhana_BuyNow_WPS_US">
-          <input type="hidden" name="landingpage" value="Billing">
-          <input type="hidden" name="notify_url" value="http://sadhana.com.ar/payments/paypal_ipn">
-          <input type="hidden" name="cancel_return" value="http://sadhana.com.ar">
-          <input type="hidden" name="return" value="http://sadhana.com.ar">
-          <input type="hidden" name="no_shipping" value="1">
-          <input type="image" src="<%= t('application.pay_now_url') %>" border="0" name="submit">
-          <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-        </form>
-        </p>
-      </div>
-  <% end %>
   <% if user_signed_in? && !current_user.subscription.free? && current_user.subscription.past_due? %>
       <div class="alert ui-state-error ui-corner-all">
         <p>
           <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
-          <%= t('application.account_past_due', :days => current_user.subscription.grace_days_remaining) %>
+          <%= t('application.account_past_due', :days => current_user.subscription.past_due_days) %>
+          <%= link_to "Update your card", "#", :id => "update_card_link" %>
         </p>
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-          <input type="hidden" name="cmd" value="_xclick">
-          <input type="hidden" name="business" value="NKGQKTZL5F9EG">
-          <input type="hidden" name="lc" value="<%= current_user.locale %>">
-          <input type="hidden" name="item_name" value="<%= t('application.paypal_item_name') %>">
-          <input type="hidden" name="custom" value="<%= current_user.subscription.id %>">
-          <input type="hidden" name="amount" value="<%= current_user.subscription.balance.format(:symbol => nil) %>">
-          <input type="hidden" name="currency_code" value="USD">
-          <input type="hidden" name="bn" value="Sadhana_BuyNow_WPS_US">
-          <input type="hidden" name="landingpage" value="Billing">
-          <input type="hidden" name="notify_url" value="http://sadhana.com.ar/payments/paypal_ipn">
-          <input type="hidden" name="cancel_return" value="http://sadhana.com.ar">
-          <input type="hidden" name="return" value="http://sadhana.com.ar">
-          <input type="hidden" name="no_shipping" value="1">
-          <input type="image" src="<%= t('application.pay_now_url') %>" border="0" name="submit">
-          <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-        </form>
+
       </div>
   <% end %>
 </div>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  $("#update_card_link" )
+    .button()
+    .click(function( event ) {
+      event.preventDefault();
+      $('#edit_profile_dialog').dialog('open').tabs("option", "selected", 1);
+    });
+});
+<% end %>
