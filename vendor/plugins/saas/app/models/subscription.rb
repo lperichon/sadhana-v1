@@ -121,7 +121,7 @@ class Subscription < ActiveRecord::Base
   def change_plan( new_plan )
 
     stripe_customer = Stripe::Customer.retrieve(stripe_customer_token)
-    stripe_customer.update_subscription(card: stripe_card_token, plan: new_plan.stripe_id)
+    stripe_customer.update_subscription(:card => stripe_card_token, :plan => new_plan.stripe_id)
 
     # not change?
     return if plan == new_plan
@@ -182,7 +182,7 @@ class Subscription < ActiveRecord::Base
     return if balance_cents <= 0
 
     if stripe_customer_token.nil? && stripe_card_token.present?
-      customer = Stripe::Customer.create(email: subscriber.email, plan: plan.stripe_id, card: stripe_card_token)
+      customer = Stripe::Customer.create(:email => subscriber.email, :plan => plan.stripe_id, :card => stripe_card_token)
       self.update_attributes(:stripe_customer_token => customer.id, :balance_cents => 0)
       return plan.rate_cents
     end
