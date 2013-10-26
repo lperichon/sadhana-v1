@@ -54,7 +54,7 @@
     '<%= t('actions.update') %>': function() {
         if($('#edit_profile_dialog').tabs('option', 'selected') == 0) {
           $.ajax({type:'post', dataType: 'script', url: $('#edit_profile_dialog #info form').attr('action'), data: $('#edit_profile_dialog #info form').serialize(), success: function(data, textStatus, XMLHttpRequest) { if(XMLHttpRequest.getResponseHeader('Content-Type') != "text/javascript; charset=utf-8") {$('#edit_profile_dialog').dialog('close'); }; }});
-        } else if($('#edit_profile_dialog').tabs('option', 'selected') == 1 && $('#subscription_plan').val() != '1' && $('#card_number').length) {
+        } else if($('#edit_profile_dialog').tabs('option', 'selected') == 1 && $('#subscription_plan').val() != '1' && !$('.field.cc.set').length) {
           subscription.processCard();
         } else if($('#edit_profile_dialog').tabs('option', 'selected') == 1){
           $.ajax({
