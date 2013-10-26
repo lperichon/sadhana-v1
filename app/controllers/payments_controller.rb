@@ -45,5 +45,7 @@ class PaymentsController < ApplicationController
     if event.type == "invoice.payment_failed"
       subscription.past_due
     end
+
+    render :nothing
   end
 end
