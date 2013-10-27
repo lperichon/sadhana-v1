@@ -20,7 +20,7 @@
         <p>
           <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
           <%= t('application.account_past_due', :days => current_user.subscription.past_due_days) %>
-          <%= link_to "Update your card", "#", :id => "update_card_link" %>
+          <%= link_to t('shared.notifications.update_card'), "#", :id => "update_card_link" %>
         </p>
 
       </div>

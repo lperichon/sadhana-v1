@@ -224,6 +224,11 @@ en:
       share: "Share your practices"
       free: "Free!"
       unavailable: "Unavailable"
+      change_card_link: "change"
+      change_card: "Credit card already set"
+      credit_card_number: "Credit Card Number"
+      security_code: "Security Code (CVV)"
+      card_expiration: "Card Expiration"
     practice_share_dialog:
       title: "Share practice"
     or_services: "Or using one of these services:"
@@ -238,6 +243,8 @@ en:
       confirm_remove: "Are you sure you want to remove this authentication option?"
     signup_fields:
       enter_email: "Enter your email or choose one below to complete the registration:"
+    notifications:
+      update_card: "Update your card"
   practice:
     help:
       name: "The name you want for your practice."
@@ -282,6 +289,7 @@ en:
     upgrade: "Upgrade"
     publish: "Publish"
     unpublish: "Unpublish"
+    select: "Select"
   practice_event:
     help:
       practice: "Choose the practice."

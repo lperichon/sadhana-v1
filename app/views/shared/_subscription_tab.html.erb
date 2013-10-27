@@ -11,7 +11,7 @@
           <li class='limited'><%= t('shared.plans_dialog.calendar').html_safe %></li>
           <li class='limited'><%= t('shared.plans_dialog.share').html_safe %></li>
           <li class="price"><%= t('shared.plans_dialog.free') %></li>
-          <li class="select_button"><%= submit_tag "Select", :plan_id => 1, :class => "#{'ui-state-selected' if f.object.plan_id == 1}" %></li>
+          <li class="select_button"><%= submit_tag t('actions.select'), :plan_id => 1, :class => "#{'ui-state-selected' if f.object.plan_id == 1}" %></li>
         </ul>
 
       </div>
@@ -23,7 +23,7 @@
           <li class='unlimited'><%= t('shared.plans_dialog.calendar').html_safe %></li>
           <li class='limited'><%= t('shared.plans_dialog.share').html_safe %></li>
           <li class="price">US$ <span class="limited">3</span>/<%= t('datetime.prompts.month') %></li>
-          <li class="select_button"><%= submit_tag "Select", :plan_id => 3, :class => "#{'ui-state-selected' if f.object.plan_id == 3}" %></li>
+          <li class="select_button"><%= submit_tag t('actions.select'), :plan_id => 3, :class => "#{'ui-state-selected' if f.object.plan_id == 3}" %></li>
         </ul>
       </div>
       <div id='pro' class="plan">
@@ -34,7 +34,7 @@
           <li class='unlimited'><%= t('shared.plans_dialog.calendar').html_safe %></li>
           <li class='unlimited'><%= t('shared.plans_dialog.share').html_safe %></li>
           <li class="price">US$ <span class="limited">7</span>/<%= t('datetime.prompts.month') %></li>
-          <li class="select_button"><%= submit_tag "Select", :plan_id => 4, :class => "#{'ui-state-selected' if f.object.plan_id == 4}" %></li>
+          <li class="select_button"><%= submit_tag t('actions.select'), :plan_id => 4, :class => "#{'ui-state-selected' if f.object.plan_id == 4}" %></li>
         </ul>
       </div>
     </div>
@@ -43,19 +43,19 @@
 
     <% if f.object.stripe_customer_token.present? %>
       <div class = "field cc set">
-        Credit card already set <%= link_to 'change', '#', :id => 'show_cc_fields_link' %>
+        <%= t('shared.plans_dialog.change_card') %> <%= link_to t('shared.plans_dialog.change_card_link'), '#', :id => 'show_cc_fields_link' %>
       </div>
     <% end %>
     <div class="field cc">
-      <%= label_tag :card_number, "Credit Card Number " %>
+      <%= label_tag :card_number, t('shared.plans_dialog.credit_card_number') %>
       <%= text_field_tag :card_number, nil, :name => nil %>
     </div>
     <div class="field cc">
-      <%= label_tag :card_code, "Security Code on Card (CVV)" %>
+      <%= label_tag :card_code, t('shared.plans_dialog.security_code') %>
       <%= text_field_tag :card_code, nil, :name => nil %>
     </div>
     <div class="field cc">
-      <%= label_tag :card_month, "Card Expiration" %>
+      <%= label_tag :card_month, t('shared.plans_dialog.card_expiration') %>
       <%= select_month nil, {:add_month_numbers_true => true}, {:name => nil, :id => "card_month"}%>
       <%= select_year nil, {:start_year => Date.today.year, :end_year => Date.today.year+15}, {:name => nil, :id => "card_year"}%>
     </div>

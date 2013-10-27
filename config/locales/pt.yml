@@ -33,6 +33,7 @@ pt:
     update: Atualizar
     upgrade: Melhore
     upgrade_now: "Melhore sua conta agora!"
+    select: Selecionar
   activerecord:
     attributes:
       credit_card:
@@ -524,6 +525,11 @@ pt:
       unavailable: "Não disponível"
       unlimited_private_practices: "Práticas privadas <span class='unlimited'>ilimitadas</span>"
       unlimited_shared_practices: "Práticas compartilhadas <span class='unlimited'>ilimitadas</span>"
+      change_card_link: "mudar"
+      change_card: "Cartão já está definido"
+      credit_card_number: "Número"
+      security_code: "Código de segurança (CVV)"
+      card_expiration: "Validade"
     practice_share_dialog:
       title: "Compartilhar prática"
     sign_in_dialog:
@@ -541,6 +547,8 @@ pt:
       no_credit_card: "(Sem cartão de crédito em arquivo)"
       transaction_failed: FALHA
       transaction_history: Histórico
+    notifications:
+      update_card: "Atualize seu cartão"
   shared_subscription_tab:
     current_plan_mark: (atual)
   subscription:
