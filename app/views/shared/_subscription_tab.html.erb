@@ -11,7 +11,7 @@
           <li class='limited'><%= t('shared.plans_dialog.calendar').html_safe %></li>
           <li class='limited'><%= t('shared.plans_dialog.share').html_safe %></li>
           <li class="price"><%= t('shared.plans_dialog.free') %></li>
-          <li class="select_button"><%= submit_tag t('actions.select'), :plan_id => 1, :class => "#{'ui-state-selected' if f.object.plan_id == 1}" %></li>
+          <li class="select_button"><%= submit_tag t('actions.select'), :plan_id => 1, :class => "#{'ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-selected' if f.object.plan_id == 1}" %></li>
         </ul>
 
       </div>
@@ -24,6 +24,8 @@
           <li class='limited'><%= t('shared.plans_dialog.share').html_safe %></li>
           <li class="price">US$ <span class="limited">3</span>/<%= t('datetime.prompts.month') %></li>
           <li class="select_button"><%= submit_tag t('actions.select'), :plan_id => 3, :class => "#{'ui-state-selected' if f.object.plan_id == 3}" %></li>
+          <li class="price">US$ <span class="limited">30</span>/<%= t('datetime.prompts.year') %></li>
+          <li class="select_button"><%= submit_tag t('actions.select'), :plan_id => 5, :class => "#{'ui-state-selected' if f.object.plan_id == 5}" %></li>
         </ul>
       </div>
       <div id='pro' class="plan">
@@ -35,6 +37,8 @@
           <li class='unlimited'><%= t('shared.plans_dialog.share').html_safe %></li>
           <li class="price">US$ <span class="limited">7</span>/<%= t('datetime.prompts.month') %></li>
           <li class="select_button"><%= submit_tag t('actions.select'), :plan_id => 4, :class => "#{'ui-state-selected' if f.object.plan_id == 4}" %></li>
+          <li class="price">US$ <span class="limited">70</span>/<%= t('datetime.prompts.year') %></li>
+          <li class="select_button"><%= submit_tag t('actions.select'), :plan_id => 6, :class => "#{'ui-state-selected' if f.object.plan_id == 6}" %></li>
         </ul>
       </div>
     </div>
@@ -72,8 +76,8 @@
 
 <%= javascript_tag do %>
   $(document).ready(function() {
-    $(".select_button input[type=submit]" )
-        .button()
+    $(".select_button input[type=submit]" ).
+    button()
     .click(function( event ) {
         event.preventDefault();
         $('.select_button input').removeClass('ui-state-selected');
