@@ -150,7 +150,7 @@ class Subscription < ActiveRecord::Base
     else #active or past due
       # note, past due grace period resets like active ones due today, ok?
       self.active
-      #self.next_renewal_on = Time.zone.today
+      self.next_renewal_on = Time.zone.today
       self.warning_level = nil
     end
     # past_due and expired fall through till next renew
