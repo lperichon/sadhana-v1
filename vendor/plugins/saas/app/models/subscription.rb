@@ -120,8 +120,10 @@ class Subscription < ActiveRecord::Base
   
   def change_plan( new_plan )
 
-    stripe_customer = Stripe::Customer.retrieve(stripe_customer_token)
-    stripe_customer.update_subscription(:card => stripe_card_token, :plan => new_plan.stripe_id)
+    if(stripe_customer_token)
+      stripe_customer = Stripe::Customer.retrieve(stripe_customer_token)
+      stripe_customer.update_subscription(:card => stripe_card_token, :plan => new_plan.stripe_id)
+    end
 
     # not change?
     return if plan == new_plan
