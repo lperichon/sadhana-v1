@@ -4,16 +4,16 @@ namespace :saas do
     #Lockfile('subscription_daily_lock', :retries => 0) do
 
       # send warnings that trial ending in 3 days
-      Subscription.with_state(:trial).with_no_warnings.due_in(3.days).each do |sub|
-        SubscriptionConfig.mailer.trial_expiring(sub).deliver
-        sub.increment!(:warning_level)
-      end
+      #Subscription.with_state(:trial).with_no_warnings.due_in(3.days).each do |sub|
+      #  SubscriptionConfig.mailer.trial_expiring(sub).deliver
+      #  sub.increment!(:warning_level)
+      #end
 
       # send warnings that trial ending in 3 days
-      Subscription.with_state(:active).with_no_warnings.due_in(3.days).each do |sub|
-        SubscriptionConfig.mailer.subscription_expiring(sub).deliver
-        sub.increment!(:warning_level)
-      end
+      #Subscription.with_state(:active).with_no_warnings.due_in(3.days).each do |sub|
+      #  SubscriptionConfig.mailer.subscription_expiring(sub).deliver
+      #  sub.increment!(:warning_level)
+      #end
 
       # renew subscriptions that are due now
       Subscription.with_states(:trial, :active).due_now.each do |sub|
