@@ -32,6 +32,11 @@ class SubscriptionsController < UserApplicationController
 
       # after change_plan, call renew
       @subscription.renew
+    elsif @subscription.plan == plan
+      flash[:notice] = "Credit card succesfully created"
+
+      # call renew to charge credit card
+      @subscription.renew
     end
     
 
