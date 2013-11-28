@@ -251,6 +251,8 @@ pt:
       send_instructions: "Dentro de minutos, receberá uma mensagem electrónica com as instruções de reinicialização da palavra-passe."
       updated: "A sua palavra-passe foi alterada com sucesso. Agora está conectado."
     registrations:
+      user:
+        inactive_signed_up: "Receberá uma mensagem electrónica com as instruções de confirmação da sua conta."
       destroyed: "Adéus! A sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve."
       new:
         submit: Cadastre-se

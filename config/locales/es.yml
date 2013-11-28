@@ -251,6 +251,8 @@ es:
       send_instructions: "Vas a recibir un email con instrucciones para cambiar tu contraseña en pocos minutos."
       updated: "Tu contraseña fué modificada exitosamente."
     registrations:
+      user:
+        inactive_signed_up: "Vas a recibir un email con instrucciones para confirmar tu cuenta en pocos minutos."
       destroyed: "Tu cuenta fué cancelada."
       new:
         submit: Registrarse
