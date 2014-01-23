@@ -36,10 +36,10 @@ class PaymentsController < ApplicationController
 
     event = Stripe::Event.retrieve(data_json['id'])
 
-    return unless event.type == "invoice.payment_succeded" || event.type == "invoice.payment_failed"
-
-    subscription = Subscription.find_by_stripe_customer_token(event.data.object.customer)
-
+    if event.type == "invoice.payment_succeded" || event.type == "invoice.payment_failed"
+		subscription = Subscription.find_by_stripe_customer_token(event.data.object.customer)
+	end
+	
     if event.type == "invoice.payment_succeeded"
       subscription.active
     end
