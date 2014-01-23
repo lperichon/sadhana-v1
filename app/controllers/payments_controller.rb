@@ -28,7 +28,7 @@ class PaymentsController < ApplicationController
       end
     end
 
-    render :nothing
+    render :nothing => :true
   end
 
   def stripe_webhook
@@ -48,6 +48,6 @@ class PaymentsController < ApplicationController
       subscription.past_due
     end
 
-    render :nothing
+    render :nothing => :true
   end
 end
