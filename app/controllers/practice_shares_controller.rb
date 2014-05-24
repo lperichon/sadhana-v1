@@ -27,7 +27,7 @@ class PracticeSharesController < UserApplicationController
     end
 
     unless @user.new_record?
-      @practice.share_with(@user)
+      @practice.share_with(@user, true)
     end
 
     respond_to do |format|
