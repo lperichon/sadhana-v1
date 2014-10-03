@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
   end
 
   def invited_by= user_id
-    user = User.find(user_id)
+    user = User.find(user_id) unless user_id.blank?
     if user
       add_to_contacts(user, true, false)
     end
