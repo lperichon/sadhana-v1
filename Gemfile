@@ -38,6 +38,7 @@ gem 'stripe'
 
 # Use unicorn as the web server
 # gem 'unicorn'
+gem 'puma'
 
 # Deploy with Capistrano
 # gem 'capistrano'
