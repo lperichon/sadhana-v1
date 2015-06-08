@@ -63,3 +63,7 @@ group :test do
   gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
 end
 
+group :production do
+  gem 'pg'
+end
+
