@@ -105,7 +105,6 @@ GEM
       inherited_resources (>= 1.0.6)
       will_paginate (>= 2.3.12)
     json (1.4.3)
-    json_pure (1.8.2)
     jwt (0.1.8)
       multi_json (>= 1.5)
     linecache19 (0.5.12)
@@ -226,7 +225,7 @@ DEPENDENCIES
   geocoder
   high_voltage (= 0.9.0)
   i18n_data
-  json_pure
+  json (= 1.4.3)
   lperichon-contacts (= 1.0.8)
   machinist
   money (= 3.0.0)
