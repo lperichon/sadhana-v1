@@ -365,6 +365,7 @@ span#jeditable_description input {
 #slideshow_practice_techniques {
   display: block;
   margin: 10px auto 0px;
+  height: 500px;
 }
 
 .slideshow_practice_technique {
