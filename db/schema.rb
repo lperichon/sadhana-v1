@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140604020204) do
+ActiveRecord::Schema.define(:version => 20150916154353) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -268,6 +268,7 @@ ActiveRecord::Schema.define(:version => 20140604020204) do
     t.text     "yahoo_consumer"
     t.datetime "invitation_accepted_at"
     t.string   "authentication_token"
+    t.string   "name"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

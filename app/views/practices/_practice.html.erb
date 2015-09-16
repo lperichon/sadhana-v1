@@ -4,7 +4,7 @@
       <%= jeditable_field(:practice, :name, :object => practice) %>
     <% else%>
       <%= practice.name %>
-      <%= t('practices.practice.owner', :owner => practice.user.email) unless current_user == practice.user %>
+      <%= t('practices.practice.owner', :owner => practice.user.name) unless current_user == practice.user %>
     <% end %>
   </h3>
   <p class="time">(<%= practice_time(practice, false) %>)</p>

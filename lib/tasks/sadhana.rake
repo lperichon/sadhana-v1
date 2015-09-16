@@ -22,6 +22,16 @@ namespace :sadhana do
   end
 end
 
+namespace :one_time do
+  #rake one_time:setup_name
+  desc "Set name using email"
+  task :setup_names => :environment do
+    User.all.each do |u|
+      u.update_attribute(:name,u.email.split('@').first)
+    end
+  end
+end
+
 namespace :asana do
   #rake techniques:download
   desc "downloads ALL techniques from uni-yoga.org"

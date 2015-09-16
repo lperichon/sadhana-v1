@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
          :invitable, :encryptable, :encryptor => :sha1
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :locale, :invited_by, :remember_me
+  attr_accessible :name, :email, :password, :password_confirmation, :locale, :invited_by, :remember_me
 
   has_many :practices, :order => "position"
   has_many :practice_events
@@ -103,6 +103,10 @@ class User < ActiveRecord::Base
 
   def apply_omniauth(omniauth)
     authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'], :token =>(omniauth['credentials']['token'] rescue nil))
+    case omniauth['provider']
+    when 'facebook'
+      self.apply_facebook(omniauth)
+    end
   end
 
 #  def apply_omniauth(omniauth)
@@ -148,8 +152,9 @@ class User < ActiveRecord::Base
   protected
 
   def apply_facebook(omniauth)
-    if (extra = omniauth['extra']['user_hash'] rescue false)
-      self.email = (extra['email'] rescue '')
+    if (info = omniauth['info'] rescue false)
+      self.email = (info['email'] rescue '')
+      self.name = (info['name'] rescue '')
     end
   end
 end
