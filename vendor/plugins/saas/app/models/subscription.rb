@@ -155,6 +155,9 @@ class Subscription < ActiveRecord::Base
     end
     # past_due and expired fall through till next renew
     
+    # delegate to subscriber, update associations
+    subscriber.change_plan(new_plan)
+
     # save changes so far
     save
   end

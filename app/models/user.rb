@@ -122,6 +122,18 @@ class User < ActiveRecord::Base
     (authentications.empty? || !password.blank?) && super
   end
 
+  def change_plan(new_plan)
+    practices.each do |p|
+      if share_subscription_check(new_plan)
+        p.public = false
+      end
+      if one_sec_a_day_subscription_check(new_plan)
+        p.one_sec_a_day = false
+      end
+      p.save
+    end
+  end
+
   private
 
   def set_locale
