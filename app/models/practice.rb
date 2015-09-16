@@ -56,6 +56,7 @@ class Practice < ActiveRecord::Base
     clone = self.clone
     clone.state = 'created'
     clone.position = nil
+    clone.public = false
     self.practice_parts.each do |pp|
       pp_clone = pp.clone
       pp.practice_techniques.each do |pt|
