@@ -1,4 +1,6 @@
 class PracticesController < UserApplicationController
+  skip_before_filter :authenticate_user!
+
   # GET /practices
   # GET /practices.xml
   def index
@@ -168,17 +170,21 @@ class PracticesController < UserApplicationController
   end
 
   def play
-    begin
-      @practice = current_user.practices.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      @practice = current_user.unscoped_shared_practices.find {|p| p.id == params[:id].to_i}
-      unless @practice
-        @practice = Practice.public.find(params[:id])
-        @practice.share_with(current_user, false) if @practice
+    if (current_user)
+      begin
+        @practice = current_user.practices.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        @practice = current_user.unscoped_shared_practices.find {|p| p.id == params[:id].to_i}
+        unless @practice
+          @practice = Practice.public.find(params[:id])
+          @practice.share_with(current_user, false) if @practice
+        end
       end
-    end
 
-    require_subscription_check(@practice)
+      require_subscription_check(@practice)
+    else
+      @practice = Practice.public.find(params[:id])
+    end
   end
 
 

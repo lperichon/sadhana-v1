@@ -143,6 +143,7 @@ en:
       practices_link: "back to your practices"
       share: "Share with your friends!"
       share_on_facebook: "I've just practiced using this tool. Check it out!"
+      sign_up: "Sign up for a free account and access more practices"
     paid_account_notice:
       one: "Your subscription only supports working with %{count} practice. %{upgrade_link}"
       other: "Your subscription only supports working with %{count} practice. %{upgrade_link}"

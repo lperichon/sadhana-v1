@@ -14,13 +14,19 @@
   <div class='slideshow_practice_technique' minutes='-1' seconds='-1'>
     <h1><%= t('practices.play.thank_you') %></h1>
     <ul>
+      <% if current_user %>
       <li><%= t('practices.play.add_to_calendar', :add_to_calendar_link => link_to_function(t('practices.play.add_to_calendar_link'), "$.ajax({ type:'get', data: 'practice_event[practice_id]=#{@practice.id}', dataType: 'script', url: '#{new_practice_event_path}'});")).html_safe %></li>
+      <% else %>
+      <li><%= link_to_function t('practices.play.sign_up'), "$(this).parents('.ui-dialog-content').dialog('close'); $('#sign_up_dialog').dialog('open');" %></li>
+      <% end %>
       <li><%= t('practices.play.play_it_again', :play_again_link => link_to(t('practices.play.play_again_link'), play_practice_path(@practice))).html_safe %></li>
+      <% if current_user %>
       <li><%= t('practices.play.go_back', :practices_link => link_to(t('practices.play.practices_link'), practices_path)).html_safe %></li>
+      <% end %>
     </ul>
     <h2><%= t('practices.play.share') %></h2>
-    <a name="fb_share" type="button" share_url="http://sadhana.com.ar" href="http://www.facebook.com/sharer.php"><%= t('actions.share') %></a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
-    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sadhana.com.ar" data-text="<%= t('practices.play.share_on_facebook') %>" data-count="none" data-via="sadhana_app" data-related="lperichon">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <a name="fb_share" type="button" share_url="<%= play_practice_path(@practice) %>" href="http://www.facebook.com/sharer.php"><%= t('actions.share') %></a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= play_practice_path(@practice) %>" data-text="<%= t('practices.play.share_on_facebook') %>" data-count="none" data-via="sadhana_app" data-related="lperichon">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
   </div>
 </div>
 
@@ -29,7 +35,7 @@
 </div>
 
 <ul class='actions' id="play_controls">
-  <% if @practice.user.id == current_user.id %>
+  <% if current_user && @practice.user.id == current_user.id %>
   <li><%= link_to t('actions.edit'), practice_path(@practice), :class=>'button' %></li>
   <li><%= link_to_function content_tag(:span, t('actions.preferences')), "$('#play_preferences_dialog').dialog('open')", :class=>'button' %></li>
   <% end %>
@@ -38,7 +44,9 @@
   <div id="countdown"></div>
   <li><%= link_to_function t('actions.play'), "$('#countdown').countdown('resume')", :id=>'play'%></li>
   <li><%= link_to t('actions.next'), "#", :id => 'next'%></li>
+  <% if current_user %>
   <li><%= link_to_function t('actions.add_to_calendar'), "$.ajax({ type:'get', data: 'practice_event[practice_id]=#{@practice.id}', dataType: 'script', url: '#{new_practice_event_path}'})", :class=>'button' %></li>
+  <% end %>
 </ul>
 
 <%= render :partial => 'shared/new_event_dialog' %>
