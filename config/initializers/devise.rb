@@ -142,7 +142,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   config[:twitter].symbolize_keys!
   config[:facebook].symbolize_keys!
   provider :twitter, config[:twitter][:consumer_key], config[:twitter][:consumer_secret]
-  provider :facebook, config[:facebook][:app_id], config[:facebook][:app_secret], :scope => 'offline_access, publish_stream, email'
+  provider :facebook, config[:facebook][:app_id], config[:facebook][:app_secret], :scope => 'email'
   provider :cas, :host => 'metododerose.org:8443', :login_url => '/', :disable_ssl_verification => true
 
   #provider :open_id, OpenID::Store::Memcache.new(Dalli::Client.new)
