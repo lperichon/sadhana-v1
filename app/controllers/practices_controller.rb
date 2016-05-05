@@ -1,5 +1,5 @@
 class PracticesController < UserApplicationController
-  skip_before_filter :authenticate_user!
+  skip_before_filter :authenticate_user!, :only => [:play]
 
   # GET /practices
   # GET /practices.xml
@@ -183,7 +183,12 @@ class PracticesController < UserApplicationController
 
       require_subscription_check(@practice)
     else
-      @practice = Practice.public.find(params[:id])
+      
+      begin
+        @practice = Practice.public.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        authenticate_user!
+      end
     end
   end
 
