@@ -42,7 +42,7 @@
   <li><%= link_to t('actions.previous'), "#", :id => 'prev'%></li>
   <li><%= link_to_function t('actions.pause'), "$('#countdown').countdown('pause')", :id=>'pause'%></li>
   <div id="countdown"></div>
-  <li><%= link_to_function t('actions.play'), "$('#countdown').countdown('resume')", :id=>'play'%></li>
+  <li><%= link_to_function t('actions.play'), "soundManager.play('silence');$('#countdown').countdown('resume');", :id=>'play'%></li>
   <li><%= link_to t('actions.next'), "#", :id => 'next'%></li>
   <% if current_user %>
   <li><%= link_to_function t('actions.add_to_calendar'), "$.ajax({ type:'get', data: 'practice_event[practice_id]=#{@practice.id}', dataType: 'script', url: '#{new_practice_event_path}'})", :class=>'button' %></li>
@@ -51,19 +51,19 @@
 
 <%= render :partial => 'shared/new_event_dialog' %>
 
-<%= javascript_tag do %>
-  $(document).ready(function(){
-  $("#jpId").jPlayer( {
-    ready: function () {
-      this.element.jPlayer("setFile", "/sounds/<%= @practice.sound_filename %>.mp3", "/sounds/<%= @practice.sound_filename %>.ogg"); // Defines the mp3
-      this.element.jPlayer("onSoundComplete", function() {
-        this.element.jPlayer("setFile", "/sounds/<%= @practice.sound_filename %>.mp3", "/sounds/<%= @practice.sound_filename %>.ogg"); // Defines the mp3
+<%= javascript_tag do %>  
+  soundManager.onready(function() {
+      var mySound = soundManager.createSound({
+       id: 'chime',
+       url: '/sounds/<%= @practice.sound_filename %>.mp3',
+       autoLoad: true
       });
-    },
-    nativeSupport: true,
-    oggSupport: true,
-    swfPath: "/"
-  });
+
+      var mySound = soundManager.createSound({
+       id: 'silence',
+       url: '/sounds/1sec.mp3',
+       autoLoad: true
+      });
   });
 
   $('#play_controls li .button').button();
@@ -118,6 +118,7 @@
     }
   });
   if($('.slideshow_practice_technique').length > 1) {
+      var first = true;
       $('#slideshow_practice_techniques').cycle({
         prev:    '#prev',
         next:    '#next',
@@ -128,7 +129,8 @@
           if(minutes == -1 && seconds == -1) {
             $('#play_controls').hide();
           } else {
-            Practices.resetCountdown(minutes, seconds);
+            Practices.resetCountdown(minutes, seconds, first);
+            first = false;
           }
         },
         width: '98%'
@@ -137,6 +139,6 @@
     slide = $('.slideshow_practice_technique').first()
     minutes = parseInt(slide.attr('minutes')) || 0;
     seconds = parseInt(slide.attr('seconds')) || 1;
-    Practices.resetCountdown(minutes, seconds);
+    Practices.resetCountdown(minutes, seconds, true);
   }
 <% end %>

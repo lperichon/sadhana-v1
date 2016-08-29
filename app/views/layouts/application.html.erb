@@ -32,7 +32,7 @@
     <%= javascript_include_tag 'jquery.jeditable' %>
     <%= javascript_include_tag 'jquery.cycle' %>
     <%= javascript_include_tag 'jquery.countdown' %>
-    <%= javascript_include_tag 'jquery.jplayer.min' %>
+    <%= javascript_include_tag 'soundmanager2' %>
     <%= javascript_include_tag 'fullcalendar' %>
     <%= javascript_include_tag 'timepicker' %>
     <%= javascript_include_tag 'jquery.quicksearch' %>
@@ -119,7 +119,6 @@
       <%= render :partial => 'shared/edit_profile_dialog' %>
       <%= render :partial => 'shared/plans_dialog' %>
     <% end %>
-    <div id="jpId"></div>
     <%= raw analytical.body_append_javascript %>
     <% if user_signed_in? %>
     <script>
