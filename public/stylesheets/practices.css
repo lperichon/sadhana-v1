@@ -161,6 +161,8 @@
 
 .part-techniques {
     overflow: auto;
+    width: 96%;
+    float: left;
 }
 
 #practice_parts ul {
