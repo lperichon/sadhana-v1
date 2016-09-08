@@ -37,14 +37,14 @@ var Practices = {
     $('#countdown').countdown('destroy');
     continuous = $('#practice_continuous').is(':checked');
     if(continuous && skip_delay) {
-      $('#countdown').countdown({until: '+' + minutes + 'm +' + seconds + 's', format: 'MS', compact: true, description: '', onExpiry: function() {soundManager.play('chime');$('#slideshow_practice_techniques').cycle('next');}});
+      $('#countdown').countdown({until: '+' + minutes + 'm +' + seconds + 's', format: 'MS', compact: true, description: '', onExpiry: function() {soundManager.play('chime', {onfinish: function(){soundManager.setPosition('chime', 0);}});$('#slideshow_practice_techniques').cycle('next');}});
       $('#countdown').countdown('pause');
     } else if(continuous) {
       $('#countdown').countdown({until: '+' + $('#practice_delay').val() + 's', format: 'MS', compact: true, description: '', onExpiry: function() {
-        $('#countdown').countdown('change', {until: '+' + minutes + 'm +' + seconds + 's', format: 'MS', compact: true, description: '', onExpiry: function() {soundManager.play('chime');$('#slideshow_practice_techniques').cycle('next');}});
+        $('#countdown').countdown('change', {until: '+' + minutes + 'm +' + seconds + 's', format: 'MS', compact: true, description: '', onExpiry: function() {soundManager.play('chime', {onfinish: function(){soundManager.setPosition('chime', 0);}});$('#slideshow_practice_techniques').cycle('next');}});
       }});
     } else {
-      $('#countdown').countdown({until: '+' + minutes + 'm +' + seconds + 's', format: 'MS', compact: true, description: '', onExpiry: function() {soundManager.play('chime');$('#slideshow_practice_techniques').cycle('next');}});
+      $('#countdown').countdown({until: '+' + minutes + 'm +' + seconds + 's', format: 'MS', compact: true, description: '', onExpiry: function() {soundManager.play('chime', {onfinish: function(){soundManager.setPosition('chime', 0);}});$('#slideshow_practice_techniques').cycle('next');}});
       $('#countdown').countdown('pause');
     }
   },
