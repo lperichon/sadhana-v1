@@ -1,0 +1,117 @@
+= Analytical
+
+Gem for managing multiple analytics services in your rails app.
+
+Service implementations include:
+* Google Analytics
+* Google Adwords (conversion tracking)
+* Clicky[http://getclicky.com]
+* KISSMetrics[http://kissmetrics.com]
+* Hubspot[http://hubspot.com]
+* CrazyEgg[http://www.crazyegg.com]
+* Chartbeat[http://chartbeat.com]
+* {ComScore Direct}[http://direct.comscore.com]
+* Optimizely[http://www.optimizely.com]
+* Loopfuse
+* Clicktale
+* Google Website Optimizer
+* Performancing
+* Quantcast[http://www.quantcast.com]
+
+== Usage
+
+Add the following to your controllers:
+
+    analytical :modules=>[:console, :google, :clicky]
+
+Add a configuration file (config/analytical.yml) to declare your API keys, like so:
+
+   google:
+     key: UA-5555555-5
+   clicky:
+     key: 55555
+
+Then, in your template files, you'll want to add the analytical helper methods for initializing the tracking javascript:
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <%= raw analytical.head_prepend_javascript %>
+        <title>Example</title>
+        <%= stylesheet_link_tag :all %>
+        <%= javascript_include_tag :defaults %>
+        <%= csrf_meta_tag %>
+        <% analytical.identify '5', :email=>'josh@transfs.com' %>
+        <%= raw analytical.head_append_javascript %>
+      </head>
+      <body>
+        <%= raw analytical.body_prepend_javascript %>
+        <%= yield %>
+        <%= raw analytical.body_append_javascript %>
+      </body>
+    </html>
+
+Note the example above also includes an identify() command that will apply to every page.  More likely, you'll want to make this identify() command conditional so that it only applies when you have a logged-in user:
+
+    <% analytical.identify(current_user.id, :email=>current_user.email) if current_user %>
+
+You can sprinkle the track() and event() tracking methods throughout your views & controllers as needed.
+
+    analytical.track '/a/really/nice/url'
+    analytical.event 'Some Awesome Event', :with=>:data
+
+By default, Analytical will be disabled in all environments except 'production'... and it will enable the Console module only.  To change this behavior, you can pass a Proc/lambda to the :disable_if option, as well as specify the :development_modules that you want to use:
+
+    analytical :modules=>[:google], :development_modules=>[], :disable_if=>lambda{ |controller| controller.i_can_haz_tracking? }
+
+== Adding new modules
+
+New modules should be fairly easy to add.  Follow the structure that I've used in the Clicky, Google, and KISSMetrics modules... and you should be fine.  All modules should include the Analytical::Base::Api module, so that they have some default behavior for methods that they don't support or need.
+
+== Session-based command queues
+
+By default, any Analytical commands that are queued in a controller that subsequently redirects won't be emitted to the client.  This is because the redirect triggers a new request, and everything is cleared out at the beginning of each request.
+
+However, if you would like to be able to queue commands between requests... there's a new option that supports this behavior:
+
+    analytical :modules=>[:console, :google], :use_session_store=>true
+
+This will store the queued commands in the user session, clearing them out when they are emitted to the client, but allowing you to make calls like:
+
+    analytical.track 'something'
+
+... in your controller.  After a redirect, the corresponding track() call will be emitted in the next request made by the client.
+NOTE:  This is new and somewhat experimental, and could cause problems if you store large amounts of data in the session.  (there is a 4k limit to session data)
+
+
+== Note on Patches/Pull Requests
+
+I would be extremely happy to accept contributions to this project!  If you think something should work differently, send me a message and I'd love to discuss your ideas.  Even better:
+
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add specs for it. This is important so I don't break it in a future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+== Current Contributors
+
+These fine folks have contributed patches and new features to this project:
+
+* {Adam Anderson}[http://github.com/scudco]
+* {Bryan Liles}[http://github.com/bryanl]
+* {Nathan Phelps}[http://github.com/nwp]
+* {Adam Anderson}[http://github.com/scudco]
+* {Kevin Menard}[http://github.com/nirvdrum]
+* {Ablyamitov Ablyamit}[http://github.com/unlimit]
+* {Kurt Werle}[http://github.com/kwerle]
+* {Olivier Lauzon}[http://github.com/olauzon]
+* {Chris Ricca}[https://github.com/ChrisRicca]
+
+Thanks guys!
+
+
+== Copyright
+
+Copyright (c) 2010 Joshua Krall. See LICENSE for details.

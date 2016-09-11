@@ -1,0 +1,86 @@
+have_library: checking for fdatasync() in -lrt... -------------------- yes
+
+"gcc -o conftest -I/home/luis/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/x86_64-linux -I/home/luis/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/ruby/backward -I/home/luis/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1 -I.     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wpointer-arith -Wwrite-strings -Wno-missing-field-initializers -Wno-long-long  -fPIC conftest.c  -L. -L/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -Wl,-R/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -L.  -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -L/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -lruby-static  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/home/luis/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/x86_64-linux -I/home/luis/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/ruby/backward -I/home/luis/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1 -I.     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wpointer-arith -Wwrite-strings -Wno-missing-field-initializers -Wno-long-long  -fPIC conftest.c  -L. -L/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -Wl,-R/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -L.  -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -L/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -lruby-static -lrt  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:53: error: ‘fdatasync’ undeclared (first use in this function)
+ int t() { void ((*volatile p)()); p = (void ((*)()))fdatasync; return 0; }
+                                                     ^
+conftest.c:5:53: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))fdatasync; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/luis/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/x86_64-linux -I/home/luis/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/ruby/backward -I/home/luis/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1 -I.     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wpointer-arith -Wwrite-strings -Wno-missing-field-initializers -Wno-long-long  -fPIC conftest.c  -L. -L/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -Wl,-R/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -L.  -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -L/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -lruby-static -lrt  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:11: warning: implicit declaration of function ‘fdatasync’ [-Wimplicit-function-declaration]
+ int t() { fdatasync(); return 0; }
+           ^
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { fdatasync(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for sqlite3.h... -------------------- yes
+
+"gcc -E -I/home/luis/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/x86_64-linux -I/home/luis/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/ruby/backward -I/home/luis/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1 -I.     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wpointer-arith -Wwrite-strings -Wno-missing-field-initializers -Wno-long-long  -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sqlite3.h>
+/* end */
+
+--------------------
+
+have_library: checking for sqlite3_open() in -lsqlite3... -------------------- yes
+
+"gcc -o conftest -I/home/luis/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/x86_64-linux -I/home/luis/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/ruby/backward -I/home/luis/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1 -I.     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wpointer-arith -Wwrite-strings -Wno-missing-field-initializers -Wno-long-long  -fPIC conftest.c  -L. -L/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -Wl,-R/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -L.  -rdynamic -Wl,-export-dynamic    -lrt  -Wl,-R -Wl,/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -L/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -lruby-static -lsqlite3 -lrt  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:53: error: ‘sqlite3_open’ undeclared (first use in this function)
+ int t() { void ((*volatile p)()); p = (void ((*)()))sqlite3_open; return 0; }
+                                                     ^
+conftest.c:5:53: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))sqlite3_open; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/luis/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/x86_64-linux -I/home/luis/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/ruby/backward -I/home/luis/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1 -I.     -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wpointer-arith -Wwrite-strings -Wno-missing-field-initializers -Wno-long-long  -fPIC conftest.c  -L. -L/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -Wl,-R/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -L.  -rdynamic -Wl,-export-dynamic    -lrt  -Wl,-R -Wl,/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -L/home/luis/.rvm/rubies/ruby-1.9.2-p320/lib -lruby-static -lsqlite3 -lrt  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:11: warning: implicit declaration of function ‘sqlite3_open’ [-Wimplicit-function-declaration]
+ int t() { sqlite3_open(); return 0; }
+           ^
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { sqlite3_open(); return 0; }
+/* end */
+
+--------------------
+

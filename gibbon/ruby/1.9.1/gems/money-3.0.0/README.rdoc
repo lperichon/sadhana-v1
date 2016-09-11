@@ -1,0 +1,211 @@
+= Introduction
+
+This library aids one in handling money and different currencies. Features:
+
+- Provides a <tt>Money</tt> class which encapsulates all information about an certain
+  amount of money, such as its value and its currency.
+- Provies a <tt>Money::Currency</tt> class which encapsulates all information about
+  a monerary unit.
+- Represents monetary values as integers, in cents. This avoids floating point
+  rounding errors.
+- Represents currency as <tt>Money::Currency</tt> instances providing an high level of flexibility.
+- Provides APIs for exchanging money from one currency to another.
+- Has the ability to parse a money and currency strings
+  into the corresponding Money/Currency object.
+
+Resources:
+
+- Website: http://money.rubyforge.org
+- RDoc API: http://money.rubyforge.org
+- Git repository: http://github.com/FooBarWidget/money
+
+== Download
+
+Install stable releases with the following command:
+
+  gem install money
+
+The development version (hosted on Github) can be installed with:
+
+  git clone git://github.com/FooBarWidget/money.git
+  cd money
+  rake install
+
+== Usage
+
+=== Synopsis
+
+  require 'money'
+  
+  # 10.00 USD
+  money = Money.new(1000, "USD")
+  money.cents     # => 1000
+  money.currency  # => Currency.new("USD")
+  
+  Money.new(1000, "USD") == Money.new(1000, "USD")   # => true
+  Money.new(1000, "USD") == Money.new(100, "USD")    # => false
+  Money.new(1000, "USD") == Money.new(1000, "EUR")   # => false
+
+=== Currency
+
+Currencies are consistently represented as instances of <tt>Money::Currency</tt>.
+The most part of <tt>Money</tt> APIs allows you to supply either a <tt>String</tt> or a <tt>Money::Currency</tt>.
+
+  Money.new(1000, "USD") == Money.new(900, Currency.new("USD"))
+  Money.new(1000, "EUR").currency == Currency.new("EUR")
+
+A <tt>Money::Currency</tt> instance holds all the information about the currency, 
+including the currency symbol, name and much more.
+
+  currency = Money.new(1000, "USD")
+  currency.iso_code
+  # => "USD"
+  currency.name
+  # => "United States Dollar"
+
+To define a new <tt>Money::Currency</tt> simply add a new item to the <tt>Money::Currency::TABLE</tt> hash,
+where the key is the identifier for the currency object and the value is a hash
+containing all the currency attributes.
+
+  Money::Currency::TABLE[:usd] = {
+    :priority => 1,
+    :iso_code => "USD",
+    :name     => "United States Dollar",
+    :symbol   => "$",
+    :subunit  => "Cent"
+    :subunit_to_unit => "100"
+  }
+
+The pre-defined set of attributes includes:
+
+  * priority: a numerical value you can use to sort/group the currency list
+  * iso_code: the international 3-letter code as defined by the ISO 4217 standard
+  * name: the currency name
+  * symbol: the currency symbol (UTF-8 encoded)
+  * subunit: the name of the fractional monetary unit
+  * subunit_to_unit: the proportion between the unit and the subunit
+
+All attributes are optional. Some attributes, such as <tt>:symbol</tt>, are used by the Money class
+to print out a representation of the object. Other attributes, such as <tt>:name</tt> or <tt>:priority</tt>,
+exist to provide a basic API you can take advantage of to build your application.
+
+==== priority
+
+The priority attribute is an arbitrary numerical value you can assign to the <tt>Money::Currency</tt>
+and use in sorting/grouping operation.
+
+For instance, let's assume your Rails application needs to a currency selector
+like the one available at http://finance.yahoo.com/currency-converter/
+You can create a couple of custom methods to return the list of major_currencies
+and all_currencies as follows:
+
+  # Returns an array of currency id where
+  # priority < 10
+  def major_currencies(hash)
+    hash.inject([]) do |array, (id, attributes)|
+      priority = attributes[:priority]
+      if priority && priority < 10
+        array[priority] ||= []
+        array[priority] << id
+      end
+      array
+    end.compact.flatten
+  end
+  
+  # Returns an array of all currency id
+  def all_currencies(hash)
+    hash.keys
+  end
+  
+  major_currencies(Money::Currency::TABLE)
+  # => [ :usd, :eur, :bgp, :cad ]
+  
+  major_currencies(Money::Currency::TABLE)
+  # => [ :aed, :afn, all, ... ]
+
+
+=== Default Currency
+
+By default <tt>Money</tt> defaults to USD as its currency. This can be overwritten using
+
+  Money.default_currency = Money::Currency.new("CAD")
+
+If you use Rails, then <tt>environment.rb</tt> is a very good place to put this. 
+
+=== Currency Exchange
+
+Exchanging money is performed through an exchange bank object. The default
+exchange bank object requires one to manually specify the exchange rate. Here's
+an example of how it works:
+
+  Money.add_rate("USD", "CAD", 1.24515)
+  Money.add_rate("CAD", "USD", 0.803115)
+  
+  Money.us_dollar(100).exchange_to("CAD")  # => Money.new(124, "CAD")
+  Money.ca_dollar(100).exchange_to("USD")  # => Money.new(80, "USD")
+
+Comparison and arithmetic operations work as expected:
+
+  Money.new(1000, "USD") <=> Money.new(900, "USD")   # => 1; 9.00 USD is smaller
+  Money.new(1000, "EUR") + Money.new(10, "EUR") == Money.new(1010, "EUR")
+  
+  Money.add_rate("USD", "EUR", 0.5)
+  Money.new(1000, "EUR") + Money.new(1000, "USD") == Money.new(1500, "EUR")
+
+There is nothing stopping you from creating bank objects which scrapes
+www.xe.com for the current rates or just returns <tt>rand(2)</tt>:
+
+  Money.default_bank = ExchangeBankWhichScrapesXeDotCom.new
+
+=== Currency Exchange Implementations
+
+The following is a list of Money.gem compatible currency exchange rate
+implementations.
+
+* eu_central_bank.gem: http://github.com/liangzan/eu_central_bank
+
+=== Ruby on Rails
+
+Use the +compose_of+ helper to let Active Record deal with embedding the money
+object in your models. The following example requires a +cents+ and a +currency+
+field.
+
+  class ProductUnit < ActiveRecord::Base
+    belongs_to :product
+    composed_of :price, :class_name => "Money", :mapping => [%w(cents cents), %w(currency currency_as_string)]
+    
+    private
+      validate :cents_not_zero
+        
+      def cents_not_zero
+        errors.add("cents", "cannot be zero or less") unless cents > 0
+      end
+      
+      validates_presence_of :sku, :currency
+      validates_uniqueness_of :sku
+  end
+
+Also, because the <tt>currency</tt> attribute is not a simple <tt>String</tt>
+but a <tt>Money::Currency</tt> object, you need a small tweak to make it work.
+
+Extend/hack the <tt>Money</tt> class with two additional methods:
+
+  # You can put this file in the config/initializers/ folder
+  class Money
+    def currency_as_string
+      currency.to_s
+    end
+  
+    def currency_as_string=(value)
+      # WARNING: this method might cause data inconsistency.
+      # See http://github.com/FooBarWidget/money/issues/4#issue/4/comment/224930
+      # currency = Currency.wrap(value)
+    end
+  end
+
+The hack is not required for Money 2.2.x and previous versions.
+In this case, simply use the following <tt>composed_of</tt> definition:
+
+  composed_of :price, :class_name => "Money", :mapping => [%w(cents cents), %w(currency currency)]
+
+For further details read the full discussion at http://github.com/FooBarWidget/money/issues/4#comment_224880

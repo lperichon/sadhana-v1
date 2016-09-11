@@ -138,6 +138,11 @@ class User < ActiveRecord::Base
     end
   end
 
+  def add_to_mailchimp
+    gb = Gibbon::API.new
+    gb.lists.subscribe({:id => "6e24c21877", :email => {:email => self.email}, :double_optin => false})
+  end
+
   private
 
   def set_locale

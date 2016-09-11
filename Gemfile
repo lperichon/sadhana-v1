@@ -1,8 +1,6 @@
 source 'http://rubygems.org'
 source 'http://gems.github.com'
 
-ruby '1.9.2'
-
 gem 'rails', '3.0.0'
 
 # Bundle edge Rails instead:
@@ -35,7 +33,7 @@ gem 'geocoder'
 gem 'i18n_data'
 gem 'rake', '0.8.7'
 gem 'stripe'
-
+gem 'gibbon'
 # Use unicorn as the web server
 # gem 'unicorn'
 gem 'puma'
