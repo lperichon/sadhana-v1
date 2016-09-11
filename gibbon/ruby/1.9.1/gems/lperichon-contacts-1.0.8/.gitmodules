@@ -1,3 +1,0 @@
-[submodule "vendor/fakeweb"]
-	path = vendor/fakeweb
-	url = git://github.com/mislav/fakeweb.git
