@@ -17,6 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super
     session[:omniauth] = nil unless @user.new_record?
+    analytical.event 'Signed Up'
   end
 
   private

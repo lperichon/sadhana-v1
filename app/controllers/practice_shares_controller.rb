@@ -28,6 +28,7 @@ class PracticeSharesController < UserApplicationController
 
     unless @user.new_record?
       @practice.share_with(@user, true)
+      analytical.event 'Practice shared'
     end
 
     respond_to do |format|

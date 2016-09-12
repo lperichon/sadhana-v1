@@ -6,6 +6,7 @@ class Users::InvitationsController < Devise::InvitationsController
     if resource.errors.empty?
       flash.now[:notice] = I18n.t(:"#{:user}.#{:send_instructions}", :resource_name => :user, :scope => [:devise, :invitations], :default => :send_instructions)
       add_to_contacts(resource,true)
+      analytical.event 'Invitation sent'
     elsif resource.errors[:email].present? && resource.id.present?
       resource.errors.clear
       flash.now[:notice] = I18n.t(:"#{:user}.#{:user_exists}", :resource_name => :user, :scope => [:devise, :invitations], :default => :user_exists)

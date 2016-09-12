@@ -70,6 +70,7 @@ class PracticesController < UserApplicationController
     respond_to do |format|
         if @practice.save
           @practice.practice_parts.create(:part => asana) unless params[:practice_id]
+          analytical.event 'Practice created'
           format.html { redirect_to practice_path(@practice)}
           format.xml  { render :xml => @practice, :status => :created, :location => @practice }
           format.js {}
@@ -190,6 +191,7 @@ class PracticesController < UserApplicationController
         authenticate_user!
       end
     end
+    analytical.event 'Practice played'
   end
 
 

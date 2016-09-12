@@ -7,6 +7,7 @@ class PracticePublicationsController < UserApplicationController
       @practice = current_user.practices.find(params[:practice_id])
       @practice.public = true
       @practice.save
+      analytical.event 'Practice published'
     end
 
     respond_to do |format|
