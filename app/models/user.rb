@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   before_create :set_locale
 
   after_save :add_to_corresponded_contacts
-  after_save :add_to_mailchimp
+  after_create :add_to_mailchimp
 
   attr_accessor :invited_by, :corresponded_contacts
 
